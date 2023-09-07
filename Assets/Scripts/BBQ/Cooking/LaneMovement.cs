@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using BBQ.Database;
 using Cysharp.Threading.Tasks;
@@ -23,7 +24,6 @@ namespace BBQ.Cooking {
 
         private void Start() {
             _pauseMode = false;
-            Move();
         }
 
         public async UniTask AddFood(LaneFood food, int index) {
@@ -42,17 +42,14 @@ namespace BBQ.Cooking {
             tr.SetParent(transform);
         }
         
-        private async void Move() {
-            while (true) {
-                await UniTask.Delay(TimeSpan.FromSeconds(0.01f));
-                if (_pauseMode) continue;
+        public void Move() {
+                if (_pauseMode) return;
                 _startXPos = GetLoopedPos(_startXPos + speedPerSecond * 0.01f);
                 List<LaneFood> foods = lane.GetFoods();
                 for (int i = 0; i < foods.Count; i++) {
                     if (foods[i] == null) continue;
                     foods[i].transform.localPosition = GetFoodPos(foods[i], i);
                 }
-            }
         }
 
 

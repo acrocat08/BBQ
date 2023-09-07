@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AddHand
   m_EditorClassIdentifier: 
   duration: 0.5
+  effect: {fileID: 11400000, guid: 66f9870c94e7bff4a8db7e59cbc37b01, type: 2}
