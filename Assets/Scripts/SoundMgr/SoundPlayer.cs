@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SoundMgr {
@@ -30,6 +31,13 @@ namespace SoundMgr {
 
         public void Play(string soundName) {
             SoundData data = _soundDict[soundName];
+
+            if (data.isLoop) {
+                bool isPlaying = _audioSources
+                    .Where(x => x.isPlaying)
+                    .Any(x => x.clip == data.source);
+                if (isPlaying) return;
+            }
 
             AudioSource targetSource = null;
             foreach (var source in _audioSources) {

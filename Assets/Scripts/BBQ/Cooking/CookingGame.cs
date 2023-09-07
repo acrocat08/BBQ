@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BBQ.Action;
 using BBQ.Database;
 using BBQ.PlayData;
@@ -67,6 +68,7 @@ namespace BBQ.Cooking {
             SoundPlayer.I.Play("se_cookingEnd");
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             await view.CloseBG(this);
+            await view.ChangeColor(this);
             await UniTask.Delay(TimeSpan.FromSeconds(2));
             SceneManager.LoadScene("Scenes/Shopping");
         }

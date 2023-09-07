@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6279876e1f19464db166af1edd87416, type: 3}
+  m_Script: {fileID: 11500000, guid: faebce0d996f837468db770aabc03fb1, type: 3}
   m_Name: View
   m_EditorClassIdentifier: 
-  leftBGMin: 630
-  leftBGMax: 1230
-  rightBGMin: 300
-  rightBGMax: 900
+  topBGMax: 550
+  bottomBGMax: 550
   closeDuration: 0.5
   closeEasing: 15
   openDuration: 0.5
   openEasing: 14
-  shoppingBGColor: {r: 0.08627451, g: 0, b: 0.30980393, a: 1}
+  cookingBGColor: {r: 0, g: 0.64705884, b: 0.70980394, a: 1}
   colorDuration: 0.5
-  hideDuration: 0.25
