@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65574ed413682474aa10d4fd2bec3f53, type: 3}
+  m_Name: View
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  - {r: 0.4333941, g: 0.764151, b: 0.3868814, a: 1}
+  - {r: 0.39231038, g: 0.5315547, b: 0.8207547, a: 1}
+  - {r: 0.66783386, g: 0.39409038, b: 0.764151, a: 1}
+  - {r: 0.8773585, g: 0.67328846, b: 0.27038085, a: 1}
+  fallPos: 500
+  fallDuration: 0.5
+  fallEasing: 21
+  floatCycle: 2
+  floatLength: 20
+  floatSpeed: 3

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: burokori
+  m_EditorClassIdentifier: 
+  foodName: "\u30D6\u30ED\u30C3\u30B3\u30EA\u30FC"
+  cost: 1
+  foodImage: {fileID: 21300000, guid: 65713d89a0f9f4072bc5b9fcc8992bf6, type: 3}
+  color: {r: 0.12941177, g: 0.44705886, b: 0.011764707, a: 1}
+  action:
+    summary: 
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
+        n1: 5
+        n2: 
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 1
+        n2: 
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
+        n1: f1
+        n2: 2
+      - action: {fileID: 11400000, guid: a1a998698eb1c9d44968e1c59fb808dd, type: 2}
+        n1: f1
+        n2: -1
+      priority: 0

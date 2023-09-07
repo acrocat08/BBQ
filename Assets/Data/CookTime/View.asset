@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e990d9b387b2e488b4a26a0faefaa7, type: 3}
+  m_Name: View
+  m_EditorClassIdentifier: 
+  timeShakeStrength: 1.5
+  timeShakeDuration: 0.5
+  textColor:
+  - {r: 0, g: 0.08627451, b: 0.16470589, a: 1}
+  - {r: 0.050980397, g: 0.2509804, b: 0.62352943, a: 1}

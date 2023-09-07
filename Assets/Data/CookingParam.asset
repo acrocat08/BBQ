@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f01f001b6bfb4ff1ab3283515e09897, type: 3}
+  m_Name: CookingParam
+  m_EditorClassIdentifier: 
+  laneWindowSize: {x: 1500, y: 1080}
+  laneSpeed: 
+  foodMaxNumInLane: 5
+  foodSize: 300
+  foodMargin: 0
+  foodCollisionSize: 75
