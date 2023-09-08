@@ -16,3 +16,13 @@ MonoBehaviour:
   cost: 1
   foodImage: {fileID: 21300000, guid: 201db10d853204c08819c8d9631af18b, type: 3}
   color: {r: 0.82745105, g: 0.17254902, b: 0.28235295, a: 1}
+  action:
+    summary: 
+    sequences:
+    - trigger: 2
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 1
+        n2: 
+      priority: 0

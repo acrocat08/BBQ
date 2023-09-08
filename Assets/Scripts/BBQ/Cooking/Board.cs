@@ -32,6 +32,7 @@ namespace BBQ.Cooking {
             _handCount = handCount;
             _hand = null;
             _time = time;
+            _hittingFoods = new List<LaneFood>();
             StoreHand();
             Pause();
         }

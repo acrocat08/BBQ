@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BBQ.Cooking {
     [CreateAssetMenu(menuName = "CookingGame/View")]
@@ -16,6 +18,9 @@ namespace BBQ.Cooking {
         [SerializeField] private Ease closeEasing;
         [SerializeField] private float openDuration;
         [SerializeField] private Ease openEasing;
+        [SerializeField] private Color shoppingBGColor;
+        [SerializeField] private float colorDuration;
+        [SerializeField] private float hideDuration;
 
 
         public void Init(CookingGame cookingGame) {
@@ -52,8 +57,30 @@ namespace BBQ.Cooking {
                 MoveBG(leftBG, leftBGMax, closeDuration, closeEasing),
                 MoveBG(rightBG, rightBGMax, closeDuration, closeEasing)
             };
+            HideUI(cookingGame);
             await tasks;
         }
+
+         void HideUI(CookingGame cookingGame) {
+            CanvasGroup leftCanvasGroup = cookingGame.transform.Find("Information").Find("BG_L").Find("UI")
+                .GetComponent<CanvasGroup>();
+            CanvasGroup rightCanvasGroup = cookingGame.transform.Find("Information").Find("BG_R").Find("UI")
+                .GetComponent<CanvasGroup>();
+            DOTween.To(() => leftCanvasGroup.alpha, x => leftCanvasGroup.alpha = x, 0f, hideDuration).SetEase(Ease.Linear);
+            DOTween.To(() => rightCanvasGroup.alpha, x => rightCanvasGroup.alpha = x, 0f, hideDuration).SetEase(Ease.Linear);
+        }
+        
+        public async UniTask ChangeColor(CookingGame cookingGame) {
+            Image leftBG = cookingGame.transform.Find("Information").Find("BG_L").Find("BG")
+                .GetComponent<Image>();
+            Image rightBG = cookingGame.transform.Find("Information").Find("BG_R").Find("BG")
+                .GetComponent<Image>();
+            leftBG.DOColor(shoppingBGColor, colorDuration).SetEase(Ease.Linear);
+            rightBG.DOColor(shoppingBGColor, colorDuration).SetEase(Ease.Linear);
+            await UniTask.Delay(TimeSpan.FromSeconds(closeDuration));
+        }
+        
+        
 
         private async UniTask MoveBG(RectTransform BG, float toWidth, float duration, Ease ease) {
             float height = BG.sizeDelta.y;

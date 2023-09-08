@@ -18,7 +18,6 @@ namespace BBQ.Cooking {
 
         public void Add(int mount) {
             _nowCoin += mount;
-            Debug.Log(_nowCoin);
             view.AddCoin(this);
         }
 
