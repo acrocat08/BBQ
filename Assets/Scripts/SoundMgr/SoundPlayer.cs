@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 namespace SoundMgr {
@@ -12,6 +14,7 @@ namespace SoundMgr {
         public static SoundPlayer I;
 
         private AudioSource[] _audioSources;
+        [SerializeField] private float fadeDuration;
 
         void Awake() {
             DontDestroyOnLoad(gameObject);
@@ -53,5 +56,14 @@ namespace SoundMgr {
             targetSource.loop = data.isLoop;
             targetSource.Play();
         }
+        
+        public async UniTask FadeOutSound(string soundName) {
+            AudioSource targetSource =
+                _audioSources.FirstOrDefault(x => x.isPlaying && x.clip == _soundDict[soundName].source);
+            if(targetSource == null) return;
+            await targetSource.DOFade(0f, fadeDuration);
+        }
     }
+    
+
 }

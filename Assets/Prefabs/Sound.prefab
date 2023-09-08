@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSouceNum: 15
   sounds:
+  - {fileID: 11400000, guid: 550e209d32a5c4945ba3251ec2b8f8df, type: 2}
   - {fileID: 11400000, guid: 6d3bfc42bcf179c498169d9f4f431ced, type: 2}
+  - {fileID: 11400000, guid: 4f444a0fba1c13c479e19a8a471bc3fe, type: 2}
   - {fileID: 11400000, guid: 2b3e3f0757f54d848a14baba86385df4, type: 2}
   - {fileID: 11400000, guid: c66bfca8fabc2884e89f4fa64faf6ffb, type: 2}
   - {fileID: 11400000, guid: 90917c34f65e55844b50c8e7db5cb01d, type: 2}
@@ -63,3 +65,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e86b33d2728d0634da5b3f2c15875858, type: 2}
   - {fileID: 11400000, guid: 624cc54fa22508d409a719a2ecd6686c, type: 2}
   - {fileID: 11400000, guid: d2afc7f2cb14f1d4ab79fed6ff24c8db, type: 2}
+  fadeDuration: 1
