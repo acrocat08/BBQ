@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: ItemChoice
   m_EditorClassIdentifier: 
   tierTables:
+  - tier1: 100
+    tier2: 0
+    tier3: 0
+    tier4: 0
+    tier5: 0
   - tier1: 75
     tier2: 25
     tier3: 0
@@ -23,11 +28,6 @@ MonoBehaviour:
     tier3: 20
     tier4: 15
     tier5: 5
-  - tier1: 100
-    tier2: 0
-    tier3: 0
-    tier4: 0
-    tier5: 0
   - tier1: 70
     tier2: 20
     tier3: 10

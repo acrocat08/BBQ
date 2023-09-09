@@ -18,15 +18,13 @@ namespace BBQ.Shopping {
             float h = Mathf.Min(triangleHeight, (_topPoint - _bottomPoint).magnitude);
             AddVert(vh, _topPoint - dir * h + normal * weight);
             AddVert(vh, _topPoint - dir * h - normal * weight);
-            AddVert(vh, _bottomPoint + normal * weight);
-            AddVert(vh, _bottomPoint - normal * weight);
+            AddVert(vh, _bottomPoint);
             AddVert(vh, _topPoint);
             AddVert(vh, _topPoint - dir * h + normal * triangleWidth);
             AddVert(vh, _topPoint - dir * h - normal * triangleWidth);
 
             vh.AddTriangle(0, 1, 2);
-            vh.AddTriangle(1, 2, 3);
-            vh.AddTriangle(4, 5, 6);
+            vh.AddTriangle(3, 4, 5);
         }
         private void AddVert(VertexHelper vh, Vector2 pos)
         {

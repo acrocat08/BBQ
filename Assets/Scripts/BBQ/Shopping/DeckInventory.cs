@@ -12,9 +12,11 @@ namespace BBQ.Shopping {
         [SerializeField] private DeckInventoryView view;
         [SerializeField] List<DeckItem> deckItems;
 
-        private void Start() {
+        public void Init(List<DeckFood> deckFoods) {
+            for (int i = 0; i < deckFoods.Count; i++) {
+                deckItems[i].SetFood(deckFoods[i]);
+            }
         }
-
 
         public void AddItem(FoodData food) {
             DeckFood deckFood = new DeckFood(food);
@@ -22,18 +24,14 @@ namespace BBQ.Shopping {
             if (target == null) return;
             target.SetFood(deckFood);
         }
-
-        public void OnShopStart(List<DeckFood> deckFoods) {
-            for (int i = 0; i < deckFoods.Count; i++) {
-                deckItems[i].SetFood(deckFoods[i]);
-            }
-        }
-
         
-        public void OnShopEnd() {
-            PlayerStatus.Create(deckItems.Select(x => x.GetFood()).Where(x => x != null).ToList());
+        public List<DeckFood> GetDeckFoods() {
+            return deckItems.Select(x => x.GetFood()).Where(x => x != null).ToList();
         }
 
+        public bool CheckIsEmpty() {
+            return deckItems.Any(x => x.GetFood() == null);
+        }
     }
 
 }

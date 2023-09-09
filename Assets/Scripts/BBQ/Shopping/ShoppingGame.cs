@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +13,9 @@ namespace BBQ.Shopping {
         [SerializeField] private ShoppingGameView view;
         [SerializeField] private DeckInventory deckInventory;
         [SerializeField] private List<DeckFood> firstFoods;
+        [SerializeField] private Shop shop;
+        [SerializeField] private Coin coin;
+        [SerializeField] private int income;
 
 
         void Start() {
@@ -27,25 +30,34 @@ namespace BBQ.Shopping {
 
         void Init() {
             view.Init(this);
+            shop.Init(coin);
+            LoadStatus();
             GameStart();
         }
 
         async void GameStart() {
-            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
-            if(targetDeck != null) deckInventory.OnShopStart(targetDeck);
-            else deckInventory.OnShopStart(firstFoods);
-            
             await view.OpenBG(this);
             SoundPlayer.I.Play("bgm_cooking");
         }
 
         async void GameEnd() {
-            deckInventory.OnShopEnd();
+            SaveStatus();
             await view.CloseBG(this);
             await view.ChangeColor(this);
             await UniTask.Delay(TimeSpan.FromSeconds(2));
             SceneManager.LoadScene("Scenes/Cooking");
-            
+        }
+
+        private void LoadStatus() {
+            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
+            if(targetDeck != null) deckInventory.Init(targetDeck);
+            else deckInventory.Init(firstFoods);
+            coin.Init(PlayerStatus.GetCoin() + income);
+        }
+        private void SaveStatus() {
+            List<DeckFood> deck = deckInventory.GetDeckFoods();
+            int coinNum = coin.GetCoin();
+            PlayerStatus.Create(deck, coinNum);
         }
 
     }
