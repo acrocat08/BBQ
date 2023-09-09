@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: hotate
   m_EditorClassIdentifier: 
   foodName: "\u30DB\u30BF\u30C6"
-  cost: 2
+  tier: 2
+  cost: 20
   foodImage: {fileID: 21300000, guid: f6805175a684e45969359f0e882876a7, type: 3}
   color: {r: 0.83921576, g: 0.8196079, b: 0.7294118, a: 1}
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u26C4\u30D5\u30EA\u30FC\u30BA
+      \n\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u8FFD\u52A0\u3067\u9053\u51771\u3064\u3092\u767A\u898B\u3059\u308B\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
+    sequences: []

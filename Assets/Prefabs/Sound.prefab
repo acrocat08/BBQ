@@ -65,4 +65,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e86b33d2728d0634da5b3f2c15875858, type: 2}
   - {fileID: 11400000, guid: 624cc54fa22508d409a719a2ecd6686c, type: 2}
   - {fileID: 11400000, guid: d2afc7f2cb14f1d4ab79fed6ff24c8db, type: 2}
+  - {fileID: 11400000, guid: 1da9f4f11df12a84585f93aa581a1bd9, type: 2}
   fadeDuration: 1

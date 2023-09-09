@@ -6,7 +6,7 @@ namespace BBQ.Action {
     
     [Serializable]
     public class FoodAction {
-        public string summary;
+        [TextArea] public string[] summaries;
         public List<ActionSequence> sequences;
     }
 }

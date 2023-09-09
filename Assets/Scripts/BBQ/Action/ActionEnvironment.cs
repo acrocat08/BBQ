@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using UnityEngine;

@@ -6,10 +6,9 @@ namespace BBQ.Shopping {
     public class ShopItemFactory : ScriptableObject {
         [SerializeField] private GameObject prefab;
 
-
-        public ShopItem Create(FoodData data) {
+        public ShopItem CreateFood(FoodData data, Shop shop, Transform detailContainer) {
             ShopItem obj = Instantiate(prefab).GetComponent<ShopItem>();
-            obj.Init(data);
+            obj.Init(data, shop, "food", "deck", detailContainer);
             return obj;
         }
     }

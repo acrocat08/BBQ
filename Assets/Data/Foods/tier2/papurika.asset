@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: papurika
   m_EditorClassIdentifier: 
   foodName: "\u30D1\u30D7\u30EA\u30AB"
-  cost: 2
+  tier: 2
+  cost: 20
   foodImage: {fileID: 21300000, guid: c38b32dc1111848eb80c0016f9c7d0d0, type: 3}
   color: {r: 0.8745099, g: 0.24705884, b: 0.16078432, a: 1}
+  action:
+    summaries:
+    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u540C\u6642\u306B\u30D2\u30C3\u30C8\u3057\u305F\u98DF\u67501\u3064\u3092\U0001F525\u30D5\u30A1\u30A4\u30A2\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u26C4\u30D5\u30EA\u30FC\u30BA"
+    sequences: []

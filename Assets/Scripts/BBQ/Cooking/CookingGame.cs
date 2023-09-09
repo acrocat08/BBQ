@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BBQ.Action;
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -41,10 +42,14 @@ namespace BBQ.Cooking {
             cookTime.Init(60);      
             handCount.Init(5);
             coin.Init(0);
-            deck.Init(testDeck);
+
+            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
+            if(targetDeck == null) deck.Init(testDeck);
+            else deck.Init(targetDeck);
+            
             dump.Init();
             board.Init(lanes, dump, handCount, cookTime);
-            foreach (DeckFood food in testDeck) {
+            foreach (DeckFood food in targetDeck) {
                 actionRegister.Add(food);
             }
             env.Init(board, lanes, deck, dump, handCount, cookTime, coin);
