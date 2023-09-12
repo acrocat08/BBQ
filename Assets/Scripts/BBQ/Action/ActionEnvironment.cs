@@ -33,6 +33,7 @@ namespace BBQ.Action {
         public string n2;
         public int x1, x2, x3;
         public List<DeckFood> f1, f2, f3;
+        public string s1, s2, s3;
         public DeckFood invoker;
         public List<DeckFood> target;
 
@@ -60,16 +61,20 @@ namespace BBQ.Action {
             return int.Parse(index);
         }
         
-
-        
-        
-        
         public List<DeckFood> GetFoods(string index) {
             if (index == null) Debug.LogWarning("値が設定されていません。"); 
             if (index == "f1") return f1;
             if (index == "f2") return f2;
             if (index == "f3") return f3;
             return new List<DeckFood>();
+        }
+
+        public string GetString(string index) {
+            if (index == null) Debug.LogWarning("値が設定されていません。"); 
+            if (index == "s1") return s1;
+            if (index == "s2") return s2;
+            if (index == "s3") return s3;
+            return index;
         }
         
         /*
@@ -79,13 +84,13 @@ namespace BBQ.Action {
             if (index == "x2") x2 = val;
             if (index == "x3") x3 = val;
         }
-        
+                */
+
         public void SetFoods(string index, List<DeckFood> val) {
             if (index == null) Debug.LogWarning("値が設定されていません。"); 
             if (index == "f1") f1 = val;
             if (index == "f2") f2 = val;
             if (index == "f3") f3 = val;
         }
-        */
     }
 }

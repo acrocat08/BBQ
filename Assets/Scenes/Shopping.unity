@@ -1049,14 +1049,17 @@ MonoBehaviour:
     lank: 1
     isFrozen: 0
     isFired: 0
+    effect: {fileID: 0}
   - data: {fileID: 11400000, guid: d124919c8ec761e40a0a23c5fc1d725d, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
+    effect: {fileID: 0}
   - data: {fileID: 11400000, guid: d124919c8ec761e40a0a23c5fc1d725d, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
+    effect: {fileID: 0}
   shop: {fileID: 90693992}
   coin: {fileID: 1512946762}
   income: 50

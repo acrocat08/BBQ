@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BBQ.Action;
 using BBQ.Database;
 using BBQ.PlayData;
 using SoundMgr;
@@ -15,7 +16,7 @@ namespace BBQ.Cooking {
         
         public void Init(DeckFood food) {
             deckFood = food;
-            view.Draw(this, deckFood.data);
+            view.Draw(this);
         }
 
         public void Hit() {
@@ -37,8 +38,8 @@ namespace BBQ.Cooking {
             view.Fire(this);
         }
 
-        public FoodData GetData() {
-            return deckFood.data;
+        public void SetEffect() {
+            view.AddEffect(this);
         }
 
         public void OnInvoke() {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BBQ.Cooking;
+using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -27,6 +28,16 @@ namespace BBQ.Action {
                 if(laneFood != null) laneFood.OnInvoke();
                 await assembly.Run(invokeSet.sequence.commands, env, invokeSet.invoker, target);
             }
+        }
+
+        public void RegisterFood(DeckFood deckFood) {
+            register.Add(deckFood, deckFood.data.action.sequences);
+            if(deckFood.effect != null) register.Add(deckFood, deckFood.effect.action.sequences);
+        }
+
+        public void UpdateEffect(DeckFood deckFood, FoodEffect prev, FoodEffect after) {
+            if(prev != null) register.Remove(deckFood, prev.action.sequences);
+            if(after != null) register.Add(deckFood, after.action.sequences);
         }
     }
 

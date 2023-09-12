@@ -15,9 +15,7 @@ namespace BBQ.Action {
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private ActionAssembly assembly;
         
-        public void Add(DeckFood food) {
-            FoodAction action = food.data.action;
-            List<ActionSequence> sequences = action.sequences;
+        public void Add(DeckFood food, List<ActionSequence> sequences) {
             foreach (ActionSequence sequence in sequences) {
                 ActionTrigger trigger = sequence.trigger;
                 if (!_dict.ContainsKey(trigger)) _dict[trigger] = new List<InvokeSet>();
@@ -25,12 +23,10 @@ namespace BBQ.Action {
             }
         }
         
-        public void Remove(DeckFood food) {
-            FoodAction action = food.data.action;
-            List<ActionSequence> sequences = action.sequences;
+        public void Remove(DeckFood food, List<ActionSequence> sequences) {
             foreach (ActionSequence sequence in sequences) {
-                //TODO:fix
-                _dict[sequence.trigger].Remove(new InvokeSet(food, sequence));
+                InvokeSet target = _dict[sequence.trigger].First(x => x.invoker == food && x.sequence == sequence);
+                _dict[sequence.trigger].Remove(target);
             }
         }
 

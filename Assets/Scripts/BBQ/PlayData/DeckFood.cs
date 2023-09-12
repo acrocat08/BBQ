@@ -13,6 +13,7 @@ namespace BBQ.PlayData {
         public int lank;
         public bool isFrozen;
         public bool isFired;
+        public FoodEffect effect;
         [HideInInspector] public IReleasable Releasable;
 
         public DeckFood(FoodData data) {
@@ -21,6 +22,7 @@ namespace BBQ.PlayData {
             isFrozen = false;
             isFired = false;
             Releasable = null;
+            effect = null;
         }
 
         public LaneFood Release() {

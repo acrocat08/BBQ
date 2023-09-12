@@ -12,7 +12,8 @@ namespace BBQ.Cooking {
         [SerializeField] private LaneMovement[] movements;
         [SerializeField] private Lane[] lanes;
         [SerializeField] private float[] loopLines;
-        private LaneFood[] _looped; 
+        private LaneFood[] _looped;
+        private bool _pauseMode;
  
         void Start() {
             _looped = new LaneFood[] { null, null, null };
@@ -21,6 +22,8 @@ namespace BBQ.Cooking {
 
         async void MoveLanes() {
             while (true) {
+                await UniTask.Delay(TimeSpan.FromSeconds(0.01f));
+                if (_pauseMode) continue;
                 List<DeckFood> loopedFoods = new List<DeckFood>();
                 for (int i = 0; i < movements.Length; i++) {
                     movements[i].Move();
@@ -31,7 +34,6 @@ namespace BBQ.Cooking {
                     _looped[i] = looped;
                 }
                 if(loopedFoods.Count > 0) await ExecuteLoop(loopedFoods);
-                await UniTask.Delay(TimeSpan.FromSeconds(0.01f));
             }
         }
 
@@ -47,6 +49,10 @@ namespace BBQ.Cooking {
                 .GetFoods()
                 .Where(x => x != null)
                 .FirstOrDefault(x => Mathf.Abs(x.transform.localPosition.x - loopLines[index]) <= 50f);
+        }
+        
+        public void SetPauseMode(bool mode) {
+            _pauseMode = mode;
         }
         
     }

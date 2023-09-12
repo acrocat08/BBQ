@@ -12,9 +12,7 @@ namespace BBQ.Cooking {
         
         private int _nowTime;
         private int _bonusTime;
-
         private int _semaphore;
-
         private bool _bonusMode;
         
         public void Init(int maxTime) {
