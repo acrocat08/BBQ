@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: negi
   m_EditorClassIdentifier: 
   foodName: "\u9577\u30CD\u30AE"
-  cost: 2
+  tier: 2
+  cost: 20
   foodImage: {fileID: 21300000, guid: 422434e60113a4c3cb4b7ed2febd2cb6, type: 3}
   color: {r: 0.20000002, g: 0.7372549, b: 0.10196079, a: 1}
+  isToken: 0
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4E0A\u4E0B\u30EC\u30FC\u30F3\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u67501\u3064\u3092\u4E2D\u592E\u306B\u79FB\u52D5\u3055\u305B\u308B\n-\u3000\u30B3\u30A4\u30F3+15\u3001\u4E2D\u592E\u30EC\u30FC\u30F3\u304C\u6E80\u54E1\u306E\u5834\u5408\u306F\u8FFD\u52A0\u3067\u30B3\u30A4\u30F3+10"
+    sequences: []

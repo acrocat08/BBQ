@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BBQ.Action;
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using SoundMgr;
+using Unity.Loading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -29,7 +31,8 @@ namespace BBQ.Cooking {
         [SerializeField] private List<ActionCommand> startCommands;
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private CookingGameView view;
-        
+
+        private int _day;
         private bool _isRunning;
         
         void Start() {
@@ -38,18 +41,16 @@ namespace BBQ.Cooking {
 
         public void Init() {
             _isRunning = false;
-            cookTime.Init(60);      
-            handCount.Init(5);
-            coin.Init(0);
-            deck.Init(testDeck);
-            dump.Init();
-            board.Init(lanes, dump, handCount, cookTime);
-            foreach (DeckFood food in testDeck) {
+            LoadStatus();
+            view.Init(this);
+            foreach (DeckFood food in deck.GetAllFoods()) {
                 actionRegister.Add(food);
             }
+            cookTime.Init(60);      
+            dump.Init();
+            board.Init(lanes, dump, handCount, cookTime);
             env.Init(board, lanes, deck, dump, handCount, cookTime, coin);
             cookTime.Pause();
-            view.Init(this);
             GameStart();
         }
 
@@ -66,11 +67,32 @@ namespace BBQ.Cooking {
             cookTime.Pause();
             board.DiscardHand();
             SoundPlayer.I.Play("se_cookingEnd");
+            SaveStatus();
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             await view.CloseBG(this);
             await view.ChangeColor(this);
             await UniTask.Delay(TimeSpan.FromSeconds(2));
             SceneManager.LoadScene("Scenes/Shopping");
+        }
+
+
+        private void LoadStatus() {
+            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
+            if(targetDeck == null) deck.Init(testDeck);
+            else deck.Init(targetDeck);
+            handCount.Init(5);
+            coin.Init(PlayerStatus.GetCoin());
+            _day = PlayerStatus.GetDay();
+        }
+
+        private void SaveStatus() {
+            List<DeckFood> deckFoods = deck.GetAllFoods().Where(x => !x.isFired).ToList();
+            int coinNum = coin.GetCoin();
+            PlayerStatus.Create(deckFoods, coinNum, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount());
+        }
+
+        public int GetDay() {
+            return _day;
         }
     }
 }

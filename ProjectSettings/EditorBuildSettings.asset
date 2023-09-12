@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Cooking.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Title.unity
+    guid: d24dcba5b47a13d4faf8085b87607506
   - enabled: 1
     path: Assets/Scenes/Shopping.unity
     guid: 4db54dda362a5b34ca1933d1a3881c9c
+  - enabled: 1
+    path: Assets/Scenes/Cooking.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

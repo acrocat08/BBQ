@@ -21,3 +21,9 @@ MonoBehaviour:
   fallDuration: 1
   freezeEffectPrefab: {fileID: 6694111601236560830, guid: f828e92273d94f845bea349e642495b1, type: 3}
   freezeColor: {r: 0.16666657, g: 0.4326241, b: 1, a: 1}
+  fireEffectPrefab: {fileID: 4860027489261555454, guid: 8ae5aca5066790c4db2dab00d649db46, type: 3}
+  fireColor: {r: 0.9339623, g: 0.4867467, b: 0, a: 1}
+  lankMaterial:
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 60403982f9c424eddbb8f692ffb70b91, type: 2}
+  - {fileID: 2100000, guid: 95e5df6b2fb9b4a7b9e930ccc8dc6db0, type: 2}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Factory
   m_EditorClassIdentifier: 
   prefab: {fileID: 1245777489661703737, guid: 7f9584003c877ef4f8c72887f889ba68, type: 3}
+  pos: {x: 0, y: -540, z: 0}

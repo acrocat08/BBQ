@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: kukki
   m_EditorClassIdentifier: 
   foodName: "\u30AF\u30C3\u30AD\u30FC"
-  cost: 2
+  tier: 2
+  cost: 20
   foodImage: {fileID: 21300000, guid: 106263c5b6cb1428280697c4e126ba19, type: 3}
   color: {r: 0.8470589, g: 0.6627451, b: 0.43921572, a: 1}
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u306B\u300C\u30D3\u30BF\u30FC\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\n-\u30005\u79D2\u9593\u3001\u5168\u3066\u306E\u30EC\u30FC\u30F3\u901F\u5EA6\u30922\u6BB5\u968E\u4E0A\u3052\u308B"
+    sequences: []

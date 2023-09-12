@@ -11,6 +11,7 @@ namespace BBQ.Cooking {
     public class Deck : MonoBehaviour, IReleasable {
 
 
+        private List<DeckFood> _allFoods;
         private LinkedList<DeckFood> _foods;
         [SerializeField] private LaneFoodFactory foodFactory;
 
@@ -18,6 +19,7 @@ namespace BBQ.Cooking {
 
         public void Init(List<DeckFood> deckFoods) {
             _foods = new LinkedList<DeckFood>(deckFoods.OrderBy(x => Guid.NewGuid()));
+            _allFoods = new List<DeckFood>(deckFoods);
             view.UpdateText(this);
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.Releasable = this;
@@ -57,6 +59,10 @@ namespace BBQ.Cooking {
 
         public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {
             return new List<LaneFood>();
+        }
+
+        public List<DeckFood> GetAllFoods() {
+            return _allFoods;
         }
     }
 }

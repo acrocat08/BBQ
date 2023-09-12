@@ -18,7 +18,7 @@ namespace BBQ.Cooking {
             _lanes = lanes;
         }
 
-        async public UniTask<List<LaneFood>> Shot() {
+        public async UniTask<List<LaneFood>> Shot() {
             PlaySound();
             List<LaneFood> hitFoods = new List<LaneFood>();
             RectTransform tr = GetComponent<RectTransform>();

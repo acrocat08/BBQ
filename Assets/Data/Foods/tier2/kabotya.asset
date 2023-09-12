@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: kabotya
   m_EditorClassIdentifier: 
   foodName: "\u304B\u307C\u3061\u3083"
-  cost: 2
+  tier: 2
+  cost: 20
   foodImage: {fileID: 21300000, guid: 9b14ff87f91524384abe63b3232b305a, type: 3}
   color: {r: 0.87843144, g: 0.74509805, b: 0.09411766, a: 1}
+  isToken: 0
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+5\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2"
+    sequences: []

@@ -14,10 +14,11 @@ namespace BBQ.Action.Play {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             List<DeckFood> hittingFoods = env.board.GetHittingFoods();
             if (deckFoods.Count == 0) {
-                await UniTask.Delay(TimeSpan.FromSeconds(duration));
+                return;
             }
             
             foreach (DeckFood deckFood in deckFoods) {
+                if (deckFood.isFrozen || deckFood.isFired) continue;
                 if (hittingFoods.Contains(deckFood)) {
                     LaneFood laneFood = env.board.FindLaneFood(deckFood);
                     laneFood.Freeze();

@@ -14,7 +14,6 @@ namespace BBQ.Shopping {
         [SerializeField] private int fallPos;
         [SerializeField] private float fallDuration;
         [SerializeField] private Ease fallEasing;
-        [SerializeField] private float floatCycle;
         [SerializeField] private float floatLength;
         [SerializeField] private float floatSpeed;
 
@@ -23,8 +22,8 @@ namespace BBQ.Shopping {
             shopItem.transform.Find("Food").GetComponent<Image>().sprite = data.foodImage;
             shopItem.transform.Find("Cost").GetComponent<Text>().text = data.cost.ToString();
             shopItem.transform.Find("Name").GetComponent<Text>().text = data.foodName;
-            shopItem.transform.Find("Line").GetComponent<Image>().color = colors[data.cost - 1];
-            shopItem.transform.Find("Shadow").GetComponent<Image>().color = colors[data.cost - 1];
+            shopItem.transform.Find("Line").GetComponent<Image>().color = colors[data.tier - 1];
+            shopItem.transform.Find("Shadow").GetComponent<Image>().color = colors[data.tier - 1];
         }
 
         public void Fall(ShopItem shopItem) {

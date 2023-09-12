@@ -9,7 +9,7 @@ namespace BBQ.Database {
         public List<FoodData> foods;
         
         public FoodData GetRandomItem(int tier) {
-            return foods.Where(x => x.cost == tier)
+            return foods.Where(x => x.tier == tier)
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
     }

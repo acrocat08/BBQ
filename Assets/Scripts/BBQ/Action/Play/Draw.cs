@@ -13,15 +13,14 @@ namespace BBQ.Action.Play {
         [SerializeField] private Reset reset;
         [SerializeField] private float nullDrawDuration;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            int drawNum = ReadVariable(v.n1);
+            int drawNum = v.GetNum(v.n1);
+            
             if (!CheckDrawable(env, drawNum)) {
                await reset.Execute(env, v);
                return;
             }
-
             drawNum = Mathf.Min(drawNum, env.deck.SelectAll().Count);
             if (drawNum == 0) {
-                await UniTask.Delay(TimeSpan.FromSeconds(nullDrawDuration));
                 return;
             }
             List<LaneFood> taken = env.deck.TakeFood(drawNum);
@@ -33,7 +32,7 @@ namespace BBQ.Action.Play {
             int deckNum = env.deck.SelectAll().Count;
             int boardNum = env.board.SelectAll().Count;
             if (deckNum >= drawNum) return true;
-            if (boardNum > resetBorder) return true;
+            if (boardNum + deckNum > resetBorder) return true;
             return false;
         }
     }

@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: pan
   m_EditorClassIdentifier: 
   foodName: "\u98DF\u30D1\u30F3"
-  cost: 3
+  tier: 3
+  cost: 30
   foodImage: {fileID: 21300000, guid: 7f73bff774eb24a6785dad119a89b525, type: 3}
   color: {r: 0.7725491, g: 0.48627454, b: 0.18823531, a: 1}
+  isToken: 0
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+1\n-\u3000\u30BF\u30A4\u30E0+7\n-\u3000\u843D\u3061\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5"
+    sequences: []

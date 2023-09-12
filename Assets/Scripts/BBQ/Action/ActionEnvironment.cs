@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using UnityEngine;
@@ -53,6 +54,9 @@ namespace BBQ.Action {
             if (index == "x1") return x1;
             if (index == "x2") return x2;
             if (index == "x3") return x3;
+            if (index.Contains("/")) {
+                return int.Parse(index.Split("/")[invoker.lank - 1]);
+            }
             return int.Parse(index);
         }
         
