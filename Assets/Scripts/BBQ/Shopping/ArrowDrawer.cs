@@ -34,9 +34,10 @@ namespace BBQ.Shopping {
             vh.AddVert(vert);
         }
 
-        public void SetPos(Vector2 from, Vector2 to) {
+        public void SetPos(Vector2 from, Vector2 to, Color color) {
             _topPoint = to;
             _bottomPoint = from;
+            this.color = color;
             SetVerticesDirty();
         }
         

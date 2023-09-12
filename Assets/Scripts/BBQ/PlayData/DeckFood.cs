@@ -12,12 +12,14 @@ namespace BBQ.PlayData {
         [Range(1, 3)]
         public int lank;
         public bool isFrozen;
+        public bool isFired;
         [HideInInspector] public IReleasable Releasable;
 
         public DeckFood(FoodData data) {
             this.data = data;
             lank = 1;
             isFrozen = false;
+            isFired = false;
             Releasable = null;
         }
 

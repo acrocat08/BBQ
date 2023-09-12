@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,13 +10,14 @@ namespace BBQ.Shopping {
         private Image _image;
 
         public UnityEvent onPointDown;
-        public UnityEvent<PointableArea> onPointUp;
+        public UnityEvent<List<PointableArea>> onPointUp;
         public UnityEvent onPointCancel;
         public string areaTag;
         public string targetTag;
 
-        public bool canPointDown;        
-
+        public bool canPointDown;
+        public bool isGrouped;
+        
         private void Start() {
             Hide();
         }
@@ -36,5 +38,7 @@ namespace BBQ.Shopping {
             if(_image == null) _image = transform.Find("Frame").GetComponent<Image>();
             _image.enabled = true;
         }
+        
+        
     }
 }

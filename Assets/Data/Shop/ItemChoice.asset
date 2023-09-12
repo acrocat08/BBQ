@@ -18,29 +18,29 @@ MonoBehaviour:
     tier3: 0
     tier4: 0
     tier5: 0
-  - tier1: 75
-    tier2: 25
+  - tier1: 80
+    tier2: 20
     tier3: 0
     tier4: 0
     tier5: 0
-  - tier1: 35
+  - tier1: 60
     tier2: 25
-    tier3: 20
-    tier4: 15
-    tier5: 5
-  - tier1: 70
-    tier2: 20
-    tier3: 10
+    tier3: 15
     tier4: 0
     tier5: 0
-  - tier1: 25
-    tier2: 25
-    tier3: 25
-    tier4: 20
-    tier5: 5
   - tier1: 40
     tier2: 30
     tier3: 20
     tier4: 10
     tier5: 0
+  - tier1: 25
+    tier2: 30
+    tier3: 25
+    tier4: 15
+    tier5: 5
+  - tier1: 15
+    tier2: 20
+    tier3: 30
+    tier4: 20
+    tier5: 15
   itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}

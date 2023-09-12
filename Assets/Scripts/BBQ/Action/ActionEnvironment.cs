@@ -54,6 +54,9 @@ namespace BBQ.Action {
             if (index == "x1") return x1;
             if (index == "x2") return x2;
             if (index == "x3") return x3;
+            if (index.Contains("/")) {
+                return int.Parse(index.Split("/")[invoker.lank - 1]);
+            }
             return int.Parse(index);
         }
         

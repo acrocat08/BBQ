@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BBQ.Database;
 using UnityEngine;
 
@@ -40,8 +41,8 @@ namespace BBQ.Shopping {
             //detailView.Clear(_detailContainer);
         }
         
-        public void OnPointUp(PointableArea area) {
-            DeckInventory inventory = area.transform.parent.parent.GetComponent<DeckInventory>();
+        public void OnPointUp(List<PointableArea> areas) {
+            DeckInventory inventory = areas[0].transform.parent.parent.GetComponent<DeckInventory>();
             _shop.BuyFood(this, inventory);
         }
     }

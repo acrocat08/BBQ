@@ -31,6 +31,11 @@ namespace BBQ.Cooking {
             deckFood.isFrozen = true;
             view.Freeze(this);
         }
+        
+        public void Fire() {
+            deckFood.isFired = true;
+            view.Fire(this);
+        }
 
         public FoodData GetData() {
             return deckFood.data;

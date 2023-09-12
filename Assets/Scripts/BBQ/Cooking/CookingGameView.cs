@@ -31,6 +31,8 @@ namespace BBQ.Cooking {
             float height = leftBG.sizeDelta.y;
             leftBG.sizeDelta = new Vector2(leftBGMax, height);
             rightBG.sizeDelta = new Vector2(rightBGMax, height);
+            Text dayText = cookingGame.transform.Find("Information").Find("BG_L").Find("UI").Find("Day").Find("Text").GetComponent<Text>();
+            dayText.text = "Day " + cookingGame.GetDay();
         }
         
         public async UniTask OpenBG(CookingGame cookingGame) {

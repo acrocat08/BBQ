@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: ninniku
   m_EditorClassIdentifier: 
   foodName: "\u306B\u3093\u306B\u304F"
-  cost: 3
+  tier: 3
+  cost: 30
   foodImage: {fileID: 21300000, guid: b5ab0a938bac24cd8a85a311521162bb, type: 3}
   color: {r: 0.8078432, g: 0.7843138, b: 0.61960787, a: 1}
+  isToken: 0
+  action:
+    summaries:
+    - "\u4ED6\u98DF\u6750\u304C\u96A3\u306B\u914D\u7F6E\u3055\u308C\u305F\u6642\uFF1A\n-\u3000\u305D\u306E\u98DF\u6750\u3092\u843D\u3068\u3059\n-\u3000\u30C9\u30ED\u30FC+3"
+    sequences: []

@@ -17,6 +17,7 @@ namespace BBQ.Shopping {
         [SerializeField] private Coin coin;
         [SerializeField] private int income;
 
+        private int _day;
 
         void Start() {
             Init();
@@ -29,9 +30,8 @@ namespace BBQ.Shopping {
         }
 
         void Init() {
-            view.Init(this);
-            shop.Init(coin);
             LoadStatus();
+            view.Init(this);
             GameStart();
         }
 
@@ -41,6 +41,7 @@ namespace BBQ.Shopping {
         }
 
         async void GameEnd() {
+            _day += 1;
             SaveStatus();
             await view.CloseBG(this);
             await view.ChangeColor(this);
@@ -49,15 +50,27 @@ namespace BBQ.Shopping {
         }
 
         private void LoadStatus() {
+            _day = PlayerStatus.GetDay();
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
+            firstFoods.ForEach(x => Debug.Log(x.lank));
+
             if(targetDeck != null) deckInventory.Init(targetDeck);
             else deckInventory.Init(firstFoods);
-            coin.Init(PlayerStatus.GetCoin() + income);
+
+            int shopLevel = PlayerStatus.GetShopLevel();
+            int nowIncome = Mathf.Max(0, income - (_day - 1) * 10); 
+            
+            coin.Init(PlayerStatus.GetCoin() + nowIncome);
+            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin);
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deck, coinNum);
+            PlayerStatus.Create(deck, coinNum, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10);
+        }
+
+        public int GetDay() {
+            return _day;
         }
 
     }

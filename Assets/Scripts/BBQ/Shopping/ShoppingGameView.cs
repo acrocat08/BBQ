@@ -27,6 +27,8 @@ namespace BBQ.Shopping {
             float width = topBG.sizeDelta.x;
             topBG.sizeDelta = new Vector2(width, topBGMax);
             bottomBG.sizeDelta = new Vector2(width, bottomBGMax);
+            Text dayText = shoppingGame.transform.Find("Header").Find("Day").Find("Text").GetComponent<Text>();
+            dayText.text = "Day " + shoppingGame.GetDay();
         }
         
         public async UniTask OpenBG(ShoppingGame shoppingGame) {

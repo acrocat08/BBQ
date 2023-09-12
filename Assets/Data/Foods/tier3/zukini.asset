@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: zukini
   m_EditorClassIdentifier: 
   foodName: "\u30BA\u30C3\u30AD\u30FC\u30CB"
-  cost: 3
+  tier: 3
+  cost: 30
   foodImage: {fileID: 21300000, guid: 9d2ed877688a17940be6238c8295a0a7, type: 3}
   color: {r: 0.29411766, g: 0.54509807, b: 0.31764707, a: 1}
+  isToken: 0
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n-\u3000\u30BF\u30A4\u30E0+5\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u4E0A\u306E\u30E9\u30F3\u30AF3\u98DF\u6750\u306E\u500B\u6570\u306B\u7B49\u3057\u3044\u30CF\u30F3\u30C9\u3092\u7372\u5F97\u3059\u308B"
+    sequences: []

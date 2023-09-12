@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using BBQ.Common;
 using BBQ.Database;
@@ -23,10 +24,18 @@ namespace BBQ.Cooking {
         [SerializeField] private GameObject freezeEffectPrefab;
         [SerializeField] private Color freezeColor;
         
-        public void Draw(LaneFood laneFood, FoodData foodData) {
-            Image image = laneFood.GetComponent<Image>();
-            image.sprite = foodData.foodImage;
+        [SerializeField] private GameObject fireEffectPrefab;
+        [SerializeField] private Color fireColor;
 
+        [SerializeField] private List<Material> lankMaterial;
+        private static readonly int Seed = Shader.PropertyToID("_seed");
+
+        public void Draw(LaneFood laneFood, FoodData foodData) {
+            Image image = laneFood.transform.Find("Image").GetComponent<Image>();
+            image.sprite = foodData.foodImage;
+            Material mat = lankMaterial[laneFood.deckFood.lank - 1];
+            if(mat != null) image.material = new Material(mat);
+            if(image.material != null) image.material.SetFloat(Seed, Random.value);
         }
 
         public void Hit(LaneFood laneFood) {
@@ -53,12 +62,22 @@ namespace BBQ.Cooking {
         }
 
         public void Freeze(LaneFood laneFood) {
-            Image image = laneFood.GetComponent<Image>();
+            Image image = laneFood.transform.Find("Image").GetComponent<Image>();
             image.color = freezeColor;
             FreezeEffect effect = Instantiate(freezeEffectPrefab, laneFood.transform)
                 .GetComponent<FreezeEffect>();
             effect.transform.localPosition = Vector3.zero;
             effect.Draw();
+        }
+        
+        public void Fire(LaneFood laneFood) {
+            Image image = laneFood.transform.Find("Image").GetComponent<Image>();
+            image.color = fireColor;
+            Transform effect = Instantiate(fireEffectPrefab).transform;
+            effect.SetParent(laneFood.transform);
+            effect.localPosition = Vector3.zero;
+            effect.localScale = Vector3.one;
+            effect.SetSiblingIndex(0);
         }
 
 

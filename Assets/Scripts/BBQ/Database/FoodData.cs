@@ -42,6 +42,7 @@ namespace BBQ.Database {
         public int cost;
         public Sprite foodImage;
         public Color color;
+        public bool isToken;
         public FoodAction action;
     }
     

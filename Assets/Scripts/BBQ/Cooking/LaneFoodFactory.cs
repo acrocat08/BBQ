@@ -13,6 +13,7 @@ namespace BBQ.Cooking {
             Transform tr = obj.transform;
             tr.SetParent(parent);
             tr.localPosition = Vector3.zero;
+            tr.localScale = Vector3.one;
             return obj;
         }
     }

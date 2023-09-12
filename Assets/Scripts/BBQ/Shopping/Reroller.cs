@@ -24,14 +24,14 @@ namespace BBQ.Shopping {
             _coin = coin;
             _cost = 5;
             _isWaiting = false;
-            transform.Find("Cost").GetComponent<Text>().text = "-" + _cost;
+            transform.Find("Cost").GetComponent<Text>().text = _cost.ToString();
         }
         
         public async void Reroll() {
             _isWaiting = true;
             List<ShopItem> shopItems = _shop.GetShopItems();
             if(shopItems != null) _shop.DeleteItems(new List<ShopItem>(shopItems));
-            List<FoodData> foods = choice.Choice(1);
+            List<FoodData> foods = choice.Choice(_shop.GetShopLevel());
             await _shop.AddItems(foods);
             _isWaiting = false;
         }
@@ -43,7 +43,7 @@ namespace BBQ.Shopping {
             SoundPlayer.I.Play("se_reroll2");
             _coin.Use(_cost);
             _cost += 5;
-            transform.Find("Cost").GetComponent<Text>().text = "-" + _cost;
+            transform.Find("Cost").GetComponent<Text>().text = _cost.ToString();
             Reroll();
         }
 

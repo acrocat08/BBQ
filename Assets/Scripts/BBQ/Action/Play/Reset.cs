@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -18,7 +19,8 @@ namespace BBQ.Action.Play {
             tasks.Add(env.deck.AddFoods(dumpFoods));
             SoundMgr.SoundPlayer.I.Play("se_reset");
             await tasks;
-            v.n1 = drawNum.ToString();
+            int num = Mathf.Min(drawNum, env.deck.SelectAll().Count());
+            v.n1 = num.ToString();
             await draw.Execute(env, v);
         }
     }

@@ -9,7 +9,11 @@ namespace BBQ.Shopping {
     public class DetailView : ScriptableObject {
 
         public void DrawDetail(Transform container, FoodData foodData) {
-            DrawBaseInfo(container, foodData, 0);
+            DrawBaseInfo(container, foodData, 1);
+        }
+        
+        public void DrawDetail(Transform container, DeckFood deckFood) {
+            DrawBaseInfo(container, deckFood.data, deckFood.lank);
         }
 
         public void Clear(Transform container) {
@@ -22,7 +26,7 @@ namespace BBQ.Shopping {
             baseInfo.Find("Food").GetComponent<Image>().sprite = foodData.foodImage;
             baseInfo.Find("Cost").GetComponent<Text>().text = foodData.cost.ToString();
             baseInfo.Find("Name").GetComponent<Text>().text = foodData.foodName;
-            baseInfo.Find("Detail").GetComponent<Text>().text = foodData.action.summaries[lank];
+            baseInfo.Find("Detail").GetComponent<Text>().text = foodData.action.summaries[lank - 1];
         }
         
 

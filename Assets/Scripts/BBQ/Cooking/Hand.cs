@@ -33,6 +33,7 @@ namespace BBQ.Cooking {
         }
 
         void Update() {
+            transform.localScale = Vector3.one;
             if (!CheckUsable()) return;
             movement.MoveDelta();
             

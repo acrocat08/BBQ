@@ -15,7 +15,7 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> SelectAll() {
-            return new List<DeckFood>(_foods.Where(x => !x.isFrozen));
+            return new List<DeckFood>(_foods.Where(x => !x.isFrozen && !x.isFired));
         }
 
         public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {

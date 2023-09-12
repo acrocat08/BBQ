@@ -8,6 +8,7 @@ using Cysharp.Threading.Tasks;
 using SoundMgr;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace BBQ.Shopping {
     public class Shop : MonoBehaviour {
@@ -18,11 +19,17 @@ namespace BBQ.Shopping {
         [SerializeField] private Reroller reroller;
         private Coin _coin;
         private List<ShopItem> _items;
+        private int _level;
+        private int _levelUpDiscount;
+        [SerializeField] private List<int> levelUpCosts;
 
-        public void Init(Coin coin) {
+        public void Init(int level, int levelupDiscount, Coin coin) {
+            _level = level;
+            _levelUpDiscount = levelupDiscount;
             _coin = coin;
             reroller.Init(this, _coin);
             reroller.Reroll();
+            view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
         }
         
         public async void BuyFood(ShopItem shopItem, DeckInventory inventory) {
@@ -60,5 +67,27 @@ namespace BBQ.Shopping {
             pointSensor.UpdateArea();
         }
 
+        public int GetShopLevel() {
+            return _level;
+        }
+
+        public int GetLevelUpDiscount() {
+            return _levelUpDiscount;
+        }
+
+        void LevelUp() {
+            int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
+            _coin.Use(cost);
+            _level += 1;
+            _levelUpDiscount = 0;
+            view.UpdateText(this, levelUpCosts[_level - 1]);
+        }
+
+        public void OnLevelUpButtonClicked() {
+            int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
+            if (_coin.GetCoin() < cost) return;
+            SoundPlayer.I.Play("se_levelup");
+            LevelUp();
+        }
     }
 }

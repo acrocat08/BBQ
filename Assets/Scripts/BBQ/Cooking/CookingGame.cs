@@ -31,7 +31,8 @@ namespace BBQ.Cooking {
         [SerializeField] private List<ActionCommand> startCommands;
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private CookingGameView view;
-        
+
+        private int _day;
         private bool _isRunning;
         
         void Start() {
@@ -40,8 +41,8 @@ namespace BBQ.Cooking {
 
         public void Init() {
             _isRunning = false;
-            view.Init(this);
             LoadStatus();
+            view.Init(this);
             foreach (DeckFood food in deck.GetAllFoods()) {
                 actionRegister.Add(food);
             }
@@ -81,12 +82,17 @@ namespace BBQ.Cooking {
             else deck.Init(targetDeck);
             handCount.Init(5);
             coin.Init(PlayerStatus.GetCoin());
+            _day = PlayerStatus.GetDay();
         }
 
         private void SaveStatus() {
-            List<DeckFood> deckFoods = deck.GetAllFoods();
+            List<DeckFood> deckFoods = deck.GetAllFoods().Where(x => !x.isFired).ToList();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deckFoods, coinNum);
+            PlayerStatus.Create(deckFoods, coinNum, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount());
+        }
+
+        public int GetDay() {
+            return _day;
         }
     }
 }

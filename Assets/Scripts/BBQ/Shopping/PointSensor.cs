@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BBQ.Shopping {
     public class PointSensor : MonoBehaviour {
@@ -9,7 +10,7 @@ namespace BBQ.Shopping {
 
         private bool _isDragging;
         private PointableArea _fromArea;
-        private PointableArea _toArea;
+        private List<PointableArea> _toAreas;
 
         [SerializeField] private ArrowDrawer arrow;
 
@@ -28,7 +29,7 @@ namespace BBQ.Shopping {
             Vector2 pointed = Input.mousePosition;
             if (!_isDragging) {
                 if (Input.GetMouseButtonDown(0)) {
-                    _toArea = null;
+                    _toAreas = null;
                     _fromArea = _areas.Where(x => x.canPointDown).FirstOrDefault(x => x.CheckPointed(pointed));
                     if (_fromArea != null) {
                         _fromArea.Show();
@@ -38,23 +39,33 @@ namespace BBQ.Shopping {
                 } 
             }
             else {
-                arrow.SetPos(_fromArea.transform.position, pointed);
+                Color color = _fromArea.transform.Find("Frame").GetComponent<Image>().color;
+                arrow.SetPos(_fromArea.transform.position, pointed, color);
                 PointableArea toArea = _areas
                     .Where(x => x != _fromArea)
                     .Where(x => x.areaTag == _fromArea.targetTag)
                     .FirstOrDefault(x => x.CheckPointed(pointed));
-                if (toArea != _toArea) {
-                    if(toArea != null) toArea.Show();
-                    if(_toArea != null) _toArea.Hide();
-                    _toArea = toArea;
+
+                List<PointableArea> toAreas = null;
+                if (toArea != null && toArea.isGrouped) {
+                    toAreas = _areas
+                        .Where(x => x != _fromArea)
+                        .Where(x => x.areaTag == toArea.areaTag).ToList();
+                }
+                else if (toArea != null) toAreas = new List<PointableArea> { toArea };
+                
+                if (_toAreas == null || !_toAreas.Contains(toArea)) {
+                    if(toAreas != null) toAreas.ForEach(x => x.Show());
+                    if(_toAreas != null) _toAreas.ForEach(x => x.Hide());
+                    _toAreas = toAreas;
                 }
 
                 if (Input.GetMouseButtonUp(0)) {
                     _fromArea.Hide();
-                    arrow.SetPos(Vector2.zero, Vector2.zero);
-                    if (_toArea != null) {
-                        _toArea.Hide();
-                        _fromArea.onPointUp.Invoke(_toArea);
+                    arrow.SetPos(Vector2.zero, Vector2.zero, Color.white);
+                    if (_toAreas != null) {
+                        _toAreas.ForEach(x => x.Hide());
+                        _fromArea.onPointUp.Invoke(_toAreas);
                     }
                     else {
                         _fromArea.onPointCancel.Invoke();
