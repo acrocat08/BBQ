@@ -35,10 +35,6 @@ namespace BBQ.Cooking {
             return ret;
         }
 
-        public void SetPauseMode(bool mode) {
-            movement.SetPauseMode(mode);
-        }
-
         public LaneFood SearchNearestFood(float x) {
             for (int i = 0; i < param.foodMaxNumInLane; i++) {
                 if (_foods[i] == null) continue;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Action;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
@@ -11,19 +12,22 @@ namespace BBQ.Cooking {
     public class Deck : MonoBehaviour, IReleasable {
 
 
-        private List<DeckFood> _allFoods;
+        private List<(DeckFood, DeckFood)> _allFoods;
         private LinkedList<DeckFood> _foods;
         [SerializeField] private LaneFoodFactory foodFactory;
 
         [SerializeField] DeckView view;
 
         public void Init(List<DeckFood> deckFoods) {
-            _foods = new LinkedList<DeckFood>(deckFoods.OrderBy(x => Guid.NewGuid()));
-            _allFoods = new List<DeckFood>(deckFoods);
-            view.UpdateText(this);
+            _foods = new LinkedList<DeckFood>(deckFoods.OrderBy(_ => Guid.NewGuid()));
+            _allFoods = deckFoods.Select(x => (x, x.Copy())).ToList();
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.Releasable = this;
             }
+            foreach (DeckFood food in _foods) {
+                TriggerObserver.I.RegisterFood(food);
+            }
+            view.UpdateText(this);
         }
 
         public List<DeckFood> SelectAll() {
@@ -61,8 +65,20 @@ namespace BBQ.Cooking {
             return new List<LaneFood>();
         }
 
-        public List<DeckFood> GetAllFoods() {
-            return _allFoods;
+        public List<DeckFood> GetUsableFoods() {
+            return _allFoods.Where(x => CheckUsable(x.Item1)).Select(x => x.Item2).ToList();
+        }
+        
+        public int Count() {
+            return _allFoods.Count(x => CheckCountable(x.Item1));
+        }
+
+        private bool CheckCountable(DeckFood deckFood) {
+            return !deckFood.isFired && !deckFood.isFrozen;
+        }
+
+        private bool CheckUsable(DeckFood deckFood) {
+            return !deckFood.isFired && !deckFood.isEphemeral;
         }
     }
 }

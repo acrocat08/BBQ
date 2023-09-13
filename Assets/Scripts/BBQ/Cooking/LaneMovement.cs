@@ -19,12 +19,7 @@ namespace BBQ.Cooking {
         [SerializeField] private float addFoodDuration;  
         [SerializeField] private Ease addFoodEasing;
         private float _startXPos;
-        private bool _pauseMode;
         
-
-        private void Start() {
-            _pauseMode = false;
-        }
 
         public async UniTask AddFood(LaneFood food, int index) {
             Transform tr = food.transform;
@@ -43,7 +38,6 @@ namespace BBQ.Cooking {
         }
         
         public void Move() {
-                if (_pauseMode) return;
                 _startXPos = GetLoopedPos(_startXPos + speedPerSecond * 0.01f);
                 List<LaneFood> foods = lane.GetFoods();
                 for (int i = 0; i < foods.Count; i++) {
@@ -67,11 +61,5 @@ namespace BBQ.Cooking {
             pos = GetLoopedPos(pos);
             return new Vector3(pos, 0, 0);
         }
-
-        public void SetPauseMode(bool mode) {
-            _pauseMode = mode;
-        }
-        
-
     }
 }

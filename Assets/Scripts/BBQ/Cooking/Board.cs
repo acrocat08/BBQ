@@ -16,6 +16,7 @@ namespace BBQ.Cooking {
 
         [SerializeField] private HandFactory handFactory;
         [SerializeField] private Vector3 handInitialPos;
+        [SerializeField] private LoopManager loop;
 
         private List<DeckFood> _foods;
         private Hand _hand;
@@ -40,16 +41,12 @@ namespace BBQ.Cooking {
 
         public void Pause() {
             if(_hand != null) _hand.SetPauseMode(true);
-            foreach (var lane in _lanes) {
-                lane.SetPauseMode(true);
-            }
+            loop.SetPauseMode(true);
         }
         
         public void Resume() {
             if(_hand != null) _hand.SetPauseMode(false);
-            foreach (var lane in _lanes) {
-                lane.SetPauseMode(false);
-            }
+            loop.SetPauseMode(false);
         }
         
         //-- TODO: 別クラスに移行　HandManager

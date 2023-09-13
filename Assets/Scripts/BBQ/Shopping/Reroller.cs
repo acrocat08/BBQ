@@ -41,8 +41,8 @@ namespace BBQ.Shopping {
             if (_coin.GetCoin() < _cost) return;
             SoundPlayer.I.Play("se_reroll1");
             SoundPlayer.I.Play("se_reroll2");
-            _coin.Use(_cost);
-            _cost += 5;
+            //_coin.Use(_cost);
+            //_cost += 5;
             transform.Find("Cost").GetComponent<Text>().text = _cost.ToString();
             Reroll();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BBQ.Cooking;
 using BBQ.Database;
+using Unity.Collections;
 using UnityEngine;
 
 namespace BBQ.PlayData {
@@ -13,6 +14,8 @@ namespace BBQ.PlayData {
         public int lank;
         public bool isFrozen;
         public bool isFired;
+        public bool isEphemeral;
+        public FoodEffect effect;
         [HideInInspector] public IReleasable Releasable;
 
         public DeckFood(FoodData data) {
@@ -20,7 +23,21 @@ namespace BBQ.PlayData {
             lank = 1;
             isFrozen = false;
             isFired = false;
+            isEphemeral = false;
             Releasable = null;
+            effect = null;
+        }
+
+        public DeckFood Copy() {
+            DeckFood ret = new DeckFood(data) {
+                lank = lank,
+                isFrozen = isFrozen,
+                isFired = isFired,
+                isEphemeral = isEphemeral,
+                Releasable = Releasable,
+                effect = effect
+            };
+            return ret;
         }
 
         public LaneFood Release() {

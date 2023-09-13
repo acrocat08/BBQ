@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using BBQ.Common;
 using BBQ.Database;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,25 +29,61 @@ namespace BBQ.Cooking {
         [SerializeField] private Color fireColor;
 
         [SerializeField] private List<Material> lankMaterial;
+
+        [SerializeField] private float effectDuration;
+        [SerializeField] private float effectStrength;
+        [SerializeField] Ease effectEasing;
+        
         private static readonly int Seed = Shader.PropertyToID("_seed");
 
-        public void Draw(LaneFood laneFood, FoodData foodData) {
+        public void Draw(LaneFood laneFood) {
+            DeckFood deckFood = laneFood.deckFood;
             Image image = laneFood.transform.Find("Image").GetComponent<Image>();
-            image.sprite = foodData.foodImage;
+            image.sprite = deckFood.data.foodImage;
             Material mat = lankMaterial[laneFood.deckFood.lank - 1];
             if(mat != null) image.material = new Material(mat);
             if(image.material != null) image.material.SetFloat(Seed, Random.value);
+            DrawEffect(laneFood);
+        }
+
+        public void DrawEffect(LaneFood laneFood) {
+            FoodEffect effect = laneFood.deckFood.effect;
+            if (effect == null) {
+                Transform frame = laneFood.transform.Find("FoodEffect");
+                frame.localScale = Vector3.zero;
+            }
+            else {
+                laneFood.transform.Find("FoodEffect").gameObject.SetActive(true);
+                Image icon = laneFood.transform.Find("FoodEffect").Find("Icon").GetComponent<Image>();
+                icon.sprite = laneFood.deckFood.effect.effectImage;
+            }
+        }
+
+        public void AddEffect(LaneFood laneFood) {
+            FoodEffect effect = laneFood.deckFood.effect;
+            if (effect == null) {
+                Transform frame = laneFood.transform.Find("FoodEffect");
+                frame.DOScale(Vector3.zero, effectDuration);
+            }
+            else {
+                Image icon = laneFood.transform.Find("FoodEffect").Find("Icon").GetComponent<Image>();
+                icon.sprite = laneFood.deckFood.effect.effectImage;
+                Transform frame = laneFood.transform.Find("FoodEffect");
+                frame.localScale = Vector3.one * effectStrength;
+                frame.DOScale(Vector3.one, effectDuration).SetEase(effectEasing);
+            }
+
         }
 
         public void Hit(LaneFood laneFood) {
             float rotateDelta = Random.Range(5f, 15f);
             if (Random.value >= 0.5f) rotateDelta *= -1;
-            laneFood.transform.DOLocalRotate(new Vector3(0, 0, rotateDelta),
+            laneFood.transform.Find("Image").DOLocalRotate(new Vector3(0, 0, rotateDelta),
                 0.2f).SetEase(Ease.OutExpo);
             for (int i = 0; i < 6; i++) {
                 ShotEffect effect = Instantiate(hitEffectPrefab, Vector3.zero, Quaternion.identity, laneFood.transform).GetComponent<ShotEffect>();
                 effect.Init(Random.Range(i * 60, i * 60 + 60));
-                effect.GetComponent<Image>().color = laneFood.GetData().color;
+                effect.GetComponent<Image>().color = laneFood.deckFood.data.color;
             }
         }
         
@@ -82,8 +119,8 @@ namespace BBQ.Cooking {
 
 
         public void Invoke(LaneFood food) {
-            food.transform.localScale = Vector3.one * shakeStrength;
-            food.transform.DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
+            food.transform.Find("Image").localScale = Vector3.one * shakeStrength;
+            food.transform.Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
         }
 
 

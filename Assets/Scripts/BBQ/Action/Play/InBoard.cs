@@ -6,12 +6,12 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace BBQ.Action.Play {
-    [CreateAssetMenu(menuName = "Action/InBoard")]
-    public class InBoard : PlayAction {
+    [CreateAssetMenu(menuName = "Action/HaveEffect")]
+    public class HaveEffect : PlayAction {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            bool isOk = deckFoods.All(x => x.Releasable == env.board);
+            bool isOk = deckFoods.All(x => x.effect != null);
             v.x1 = isOk ? 1 : 0;
         }
     }
