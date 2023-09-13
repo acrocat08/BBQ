@@ -13,6 +13,7 @@ namespace BBQ.Action.Play {
     public class AddEffect : PlayAction {
         [SerializeField] private float duration;
         [SerializeField] private List<FoodEffect> effectList;
+        [SerializeField] private ActionAssembly assembly;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             string effectName = v.GetString(v.n2);
@@ -27,6 +28,8 @@ namespace BBQ.Action.Play {
             
             foreach (DeckFood deckFood in deckFoods) {
                 TriggerObserver.I.UpdateEffect(deckFood, deckFood.effect, effect);
+                if (deckFood.effect != null) await assembly.Run(deckFood.effect.onReleased, env, deckFood, v.target);
+                if (effect != null) await assembly.Run(effect.onAttached, env, deckFood, v.target);
                 deckFood.effect = effect;
                 LaneFood laneFood = env.board.FindLaneFood(deckFood);
                 laneFood.SetEffect();

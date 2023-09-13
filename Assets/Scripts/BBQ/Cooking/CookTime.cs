@@ -38,6 +38,10 @@ namespace BBQ.Cooking {
                 }
                 view.UpdateText(this, _bonusMode);
             }
+
+            while (_semaphore > 0) {
+                await UniTask.DelayFrame(1);
+            }
             game.GameEnd();
         }
 

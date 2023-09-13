@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: ItemChoice
   m_EditorClassIdentifier: 
   tierTables:
+  - tier1: 15
+    tier2: 20
+    tier3: 30
+    tier4: 20
+    tier5: 15
   - tier1: 100
     tier2: 0
     tier3: 0
@@ -38,9 +43,4 @@ MonoBehaviour:
     tier3: 25
     tier4: 15
     tier5: 5
-  - tier1: 15
-    tier2: 20
-    tier3: 30
-    tier4: 20
-    tier5: 15
   itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}

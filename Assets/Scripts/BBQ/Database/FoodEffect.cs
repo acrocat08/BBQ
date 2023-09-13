@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Database;
 using UnityEngine;
@@ -40,6 +41,8 @@ namespace BBQ.Database {
         public string effectName;
         public Sprite effectImage;
         public FoodAction action;
+        public List<ActionCommand> onAttached;
+        public List<ActionCommand> onReleased;
     }
     
 

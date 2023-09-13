@@ -29,6 +29,7 @@ namespace BBQ.Cooking {
             Text remaining = deck.transform.Find("Remaining").GetComponent<Text>();
             Text all = deck.transform.Find("All").GetComponent<Text>();
             remaining.text = deck.SelectAll().Count.ToString();
+            all.text = "/ " + deck.Count();
         } 
     }
 }
