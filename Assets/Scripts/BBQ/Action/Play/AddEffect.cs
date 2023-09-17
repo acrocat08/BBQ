@@ -42,5 +42,12 @@ namespace BBQ.Action.Play {
 
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
+
+        //TODO:別クラスに移行
+        public FoodEffect GetEffect(string effectName) {
+            FoodEffect effect = null;
+            if (effectName != "none") effect = effectList.First(x => x.effectName == effectName);
+            return effect;
+        }
     }
 }

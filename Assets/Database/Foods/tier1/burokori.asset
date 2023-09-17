@@ -39,7 +39,7 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
         n1: f1
         n2: 2
-      - action: {fileID: 11400000, guid: a1a998698eb1c9d44968e1c59fb808dd, type: 2}
+      - action: {fileID: 11400000, guid: cefeb75e6cfd22643a79a217b45c2335, type: 2}
         n1: f1
         n2: -1
       priority: 0

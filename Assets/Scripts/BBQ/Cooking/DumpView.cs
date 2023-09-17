@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DumpView : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace BBQ.Cooking {
+    [CreateAssetMenu(menuName = "Dump/View")]
+    public class DumpView : ScriptableObject {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Drop(Dump dump, LaneFood laneFood) {
+            
+        }
     }
 }

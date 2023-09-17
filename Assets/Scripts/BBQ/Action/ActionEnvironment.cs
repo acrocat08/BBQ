@@ -13,14 +13,16 @@ namespace BBQ.Action {
         [HideInInspector] public List<Lane> lanes;
         [HideInInspector] public Deck deck;
         [HideInInspector] public Dump dump;
+        [HideInInspector] public CopyArea copyArea;
         [HideInInspector] public HandCount handCount;
         [HideInInspector] public CookTime time;
         [HideInInspector] public Coin coin;
-        public void Init(Board board, List<Lane> lanes, Deck deck, Dump dump, HandCount handCount, CookTime time, Coin coin) {
+        public void Init(Board board, List<Lane> lanes, Deck deck, Dump dump, CopyArea copyArea, HandCount handCount, CookTime time, Coin coin) {
             this.board = board;
             this.lanes = lanes;
             this.deck = deck;
             this.dump = dump;
+            this.copyArea = copyArea;
             this.handCount = handCount;
             this.time = time;
             this.coin = coin;
@@ -48,6 +50,19 @@ namespace BBQ.Action {
             f3 = new List<DeckFood>();
             this.invoker = invoker;
             this.target = target;
+        }
+
+        public ActionVariable Copy(string _n1, string _n2) {
+            return new ActionVariable(invoker, target) {
+                n1 = _n1,
+                n2 = _n2,
+                x1 = x1,
+                x2 = x2,
+                x3 = x3,
+                f1 = f1,
+                f2 = f2,
+                f3 = f3,
+            };
         }
         
         public int GetNum(string index) {
@@ -77,14 +92,12 @@ namespace BBQ.Action {
             return index;
         }
         
-        /*
         public void SetNum(string index, int val) {
             if (index == null) Debug.LogWarning("値が設定されていません。"); 
             if (index == "x1") x1 = val;
             if (index == "x2") x2 = val;
             if (index == "x3") x3 = val;
         }
-                */
 
         public void SetFoods(string index, List<DeckFood> val) {
             if (index == null) Debug.LogWarning("値が設定されていません。"); 

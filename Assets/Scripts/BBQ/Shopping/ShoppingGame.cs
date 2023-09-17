@@ -58,7 +58,8 @@ namespace BBQ.Shopping {
             else deckInventory.Init(firstFoods);
 
             int shopLevel = PlayerStatus.GetShopLevel();
-            int nowIncome = Mathf.Max(0, income - (_day - 1) * 10); 
+
+            int nowIncome = Mathf.Max(0, GetDayIncome()); 
             
             coin.Init(PlayerStatus.GetCoin() + nowIncome);
             shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin);
@@ -71,6 +72,12 @@ namespace BBQ.Shopping {
 
         public int GetDay() {
             return _day;
+        }
+
+        public int GetDayIncome() {
+            int dayIncome = income;
+            //if (_day > 1) dayIncome /= 2;
+            return dayIncome;
         }
 
     }

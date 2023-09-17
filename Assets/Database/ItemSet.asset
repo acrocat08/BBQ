@@ -73,3 +73,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18a625005ad34c844bfbff23b5f60742, type: 2}
   - {fileID: 11400000, guid: 0327ec68f907d0e48bc5a78fa1a7c417, type: 2}
   - {fileID: 11400000, guid: e9fbf3267122e7f48883c23a9f84d7a5, type: 2}
+  supportFoods:
+  - {fileID: 11400000, guid: 455584ef28879ce49975ea5ce461c296, type: 2}
+  - {fileID: 11400000, guid: a69d46ee89175ce46923732115eadd29, type: 2}

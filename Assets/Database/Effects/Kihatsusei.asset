@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b6230fcc2c37049ba479f9cb8d6639, type: 3}
+  m_Name: Kihatsusei
+  m_EditorClassIdentifier: 
+  effectName: "\u63EE\u767A\u6027"
+  effectImage: {fileID: 21300000, guid: ba503985b55607f47915266f8637e892, type: 3}
+  action:
+    summaries:
+    - "-\u3000\u30D2\u30C3\u30C8\uFF1A\n\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: d581082b16499b24caf8aac01ce967ea, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+  onAttached: []
+  onReleased: []

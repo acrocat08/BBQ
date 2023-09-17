@@ -24,6 +24,7 @@ namespace BBQ.Cooking {
         [SerializeField] private Coin coin;
         [SerializeField] private Deck deck;
         [SerializeField] private Dump dump;
+        [SerializeField] private CopyArea copyArea;
 
         [SerializeField] private List<DeckFood> testDeck;
         
@@ -44,8 +45,9 @@ namespace BBQ.Cooking {
             view.Init(this);
             cookTime.Init(60);      
             dump.Init();
+            copyArea.Init();
             board.Init(lanes, dump, handCount, cookTime);
-            env.Init(board, lanes, deck, dump, handCount, cookTime, coin);
+            env.Init(board, lanes, deck, dump, copyArea, handCount, cookTime, coin);
             cookTime.Pause();
             GameStart();
         }

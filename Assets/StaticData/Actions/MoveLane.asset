@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99002add252dc746b41fed6fced865e, type: 3}
   m_Name: MoveLane
   m_EditorClassIdentifier: 
+  duration: 0.5

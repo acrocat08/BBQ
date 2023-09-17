@@ -12,6 +12,8 @@ namespace BBQ.Action.Play {
         [SerializeField] private Draw draw;
         [SerializeField] private int drawNum;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            
+            await TriggerObserver.I.Invoke(ActionTrigger.BeforeReset, new List<DeckFood>(), false);
             List<UniTask> tasks = new List<UniTask>();
             List<LaneFood> boardFoods = env.board.ReleaseFoods(env.board.SelectAll());
             tasks.Add(env.deck.AddFoods(boardFoods));
@@ -19,7 +21,9 @@ namespace BBQ.Action.Play {
             tasks.Add(env.deck.AddFoods(dumpFoods));
             SoundMgr.SoundPlayer.I.Play("se_reset");
             await tasks;
-            int num = Mathf.Min(drawNum, env.deck.SelectAll().Count());
+            await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new List<DeckFood>(), false);
+
+            int num = Mathf.Min(drawNum, env.deck.SelectAll().Count);
             v.n1 = num.ToString();
             await draw.Execute(env, v);
         }

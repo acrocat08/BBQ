@@ -91,7 +91,7 @@ namespace BBQ.Cooking {
             int dir = laneFood.transform.localPosition.x > 0 ? 1 : -1;
             laneFood.transform.DOLocalJump(laneFood.transform.localPosition + fallLength * Vector3.down,
                 jumpLength, 1, fallDuration);
-            laneFood.transform.DOLocalMoveX(laneFood.transform.localPosition.x + fallXLength * dir, fallDuration)
+            laneFood.transform.DOLocalMoveX(laneFood.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), fallDuration)
                 .SetEase(Ease.Linear);
             laneFood.transform.DOLocalRotate(new Vector3(0, 0, 180), fallDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(fallDuration));

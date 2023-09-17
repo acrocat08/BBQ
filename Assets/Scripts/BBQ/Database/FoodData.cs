@@ -27,9 +27,9 @@ public class FoodDataEditor : Editor
         var preview = AssetPreview.GetAssetPreview( icon );
         var final = new Texture2D( width, height );
 
-        EditorUtility.CopySerialized( preview, final );
+        //EditorUtility.CopySerialized( preview, final );
 
-        return final;
+        return preview;
     }
 }
 #endif

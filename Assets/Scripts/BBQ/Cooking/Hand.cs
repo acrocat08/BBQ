@@ -49,7 +49,7 @@ namespace BBQ.Cooking {
             List<DeckFood> deckFoods = hitFoods.Select(x => x.deckFood).Reverse().ToList();
             
             List<LaneFood> boardFoods = _board.ReleaseFoods(deckFoods);
-            _dump.AddFoods(boardFoods);
+            _dump.HitFoods(boardFoods);
 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             

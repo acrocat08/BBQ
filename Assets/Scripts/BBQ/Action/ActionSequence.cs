@@ -20,7 +20,16 @@ namespace BBQ.Action {
         FreezeOthers,
         Fire,
         FireOthers,
-
+        Draw,
+        DrawOthers,
+        BeforeReset,
+        AfterReset,
+        Buy,
+        BuyOthers,
+        BeforeReroll,
+        AfterReroll,
+        LankUp,
+        LankUpOthers,
     }
     
     [Serializable]

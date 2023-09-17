@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   duration: 0.5
+  drop: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}

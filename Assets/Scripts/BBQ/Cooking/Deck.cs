@@ -30,6 +30,12 @@ namespace BBQ.Cooking {
             view.UpdateText(this);
         }
 
+        public void RegisterFood(DeckFood deckFood) {
+            _allFoods.Add((deckFood, deckFood.Copy()));
+            TriggerObserver.I.RegisterFood(deckFood);
+            view.UpdateText(this);
+        }
+
         public List<DeckFood> SelectAll() {
             return new List<DeckFood>(_foods);
         }
@@ -49,6 +55,7 @@ namespace BBQ.Cooking {
 
         public async UniTask AddFoods(List<LaneFood> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
+            _foods = new LinkedList<DeckFood>(_foods.OrderBy(_ => Guid.NewGuid()));
             List<UniTask> tasks = new List<UniTask>();
             foreach (LaneFood food in foods) {
                 tasks.Add(view.AddFood(this, food));
@@ -62,7 +69,13 @@ namespace BBQ.Cooking {
         }
 
         public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {
-            return new List<LaneFood>();
+            List<LaneFood> ret = new List<LaneFood>();
+            foreach (DeckFood food in foods) {
+                _foods.Remove(food);
+                LaneFood laneFood = foodFactory.Create(food, transform);
+                ret.Add(laneFood);
+            }
+            return ret;
         }
 
         public List<DeckFood> GetUsableFoods() {

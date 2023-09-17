@@ -32,10 +32,16 @@ namespace BBQ.Cooking {
             _foods.AddRange(foods.Select(x => x.deckFood));
             foreach (LaneFood laneFood in foods) {
                 laneFood.deckFood.Releasable = this;
+                laneFood.Drop();
             }
         }
-        
-        
+
+        public void HitFoods(List<LaneFood> foods) {
+            _foods.AddRange(foods.Select(x => x.deckFood));
+            foreach (LaneFood laneFood in foods) {
+                laneFood.deckFood.Releasable = this;
+            }
+        }
         
     }
 }

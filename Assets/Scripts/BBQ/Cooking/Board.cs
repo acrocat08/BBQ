@@ -87,6 +87,10 @@ namespace BBQ.Cooking {
             return new List<DeckFood>(_foods);
         }
 
+        public List<DeckFood> SelectLane(int index) {
+            return _lanes[index - 1].GetFoods().Where(x => x != null).Select(x => x.deckFood).ToList();
+        }
+
         public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {
             List<LaneFood> ret = new List<LaneFood>();
             foreach (Lane lane in _lanes) {
@@ -115,11 +119,10 @@ namespace BBQ.Cooking {
             List<UniTask> tasks = new List<UniTask>();
             foreach (LaneFood food in foods) {
                 food.deckFood.Releasable = this;
-                tasks.Add(_lanes[index].AddFoodRandomly(food));
+                tasks.Add(_lanes[index - 1].AddFoodRandomly(food));
             }
             await tasks;
         }
-        
 
         public LaneFood FindLaneFood(DeckFood food) {
             return _lanes
@@ -132,10 +135,8 @@ namespace BBQ.Cooking {
         public int GetLaneIndex(DeckFood food) {
             Lane lane = _lanes
                 .First(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
-            return _lanes.IndexOf(lane);
+            return _lanes.IndexOf(lane) + 1;
         }
-
-
         
     }
 }

@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1da9f4f11df12a84585f93aa581a1bd9, type: 2}
   - {fileID: 11400000, guid: dcb38d5e6b6500f4f908493f9713cde4, type: 2}
   - {fileID: 11400000, guid: 05eb02e01e916b34e9e730afc3cd0933, type: 2}
+  - {fileID: 11400000, guid: 3d7375d42501155429a5f51c2c487dfc, type: 2}
   - {fileID: 11400000, guid: 4afb9d7284ccc7f48b4d47bbd49c83d7, type: 2}
   - {fileID: 11400000, guid: 85f0ff2f439a2d2469450b73ed0e4a08, type: 2}
   fadeDuration: 1

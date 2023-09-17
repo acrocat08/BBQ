@@ -20,9 +20,9 @@ MonoBehaviour:
   isToken: 0
   action:
     summaries:
-    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30EA\u30FC\u30BA\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u3044\u308B\u5834\u5408\u3001\u30B3\u30A4\u30F3+10"
     - "\u4ED6\u98DF\u6750\u306E\u30D5\u30EA\u30FC\u30BA\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u3044\u308B\u5834\u5408\u3001\u30B3\u30A4\u30F3+15"
     - "\u4ED6\u98DF\u6750\u306E\u30D5\u30EA\u30FC\u30BA\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u3044\u308B\u5834\u5408\u3001\u30B3\u30A4\u30F3+20"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30EA\u30FC\u30BA\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u3044\u308B\u5834\u5408\u3001\u30B3\u30A4\u30F3+25"
     sequences:
     - trigger: 5
       condition:
@@ -34,6 +34,12 @@ MonoBehaviour:
         n2: 
       commands:
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
-        n1: 10/15/20
+        n1: 15/20/25
+        n2: 
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}
+        n1: f1
         n2: 
       priority: 0

@@ -14,18 +14,27 @@ namespace BBQ.Action.Play {
         [SerializeField] private float nullDrawDuration;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int drawNum = v.GetNum(v.n1);
+            int laneIndex = 0;
+            if (v.n2 != "") laneIndex = v.GetNum(v.n2);
             
             if (!CheckDrawable(env, drawNum)) {
                await reset.Execute(env, v);
                return;
             }
             drawNum = Mathf.Min(drawNum, env.deck.SelectAll().Count);
+            if(laneIndex == 0) drawNum = Mathf.Min(drawNum, 15 - env.board.SelectAll().Count);
+            else drawNum = Mathf.Min(drawNum, 5 - env.board.SelectLane(laneIndex).Count);
+            
             if (drawNum == 0) {
                 return;
             }
             List<LaneFood> taken = env.deck.TakeFood(drawNum);
             SoundMgr.SoundPlayer.I.Play("se_draw");
-            await env.board.AddFoodsRandomly(taken);
+            if (laneIndex == 0) await env.board.AddFoodsRandomly(taken);
+            else await env.board.AddFoodsRandomly(taken, laneIndex);
+            List<DeckFood> deckFoods = taken.Select(x => x.deckFood).ToList();
+            await TriggerObserver.I.Invoke(ActionTrigger.Draw, deckFoods, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.DrawOthers, deckFoods, false);
         }
 
         bool CheckDrawable(ActionEnvironment env, int drawNum) {

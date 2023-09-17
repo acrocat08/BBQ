@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.044381097, g: 0.77649796, b: 0.8301887, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.64705884, b: 0.70980394, a: 1}
+  m_Color: {r: 0, g: 0.64705884, b: 0.70980394, a: 0.6862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -627,6 +627,7 @@ RectTransform:
   - {fileID: 940086027}
   - {fileID: 1229934550}
   - {fileID: 99292837}
+  - {fileID: 833269094}
   m_Father: {fileID: 259126919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -824,33 +825,10 @@ MonoBehaviour:
   coin: {fileID: 227770362}
   deck: {fileID: 2080805981}
   dump: {fileID: 99292838}
+  copyArea: {fileID: 833269095}
   testDeck:
-  - data: {fileID: 11400000, guid: 27c47e29b5580064e9c6c73e911af3b3, type: 2}
-    lank: 2
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: a727a4c92afe3894b80b026831f74ad5, type: 2}
+  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
     lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
-    lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 1cf5cca06da27364faef1c630c9ef93f, type: 2}
-    lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 51552c5fa1b7cbc42abea552c0b57e36, type: 2}
-    lank: 2
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
@@ -861,25 +839,49 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: b98fcf579ba2544cdbfee070abb5d473, type: 2}
+  - data: {fileID: 11400000, guid: 7943822a6fb66ce47b9b6d19a7a7da42, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 2520ab5229203ac41b2661bfde96a0db, type: 2}
+  - data: {fileID: 11400000, guid: 103f75173b3f08e4ba3ecc56d47a056f, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
+  - data: {fileID: 11400000, guid: 3b8b181bce0034a4ca670a4f46a3c712, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: a22a3f5d2be13004d86a0b30416bfc73, type: 2}
+  - data: {fileID: 11400000, guid: ff2223eb6fd5eba41ac1a46a7733c001, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    effect: {fileID: 0}
+  - data: {fileID: 11400000, guid: 6d01961b19a2e9b4e8094a95075efdfd, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    effect: {fileID: 0}
+  - data: {fileID: 11400000, guid: 6f7c376eb7f3be64f982ceb4b3f3b3ae, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    effect: {fileID: 0}
+  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    effect: {fileID: 0}
+  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1745,6 +1747,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790130747}
   m_CullTransparentMesh: 1
+--- !u!1 &833269093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833269094}
+  - component: {fileID: 833269095}
+  m_Layer: 5
+  m_Name: CopyArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &833269094
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833269093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 256707338}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 490}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &833269095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833269093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392c49d381159a14cb54daba19aa1586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodFactory: {fileID: 11400000, guid: dcbdbc7f9ca683d4b991baddc2bd4b18, type: 2}
+  deck: {fileID: 2080805981}
+  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
 --- !u!1 &852149187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1837,7 @@ MonoBehaviour:
   - {fileID: 1229934552}
   deck: {fileID: 2080805981}
   dump: {fileID: 99292838}
+  copyArea: {fileID: 0}
   handCount: {fileID: 0}
   time: {fileID: 0}
   coin: {fileID: 0}
@@ -2352,7 +2406,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.044381097, g: 0.77649796, b: 0.8301887, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2398,7 +2452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.64705884, b: 0.70980394, a: 1}
+  m_Color: {r: 0, g: 0.64705884, b: 0.70980394, a: 0.6862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
