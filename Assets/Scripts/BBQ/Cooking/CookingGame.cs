@@ -21,6 +21,7 @@ namespace BBQ.Cooking {
         [SerializeField] private List<Lane> lanes;
         [SerializeField] private CookTime cookTime;
         [SerializeField] private HandCount handCount;
+        [SerializeField] private MissionSheet missionSheet;
         [SerializeField] private Coin coin;
         [SerializeField] private Deck deck;
         [SerializeField] private Dump dump;
@@ -34,6 +35,11 @@ namespace BBQ.Cooking {
 
         private int _day;
         private bool _isRunning;
+        private int _star;
+        private int _life;
+        private List<MissionStatus> _missions;
+
+        [SerializeField] private List<MissionStatus> testMission;
         
         void Start() {
             Init();
@@ -46,7 +52,7 @@ namespace BBQ.Cooking {
             cookTime.Init(60);      
             dump.Init();
             copyArea.Init();
-            board.Init(lanes, dump, handCount, cookTime);
+            board.Init(lanes, dump, handCount, cookTime, missionSheet);
             env.Init(board, lanes, deck, dump, copyArea, handCount, cookTime, coin);
             cookTime.Pause();
             GameStart();
@@ -65,11 +71,19 @@ namespace BBQ.Cooking {
             cookTime.Pause();
             board.DiscardHand();
             SoundPlayer.I.Play("se_cookingEnd");
-            SaveStatus();
+
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             await view.CloseBG(this);
+
+            bool isClear = missionSheet.CheckMissionCleared();
+            int gainStar = isClear ? 1 : 0;
+            int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
+            await view.GameEnd(transform.Find("Result"), _missions, _star, gainStar, _life, lostLife, isClear);
+            _star += gainStar;
+            _life -= lostLife;
+            SaveStatus();
             await view.ChangeColor(this);
-            await UniTask.Delay(TimeSpan.FromSeconds(2));
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
             SceneManager.LoadScene("Scenes/Shopping");
         }
 
@@ -81,12 +95,18 @@ namespace BBQ.Cooking {
             handCount.Init(5);
             coin.Init(PlayerStatus.GetCoin());
             _day = PlayerStatus.GetDay();
+            _missions = PlayerStatus.GetNowMission();
+            if (_missions.Count == 0) _missions = testMission;
+            missionSheet.Init(_missions);
+            _star = PlayerStatus.GetStar();
+            _life = PlayerStatus.GetLife();
         }
 
         private void SaveStatus() {
             List<DeckFood> deckFoods = deck.GetUsableFoods();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deckFoods, coinNum, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount());
+            PlayerStatus.Create(deckFoods, coinNum, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
+                0, _star, _life, new List<MissionStatus>());
         }
 
         public int GetDay() {

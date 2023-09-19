@@ -12,14 +12,17 @@ namespace BBQ.Action.Play {
         [SerializeField] private int resetBorder;
         [SerializeField] private Reset reset;
         [SerializeField] private float nullDrawDuration;
+        [SerializeField] private AddTime addTime;
+        [SerializeField] private int resetPenalty;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int drawNum = v.GetNum(v.n1);
             int laneIndex = 0;
             if (v.n2 != "") laneIndex = v.GetNum(v.n2);
             
             if (!CheckDrawable(env, drawNum)) {
-               await reset.Execute(env, v);
-               return;
+                await addTime.Execute(env, v.Copy(resetPenalty.ToString(), ""));
+                await reset.Execute(env, v);
+                return;
             }
             drawNum = Mathf.Min(drawNum, env.deck.SelectAll().Count);
             if(laneIndex == 0) drawNum = Mathf.Min(drawNum, 15 - env.board.SelectAll().Count);

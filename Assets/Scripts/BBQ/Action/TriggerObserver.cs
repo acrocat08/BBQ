@@ -5,6 +5,7 @@ using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace BBQ.Action {
     public class TriggerObserver : MonoBehaviour {

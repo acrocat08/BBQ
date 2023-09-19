@@ -20,6 +20,7 @@ namespace BBQ.Action.Play {
                 FoodEffect effect = addEffect.GetEffect(v.GetString(v.n2));
                 if (deckFood.effect != null) await assembly.Run(deckFood.effect.onReleased, env, deckFood, v.target);
                 if (effect != null) await assembly.Run(effect.onAttached, env, deckFood, v.target);
+                TriggerObserver.I.UpdateEffect(deckFood, deckFood.effect, effect);
                 deckFood.effect = effect;
             }
         }
