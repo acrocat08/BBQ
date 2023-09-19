@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Unity.VisualScripting;
@@ -21,6 +22,8 @@ namespace BBQ.Cooking {
         [SerializeField] private Color shoppingBGColor;
         [SerializeField] private float colorDuration;
         [SerializeField] private float hideDuration;
+
+        [SerializeField] private CookingResultView resultView;
 
 
         public void Init(CookingGame cookingGame) {
@@ -91,6 +94,15 @@ namespace BBQ.Cooking {
                 x => BG.sizeDelta = x,
                 new Vector2(toWidth, height),
                 duration).SetEase(ease);
+        }
+
+        public async UniTask GameEnd(Transform container, List<MissionStatus> missions, int star, int gainStar, int life, int lostLife, bool isClear) {
+            await resultView.ShowResult(container, missions, star, gainStar, life, lostLife, isClear);
+            while (true) {
+                await UniTask.DelayFrame(1);
+                if (Input.GetMouseButtonDown(0)) break;
+            }
+            container.gameObject.SetActive(false);
         }
     }
 }

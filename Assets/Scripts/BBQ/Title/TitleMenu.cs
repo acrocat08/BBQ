@@ -9,12 +9,15 @@ namespace BBQ.Title {
 
         [SerializeField] private TitleMenuView view;
 
+        private bool isMoving;
         private void Start() {
+            isMoving = false;
             Init();
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetMouseButtonDown(0) && !isMoving) {
+                isMoving = true;
                 GotoMainGame();
             }
         }

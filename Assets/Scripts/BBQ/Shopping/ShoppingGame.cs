@@ -16,22 +16,21 @@ namespace BBQ.Shopping {
         [SerializeField] private Shop shop;
         [SerializeField] private Coin coin;
         [SerializeField] private int income;
-
+        [SerializeField] private MissionMaker missionMaker;
+        
         private int _day;
-
+        private List<MissionStatus> _nowMission;
+        private bool _isEnd;
         void Start() {
             Init();
+            _isEnd = false;
         }
-
-        private void Update() {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                GameEnd();
-            }
-        }
-
+        
         void Init() {
             LoadStatus();
             view.Init(this);
+            _nowMission = missionMaker.Create(_day);
+            view.UpdateMission(this, _nowMission);
             GameStart();
         }
 
@@ -40,10 +39,13 @@ namespace BBQ.Shopping {
             SoundPlayer.I.Play("bgm_cooking");
         }
 
-        async void GameEnd() {
+        public async void GameEnd() {
+            if (_isEnd) return;
             _day += 1;
+            _isEnd = true;
             SaveStatus();
             await view.CloseBG(this);
+            SoundPlayer.I.Play("se_morning");
             await view.ChangeColor(this);
             await UniTask.Delay(TimeSpan.FromSeconds(2));
             SceneManager.LoadScene("Scenes/Cooking");
@@ -63,11 +65,15 @@ namespace BBQ.Shopping {
             
             coin.Init(PlayerStatus.GetCoin() + nowIncome);
             shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin);
+            int star = PlayerStatus.GetStar();
+            int life = PlayerStatus.GetLife();
+            view.SetStatus(this, star, life);
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deck, coinNum, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10);
+            PlayerStatus.Create(deck, coinNum, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
+                PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission);
         }
 
         public int GetDay() {

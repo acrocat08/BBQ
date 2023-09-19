@@ -22,15 +22,11 @@ MonoBehaviour:
     summaries:
     - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u5408\u6210\u4E0D\u53EF
       >>"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+2\n<< \u5408\u6210\u4E0D\u53EF
-      >>"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+3\n<< \u5408\u6210\u4E0D\u53EF
-      >>"
     sequences:
     - trigger: 8
       condition: []
       commands:
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
-        n1: 1/2/3
+        n1: 1
         n2: 
       priority: 0

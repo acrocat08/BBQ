@@ -26,14 +26,16 @@ namespace BBQ.Cooking {
         private Dump _dump;
         private HandCount _handCount;
         private CookTime _time;
+        private MissionSheet _missionSheet;
 
-        public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time) {
+        public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet) {
             _foods = new List<DeckFood>();
             _lanes = lanes;
             _dump = dump;
             _handCount = handCount;
             _hand = null;
             _time = time;
+            _missionSheet = missionSheet;
             _hittingFoods = new List<LaneFood>();
             StoreHand();
             Pause();
@@ -63,7 +65,7 @@ namespace BBQ.Cooking {
         }
 
         private void CreateHand() {
-            Hand hand = handFactory.Create(this, _dump, _lanes, _time);
+            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet);
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"));
             _hand.transform.localPosition = handInitialPos;

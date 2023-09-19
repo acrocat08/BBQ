@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BBQ.Cooking;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -75,6 +76,24 @@ namespace BBQ.Shopping {
                 x => BG.sizeDelta = x,
                 new Vector2(width, toHeight),
                 duration).SetEase(ease);
+        }
+
+        public void SetStatus(ShoppingGame shoppingGame, int star, int life) {
+            Text starText = shoppingGame.transform.Find("Header").Find("Star").Find("Text").GetComponent<Text>();
+            Text lifeText = shoppingGame.transform.Find("Header").Find("Life").Find("Text").GetComponent<Text>();
+            starText.text = star + "/" + 15; //TODO:fix
+            lifeText.text = life.ToString();
+        }
+
+        public void UpdateMission(ShoppingGame shoppingGame, List<MissionStatus> nowMission) {
+            Text missionText = shoppingGame.transform.Find("MainContainer").Find("Mission").Find("Text").GetComponent<Text>();
+            
+            foreach (MissionStatus status in nowMission) {
+                string baseDetail = status.mission.detail;
+                string[] split = baseDetail.Split("#");
+                missionText.text = "-　" + split[0] + status.goal + split[1] + "\n";
+            }
+
         }
     }
 }

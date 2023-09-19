@@ -10,14 +10,23 @@ namespace BBQ.PlayData {
         private int _day;
         private int _shopLevel;
         private int _levelUpDiscount;
+        private int _rerollTicket;
+        private int _star;
+        private int _life;
+        private List<MissionStatus> _nowMission;
         
-        public static void Create(List<DeckFood> deckFoods, int coin, int day, int shopLevel, int levelUpDiscount) {
+        public static void Create(List<DeckFood> deckFoods, int coin, int day, int shopLevel, 
+            int levelUpDiscount, int rerollTicket, int star, int life, List<MissionStatus> nowMission) {
             _saveData = new PlayerStatus();
             _saveData._deckFoods = deckFoods;
             _saveData._coin = coin;
             _saveData._day = day;
             _saveData._shopLevel = shopLevel;
             _saveData._levelUpDiscount = levelUpDiscount;
+            _saveData._rerollTicket = rerollTicket;
+            _saveData._star = star;
+            _saveData._life = life;
+            _saveData._nowMission = nowMission;
         }
 
         public static List<DeckFood> GetDeckFoods() {
@@ -43,6 +52,26 @@ namespace BBQ.PlayData {
         public static int GetLevelUpDiscount() {
             if (_saveData == null) return 0;
             return _saveData._levelUpDiscount;
+        }
+
+        public static int GetRerollTicket() {
+            if (_saveData == null) return 0;
+            return _saveData._rerollTicket;
+        }
+        
+        public static int GetStar() {
+            if (_saveData == null) return 0;
+            return _saveData._star;
+        }
+        
+        public static int GetLife() {
+            if (_saveData == null) return 10; //TODO:fix
+            return _saveData._life;
+        }
+        
+        public static List<MissionStatus> GetNowMission() {
+            if (_saveData == null) return new List<MissionStatus>(); //TODO:fix
+            return _saveData._nowMission;
         }
 
     }

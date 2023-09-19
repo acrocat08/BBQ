@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046e1928321c8694a804e2e0df42515b, type: 3}
+  m_Name: View
+  m_EditorClassIdentifier: 
+  missionPrefab: {fileID: 737518693686444285, guid: f363f3b71ffb47144964191fc7d63e49, type: 3}
+  missionSheetView: {fileID: 11400000, guid: a26edf04086a41749b16149377a6fe00, type: 2}
+  durationA: 1
+  durationB: 1
+  durationC: 0.5
+  durationD: 1.5
+  clearText: Mission Clear !
+  failedText: Mission Failed...
+  shakeStrength: 3
+  shakeDuration: 0.5

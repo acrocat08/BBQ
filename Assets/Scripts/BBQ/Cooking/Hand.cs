@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using BBQ.Action;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace BBQ.Cooking {
@@ -15,7 +16,8 @@ namespace BBQ.Cooking {
         private Board _board;
         private Dump _dump;
         private CookTime _time;
-
+        private MissionSheet _missionSheet;
+        
 
         private bool _pauseMode;
         private bool _afterShot;
@@ -25,10 +27,11 @@ namespace BBQ.Cooking {
             _afterShot = false;
         }
 
-        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time) {
+        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet) {
             _board = board;
             _dump = dump;
             _time = time;
+            _missionSheet = missionSheet;
             shot.Init(lanes);
         }
 
@@ -64,6 +67,9 @@ namespace BBQ.Cooking {
             
             _time.Resume();
             _board.UseHand();
+            if (deckFoods.Count > 0) {
+                _missionSheet.AddCount("hand", 1);
+            }
             
             await view.AfterHit(this);
             Destroy(gameObject);
