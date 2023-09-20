@@ -31,8 +31,8 @@ namespace BBQ.Action.Play {
                 if (deckFood.effect != null) await assembly.Run(deckFood.effect.onReleased, env, deckFood, v.target);
                 if (effect != null) await assembly.Run(effect.onAttached, env, deckFood, v.target);
                 deckFood.effect = effect;
-                LaneFood laneFood = env.board.FindLaneFood(deckFood);
-                laneFood.SetEffect();
+                FoodObject foodObject = env.board.FindFoodObject(deckFood);
+                foodObject.SetEffect();
             }
 
             if (effect != null) {

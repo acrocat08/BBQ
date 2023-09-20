@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.PlayData;
 using UnityEngine;
 
 namespace BBQ.Cooking {
     public class Dump : MonoBehaviour, IReleasable {
         [SerializeField] private DumpView view;
-        [SerializeField] private LaneFoodFactory foodFactory;
+        [SerializeField] private FoodObjectFactory foodFactory;
 
         private List<DeckFood> _foods;
 
@@ -18,27 +19,27 @@ namespace BBQ.Cooking {
             return new List<DeckFood>(_foods.Where(x => !x.isFrozen && !x.isFired));
         }
 
-        public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {
-            List<LaneFood> ret = new List<LaneFood>();
+        public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
+            List<FoodObject> ret = new List<FoodObject>();
             foreach (DeckFood food in foods) {
                 _foods.Remove(food);
-                LaneFood laneFood = foodFactory.Create(food, transform);
+                FoodObject laneFood = foodFactory.Create(food, transform);
                 ret.Add(laneFood);
             }
             return ret;
         }
 
-        public void AddFoods(List<LaneFood> foods) {
+        public void AddFoods(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
-            foreach (LaneFood laneFood in foods) {
+            foreach (FoodObject laneFood in foods) {
                 laneFood.deckFood.Releasable = this;
                 laneFood.Drop();
             }
         }
 
-        public void HitFoods(List<LaneFood> foods) {
+        public void HitFoods(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
-            foreach (LaneFood laneFood in foods) {
+            foreach (FoodObject laneFood in foods) {
                 laneFood.deckFood.Releasable = this;
             }
         }

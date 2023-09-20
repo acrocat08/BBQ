@@ -1030,8 +1030,8 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 6f7c376eb7f3be64f982ceb4b3f3b3ae, type: 2}
-    lank: 1
+  - data: {fileID: 11400000, guid: 4091da658df326b449571c305e99ba1e, type: 2}
+    lank: 3
     isFrozen: 0
     isFired: 0
     isEphemeral: 0

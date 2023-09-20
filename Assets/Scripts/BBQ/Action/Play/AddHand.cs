@@ -14,7 +14,7 @@ namespace BBQ.Action.Play {
             int num = v.GetNum(v.n1);
             env.handCount.Add(num);
 
-            effect.Create("hand", num, env.board.FindLaneFood(v.invoker));
+            effect.Create("hand", num, env.board.FindFoodObject(v.invoker));
             SoundMgr.SoundPlayer.I.Play("se_addHand");
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

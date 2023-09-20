@@ -36,7 +36,7 @@ namespace BBQ.Cooking {
         
         private static readonly int Seed = Shader.PropertyToID("_seed");
 
-        public void Draw(LaneFood laneFood) {
+        public void Draw(FoodObject laneFood) {
             DeckFood deckFood = laneFood.deckFood;
             Image image = laneFood.transform.Find("Image").GetComponent<Image>();
             image.sprite = deckFood.data.foodImage;
@@ -46,7 +46,7 @@ namespace BBQ.Cooking {
             DrawEffect(laneFood);
         }
 
-        public void DrawEffect(LaneFood laneFood) {
+        public void DrawEffect(FoodObject laneFood) {
             FoodEffect effect = laneFood.deckFood.effect;
             if (effect == null) {
                 Transform frame = laneFood.transform.Find("FoodEffect");
@@ -59,7 +59,7 @@ namespace BBQ.Cooking {
             }
         }
 
-        public void AddEffect(LaneFood laneFood) {
+        public void AddEffect(FoodObject laneFood) {
             FoodEffect effect = laneFood.deckFood.effect;
             if (effect == null) {
                 Transform frame = laneFood.transform.Find("FoodEffect");
@@ -75,7 +75,7 @@ namespace BBQ.Cooking {
 
         }
 
-        public void Hit(LaneFood laneFood) {
+        public void Hit(FoodObject laneFood) {
             float rotateDelta = Random.Range(5f, 15f);
             if (Random.value >= 0.5f) rotateDelta *= -1;
             laneFood.transform.Find("Image").DOLocalRotate(new Vector3(0, 0, rotateDelta),
@@ -87,7 +87,7 @@ namespace BBQ.Cooking {
             }
         }
         
-        public async void Drop(LaneFood laneFood) {
+        public async void Drop(FoodObject laneFood) {
             int dir = laneFood.transform.localPosition.x > 0 ? 1 : -1;
             laneFood.transform.DOLocalJump(laneFood.transform.localPosition + fallLength * Vector3.down,
                 jumpLength, 1, fallDuration);
@@ -98,7 +98,7 @@ namespace BBQ.Cooking {
             Destroy(laneFood.gameObject);
         }
 
-        public void Freeze(LaneFood laneFood) {
+        public void Freeze(FoodObject laneFood) {
             Image image = laneFood.transform.Find("Image").GetComponent<Image>();
             image.color = freezeColor;
             FreezeEffect effect = Instantiate(freezeEffectPrefab, laneFood.transform)
@@ -107,7 +107,7 @@ namespace BBQ.Cooking {
             effect.Draw();
         }
         
-        public void Fire(LaneFood laneFood) {
+        public void Fire(FoodObject laneFood) {
             Image image = laneFood.transform.Find("Image").GetComponent<Image>();
             image.color = fireColor;
             Transform effect = Instantiate(fireEffectPrefab).transform;
@@ -118,7 +118,7 @@ namespace BBQ.Cooking {
         }
 
 
-        public void Invoke(LaneFood food) {
+        public void Invoke(FoodObject food) {
             food.transform.Find("Image").localScale = Vector3.one * shakeStrength;
             food.transform.Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
         }

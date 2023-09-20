@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace BBQ.Action.Play {
             if (drawNum == 0) {
                 return;
             }
-            List<LaneFood> taken = env.deck.TakeFood(drawNum);
+            List<FoodObject> taken = env.deck.TakeFood(drawNum);
             SoundMgr.SoundPlayer.I.Play("se_draw");
             if (laneIndex == 0) await env.board.AddFoodsRandomly(taken);
             else await env.board.AddFoodsRandomly(taken, laneIndex);

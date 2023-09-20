@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
@@ -25,7 +26,7 @@ namespace BBQ.Action {
             List<InvokeSet> invokeSets = await register.GetInvokers(trigger, target, isMyself);
             foreach (InvokeSet invokeSet in invokeSets) {
                 //if (invokeSet.invoker.isFrozen) continue;
-                LaneFood laneFood = env.board.FindLaneFood(invokeSet.invoker);
+                FoodObject laneFood = env.board.FindFoodObject(invokeSet.invoker);
                 if(laneFood != null) laneFood.OnInvoke();
                 await assembly.Run(invokeSet.sequence.commands, env, invokeSet.invoker, target);
             }

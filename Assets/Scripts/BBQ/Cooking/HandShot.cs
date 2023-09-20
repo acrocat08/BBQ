@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using Unity.VisualScripting;
@@ -18,9 +19,9 @@ namespace BBQ.Cooking {
             _lanes = lanes;
         }
 
-        public async UniTask<List<LaneFood>> Shot() {
+        public async UniTask<List<FoodObject>> Shot() {
             PlaySound();
-            List<LaneFood> hitFoods = new List<LaneFood>();
+            List<FoodObject> hitFoods = new List<FoodObject>();
             RectTransform tr = GetComponent<RectTransform>();
             float delta = (maxHeight - tr.sizeDelta.y) / (durationSecond * 1000);
             int laneCount = 0;
@@ -32,7 +33,7 @@ namespace BBQ.Cooking {
 
                 if (laneCount >= _lanes.Count) continue;
                 if (size.y >= _lanes[laneCount].transform.position.y) {
-                    LaneFood hitFood = _lanes[laneCount].SearchNearestFood(transform.position.x);
+                    FoodObject hitFood = _lanes[laneCount].SearchNearestFood(transform.position.x);
                     if (hitFood != null) {
                         hitFood.Hit();
                         hitFoods.Add(hitFood);
@@ -45,7 +46,7 @@ namespace BBQ.Cooking {
         }
 
         private async void PlaySound() {
-            List<LaneFood> hitFood = _lanes.Select(x => x.SearchNearestFood(transform.position.x)).ToList();
+            List<FoodObject> hitFood = _lanes.Select(x => x.SearchNearestFood(transform.position.x)).ToList();
             if (hitFood.Count(x => x != null) == 0) {
                 SoundPlayer.I.Play("se_nohit");
                 return;

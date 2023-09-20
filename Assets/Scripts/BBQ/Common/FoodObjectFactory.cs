@@ -1,11 +1,10 @@
-using BBQ.Common;
-using BBQ.Database;
+using BBQ.Cooking;
 using BBQ.PlayData;
 using UnityEngine;
 
-namespace BBQ.Cooking {
-    [CreateAssetMenu(menuName = "LaneFood/Factory")]
-    public class LaneFoodFactory : ScriptableObject {
+namespace BBQ.Common {
+    [CreateAssetMenu(menuName = "FoodObject/Factory")]
+    public class FoodObjectFactory : ScriptableObject {
         [SerializeField] private GameObject prefab;
 
         public FoodObject Create(DeckFood deckFood, Transform parent) {

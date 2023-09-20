@@ -27,9 +27,9 @@ namespace BBQ.Common {
         [SerializeField] private Color minusColor;
         private Dictionary<string, Sprite> _dict;
         
-        public async void Create(string imageName, int val, LaneFood laneFood) {
+        public async void Create(string imageName, int val, FoodObject foodObject) {
             if (_dict == null) InitDict();
-            Vector3 pos = laneFood == null ? defaultPos : laneFood.transform.position;
+            Vector3 pos = foodObject == null ? defaultPos : foodObject.transform.position;
             pos += offset * (Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.up);
             pos.x = Mathf.Clamp(pos.x, posXMin, posXMax);
             pos.y = Mathf.Clamp(pos.y, posYMin, posYMax);

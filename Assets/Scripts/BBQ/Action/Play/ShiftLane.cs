@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace BBQ.Action.Play {
                 int index = env.board.GetLaneIndex(deckFood);
                 int nextIndex = (index + 2 + dir) % 3 + 1;
                 if (env.board.SelectLane(nextIndex).Count == 5) continue;
-                LaneFood laneFood = deckFood.Release();
-                tasks.Add(env.board.AddFoodsRandomly(new List<LaneFood> { laneFood }, nextIndex));
+                FoodObject laneFood = deckFood.Release();
+                tasks.Add(env.board.AddFoodsRandomly(new List<FoodObject> { laneFood }, nextIndex));
             }
 
             if (tasks.Count == 0) {

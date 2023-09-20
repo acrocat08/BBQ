@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace BBQ.Action.Play {
         }
 
         async UniTask FreezeFood(ActionEnvironment env, DeckFood deckFood) {
-            LaneFood laneFood = env.board.FindLaneFood(deckFood);
+            FoodObject laneFood = env.board.FindFoodObject(deckFood);
             laneFood.Freeze();
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

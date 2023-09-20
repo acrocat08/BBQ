@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BBQ.Action;
+using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -12,11 +13,11 @@ namespace BBQ.Cooking {
         [SerializeField] private LaneMovement[] movements;
         [SerializeField] private Lane[] lanes;
         [SerializeField] private float[] loopLines;
-        private LaneFood[] _looped;
+        private FoodObject[] _looped;
         private bool _pauseMode;
  
         void Start() {
-            _looped = new LaneFood[] { null, null, null };
+            _looped = new FoodObject[] { null, null, null };
             MoveLanes();
         }
 
@@ -27,7 +28,7 @@ namespace BBQ.Cooking {
                 List<DeckFood> loopedFoods = new List<DeckFood>();
                 for (int i = 0; i < movements.Length; i++) {
                     movements[i].Move();
-                    LaneFood looped = GetLoopedFood(i);
+                    FoodObject looped = GetLoopedFood(i);
                     if (looped != _looped[i] && looped != null) {
                         loopedFoods.Add(looped.deckFood);
                     }
@@ -44,7 +45,7 @@ namespace BBQ.Cooking {
             time.Resume();
         }
 
-        LaneFood GetLoopedFood(int index) {
+        FoodObject GetLoopedFood(int index) {
             return lanes[index]
                 .GetFoods()
                 .Where(x => x != null)

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -15,9 +16,9 @@ namespace BBQ.Action.Play {
             
             await TriggerObserver.I.Invoke(ActionTrigger.BeforeReset, new List<DeckFood>(), false);
             List<UniTask> tasks = new List<UniTask>();
-            List<LaneFood> boardFoods = env.board.ReleaseFoods(env.board.SelectAll());
+            List<FoodObject> boardFoods = env.board.ReleaseFoods(env.board.SelectAll());
             tasks.Add(env.deck.AddFoods(boardFoods));
-            List<LaneFood> dumpFoods = env.dump.ReleaseFoods(env.dump.SelectAll());
+            List<FoodObject> dumpFoods = env.dump.ReleaseFoods(env.dump.SelectAll());
             tasks.Add(env.deck.AddFoods(dumpFoods));
             SoundMgr.SoundPlayer.I.Play("se_reset");
             await tasks;
