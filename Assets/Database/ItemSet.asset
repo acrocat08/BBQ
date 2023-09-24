@@ -76,3 +76,5 @@ MonoBehaviour:
   supportFoods:
   - {fileID: 11400000, guid: 455584ef28879ce49975ea5ce461c296, type: 2}
   - {fileID: 11400000, guid: a69d46ee89175ce46923732115eadd29, type: 2}
+  tools:
+  - {fileID: 11400000, guid: 1f34dfa4cca6c4f4696ec322b67869e5, type: 2}

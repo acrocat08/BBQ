@@ -30,6 +30,7 @@ namespace BBQ.Action {
         AfterReroll,
         LankUp,
         LankUpOthers,
+        UseTool,
     }
     
     [Serializable]

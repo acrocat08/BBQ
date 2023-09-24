@@ -31,10 +31,14 @@ namespace BBQ.Shopping {
         
         public async void Reroll() {
             _isWaiting = true;
-            List<ShopFood> shopItems = _shop.GetShopItems();
-            if(shopItems != null) _shop.DeleteItems(new List<ShopFood>(shopItems));
-            List<FoodData> foods = choice.Choice(_shop.GetShopLevel());
-            await _shop.AddItems(foods);
+            List<ShopFood> shopItems = _shop.GetShopFoods();
+            if(shopItems != null) _shop.DeleteFoods(new List<ShopFood>(shopItems));
+            List<FoodData> foods = choice.ChoiceFoods(_shop.GetShopLevel());
+            ToolData tool = choice.ChoiceTool(_shop.GetShopLevel());
+            List<UniTask> tasks = new List<UniTask>();
+            tasks.Add(_shop.AddFoods(foods));
+            tasks.Add(_shop.AddTool(tool));
+            await tasks;
             _isWaiting = false;
         }
         

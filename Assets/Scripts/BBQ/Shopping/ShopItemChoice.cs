@@ -11,7 +11,7 @@ namespace BBQ.Shopping {
         public List<TierTable> tierTables;
         public ItemSet itemSet;
         
-        public List<FoodData> Choice(int level) {
+        public List<FoodData> ChoiceFoods(int level) {
             List<FoodData> ret = new List<FoodData>();
             TierTable nowTable = tierTables[level - 1];
             for (int i = 0; i < 4; i++) {
@@ -23,10 +23,14 @@ namespace BBQ.Shopping {
                     cnt += per[tier];
                     if (r < cnt) break;
                 }
-                ret.Add(itemSet.GetRandomItem(tier + 1));
+                ret.Add(itemSet.GetRandomFood(tier + 1));
             }
 
             return ret;
+        }
+        
+        public ToolData ChoiceTool(int level) {
+            return itemSet.GetRandomTool(level);
         }
 
         [Serializable]
@@ -37,5 +41,7 @@ namespace BBQ.Shopping {
             [Range(0,100)] public int tier4;
             [Range(0,100)] public int tier5;
         }
+
+
     }
 }

@@ -12,6 +12,7 @@ namespace BBQ.Shopping {
     public class ShopItemView : ScriptableObject {
 
         [SerializeField] private Color[] colors;
+        [SerializeField] private Color toolColor;
         [SerializeField] private int fallPos;
         [SerializeField] private float fallDuration;
         [SerializeField] private Ease fallEasing;
@@ -29,6 +30,15 @@ namespace BBQ.Shopping {
             shopFood.transform.Find("Name").GetComponent<Text>().text = data.foodName;
             shopFood.transform.Find("Line").GetComponent<Image>().color = colors[data.tier - 1];
             shopFood.transform.Find("Shadow").GetComponent<Image>().color = colors[data.tier - 1];
+        }
+        
+        public void DrawTool(ShopTool shopTool) {
+            ToolData data = shopTool.data;
+            shopTool.transform.Find("Image").GetComponent<Image>().sprite = data.toolImage;
+            shopTool.transform.Find("Cost").GetComponent<Text>().text = data.cost.ToString();
+            shopTool.transform.Find("Name").GetComponent<Text>().text = data.toolName;
+            shopTool.transform.Find("Line").GetComponent<Image>().color = toolColor;
+            shopTool.transform.Find("Shadow").GetComponent<Image>().color = toolColor;
         }
 
         public void Fall(Transform tr) {
@@ -65,5 +75,23 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(dropDuration));
             Destroy(shopFood.gameObject);
         }
+
+        public async UniTask Drop(ShopTool shopTool) {
+            shopTool.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+            int dir = shopTool.transform.localPosition.x > 0 ? 1 : -1;
+            shopTool.transform.DOLocalJump(shopTool.transform.localPosition + dropLength * Vector3.down,
+                jumpLength, 1, dropDuration);
+            shopTool.transform.DOLocalMoveX(shopTool.transform.localPosition.x + dropXLength * dir * Random.Range(0.5f, 2f), dropDuration)
+                .SetEase(Ease.Linear);
+            shopTool.transform.DOLocalRotate(new Vector3(0, 0, 180), dropDuration);
+            shopTool.transform.Find("Carbon").GetComponent<Image>().enabled = false;
+            shopTool.transform.Find("Cost").GetComponent<Text>().enabled = false;
+            shopTool.transform.Find("Shadow").GetComponent<Image>().enabled = false;
+            shopTool.transform.Find("Line").GetComponent<Image>().enabled = false;
+            shopTool.transform.Find("Name").GetComponent<Text>().enabled = false;
+            await UniTask.Delay(TimeSpan.FromSeconds(dropDuration));
+            Destroy(shopTool.gameObject);
+        }
+        
     }
 }

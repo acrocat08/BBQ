@@ -8,6 +8,7 @@ using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using SoundMgr;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
@@ -21,13 +22,16 @@ namespace BBQ.Shopping {
         [SerializeField] private Transform detailContainer;
         [SerializeField] private Reroller reroller;
         private Coin _coin;
-        private ShopFood[] _items;
+        private ShopFood[] _foods;
+        private ShopTool _tool;
         private int _level;
         private int _levelUpDiscount;
         [SerializeField] private List<int> levelUpCosts;
+        [SerializeField] private ActionAssembly assembly;
+        [SerializeField] private ActionEnvironment env;
 
         public void Init(int level, int levelupDiscount, Coin coin, int rerollTicket) {
-            _items = new ShopFood[] { null, null, null, null, null };
+            _foods = new ShopFood[] { null, null, null, null, null };
             _level = level;
             _levelUpDiscount = levelupDiscount;
             _coin = coin;
@@ -40,7 +44,7 @@ namespace BBQ.Shopping {
             if (!CheckCanBuyFood(shopFood, _coin, inventory)) return;
             _coin.Use(shopFood.GetFoodData().cost);
             inventory.AddItem(shopFood.deckFood);
-            DeleteItems(new List<ShopFood>{shopFood});            
+            DeleteFoods(new List<ShopFood>{shopFood});            
             SoundPlayer.I.Play("se_buy");
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await TriggerObserver.I.Invoke(ActionTrigger.Buy, new List<DeckFood>{shopFood.deckFood}, true);
@@ -54,54 +58,70 @@ namespace BBQ.Shopping {
         }
 
 
-        public void DeleteItems(List<ShopFood> items) {
-            if (_items == null) return;
+        public void DeleteFoods(List<ShopFood> items) {
+            if (_foods == null) return;
             for (int i = 0; i < 5; i++) {
-                if (items.Contains(_items[i])) {
-                    TriggerObserver.I.RemoveFood(_items[i].deckFood);
-                    Destroy(_items[i].gameObject);
-                    _items[i] = null;
+                if (items.Contains(_foods[i])) {
+                    TriggerObserver.I.RemoveFood(_foods[i].deckFood);
+                    Destroy(_foods[i].gameObject);
+                    _foods[i] = null;
                 }
             }
         }
+
+        public void DeleteTool() {
+            Destroy(_tool.gameObject);
+            _tool = null;
+        }
         
-        public List<ShopFood> GetShopItems() {
-            return _items.Where(x => x != null).ToList();
+        public List<ShopFood> GetShopFoods() {
+            return _foods.Where(x => x != null).ToList();
         }
 
-        public async UniTask AddItems(List<FoodData> data) {
-            await MoveItems();
+        public async UniTask AddFoods(List<FoodData> data) {
+            await MoveFoods();
             int cnt = 0;
             for (int i = 0; i < 5; i++) {
                 if (cnt >= data.Count) break;
-                if (_items[i] != null) continue;
-                _items[i] = itemFactory.CreateFood(data[cnt], this, detailContainer);
-                _items[i].deckFood.Releasable = this;
-                view.PlaceItem(_items[i], i, transform);
-                TriggerObserver.I.RegisterFood(_items[i].deckFood);
+                if (_foods[i] != null) continue;
+                _foods[i] = itemFactory.CreateFood(data[cnt], this, detailContainer);
+                _foods[i].deckFood.Releasable = this;
+                view.PlaceFood(_foods[i], i, transform);
+                TriggerObserver.I.RegisterFood(_foods[i].deckFood);
                 cnt++;
             }
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
             pointSensor.UpdateArea();
         }
 
-        async UniTask MoveItems() {
-            List<ShopFood> listed = _items.Where(x => x != null).ToList();
+        public async UniTask AddTool(ToolData tool) {
+            if (_tool != null) {
+                _tool.Drop();
+                DeleteTool();
+            }
+            _tool = itemFactory.CreateTool(tool, this, detailContainer);
+            view.PlaceTool(_tool, transform);
+            pointSensor.UpdateArea();
+        }
+
+        async UniTask MoveFoods() {
+            List<ShopFood> listed = _foods.Where(x => x != null).ToList();
             if (listed.Count == 0) return;
             if (listed.Count == 5) {
-                _items[0].Drop();
-                _items[0] = null;
+                _foods[0].Drop();
+                TriggerObserver.I.RemoveFood(_foods[0].deckFood);
+                _foods[0] = null;
                 await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-                listed = _items.Where(x => x != null).ToList();
+                listed = _foods.Where(x => x != null).ToList();
             }
             for (int i = 0; i < listed.Count; i++) {
-                if(_items[i] == null) break;
+                if(_foods[i] == null) break;
                 if (i == listed.Count - 1) return;
             }
-            _items = new ShopFood[] { null, null, null, null, null };
+            _foods = new ShopFood[] { null, null, null, null, null };
             for (int i = 0; i < listed.Count; i++) {
-                _items[i] = listed[i];
-                view.MoveItem(_items[i], i, transform);
+                _foods[i] = listed[i];
+                view.MoveFood(_foods[i], i, transform);
             }
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
         }
@@ -134,7 +154,12 @@ namespace BBQ.Shopping {
         }
 
         public FoodObject GetObject(DeckFood food) {
-            return _items.FirstOrDefault(x => x.deckFood == food);
+            return _foods.FirstOrDefault(x => x.deckFood == food);
+        }
+
+        public async void UseTool(ShopTool shopTool) {
+            await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, new List<DeckFood>());
+            
         }
     }
 }

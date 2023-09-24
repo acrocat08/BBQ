@@ -357,6 +357,8 @@ MonoBehaviour:
   detailContainer: {fileID: 1980499640}
   reroller: {fileID: 1621774170}
   levelUpCosts: 64000000c80000002c01000090010000f4010000
+  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+  env: {fileID: 538731122}
 --- !u!1001 &99923055
 PrefabInstance:
   m_ObjectHideFlags: 0

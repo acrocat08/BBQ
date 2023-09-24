@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169aa3de059848c44a41326ede9f9265, type: 3}
-  m_Name: Factory
+  m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
+  m_Name: tsurizao
   m_EditorClassIdentifier: 
-  foodPrefab: {fileID: 4780927465201709779, guid: ac34d981660328a4497285df9facde76, type: 3}
-  toolPrefab: {fileID: 2315284354481065725, guid: bf87cc516239eb048a43a0e2347c0b9a, type: 3}
+  toolName: 
+  tier: 0
+  cost: 0
+  toolImage: {fileID: 0}
+  action:
+    summaries: []
+    sequences: []
+  targetArea: 

@@ -44,8 +44,8 @@ namespace BBQ.Shopping {
                 target[i].SetFood(emptyFood);
             }
             await UniTask.Delay(TimeSpan.FromSeconds(discoverDuration));
-            FoodData discovered = itemSet.GetRandomItem(Mathf.Min(5, shop.GetShopLevel() + 1));
-            await shop.AddItems(new List<FoodData> { discovered });
+            FoodData discovered = itemSet.GetRandomFood(Mathf.Min(5, shop.GetShopLevel() + 1));
+            await shop.AddFoods(new List<FoodData> { discovered });
         }
 
     }
