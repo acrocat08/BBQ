@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draw: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
   drawNum: 3
+  penalty: 4
+  effect: {fileID: 11400000, guid: 66f9870c94e7bff4a8db7e59cbc37b01, type: 2}

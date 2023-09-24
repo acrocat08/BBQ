@@ -11,9 +11,9 @@ namespace BBQ.Action.Play {
     public class SortByDistance : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            FoodObject invoker = env.board.FindFoodObject(v.invoker);
+            FoodObject invoker = v.invoker.GetObject();
             v.f1 = deckFoods
-                .Select(x => env.board.FindFoodObject(x))
+                .Select(x => x.GetObject())
                 .OrderBy(x => (x.transform.position - invoker.transform.position).magnitude)
                 .Select(x => x.deckFood)
                 .ToList();

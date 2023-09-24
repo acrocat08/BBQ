@@ -78,6 +78,10 @@ namespace BBQ.Cooking {
             }
             return ret;
         }
+        
+        public FoodObject GetObject(DeckFood food) {
+            return null;
+        }
 
         public List<DeckFood> GetUsableFoods() {
             return _allFoods.Where(x => CheckUsable(x.Item1)).Select(x => x.Item2).ToList();

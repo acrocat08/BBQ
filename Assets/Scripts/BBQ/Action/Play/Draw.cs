@@ -12,16 +12,12 @@ namespace BBQ.Action.Play {
     public class Draw : PlayAction {
         [SerializeField] private int resetBorder;
         [SerializeField] private Reset reset;
-        [SerializeField] private float nullDrawDuration;
-        [SerializeField] private AddTime addTime;
-        [SerializeField] private int resetPenalty;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int drawNum = v.GetNum(v.n1);
             int laneIndex = 0;
             if (v.n2 != "") laneIndex = v.GetNum(v.n2);
             
             if (!CheckDrawable(env, drawNum)) {
-                await addTime.Execute(env, v.Copy(resetPenalty.ToString(), ""));
                 await reset.Execute(env, v);
                 return;
             }
@@ -44,8 +40,8 @@ namespace BBQ.Action.Play {
         bool CheckDrawable(ActionEnvironment env, int drawNum) {
             int deckNum = env.deck.SelectAll().Count;
             int boardNum = env.board.SelectAll().Count;
-            if (deckNum >= drawNum) return true;
-            if (boardNum + deckNum > resetBorder) return true;
+            if (deckNum > 0) return true;
+            if (boardNum > resetBorder) return true;
             return false;
         }
     }

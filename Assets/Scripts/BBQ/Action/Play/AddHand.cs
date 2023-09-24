@@ -13,8 +13,9 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int num = v.GetNum(v.n1);
             env.handCount.Add(num);
-
-            effect.Create("hand", num, env.board.FindFoodObject(v.invoker));
+            FoodObject pos = v.invoker?.GetObject();
+            
+            effect.Create("hand", num, pos);
             SoundMgr.SoundPlayer.I.Play("se_addHand");
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

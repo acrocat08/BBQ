@@ -11,6 +11,8 @@ namespace BBQ.Cooking {
 
         private List<DeckFood> _foods;
 
+        private List<FoodObject> _hittingFoods;
+
         public void Init() {
             _foods = new List<DeckFood>();
         }
@@ -28,6 +30,10 @@ namespace BBQ.Cooking {
             }
             return ret;
         }
+        
+        public FoodObject GetObject(DeckFood food) {
+            return _hittingFoods.FirstOrDefault(x => x.deckFood == food);
+        }
 
         public void AddFoods(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
@@ -39,9 +45,14 @@ namespace BBQ.Cooking {
 
         public void HitFoods(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
+            _hittingFoods = foods;
             foreach (FoodObject laneFood in foods) {
                 laneFood.deckFood.Releasable = this;
             }
+        }
+
+        public List<DeckFood> GetHittingFoods() {
+            return _hittingFoods.Select(x => x.deckFood).ToList();
         }
         
     }

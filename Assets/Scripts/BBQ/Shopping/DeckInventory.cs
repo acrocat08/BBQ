@@ -1,53 +1,56 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Action;
+using BBQ.Common;
+using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
 using UnityEngine;
 
 namespace BBQ.Shopping {
-    public class DeckInventory : MonoBehaviour {
+    public class DeckInventory : MonoBehaviour, IReleasable {
         [SerializeField] private DeckInventoryView view;
-        [SerializeField] List<DeckItem> deckItems;
+        [SerializeField] List<InventoryFood> deckItems;
         [SerializeField] private Merger merger;
 
         public void Init(List<DeckFood> deckFoods) {
             for (int i = 0; i < deckFoods.Count; i++) {
                 deckItems[i].SetFood(deckFoods[i]);
+                TriggerObserver.I.RegisterFood(deckFoods[i]);
             }
             SetPointableArea();
         }
 
-        public void AddItem(FoodData food) {
-            DeckFood deckFood = new DeckFood(food);
-            DeckItem target = deckItems.FirstOrDefault(x => x.GetFood() == null);
+        public void AddItem(DeckFood food) {
+            DeckFood deckFood = food;
+            InventoryFood target = deckItems.FirstOrDefault(x => x.GetFoodData() == null);
             if (target == null) return;
             target.SetFood(deckFood);
             SetPointableArea();
+            deckFood.Releasable = this;
+            TriggerObserver.I.RegisterFood(food);
         }
 
         public void SortItem() {
-            deckItems.ForEach(x => x.transform.Find("Food").localPosition = Vector3.zero);
+            deckItems.ForEach(x => x.transform.Find("Image").localPosition = Vector3.zero);
             SetPointableArea();
         }
         
         public List<DeckFood> GetDeckFoods() {
-            return deckItems.Select(x => x.GetFood()).Where(x => x != null).ToList();
+            return deckItems.Select(x => x.deckFood).Where(x => x.data != null).ToList();
         }
 
         public bool CheckIsEmpty() {
-            return deckItems.Any(x => x.GetFood() == null);
+            return deckItems.Any(x => x.GetFoodData() == null);
         }
 
         void SetPointableArea() {
             var group = deckItems
-                .Where(x => x.GetFood() != null)
-                .Where(x => !x.GetFood().data.isToken)
-                .GroupBy(x => (x.GetFood().data, x.GetFood().lank));
+                .GroupBy(x => (x.deckFood.data, x.deckFood.lank));
             foreach (var g in group) {
                 bool canMerge = merger.CheckCanMerge(g.Key.data, g.Key.lank, g.Count());
-                Debug.Log(canMerge);
-                foreach (DeckItem deckItem in g) {
+                foreach (InventoryFood deckItem in g) {
                     PointableArea area = deckItem.transform.Find("Merge").GetComponent<PointableArea>();
                     area.areaTag = canMerge ? (g.Key.data.foodName + g.Key.lank) : "none";
                     area.targetTag = canMerge ? (g.Key.data.foodName + g.Key.lank) : "";
@@ -57,9 +60,15 @@ namespace BBQ.Shopping {
                 }
             }
         }
-        
-        
-        
+
+
+        public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
+            return new List<FoodObject>();
+        }
+
+        public FoodObject GetObject(DeckFood food) {
+            return deckItems.FirstOrDefault(x => x.deckFood == food);
+        }
     }
 
 }

@@ -89,11 +89,12 @@ namespace BBQ.Cooking {
 
         private async UniTask MoveBG(RectTransform BG, float toWidth, float duration, Ease ease) {
             float height = BG.sizeDelta.y;
-            await DOTween.To(
+            DOTween.To(
                 () => BG.sizeDelta,
                 x => BG.sizeDelta = x,
                 new Vector2(toWidth, height),
                 duration).SetEase(ease);
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
 
         public async UniTask GameEnd(Transform container, List<MissionStatus> missions, int star, int gainStar, int life, int lostLife, bool isClear) {

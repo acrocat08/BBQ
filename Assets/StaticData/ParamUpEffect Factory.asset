@@ -19,6 +19,12 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 456a883ee4719e149914237d0c0a031d, type: 3}
   - name: time
     sprite: {fileID: 21300000, guid: 30a17edacf7331448949d47bf1b7053a, type: 3}
+  - name: lane1
+    sprite: {fileID: 21300000, guid: 79143d6e9e4d7344eae768afe2b53d4d, type: 3}
+  - name: lane2
+    sprite: {fileID: 21300000, guid: a1969e854c0e6d84488869f340fa4405, type: 3}
+  - name: lane3
+    sprite: {fileID: 21300000, guid: 916d2de76762e4441ab08d56fb101b86, type: 3}
   effectPrefab: {fileID: 8699921937074537130, guid: 2e20303aeb274d248ab7c5b1a4d35141, type: 3}
   offset: 100
   defaultPos: {x: 1130, y: 540, z: 0}

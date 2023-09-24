@@ -17,7 +17,7 @@ namespace BBQ.Common {
             view.Hit(this);
         }
 
-        public void Drop() {
+        public virtual void Drop() {
             transform.SetParent(GameObject.Find("Canvas").transform);
             view.Drop(this);
         }
@@ -39,6 +39,9 @@ namespace BBQ.Common {
         public void OnInvoke() {
             view.Invoke(this);
         }
-        
+
+        public virtual void LankUp() {
+        }
+
     }
 }

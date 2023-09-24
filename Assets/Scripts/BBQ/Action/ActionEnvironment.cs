@@ -9,22 +9,30 @@ using UnityEngine;
 namespace BBQ.Action {
     [Serializable]
     public class ActionEnvironment : MonoBehaviour {
+        public bool isShopping;
         [HideInInspector] public Board board;
-        [HideInInspector] public List<Lane> lanes;
+        [HideInInspector] public LoopManager loop;
         [HideInInspector] public Deck deck;
         [HideInInspector] public Dump dump;
         [HideInInspector] public CopyArea copyArea;
         [HideInInspector] public HandCount handCount;
         [HideInInspector] public CookTime time;
         [HideInInspector] public Coin coin;
-        public void Init(Board board, List<Lane> lanes, Deck deck, Dump dump, CopyArea copyArea, HandCount handCount, CookTime time, Coin coin) {
+        [HideInInspector] public int rerollTicket;
+        public void Init(Board board, LoopManager loop, Deck deck, Dump dump, CopyArea copyArea, HandCount handCount, CookTime time, Coin coin, int rerollTicket) {
             this.board = board;
-            this.lanes = lanes;
+            this.loop = loop;
             this.deck = deck;
             this.dump = dump;
             this.copyArea = copyArea;
             this.handCount = handCount;
             this.time = time;
+            this.coin = coin;
+            this.rerollTicket = rerollTicket;
+        }
+
+        public void Init(HandCount handCount, Coin coin) {
+            this.handCount = handCount;
             this.coin = coin;
         }
     }

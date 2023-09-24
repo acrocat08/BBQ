@@ -21,6 +21,9 @@ MonoBehaviour:
   fallPos: 500
   fallDuration: 0.5
   fallEasing: 21
-  floatCycle: 2
   floatLength: 20
   floatSpeed: 3
+  dropLength: 1200
+  jumpLength: 700
+  dropXLength: 0
+  dropDuration: 1

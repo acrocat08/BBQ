@@ -19,6 +19,7 @@ namespace BBQ.Cooking {
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private Board board;
         [SerializeField] private List<Lane> lanes;
+        [SerializeField] private LoopManager loopManager;
         [SerializeField] private CookTime cookTime;
         [SerializeField] private HandCount handCount;
         [SerializeField] private MissionSheet missionSheet;
@@ -48,12 +49,7 @@ namespace BBQ.Cooking {
         public void Init() {
             _isRunning = false;
             LoadStatus();
-            view.Init(this);
-            cookTime.Init(60);      
-            dump.Init();
-            copyArea.Init();
-            board.Init(lanes, dump, handCount, cookTime, missionSheet);
-            env.Init(board, lanes, deck, dump, copyArea, handCount, cookTime, coin);
+
             cookTime.Pause();
             GameStart();
         }
@@ -92,7 +88,7 @@ namespace BBQ.Cooking {
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
             if(targetDeck == null) deck.Init(testDeck);
             else deck.Init(targetDeck);
-            handCount.Init(5);
+            handCount.Init(PlayerStatus.GetHand());
             coin.Init(PlayerStatus.GetCoin());
             _day = PlayerStatus.GetDay();
             _missions = PlayerStatus.GetNowMission();
@@ -100,13 +96,20 @@ namespace BBQ.Cooking {
             missionSheet.Init(_missions);
             _star = PlayerStatus.GetStar();
             _life = PlayerStatus.GetLife();
+            view.Init(this);
+            cookTime.Init(60);      
+            dump.Init();
+            copyArea.Init();
+            loopManager.Init();
+            board.Init(lanes, dump, handCount, cookTime, missionSheet);
+            env.Init(board, loopManager, deck, dump, copyArea, handCount, cookTime, coin, 0);
         }
 
         private void SaveStatus() {
             List<DeckFood> deckFoods = deck.GetUsableFoods();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deckFoods, coinNum, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
-                0, _star, _life, new List<MissionStatus>());
+            PlayerStatus.Create(deckFoods, coinNum, 5, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
+                env.rerollTicket, _star, _life, new List<MissionStatus>());
         }
 
         public int GetDay() {

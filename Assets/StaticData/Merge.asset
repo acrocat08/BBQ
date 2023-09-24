@@ -16,3 +16,5 @@ MonoBehaviour:
   tier2Count: 2
   mergeDuration: 0.25
   mergeEasing: 15
+  discoverDuration: 0.5
+  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}

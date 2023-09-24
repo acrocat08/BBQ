@@ -216,6 +216,10 @@ PrefabInstance:
       value: DeckItem (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 5
       objectReference: {fileID: 0}
@@ -446,6 +450,10 @@ PrefabInstance:
       value: DeckItem (11)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 10
       objectReference: {fileID: 0}
@@ -654,6 +662,10 @@ PrefabInstance:
       value: DeckItem (16)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 15
       objectReference: {fileID: 0}
@@ -786,6 +798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 1
@@ -1016,7 +1032,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 806346526}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1064,8 +1080,10 @@ MonoBehaviour:
     effect: {fileID: 0}
   shop: {fileID: 90693992}
   coin: {fileID: 1512946762}
+  handCount: {fileID: 788647726}
   income: 50
   missionMaker: {fileID: 11400000, guid: d01ae1d167b2d464db6d68741a24312c, type: 2}
+  env: {fileID: 538731122}
 --- !u!114 &211513936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,6 +1469,10 @@ PrefabInstance:
       value: DeckItem (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 3
       objectReference: {fileID: 0}
@@ -1713,6 +1735,91 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527975707}
   m_CullTransparentMesh: 1
+--- !u!1 &538731121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538731125}
+  - component: {fileID: 538731124}
+  - component: {fileID: 538731123}
+  - component: {fileID: 538731122}
+  m_Layer: 0
+  m_Name: Action
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &538731122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538731121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4478e2ff6f67a1645b326c1ca2bce893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShopping: 1
+  board: {fileID: 0}
+  loop: {fileID: 0}
+  deck: {fileID: 0}
+  dump: {fileID: 0}
+  copyArea: {fileID: 0}
+  handCount: {fileID: 0}
+  time: {fileID: 0}
+  coin: {fileID: 0}
+  rerollTicket: 0
+--- !u!114 &538731123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538731121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa68e5edf0bd53428bd179182373f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  env: {fileID: 538731122}
+  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+--- !u!114 &538731124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538731121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3be31e8a1863a419f53f75209b4750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+  register: {fileID: 538731123}
+  env: {fileID: 538731122}
+--- !u!4 &538731125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538731121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1252.2218, y: 607.93726, z: 32.722275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &613648892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1805,6 +1912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 11
@@ -1939,6 +2050,10 @@ PrefabInstance:
       value: DeckItem (10)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 9
       objectReference: {fileID: 0}
@@ -2072,6 +2187,10 @@ PrefabInstance:
       value: DeckItem (20)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 19
       objectReference: {fileID: 0}
@@ -2204,6 +2323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 2
@@ -2668,6 +2791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788647725}
+  - component: {fileID: 788647726}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -2696,6 +2820,19 @@ RectTransform:
   m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &788647726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788647724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51286eb34bd48b94786682fe509167ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 11400000, guid: bca6babf513700d448becea0df618694, type: 2}
 --- !u!1 &806346524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +3063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 17
@@ -3289,6 +3430,10 @@ PrefabInstance:
       value: DeckItem (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 4
       objectReference: {fileID: 0}
@@ -3512,6 +3657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 12
@@ -4067,6 +4216,10 @@ PrefabInstance:
       value: DeckItem (9)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 8
       objectReference: {fileID: 0}
@@ -4199,6 +4352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 18
@@ -4378,6 +4535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 14
@@ -5076,7 +5237,7 @@ GameObject:
   - component: {fileID: 1349806823}
   - component: {fileID: 1349806822}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HandImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5231,6 +5392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 6
@@ -5851,7 +6016,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 15/15
+  m_Text: 0/10
 --- !u!222 &1642042239
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6109,6 +6274,10 @@ PrefabInstance:
       value: DeckItem (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: detail
       value: 
       objectReference: {fileID: 1980499640}
@@ -6232,7 +6401,7 @@ GameObject:
   - component: {fileID: 1878940587}
   - component: {fileID: 1878940586}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Remaining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6391,6 +6560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeckItem (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 7
@@ -6948,6 +7121,10 @@ PrefabInstance:
       value: DeckItem (17)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 16
       objectReference: {fileID: 0}
@@ -7268,6 +7445,10 @@ PrefabInstance:
       value: DeckItem (14)
       objectReference: {fileID: 0}
     - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 90693992}
+    - target: {fileID: 2844683462496930982, guid: 271fc0b1bb7e0294ba913421b4754240, type: 3}
       propertyPath: index
       value: 13
       objectReference: {fileID: 0}
@@ -7316,3 +7497,4 @@ SceneRoots:
   - {fileID: 440598770}
   - {fileID: 1311199660}
   - {fileID: 752107491}
+  - {fileID: 538731125}

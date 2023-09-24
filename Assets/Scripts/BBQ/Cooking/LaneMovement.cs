@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Numerics;
 using BBQ.Common;
 using BBQ.Database;
@@ -15,11 +16,11 @@ namespace BBQ.Cooking {
     public class LaneMovement : MonoBehaviour {
         [SerializeField] private CookingParam param;
         [SerializeField] private Lane lane;
-        [SerializeField] private int speedPerSecond;
         [SerializeField] private int rightBorder;
         [SerializeField] private float addFoodDuration;  
         [SerializeField] private Ease addFoodEasing;
         private float _startXPos;
+        private float speedPerSecond;
         
 
         public async UniTask AddFood(FoodObject food, int index) {
@@ -34,12 +35,14 @@ namespace BBQ.Cooking {
             targetPos = tr.localPosition;
             
             tr.localPosition = prevPos;
-            await tr.DOLocalMove(targetPos, addFoodDuration).SetEase(addFoodEasing);
+            tr.DOLocalMove(targetPos, addFoodDuration).SetEase(addFoodEasing);
+            await UniTask.Delay(TimeSpan.FromSeconds(addFoodDuration));
+
             tr.SetParent(transform);
         }
         
         public void Move() {
-                _startXPos = GetLoopedPos(_startXPos + speedPerSecond * 0.01f);
+                _startXPos = GetLoopedPos(_startXPos + speedPerSecond  / 60f);
                 List<FoodObject> foods = lane.GetFoods();
                 for (int i = 0; i < foods.Count; i++) {
                     if (foods[i] == null) continue;
@@ -61,6 +64,10 @@ namespace BBQ.Cooking {
             else pos += offset;
             pos = GetLoopedPos(pos);
             return new Vector3(pos, 0, 0);
+        }
+
+        public void SetSpeed(float speed) {
+            speedPerSecond = speed;
         }
     }
 }

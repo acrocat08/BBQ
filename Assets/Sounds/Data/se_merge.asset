@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: se_merge
   source: {fileID: 8300000, guid: d4acffe93befcc346871487e03a3c181, type: 3}
-  volume: 0.5
+  volume: 1
   isLoop: 0

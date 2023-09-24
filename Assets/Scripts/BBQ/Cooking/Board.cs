@@ -20,7 +20,6 @@ namespace BBQ.Cooking {
 
         private List<DeckFood> _foods;
         private Hand _hand;
-        private List<FoodObject> _hittingFoods;
         
         private List<Lane> _lanes;
         private Dump _dump;
@@ -36,7 +35,6 @@ namespace BBQ.Cooking {
             _hand = null;
             _time = time;
             _missionSheet = missionSheet;
-            _hittingFoods = new List<FoodObject>();
             StoreHand();
             Pause();
         }
@@ -75,14 +73,6 @@ namespace BBQ.Cooking {
             if(_hand != null) Destroy(_hand.gameObject);
         }
         
-        public void SetHittingFoods(List<FoodObject> hittingFoods) {
-            _hittingFoods = hittingFoods;
-        }
-
-        public List<DeckFood> GetHittingFoods() {
-            return _hittingFoods.Select(x => x.deckFood).ToList();
-        }
-        
         //---
 
         public List<DeckFood> SelectAll() {
@@ -103,7 +93,14 @@ namespace BBQ.Cooking {
             }
             return ret;
         }
-        
+
+        public FoodObject GetObject(DeckFood food) {
+            return _lanes
+                .SelectMany(x => x.GetFoods())
+                .Where(x => x != null)
+                .FirstOrDefault(x => x.deckFood == food);
+        }
+
         public async UniTask AddFoodsRandomly(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
             List<UniTask> tasks = new List<UniTask>();
@@ -126,19 +123,13 @@ namespace BBQ.Cooking {
             await tasks;
         }
 
-        public FoodObject FindFoodObject(DeckFood food) {
-            return _lanes
-                .SelectMany(x => x.GetFoods())
-                .Concat(_hittingFoods)
-                .Where(x => x != null)
-                .FirstOrDefault(x => x.deckFood == food);
-        }
-
         public int GetLaneIndex(DeckFood food) {
             Lane lane = _lanes
                 .First(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
             return _lanes.IndexOf(lane) + 1;
         }
+        
+        
         
     }
 }

@@ -44,5 +44,11 @@ namespace BBQ.PlayData {
         public FoodObject Release() {
             return Releasable.ReleaseFoods(new List<DeckFood> { this }).First();
         }
+
+        public FoodObject GetObject() {
+            return Releasable.GetObject(this);
+        }
+
+
     }
 }

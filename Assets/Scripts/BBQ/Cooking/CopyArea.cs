@@ -48,5 +48,9 @@ namespace BBQ.Cooking {
             }
             return ret;
         }
+        
+        public FoodObject GetObject(DeckFood food) {
+            return null;
+        }
     }
 }

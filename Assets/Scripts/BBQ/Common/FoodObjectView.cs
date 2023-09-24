@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Action.Play;
 using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
@@ -27,22 +28,12 @@ namespace BBQ.Common {
         [SerializeField] private GameObject fireEffectPrefab;
         [SerializeField] private Color fireColor;
 
-        [SerializeField] private List<Material> lankMaterial;
 
         [SerializeField] private float effectDuration;
         [SerializeField] private float effectStrength;
         [SerializeField] Ease effectEasing;
         
-        private static readonly int Seed = Shader.PropertyToID("_seed");
-
-        public void Draw(FoodObject foodObject) {
-            DeckFood deckFood = foodObject.deckFood;
-            Image image = foodObject.transform.Find("Image").GetComponent<Image>();
-            image.sprite = deckFood.data.foodImage;
-            Material mat = lankMaterial[foodObject.deckFood.lank - 1];
-            if(mat != null) image.material = new Material(mat);
-            if(image.material != null) image.material.SetFloat(Seed, Random.value);
-            DrawEffect(foodObject);
+        public virtual void Draw(FoodObject foodObject) {
         }
 
         public void DrawEffect(FoodObject foodObject) {
@@ -71,7 +62,6 @@ namespace BBQ.Common {
                 frame.localScale = Vector3.one * effectStrength;
                 frame.DOScale(Vector3.one, effectDuration).SetEase(effectEasing);
             }
-
         }
 
         public void Hit(FoodObject foodObject) {
@@ -121,5 +111,9 @@ namespace BBQ.Common {
             foodObject.transform.Find("Image").localScale = Vector3.one * shakeStrength;
             foodObject.transform.Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
         }
+
+        public virtual void LankUp(FoodObject foodObject) {
+        }
+        
     }
 }

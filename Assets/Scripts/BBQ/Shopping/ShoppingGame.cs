@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Action;
 using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -15,8 +16,10 @@ namespace BBQ.Shopping {
         [SerializeField] private List<DeckFood> firstFoods;
         [SerializeField] private Shop shop;
         [SerializeField] private Coin coin;
+        [SerializeField] private HandCount handCount;
         [SerializeField] private int income;
         [SerializeField] private MissionMaker missionMaker;
+        [SerializeField] private ActionEnvironment env;
         
         private int _day;
         private List<MissionStatus> _nowMission;
@@ -28,6 +31,7 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
+            env.Init(handCount, coin);
             view.Init(this);
             _nowMission = missionMaker.Create(_day);
             view.UpdateMission(this, _nowMission);
@@ -64,7 +68,8 @@ namespace BBQ.Shopping {
             int nowIncome = Mathf.Max(0, GetDayIncome()); 
             
             coin.Init(PlayerStatus.GetCoin() + nowIncome);
-            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin);
+            handCount.Init(5);
+            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, PlayerStatus.GetRerollTicket());
             int star = PlayerStatus.GetStar();
             int life = PlayerStatus.GetLife();
             view.SetStatus(this, star, life);
@@ -72,7 +77,8 @@ namespace BBQ.Shopping {
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deck, coinNum, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
+            int hand = handCount.GetHandCount();
+            PlayerStatus.Create(deck, coinNum, hand, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
                 PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission);
         }
 

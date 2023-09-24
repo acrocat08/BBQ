@@ -13,29 +13,33 @@ namespace BBQ.Cooking {
         [SerializeField] private LaneMovement[] movements;
         [SerializeField] private Lane[] lanes;
         [SerializeField] private float[] loopLines;
+        [SerializeField] private float[] speedPerSecond;
         private FoodObject[] _looped;
         private bool _pauseMode;
+        private int[] speedLevel;
+        
  
-        void Start() {
+        public void Init() {
             _looped = new FoodObject[] { null, null, null };
-            MoveLanes();
-        }
-
-        async void MoveLanes() {
-            while (true) {
-                await UniTask.Delay(TimeSpan.FromSeconds(0.01f));
-                if (_pauseMode) continue;
-                List<DeckFood> loopedFoods = new List<DeckFood>();
-                for (int i = 0; i < movements.Length; i++) {
-                    movements[i].Move();
-                    FoodObject looped = GetLoopedFood(i);
-                    if (looped != _looped[i] && looped != null) {
-                        loopedFoods.Add(looped.deckFood);
-                    }
-                    _looped[i] = looped;
-                }
-                if(loopedFoods.Count > 0) await ExecuteLoop(loopedFoods);
+            speedLevel = new [] { 0, 0, 0 };
+            for (int i = 0; i < 3; i++) {
+                float speed = i == 1 ? -speedPerSecond[0] : speedPerSecond[0];
+                movements[i].SetSpeed(speed);
             }
+        }
+        
+        private async void FixedUpdate() {
+            if (_pauseMode) return;
+            List<DeckFood> loopedFoods = new List<DeckFood>();
+            for (int i = 0; i < movements.Length; i++) {
+                movements[i].Move();
+                FoodObject looped = GetLoopedFood(i);
+                if (looped != _looped[i] && looped != null) {
+                    loopedFoods.Add(looped.deckFood);
+                }
+                _looped[i] = looped;
+            }
+            if(loopedFoods.Count > 0) await ExecuteLoop(loopedFoods);
         }
 
         async UniTask ExecuteLoop(List<DeckFood> deckFoods) {
@@ -54,6 +58,18 @@ namespace BBQ.Cooking {
         
         public void SetPauseMode(bool mode) {
             _pauseMode = mode;
+        }
+        
+        public async void SetSpeed(int index, int offset, int limit=1000) {
+            speedLevel[index] = Mathf.Min(speedPerSecond.Length - 1, speedLevel[index] + offset);
+            float speed = speedPerSecond[speedLevel[index]];
+            if (index == 1) speed *= -1;
+            movements[index].SetSpeed(speed);
+            await UniTask.Delay(TimeSpan.FromSeconds(limit));
+            speedLevel[index] = Mathf.Max(0, speedLevel[index] - offset);
+            speed = speedPerSecond[speedLevel[index]];
+            if (index == 1) speed *= -1;
+            movements[index].SetSpeed(speed);
         }
         
     }
