@@ -44,6 +44,7 @@ namespace BBQ.Shopping {
         
         public async void BuyFood(ShopFood shopFood, DeckInventory inventory) {
             if (!CheckCanBuyFood(shopFood, _coin, inventory)) return;
+            InputGuard.Lock();
             _coin.Use(shopFood.GetFoodData().cost);
             inventory.AddItem(shopFood.deckFood);
             DeleteFoods(new List<ShopFood>{shopFood});            
@@ -51,8 +52,9 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await TriggerObserver.I.Invoke(ActionTrigger.Buy, new List<DeckFood>{shopFood.deckFood}, true);
             await TriggerObserver.I.Invoke(ActionTrigger.BuyOthers, new List<DeckFood>{shopFood.deckFood}, false);
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();
+            InputGuard.UnLock();
         }
 
         bool CheckCanBuyFood(ShopFood shopFood, Coin coin, DeckInventory inventory) {
@@ -75,7 +77,7 @@ namespace BBQ.Shopping {
         public async void DeleteTool() {
             Destroy(_tool.gameObject);
             _tool = null;
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();
         }
         
@@ -95,7 +97,7 @@ namespace BBQ.Shopping {
                 TriggerObserver.I.RegisterFood(_foods[i].deckFood);
                 cnt++;
             }
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();
         }
 
@@ -106,6 +108,7 @@ namespace BBQ.Shopping {
             }
             _tool = itemFactory.CreateTool(tool, this, detailContainer);
             view.PlaceTool(_tool, transform);
+            await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();
         }
 
@@ -164,9 +167,11 @@ namespace BBQ.Shopping {
 
         public async void UseTool(ShopTool shopTool, List<DeckFood> target) {
             if (_carbon.GetCarbon() < shopTool.data.cost) return;
+            InputGuard.Lock();
             _carbon.Use(shopTool.data.cost);
             DeleteTool();
             await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, target);
+            InputGuard.UnLock();
         }
     }
 }

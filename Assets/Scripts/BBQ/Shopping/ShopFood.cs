@@ -47,6 +47,7 @@ namespace BBQ.Shopping {
         }
         
         public void OnPointUp(List<PointableArea> areas) {
+            if (InputGuard.Guard()) return;
             DeckInventory inventory = areas[0].transform.parent.parent.GetComponent<DeckInventory>();
             _shop.BuyFood(this, inventory);
         }

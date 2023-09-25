@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using BBQ.Common;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -12,13 +13,11 @@ namespace BBQ.Cooking {
         
         private int _nowTime;
         private int _bonusTime;
-        private int _semaphore;
         private bool _bonusMode;
         
         public void Init(int maxTime) {
             _nowTime = maxTime;
             _bonusTime = 0;
-            _semaphore = 0;
             _bonusMode = false;
             view.UpdateText(this, _bonusMode);
             CountDown();
@@ -26,7 +25,7 @@ namespace BBQ.Cooking {
 
         private async void CountDown() {
             while (_nowTime > 0) {
-                if (_semaphore > 0) {
+                if (InputGuard.Guard()) {
                     await UniTask.DelayFrame(1);
                     continue;
                 }
@@ -39,20 +38,20 @@ namespace BBQ.Cooking {
                 view.UpdateText(this, _bonusMode);
             }
 
-            while (_semaphore > 0) {
+            while (InputGuard.Guard()) {
                 await UniTask.DelayFrame(1);
             }
             game.GameEnd();
         }
 
         public void Pause() {
-            _semaphore++;
-            if(_semaphore > 0) board.Pause();
+            InputGuard.Lock();
+            if(InputGuard.Guard()) board.Pause();
         }
 
         public void Resume() {
-            _semaphore--;
-            if(_semaphore == 0) board.Resume();
+            InputGuard.UnLock();
+            if(!InputGuard.Guard()) board.Resume();
         }
 
         public int GetNowTime() {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -36,6 +37,7 @@ namespace BBQ.Shopping {
         }
 
         public void OnPointUp(List<PointableArea> areas) {
+            if (InputGuard.Guard()) return;
             List<DeckFood> target = new List<DeckFood>();
             if (data.targetArea == "deckItem") {
                 target = areas.Select(x => x.transform.parent.GetComponent<InventoryFood>().deckFood).ToList();

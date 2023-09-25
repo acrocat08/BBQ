@@ -76,7 +76,7 @@ namespace BBQ.Cooking {
         }
 
         private bool CheckUsable() {
-            return !_pauseMode && !_afterShot;
+            return !InputGuard.Guard() && !_afterShot;
         }
         
         

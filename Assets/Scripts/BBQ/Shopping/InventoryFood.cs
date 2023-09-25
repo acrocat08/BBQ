@@ -34,6 +34,7 @@ namespace BBQ.Shopping {
         }
 
         public async void OnPointUp(List<PointableArea> areas) {
+            if (InputGuard.Guard()) return;
             List<InventoryFood> target = areas.Select(x => x.transform.parent.GetComponent<InventoryFood>()).ToList();
             target.Add(this);
             await merger.Merge(target, shop);
