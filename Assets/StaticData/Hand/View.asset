@@ -18,3 +18,4 @@ MonoBehaviour:
   fallLength: 1000
   fallDuration: 2
   jumpLength: 750
+  goldMat: {fileID: 2100000, guid: 95e5df6b2fb9b4a7b9e930ccc8dc6db0, type: 2}

@@ -2,6 +2,7 @@ using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 namespace BBQ.Cooking {
     [CreateAssetMenu(menuName = "Hand/View")]
@@ -13,6 +14,7 @@ namespace BBQ.Cooking {
         [SerializeField] private float fallLength;
         [SerializeField] private float fallDuration;
         [SerializeField] private float jumpLength;
+        [SerializeField] private Material goldMat;
 
         public async UniTask AfterHit(Hand hand) {
             await UniTask.Delay(TimeSpan.FromSeconds(waitSecond));
@@ -23,6 +25,10 @@ namespace BBQ.Cooking {
                 .Join(hand.transform.DOLocalJump(hand.transform.localPosition + fallLength * Vector3.down,
                     jumpLength, 1, fallDuration));
             await UniTask.Delay(TimeSpan.FromSeconds(turnDuration));
+        }
+
+        public void Golden(Hand hand, bool isGold) {
+            hand.GetComponent<Image>().material = isGold ? goldMat : null;
         }
     }
 }

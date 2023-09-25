@@ -91,8 +91,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 11400000, guid: 89d6fd4f67ce84041b9928ea86d6571b, type: 2}
+  param: {fileID: 11400000, guid: 66f9870c94e7bff4a8db7e59cbc37b01, type: 2}
   shot: {fileID: 8494839310605377541}
   movement: {fileID: 2915044202753604723}
+  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+  bonus:
+  - trigger: 0
+    condition: []
+    commands:
+    - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
+      n1: 30
+      n2: 
+    priority: 0
+  - trigger: 0
+    condition: []
+    commands:
+    - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
+      n1: 3
+      n2: 
+    priority: 0
+  - trigger: 0
+    condition: []
+    commands:
+    - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+      n1: 1
+      n2: 
+    priority: 0
 --- !u!114 &2915044202753604723
 MonoBehaviour:
   m_ObjectHideFlags: 0

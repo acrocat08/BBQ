@@ -1002,7 +1002,7 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: a727a4c92afe3894b80b026831f74ad5, type: 2}
+  - data: {fileID: 11400000, guid: dfa217e5d253c834f92743abb69f6725, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0

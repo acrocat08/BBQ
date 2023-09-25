@@ -5,33 +5,43 @@ using BBQ.Action;
 using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using SoundMgr;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace BBQ.Cooking {
     public class Hand : MonoBehaviour {
         [SerializeField] private HandView view;
+        [SerializeField] private ParamUpEffectFactory param; 
         [SerializeField] private HandShot shot;
         [SerializeField] private HandMovement movement;
+        [SerializeField] private ActionAssembly assembly;
+        [SerializeField] private List<ActionSequence> bonus;
         private Board _board;
         private Dump _dump;
         private CookTime _time;
         private MissionSheet _missionSheet;
+        private ActionEnvironment _env;
         
 
-        private bool _pauseMode;
         private bool _afterShot;
+        private bool _isGolden;
+        
         
         void Awake() {
-            _pauseMode = false;
             _afterShot = false;
+            _isGolden = true;
         }
 
-        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet) {
+        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env, bool isGolden) {
             _board = board;
             _dump = dump;
             _time = time;
             _missionSheet = missionSheet;
+            _env = env;
+            _isGolden = isGolden;
             shot.Init(lanes);
+            view.Golden(this, isGolden);
         }
 
         void Update() {
@@ -56,6 +66,15 @@ namespace BBQ.Cooking {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await TriggerObserver.I.Invoke(ActionTrigger.Hit, deckFoods, true);
 
+            if (_isGolden) {
+                if (deckFoods.Count == 3) {
+                    List<ActionCommand> _bonus = bonus[Random.Range(0, bonus.Count)].commands;
+                    SoundPlayer.I.Play("se_goldenBonus");    
+                    param.Create("Bonus!!", null);
+                    await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+                    await assembly.Run(_bonus, _env, null, new List<DeckFood>());
+                }
+            }
             
             foreach (var food in hitFoods) {
                 food.transform.SetParent(transform);
@@ -69,10 +88,6 @@ namespace BBQ.Cooking {
             
             await view.AfterHit(this);
             Destroy(gameObject);
-        }
-
-        public void SetPauseMode(bool mode) {
-            _pauseMode = mode;
         }
 
         private bool CheckUsable() {
