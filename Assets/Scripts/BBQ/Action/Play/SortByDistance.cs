@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -10,9 +11,9 @@ namespace BBQ.Action.Play {
     public class SortByDistance : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            LaneFood invoker = env.board.FindLaneFood(v.invoker);
+            FoodObject invoker = v.invoker.GetObject();
             v.f1 = deckFoods
-                .Select(x => env.board.FindLaneFood(x))
+                .Select(x => x.GetObject())
                 .OrderBy(x => (x.transform.position - invoker.transform.position).magnitude)
                 .Select(x => x.deckFood)
                 .ToList();

@@ -76,3 +76,13 @@ MonoBehaviour:
   supportFoods:
   - {fileID: 11400000, guid: 455584ef28879ce49975ea5ce461c296, type: 2}
   - {fileID: 11400000, guid: a69d46ee89175ce46923732115eadd29, type: 2}
+  tools:
+  - {fileID: 11400000, guid: 1f34dfa4cca6c4f4696ec322b67869e5, type: 2}
+  - {fileID: 11400000, guid: 436a0080c8dd59a40b2294b74535f3ae, type: 2}
+  - {fileID: 11400000, guid: 87ad811ced7371a47891682834fd297f, type: 2}
+  - {fileID: 11400000, guid: 648156ac290c4c4469e48fbe82a17ff6, type: 2}
+  - {fileID: 11400000, guid: 29f6139ec05a38f4182945a0c67c73f5, type: 2}
+  - {fileID: 11400000, guid: 75dd8ae6943757743ba5ae44e752e117, type: 2}
+  - {fileID: 11400000, guid: 641589b051dd06b4984036e13351fb40, type: 2}
+  - {fileID: 11400000, guid: f63aa3596f082ab45b07d965e04be095, type: 2}
+  - {fileID: 11400000, guid: b8a6c1dcf553f784081e5f867c81e0f1, type: 2}

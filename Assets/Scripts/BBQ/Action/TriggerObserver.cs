@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
+using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -25,8 +27,8 @@ namespace BBQ.Action {
             List<InvokeSet> invokeSets = await register.GetInvokers(trigger, target, isMyself);
             foreach (InvokeSet invokeSet in invokeSets) {
                 //if (invokeSet.invoker.isFrozen) continue;
-                LaneFood laneFood = env.board.FindLaneFood(invokeSet.invoker);
-                if(laneFood != null) laneFood.OnInvoke();
+                FoodObject food = invokeSet.invoker.GetObject();
+                if(food != null) food.OnInvoke();
                 await assembly.Run(invokeSet.sequence.commands, env, invokeSet.invoker, target);
             }
         }
@@ -34,6 +36,11 @@ namespace BBQ.Action {
         public void RegisterFood(DeckFood deckFood) {
             register.Add(deckFood, deckFood.data.action.sequences);
             if(deckFood.effect != null) register.Add(deckFood, deckFood.effect.action.sequences);
+        }
+
+        public void RemoveFood(DeckFood deckFood) {
+            register.Remove(deckFood, deckFood.data.action.sequences);
+            if(deckFood.effect != null) register.Remove(deckFood, deckFood.effect.action.sequences);
         }
 
         public void UpdateEffect(DeckFood deckFood, FoodEffect prev, FoodEffect after) {

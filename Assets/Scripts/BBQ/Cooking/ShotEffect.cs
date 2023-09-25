@@ -17,12 +17,15 @@ namespace BBQ.Cooking {
                 .OnComplete(() => { Destroy(gameObject);});
             Image image = GetComponent<Image>();
             transform.DOLocalRotate(new Vector3(0, 0, 180 * (Random.Range(0, 1) * 2 - 1)), duration).SetEase(Ease.OutQuad);
+            /*
             DOTween.ToAlpha(
                 ()=> image.color,
                 color => image.color = color,
                 0f,
                 duration 
             ).SetEase(Ease.InSine);
+            */
+            transform.DOScale(Vector3.zero, duration).SetEase(Ease.InQuart);
         }
         
     }

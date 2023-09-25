@@ -1,3 +1,4 @@
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using UnityEngine;
@@ -7,8 +8,8 @@ namespace BBQ.Cooking {
     public class LaneFoodFactory : ScriptableObject {
         [SerializeField] private GameObject prefab;
 
-        public LaneFood Create(DeckFood deckFood, Transform parent) {
-            LaneFood obj = Instantiate(prefab).GetComponent<LaneFood>();
+        public FoodObject Create(DeckFood deckFood, Transform parent) {
+            FoodObject obj = Instantiate(prefab).GetComponent<FoodObject>();
             obj.Init(deckFood);
             Transform tr = obj.transform;
             tr.SetParent(parent);

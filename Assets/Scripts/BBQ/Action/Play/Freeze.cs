@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private Drop drop;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            List<DeckFood> hittingFoods = env.board.GetHittingFoods();
+            List<DeckFood> hittingFoods = env.isShopping ? new List<DeckFood>() : env.dump.GetHittingFoods();
 
             deckFoods = deckFoods.Where(x => !x.isFrozen && !x.isFired).ToList();
             
@@ -26,7 +27,7 @@ namespace BBQ.Action.Play {
             List<DeckFood> dropped = new List<DeckFood>();
 
             foreach (DeckFood deckFood in deckFoods) {
-                tasks.Add(FreezeFood(env, deckFood));
+                tasks.Add(FreezeFood(env, v, deckFood));
                 if (!hittingFoods.Contains(deckFood)) {
                     dropped.Add(deckFood);
                 }
@@ -43,9 +44,13 @@ namespace BBQ.Action.Play {
 
         }
 
-        async UniTask FreezeFood(ActionEnvironment env, DeckFood deckFood) {
-            LaneFood laneFood = env.board.FindLaneFood(deckFood);
-            laneFood.Freeze();
+        async UniTask FreezeFood(ActionEnvironment env, ActionVariable v, DeckFood deckFood) {
+            FoodObject foodObject = null;
+            if (!env.isShopping && env.dump.GetObject(deckFood) != null) {
+                foodObject = env.dump.GetObject(deckFood);
+            }
+            else foodObject = deckFood.GetObject();
+            foodObject.Freeze();
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
     }

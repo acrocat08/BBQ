@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using Unity.Collections;
@@ -40,8 +41,14 @@ namespace BBQ.PlayData {
             return ret;
         }
 
-        public LaneFood Release() {
+        public FoodObject Release() {
             return Releasable.ReleaseFoods(new List<DeckFood> { this }).First();
         }
+
+        public FoodObject GetObject() {
+            return Releasable.GetObject(this);
+        }
+
+
     }
 }

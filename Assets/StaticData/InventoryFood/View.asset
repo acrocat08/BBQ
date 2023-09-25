@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a9beca509f812489f7fd1430159456, type: 3}
+  m_Name: View
+  m_EditorClassIdentifier: 
+  hitEffectPrefab: {fileID: 2891725529459618799, guid: 84b7c8e5b9974b947b370d05cc267019, type: 3}
+  shakeStrength: 1.5
+  shakeDuration: 0.5
+  fallLength: 1200
+  jumpLength: 1000
+  fallXLength: 300
+  fallDuration: 1
+  freezeEffectPrefab: {fileID: 6694111601236560830, guid: f828e92273d94f845bea349e642495b1, type: 3}
+  freezeColor: {r: 0.16470589, g: 0.43137255, b: 1, a: 1}
+  fireEffectPrefab: {fileID: 4860027489261555454, guid: 8ae5aca5066790c4db2dab00d649db46, type: 3}
+  fireColor: {r: 0.93333334, g: 0.4862745, b: 0, a: 1}
+  effectDuration: 0.5
+  effectStrength: 3
+  effectEasing: 11
+  lankColor:
+  - {r: 0.4433962, g: 0.2181094, b: 0.086448275, a: 1}
+  - {r: 0.64708674, g: 0.7333763, b: 0.7735849, a: 1}
+  - {r: 0.8018868, g: 0.5499671, b: 0.035303116, a: 1}
+  lankUpStrength: 3
+  lankUpDuration: 0.5

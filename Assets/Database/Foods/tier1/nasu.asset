@@ -23,4 +23,18 @@ MonoBehaviour:
     - "\u8CFC\u5165\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+2"
     - "\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+3"
     - "\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+4"
-    sequences: []
+    sequences:
+    - trigger: 12
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
+        n1: 3
+        n2: 
+      priority: 0
+    - trigger: 6
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: 2/3/4
+        n2: 
+      priority: 0

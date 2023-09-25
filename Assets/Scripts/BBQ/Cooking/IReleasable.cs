@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.PlayData;
 using UnityEngine;
 
 namespace BBQ.Cooking {
     public interface IReleasable {
-        public List<LaneFood> ReleaseFoods(List<DeckFood> foods);
+        public List<FoodObject> ReleaseFoods(List<DeckFood> foods);
+
+        public FoodObject GetObject(DeckFood food);
     }
 }

@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using BBQ.Action;
+using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace BBQ.Cooking {
@@ -48,17 +47,14 @@ namespace BBQ.Cooking {
         
         async void OnShot() {
             _time.Pause();
-            List<LaneFood> hitFoods = await shot.Shot();
+            List<FoodObject> hitFoods = await shot.Shot();
             List<DeckFood> deckFoods = hitFoods.Select(x => x.deckFood).Reverse().ToList();
             
-            List<LaneFood> boardFoods = _board.ReleaseFoods(deckFoods);
+            List<FoodObject> boardFoods = _board.ReleaseFoods(deckFoods);
             _dump.HitFoods(boardFoods);
 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-            
-            _board.SetHittingFoods(hitFoods);
             await TriggerObserver.I.Invoke(ActionTrigger.Hit, deckFoods, true);
-            _board.SetHittingFoods(new List<LaneFood>());
 
             
             foreach (var food in hitFoods) {

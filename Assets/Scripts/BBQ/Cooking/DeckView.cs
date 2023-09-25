@@ -1,4 +1,6 @@
+using System;
 using BBQ.Action.Play;
+using BBQ.Common;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -19,10 +21,11 @@ namespace BBQ.Cooking {
             tr.DOScale(Vector3.one, bagShakeDuration).SetEase(Ease.OutElastic);
         }
 
-        public async UniTask AddFood(Deck deck, LaneFood food) {
+        public async UniTask AddFood(Deck deck, FoodObject food) {
             Transform tr = food.transform;
             tr.SetParent(deck.transform);
-            await tr.DOLocalMove(Vector3.zero, addFoodDuration).SetEase(addFoodEasing);
+            tr.DOLocalMove(Vector3.zero, addFoodDuration).SetEase(addFoodEasing);
+            await UniTask.Delay(TimeSpan.FromSeconds(addFoodDuration));
         }
 
         public void UpdateText(Deck deck) {

@@ -4,11 +4,18 @@ using UnityEngine;
 namespace BBQ.Shopping {
     [CreateAssetMenu(menuName = "ShopItem/Factory")]
     public class ShopItemFactory : ScriptableObject {
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private GameObject foodPrefab;
+        [SerializeField] private GameObject toolPrefab;
 
-        public ShopItem CreateFood(FoodData data, Shop shop, Transform detailContainer) {
-            ShopItem obj = Instantiate(prefab).GetComponent<ShopItem>();
+        public ShopFood CreateFood(FoodData data, Shop shop, Transform detailContainer) {
+            ShopFood obj = Instantiate(foodPrefab).GetComponent<ShopFood>();
             obj.Init(data, shop, "food", "deck", detailContainer);
+            return obj;
+        }
+
+        public ShopTool CreateTool(ToolData data, Shop shop, Transform detailContainer) {
+            ShopTool obj = Instantiate(toolPrefab).GetComponent<ShopTool>();
+            obj.Init(data, shop, "tool", detailContainer);
             return obj;
         }
     }

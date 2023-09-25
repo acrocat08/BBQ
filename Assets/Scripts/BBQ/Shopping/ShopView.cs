@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,26 @@ namespace BBQ.Shopping {
 
         [SerializeField] private int itemWidth;
         [SerializeField] private int margin;
+        [SerializeField] private float moveDuration;
 
-        public void PlaceItem(List<ShopItem> items, Transform container) {
-            for (int i = 0; i < items.Count; i++) {
-                items[i].transform.SetParent(container);
-                items[i].GetComponent<RectTransform>().anchoredPosition
-                     = (itemWidth + margin) * i * Vector3.right;
-                items[i].Fall();
-            }
+        public void PlaceFood(ShopFood item, int index, Transform container) {
+            item.transform.SetParent(container);
+            item.GetComponent<RectTransform>().anchoredPosition
+                = (itemWidth + margin) * index * Vector3.right;
+            item.Fall();
+        }
+        
+        public void PlaceTool(ShopTool item, Transform container) {
+            item.transform.SetParent(container);
+            item.GetComponent<RectTransform>().anchoredPosition
+                = (itemWidth + margin) * 5 * Vector3.right;
+            item.Fall();
+        }
+        
+        public void MoveFood(ShopFood item, int index, Transform container) {
+            item.transform.SetParent(container);
+            Vector3 toPos = (itemWidth + margin) * index * Vector3.right;
+            item.GetComponent<RectTransform>().DOLocalMove(toPos, moveDuration);
         }
 
         public void UpdateText(Shop shop, int cost) {
@@ -24,5 +37,8 @@ namespace BBQ.Shopping {
             Text buttonText = shop.transform.Find("LevelUp").Find("Cost").GetComponent<Text>();
             buttonText.text = cost.ToString();
         }
+
+
+
     }
 }

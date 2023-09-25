@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemWidth: 250
   margin: 20
+  moveDuration: 0.5

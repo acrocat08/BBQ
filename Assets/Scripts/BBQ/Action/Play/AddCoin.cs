@@ -13,7 +13,7 @@ namespace BBQ.Action.Play {
             int num = v.GetNum(v.n1);
             env.coin.Add(num);
             SoundMgr.SoundPlayer.I.Play("se_addCoin");
-            effect.Create("coin", num, env.board.FindLaneFood(v.invoker));
+            effect.Create("coin", num, v.invoker?.GetObject());
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
     }

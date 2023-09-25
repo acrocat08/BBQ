@@ -7,6 +7,8 @@ namespace BBQ.PlayData {
         private static PlayerStatus _saveData;
         private List<DeckFood> _deckFoods;
         private int _coin;
+        private int _hand;
+        private int _carbon;
         private int _day;
         private int _shopLevel;
         private int _levelUpDiscount;
@@ -15,11 +17,13 @@ namespace BBQ.PlayData {
         private int _life;
         private List<MissionStatus> _nowMission;
         
-        public static void Create(List<DeckFood> deckFoods, int coin, int day, int shopLevel, 
+        public static void Create(List<DeckFood> deckFoods, int coin, int hand, int carbon, int day, int shopLevel, 
             int levelUpDiscount, int rerollTicket, int star, int life, List<MissionStatus> nowMission) {
             _saveData = new PlayerStatus();
             _saveData._deckFoods = deckFoods;
             _saveData._coin = coin;
+            _saveData._hand = hand;
+            _saveData._carbon = carbon;
             _saveData._day = day;
             _saveData._shopLevel = shopLevel;
             _saveData._levelUpDiscount = levelUpDiscount;
@@ -38,6 +42,17 @@ namespace BBQ.PlayData {
             if (_saveData == null) return 0;
             return _saveData._coin;
         }
+        
+        public static int GetHand() {
+            if (_saveData == null) return 5;
+            return _saveData._hand;
+        }
+        
+        public static int GetCarbon() {
+            if (_saveData == null) return 0;
+            return _saveData._carbon;
+        }
+
 
         public static int GetDay() {
             if (_saveData == null) return 1;

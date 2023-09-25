@@ -21,7 +21,7 @@ namespace BBQ.Action.Play {
                 SoundPlayer.I.Play("se_addTime");
             }
             
-            effect.Create("time", num, env.board.FindLaneFood(v.invoker));
+            effect.Create("time", num, v.invoker?.GetObject());
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
     }

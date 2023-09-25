@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Numerics;
+using BBQ.Common;
 using BBQ.Database;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -14,14 +16,14 @@ namespace BBQ.Cooking {
     public class LaneMovement : MonoBehaviour {
         [SerializeField] private CookingParam param;
         [SerializeField] private Lane lane;
-        [SerializeField] private int speedPerSecond;
         [SerializeField] private int rightBorder;
         [SerializeField] private float addFoodDuration;  
         [SerializeField] private Ease addFoodEasing;
         private float _startXPos;
+        private float speedPerSecond;
         
 
-        public async UniTask AddFood(LaneFood food, int index) {
+        public async UniTask AddFood(FoodObject food, int index) {
             Transform tr = food.transform;
             tr.SetParent(GameObject.Find("Canvas").transform);
             Vector3 prevPos = tr.localPosition;
@@ -33,13 +35,15 @@ namespace BBQ.Cooking {
             targetPos = tr.localPosition;
             
             tr.localPosition = prevPos;
-            await tr.DOLocalMove(targetPos, addFoodDuration).SetEase(addFoodEasing);
+            tr.DOLocalMove(targetPos, addFoodDuration).SetEase(addFoodEasing);
+            await UniTask.Delay(TimeSpan.FromSeconds(addFoodDuration));
+
             tr.SetParent(transform);
         }
         
         public void Move() {
-                _startXPos = GetLoopedPos(_startXPos + speedPerSecond * 0.01f);
-                List<LaneFood> foods = lane.GetFoods();
+                _startXPos = GetLoopedPos(_startXPos + speedPerSecond  / 60f);
+                List<FoodObject> foods = lane.GetFoods();
                 for (int i = 0; i < foods.Count; i++) {
                     if (foods[i] == null) continue;
                     foods[i].transform.localPosition = GetFoodPos(foods[i], i);
@@ -53,13 +57,17 @@ namespace BBQ.Cooking {
             return pos;
         }
 
-        private Vector3 GetFoodPos(LaneFood food, int index) {
+        private Vector3 GetFoodPos(FoodObject food, int index) {
             float pos = _startXPos;
             float offset = (param.foodSize + param.foodMargin) * index;
             if (speedPerSecond > 0) pos -= offset;
             else pos += offset;
             pos = GetLoopedPos(pos);
             return new Vector3(pos, 0, 0);
+        }
+
+        public void SetSpeed(float speed) {
+            speedPerSecond = speed;
         }
     }
 }

@@ -27,9 +27,15 @@ MonoBehaviour:
     - trigger: 2
       condition: []
       commands:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 184128fefee6d5f43832b17ab5b5b78c, type: 2}
+        n1: f1
+        n2: 
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: 1/2/3
-        n2: 
+        n2: x1
       - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
         n1: 3
         n2: 

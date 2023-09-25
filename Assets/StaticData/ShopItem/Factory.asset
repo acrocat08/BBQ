@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169aa3de059848c44a41326ede9f9265, type: 3}
   m_Name: Factory
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4780927465201709779, guid: ac34d981660328a4497285df9facde76, type: 3}
+  foodPrefab: {fileID: 4780927465201709779, guid: ac34d981660328a4497285df9facde76, type: 3}
+  toolPrefab: {fileID: 2315284354481065725, guid: bf87cc516239eb048a43a0e2347c0b9a, type: 3}

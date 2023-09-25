@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BBQ.Action;
+using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
@@ -14,7 +15,7 @@ namespace BBQ.Cooking {
 
         private List<(DeckFood, DeckFood)> _allFoods;
         private LinkedList<DeckFood> _foods;
-        [SerializeField] private LaneFoodFactory foodFactory;
+        [SerializeField] private FoodObjectFactory foodFactory;
 
         [SerializeField] DeckView view;
 
@@ -40,12 +41,12 @@ namespace BBQ.Cooking {
             return new List<DeckFood>(_foods);
         }
         
-        public List<LaneFood> TakeFood(int num) {
-            List<LaneFood> taken = new List<LaneFood>();
+        public List<FoodObject> TakeFood(int num) {
+            List<FoodObject> taken = new List<FoodObject>();
             for (int i = 0; i < num; i++) {
                 DeckFood target = _foods.First();
                 _foods.RemoveFirst();
-                LaneFood laneFood = foodFactory.Create(target, transform);
+                FoodObject laneFood = foodFactory.Create(target, transform);
                 taken.Add(laneFood);
             }
             view.Draw(this);
@@ -53,29 +54,33 @@ namespace BBQ.Cooking {
             return taken;
         }
 
-        public async UniTask AddFoods(List<LaneFood> foods) {
+        public async UniTask AddFoods(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
             _foods = new LinkedList<DeckFood>(_foods.OrderBy(_ => Guid.NewGuid()));
             List<UniTask> tasks = new List<UniTask>();
-            foreach (LaneFood food in foods) {
+            foreach (FoodObject food in foods) {
                 tasks.Add(view.AddFood(this, food));
                 food.deckFood.Releasable = this;
             }
             await tasks;
-            foreach (LaneFood food in foods) {
+            foreach (FoodObject food in foods) {
                 Destroy(food.gameObject);
             }
             view.UpdateText(this);
         }
 
-        public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {
-            List<LaneFood> ret = new List<LaneFood>();
+        public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
+            List<FoodObject> ret = new List<FoodObject>();
             foreach (DeckFood food in foods) {
                 _foods.Remove(food);
-                LaneFood laneFood = foodFactory.Create(food, transform);
+                FoodObject laneFood = foodFactory.Create(food, transform);
                 ret.Add(laneFood);
             }
             return ret;
+        }
+        
+        public FoodObject GetObject(DeckFood food) {
+            return null;
         }
 
         public List<DeckFood> GetUsableFoods() {

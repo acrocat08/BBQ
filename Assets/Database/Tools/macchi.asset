@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
+  m_Name: macchi
+  m_EditorClassIdentifier: 
+  toolName: "\u30DE\u30C3\u30C1\u68D2"
+  tier: 1
+  cost: 1
+  toolImage: {fileID: 21300000, guid: 3be5bfdeeaef4a1489f802f0b6aee06a, type: 3}
+  action:
+    summaries:
+    - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: d581082b16499b24caf8aac01ce967ea, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+  targetArea: deckItem

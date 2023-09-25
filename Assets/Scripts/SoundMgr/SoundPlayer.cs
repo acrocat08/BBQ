@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
@@ -61,7 +62,9 @@ namespace SoundMgr {
             AudioSource targetSource =
                 _audioSources.FirstOrDefault(x => x.isPlaying && x.clip == _soundDict[soundName].source);
             if(targetSource == null) return;
-            await targetSource.DOFade(0f, fadeDuration);
+            targetSource.DOFade(0f, fadeDuration);
+            await UniTask.Delay(TimeSpan.FromSeconds(fadeDuration));
+
         }
     }
     

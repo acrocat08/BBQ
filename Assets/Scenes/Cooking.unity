@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 0}
-  foodFactory: {fileID: 11400000, guid: dcbdbc7f9ca683d4b991baddc2bd4b18, type: 2}
+  foodFactory: {fileID: 11400000, guid: 909eef00c7e3b7f4fb422df6536b21d6, type: 2}
 --- !u!1 &150823402
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +856,11 @@ MonoBehaviour:
   - 1350
   - 300
   - 1350
+  speedPerSecond:
+  - 200
+  - 300
+  - 400
+  - 500
 --- !u!1 &259126915
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,10 +985,12 @@ MonoBehaviour:
   - {fileID: 1309599281}
   - {fileID: 940086024}
   - {fileID: 1229934552}
+  loopManager: {fileID: 256707343}
   cookTime: {fileID: 2071404148}
   handCount: {fileID: 1506838912}
   missionSheet: {fileID: 1737237686}
   coin: {fileID: 227770362}
+  carbon: {fileID: 280923461}
   deck: {fileID: 2080805981}
   dump: {fileID: 99292838}
   copyArea: {fileID: 833269095}
@@ -994,7 +1001,7 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+  - data: {fileID: 11400000, guid: a727a4c92afe3894b80b026831f74ad5, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1006,7 +1013,7 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 103f75173b3f08e4ba3ecc56d47a056f, type: 2}
+  - data: {fileID: 11400000, guid: e1d85f63127755f4e8a86c2fbc6d8e79, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1030,7 +1037,7 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 6f7c376eb7f3be64f982ceb4b3f3b3ae, type: 2}
+  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1042,7 +1049,7 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+  - data: {fileID: 11400000, guid: 1cf5cca06da27364faef1c630c9ef93f, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1067,6 +1074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 280923460}
+  - component: {fileID: 280923461}
   m_Layer: 5
   m_Name: Carbon
   m_TagString: Untagged
@@ -1095,6 +1103,19 @@ RectTransform:
   m_AnchoredPosition: {x: 19.766113, y: 150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &280923461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280923459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091202f51ea93554386950bd20750e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 11400000, guid: 972ab6892c08d59488ac60cb40586f69, type: 2}
 --- !u!1 &366727721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1265,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999
+  m_Text: 0
 --- !u!222 &378640990
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2307,7 +2328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392c49d381159a14cb54daba19aa1586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodFactory: {fileID: 11400000, guid: dcbdbc7f9ca683d4b991baddc2bd4b18, type: 2}
+  foodFactory: {fileID: 11400000, guid: 909eef00c7e3b7f4fb422df6536b21d6, type: 2}
   deck: {fileID: 2080805981}
   itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
 --- !u!1 &852149187
@@ -2342,17 +2363,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4478e2ff6f67a1645b326c1ca2bce893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShopping: 0
   board: {fileID: 256707342}
-  lanes:
-  - {fileID: 1309599281}
-  - {fileID: 940086024}
-  - {fileID: 1229934552}
+  loop: {fileID: 0}
   deck: {fileID: 2080805981}
   dump: {fileID: 99292838}
   copyArea: {fileID: 0}
   handCount: {fileID: 0}
   time: {fileID: 0}
   coin: {fileID: 0}
+  carbon: {fileID: 0}
+  rerollTicket: 0
 --- !u!114 &852149189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2747,7 +2768,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
   lane: {fileID: 940086024}
-  speedPerSecond: -200
   rightBorder: 1500
   addFoodDuration: 0.5
   addFoodEasing: 15
@@ -3291,7 +3311,7 @@ GameObject:
   - component: {fileID: 1162762751}
   - component: {fileID: 1162762750}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CarbonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3544,7 +3564,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
   lane: {fileID: 1229934552}
-  speedPerSecond: 200
   rightBorder: 1500
   addFoodDuration: 0.5
   addFoodEasing: 15
@@ -3701,7 +3720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
   lane: {fileID: 1309599281}
-  speedPerSecond: 200
   rightBorder: 1500
   addFoodDuration: 0.5
   addFoodEasing: 15
@@ -4129,7 +4147,7 @@ GameObject:
   - component: {fileID: 1645858867}
   - component: {fileID: 1645858866}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4187,7 +4205,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99
+  m_Text: 0
 --- !u!222 &1645858867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5245,7 +5263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab01ee4d195cead44af44ddf277d93b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodFactory: {fileID: 11400000, guid: dcbdbc7f9ca683d4b991baddc2bd4b18, type: 2}
+  foodFactory: {fileID: 11400000, guid: 909eef00c7e3b7f4fb422df6536b21d6, type: 2}
   view: {fileID: 11400000, guid: ad71635138c8a934ab460dce44623e1f, type: 2}
 --- !u!1 &2127286225
 GameObject:

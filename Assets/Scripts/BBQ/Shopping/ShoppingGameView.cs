@@ -71,17 +71,19 @@ namespace BBQ.Shopping {
 
         private async UniTask MoveBG(RectTransform BG, float toHeight, float duration, Ease ease) {
             float width = BG.sizeDelta.x;
-            await DOTween.To(
+            DOTween.To(
                 () => BG.sizeDelta,
                 x => BG.sizeDelta = x,
                 new Vector2(width, toHeight),
                 duration).SetEase(ease);
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
+
         }
 
         public void SetStatus(ShoppingGame shoppingGame, int star, int life) {
             Text starText = shoppingGame.transform.Find("Header").Find("Star").Find("Text").GetComponent<Text>();
             Text lifeText = shoppingGame.transform.Find("Header").Find("Life").Find("Text").GetComponent<Text>();
-            starText.text = star + "/" + 15; //TODO:fix
+            starText.text = star + "/" + 10; //TODO:fix
             lifeText.text = life.ToString();
         }
 

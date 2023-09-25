@@ -20,18 +20,14 @@ MonoBehaviour:
   isToken: 0
   action:
     summaries:
-    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30BF\u30A4\u30E0+3\n-\u3000\u843D\u3061\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u843D\u3061\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n-\u3000\u843D\u3061\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+4\n-\u3000\u843D\u3061\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
     sequences:
     - trigger: 0
-      condition:
-      - action: {fileID: 11400000, guid: 62de85ba41df23147b01662fff092427, type: 2}
-        n1: 
-        n2: 
+      condition: []
       commands:
       - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
         n1: 2/3/4
-        n2: 
-      - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-        n1: 3
         n2: 
       priority: 0

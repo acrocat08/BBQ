@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using BBQ.Action;
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using UnityEngine;
 
 namespace BBQ.Cooking {
     public class CopyArea : MonoBehaviour, IReleasable {
-        [SerializeField] private LaneFoodFactory foodFactory;
+        [SerializeField] private FoodObjectFactory foodFactory;
         [SerializeField] private Deck deck;
         [SerializeField] private ItemSet itemSet;
 
@@ -16,7 +17,7 @@ namespace BBQ.Cooking {
             _deckFoods = new List<DeckFood>();
         }
 
-        public void SetPosition(LaneFood laneFood) {
+        public void SetPosition(FoodObject laneFood) {
             transform.position = laneFood.transform.position;
         }
 
@@ -37,15 +38,19 @@ namespace BBQ.Cooking {
             return new List<DeckFood>() { new DeckFood(foodData) };
         }
 
-        public List<LaneFood> ReleaseFoods(List<DeckFood> foods) {
-            List<LaneFood> ret = new List<LaneFood>();
+        public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
+            List<FoodObject> ret = new List<FoodObject>();
             foreach (DeckFood food in foods) {
                 _deckFoods.Remove(food);
-                LaneFood laneFood = foodFactory.Create(food, transform);
+                FoodObject laneFood = foodFactory.Create(food, transform);
                 laneFood.transform.localPosition = Vector3.zero;
                 ret.Add(laneFood);
             }
             return ret;
+        }
+        
+        public FoodObject GetObject(DeckFood food) {
+            return null;
         }
     }
 }
