@@ -15,7 +15,13 @@ namespace BBQ.Action.Play {
             if (deckFoods.Count == 0) {
                 return;
             }
-            env.dump.AddFoods(deckFoods[0].Releasable.ReleaseFoods(deckFoods));
+
+            if (env.isShopping) {
+                foreach (DeckFood deckFood in deckFoods) {
+                    deckFood.GetObject().Drop();
+                }    
+            }
+            else env.dump.AddFoods(deckFoods[0].Releasable.ReleaseFoods(deckFoods));
             SoundMgr.SoundPlayer.I.Play("se_drop");
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

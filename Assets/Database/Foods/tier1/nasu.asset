@@ -31,3 +31,10 @@ MonoBehaviour:
         n1: 3
         n2: 
       priority: 0
+    - trigger: 6
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: 2/3/4
+        n2: 
+      priority: 0

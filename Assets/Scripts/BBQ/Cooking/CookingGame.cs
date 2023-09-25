@@ -24,6 +24,7 @@ namespace BBQ.Cooking {
         [SerializeField] private HandCount handCount;
         [SerializeField] private MissionSheet missionSheet;
         [SerializeField] private Coin coin;
+        [SerializeField] private Carbon carbon;
         [SerializeField] private Deck deck;
         [SerializeField] private Dump dump;
         [SerializeField] private CopyArea copyArea;
@@ -90,6 +91,7 @@ namespace BBQ.Cooking {
             else deck.Init(targetDeck);
             handCount.Init(PlayerStatus.GetHand());
             coin.Init(PlayerStatus.GetCoin());
+            carbon.Init(0);
             _day = PlayerStatus.GetDay();
             _missions = PlayerStatus.GetNowMission();
             if (_missions.Count == 0) _missions = testMission;
@@ -102,13 +104,13 @@ namespace BBQ.Cooking {
             copyArea.Init();
             loopManager.Init();
             board.Init(lanes, dump, handCount, cookTime, missionSheet);
-            env.Init(board, loopManager, deck, dump, copyArea, handCount, cookTime, coin, 0);
+            env.Init(board, loopManager, deck, dump, copyArea, handCount, cookTime, coin, carbon, 0);
         }
 
         private void SaveStatus() {
             List<DeckFood> deckFoods = deck.GetUsableFoods();
             int coinNum = coin.GetCoin();
-            PlayerStatus.Create(deckFoods, coinNum, 5, _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
+            PlayerStatus.Create(deckFoods, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
                 env.rerollTicket, _star, _life, new List<MissionStatus>());
         }
 

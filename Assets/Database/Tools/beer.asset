@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: beer
   m_EditorClassIdentifier: 
-  toolName: 
-  tier: 0
-  cost: 0
-  toolImage: {fileID: 0}
+  toolName: "\u30D3\u30FC\u30EB"
+  tier: 5
+  cost: 1
+  toolImage: {fileID: 21300000, guid: e185e23664e7b98489ba8cf0dcf4efcf, type: 3}
   action:
-    summaries: []
+    summaries:
+    - 
     sequences: []
   targetArea: 

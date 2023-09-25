@@ -18,7 +18,6 @@ namespace BBQ.Common {
         }
 
         public virtual void Drop() {
-            transform.SetParent(GameObject.Find("Canvas").transform);
             view.Drop(this);
         }
 

@@ -1082,6 +1082,7 @@ MonoBehaviour:
     effect: {fileID: 0}
   shop: {fileID: 90693992}
   coin: {fileID: 1512946762}
+  carbon: {fileID: 1111119076}
   handCount: {fileID: 788647726}
   income: 50
   missionMaker: {fileID: 11400000, guid: d01ae1d167b2d464db6d68741a24312c, type: 2}
@@ -1777,6 +1778,7 @@ MonoBehaviour:
   handCount: {fileID: 0}
   time: {fileID: 0}
   coin: {fileID: 0}
+  carbon: {fileID: 0}
   rerollTicket: 0
 --- !u!114 &538731123
 MonoBehaviour:
@@ -3197,7 +3199,7 @@ GameObject:
   - component: {fileID: 953336617}
   - component: {fileID: 953336616}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CarbonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4020,6 +4022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111119075}
+  - component: {fileID: 1111119076}
   m_Layer: 5
   m_Name: Carbon
   m_TagString: Untagged
@@ -4048,6 +4051,19 @@ RectTransform:
   m_AnchoredPosition: {x: -210, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1111119076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111119074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091202f51ea93554386950bd20750e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 11400000, guid: 972ab6892c08d59488ac60cb40586f69, type: 2}
 --- !u!1 &1169775996
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,7 +5120,7 @@ GameObject:
   - component: {fileID: 1327462629}
   - component: {fileID: 1327462628}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

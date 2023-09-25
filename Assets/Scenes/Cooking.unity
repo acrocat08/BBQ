@@ -990,6 +990,7 @@ MonoBehaviour:
   handCount: {fileID: 1506838912}
   missionSheet: {fileID: 1737237686}
   coin: {fileID: 227770362}
+  carbon: {fileID: 280923461}
   deck: {fileID: 2080805981}
   dump: {fileID: 99292838}
   copyArea: {fileID: 833269095}
@@ -1012,7 +1013,7 @@ MonoBehaviour:
     isFired: 0
     isEphemeral: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 103f75173b3f08e4ba3ecc56d47a056f, type: 2}
+  - data: {fileID: 11400000, guid: e1d85f63127755f4e8a86c2fbc6d8e79, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1073,6 +1074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 280923460}
+  - component: {fileID: 280923461}
   m_Layer: 5
   m_Name: Carbon
   m_TagString: Untagged
@@ -1101,6 +1103,19 @@ RectTransform:
   m_AnchoredPosition: {x: 19.766113, y: 150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &280923461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280923459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091202f51ea93554386950bd20750e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 11400000, guid: 972ab6892c08d59488ac60cb40586f69, type: 2}
 --- !u!1 &366727721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2372,8 @@ MonoBehaviour:
   handCount: {fileID: 0}
   time: {fileID: 0}
   coin: {fileID: 0}
+  carbon: {fileID: 0}
+  rerollTicket: 0
 --- !u!114 &852149189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3294,7 +3311,7 @@ GameObject:
   - component: {fileID: 1162762751}
   - component: {fileID: 1162762750}
   m_Layer: 5
-  m_Name: Image
+  m_Name: CarbonImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4130,7 +4147,7 @@ GameObject:
   - component: {fileID: 1645858867}
   - component: {fileID: 1645858866}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

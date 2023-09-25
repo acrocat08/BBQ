@@ -24,8 +24,14 @@ MonoBehaviour:
       \n<< \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
     sequences:
     - trigger: 0
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: 117e5efba38ebfd49ba23fb39ad06a99, type: 2}
+        n1: 
+        n2: 
       commands:
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: 1
+        n2: 
       - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
         n1: 
         n2: 

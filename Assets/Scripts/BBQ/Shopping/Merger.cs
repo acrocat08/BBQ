@@ -30,7 +30,7 @@ namespace BBQ.Shopping {
         public async UniTask Merge(List<InventoryFood> items, Shop shop) {
             List<InventoryFood> target = items.OrderBy(x => x.GetIndex()).Take(3).ToList();
             for (int i = 1; i < target.Count; i++) {
-                Transform image = target[i].transform.Find("Image");
+                Transform image = target[i].transform.Find("Object").Find("Image");
                 image.DOMove(target[0].transform.position, mergeDuration).SetEase(mergeEasing)
                     .OnComplete(() => {
                         image.localPosition = Vector3.zero;

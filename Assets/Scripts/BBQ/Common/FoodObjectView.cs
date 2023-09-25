@@ -14,19 +14,19 @@ namespace BBQ.Common {
     [CreateAssetMenu(menuName = "FoodObject/View")]
     public class FoodObjectView : ScriptableObject {
                 [SerializeField] private GameObject hitEffectPrefab;
-        [SerializeField] private float shakeStrength;
-        [SerializeField] private float shakeDuration;
+        [SerializeField] protected float shakeStrength;
+        [SerializeField] protected float shakeDuration;
 
-        [SerializeField] private float fallLength;
-        [SerializeField] private float jumpLength;
-        [SerializeField] private float fallXLength;
-        [SerializeField] private float fallDuration;
+        [SerializeField] protected float fallLength;
+        [SerializeField] protected float jumpLength;
+        [SerializeField] protected float fallXLength;
+        [SerializeField] protected float fallDuration;
         
         [SerializeField] private GameObject freezeEffectPrefab;
         [SerializeField] private Color freezeColor;
         
-        [SerializeField] private GameObject fireEffectPrefab;
-        [SerializeField] private Color fireColor;
+        [SerializeField] protected GameObject fireEffectPrefab;
+        [SerializeField] protected Color fireColor;
 
 
         [SerializeField] private float effectDuration;
@@ -76,8 +76,9 @@ namespace BBQ.Common {
             }
         }
         
-        public async void Drop(FoodObject foodObject) {
+        public virtual async void Drop(FoodObject foodObject) {
             int dir = foodObject.transform.localPosition.x > 0 ? 1 : -1;
+            foodObject.transform.SetParent(GameObject.Find("Canvas").transform);
             foodObject.transform.DOLocalJump(foodObject.transform.localPosition + fallLength * Vector3.down,
                 jumpLength, 1, fallDuration);
             foodObject.transform.DOLocalMoveX(foodObject.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), fallDuration)
@@ -96,7 +97,7 @@ namespace BBQ.Common {
             effect.Draw();
         }
         
-        public void Fire(FoodObject foodObject) {
+        public virtual void Fire(FoodObject foodObject) {
             Image image = foodObject.transform.Find("Image").GetComponent<Image>();
             image.color = fireColor;
             Transform effect = Instantiate(fireEffectPrefab).transform;
@@ -107,7 +108,7 @@ namespace BBQ.Common {
         }
 
 
-        public void Invoke(FoodObject foodObject) {
+        public virtual void Invoke(FoodObject foodObject) {
             foodObject.transform.Find("Image").localScale = Vector3.one * shakeStrength;
             foodObject.transform.Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
         }

@@ -16,6 +16,7 @@ namespace BBQ.Shopping {
         [SerializeField] private List<DeckFood> firstFoods;
         [SerializeField] private Shop shop;
         [SerializeField] private Coin coin;
+        [SerializeField] private Carbon carbon;
         [SerializeField] private HandCount handCount;
         [SerializeField] private int income;
         [SerializeField] private MissionMaker missionMaker;
@@ -31,7 +32,7 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
-            env.Init(handCount, coin);
+            env.Init(handCount, coin, carbon);
             view.Init(this);
             _nowMission = missionMaker.Create(_day);
             view.UpdateMission(this, _nowMission);
@@ -68,8 +69,9 @@ namespace BBQ.Shopping {
             int nowIncome = Mathf.Max(0, GetDayIncome()); 
             
             coin.Init(PlayerStatus.GetCoin() + nowIncome);
+            carbon.Init(PlayerStatus.GetCarbon() + (_day - 1) / 5 + 1);
             handCount.Init(5);
-            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, PlayerStatus.GetRerollTicket());
+            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket());
             int star = PlayerStatus.GetStar();
             int life = PlayerStatus.GetLife();
             view.SetStatus(this, star, life);
@@ -78,7 +80,7 @@ namespace BBQ.Shopping {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
-            PlayerStatus.Create(deck, coinNum, hand, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
+            PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
                 PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission);
         }
 

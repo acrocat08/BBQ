@@ -22,6 +22,7 @@ namespace BBQ.Shopping {
         [SerializeField] private Transform detailContainer;
         [SerializeField] private Reroller reroller;
         private Coin _coin;
+        private Carbon _carbon;
         private ShopFood[] _foods;
         private ShopTool _tool;
         private int _level;
@@ -30,11 +31,12 @@ namespace BBQ.Shopping {
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private ActionEnvironment env;
 
-        public void Init(int level, int levelupDiscount, Coin coin, int rerollTicket) {
+        public void Init(int level, int levelupDiscount, Coin coin, Carbon carbon, int rerollTicket) {
             _foods = new ShopFood[] { null, null, null, null, null };
             _level = level;
             _levelUpDiscount = levelupDiscount;
             _coin = coin;
+            _carbon = carbon;
             reroller.Init(this, _coin, rerollTicket);
             reroller.Reroll();
             view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
@@ -49,6 +51,7 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await TriggerObserver.I.Invoke(ActionTrigger.Buy, new List<DeckFood>{shopFood.deckFood}, true);
             await TriggerObserver.I.Invoke(ActionTrigger.BuyOthers, new List<DeckFood>{shopFood.deckFood}, false);
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));
             pointSensor.UpdateArea();
         }
 
@@ -69,9 +72,11 @@ namespace BBQ.Shopping {
             }
         }
 
-        public void DeleteTool() {
+        public async void DeleteTool() {
             Destroy(_tool.gameObject);
             _tool = null;
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            pointSensor.UpdateArea();
         }
         
         public List<ShopFood> GetShopFoods() {
@@ -157,9 +162,11 @@ namespace BBQ.Shopping {
             return _foods.FirstOrDefault(x => x.deckFood == food);
         }
 
-        public async void UseTool(ShopTool shopTool) {
-            await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, new List<DeckFood>());
-            
+        public async void UseTool(ShopTool shopTool, List<DeckFood> target) {
+            if (_carbon.GetCarbon() < shopTool.data.cost) return;
+            _carbon.Use(shopTool.data.cost);
+            DeleteTool();
+            await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, target);
         }
     }
 }

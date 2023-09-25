@@ -15,7 +15,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private Drop drop;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            List<DeckFood> hittingFoods = env.dump.GetHittingFoods();
+            List<DeckFood> hittingFoods = env.isShopping ? new List<DeckFood>() : env.dump.GetHittingFoods();
 
             deckFoods = deckFoods.Where(x => !x.isFired).ToList();
             

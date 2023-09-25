@@ -17,6 +17,7 @@ namespace BBQ.Shopping {
         public void Init(List<DeckFood> deckFoods) {
             for (int i = 0; i < deckFoods.Count; i++) {
                 deckItems[i].SetFood(deckFoods[i]);
+                deckFoods[i].Releasable = this;
                 TriggerObserver.I.RegisterFood(deckFoods[i]);
             }
             SetPointableArea();
@@ -33,7 +34,7 @@ namespace BBQ.Shopping {
         }
 
         public void SortItem() {
-            deckItems.ForEach(x => x.transform.Find("Image").localPosition = Vector3.zero);
+            deckItems.ForEach(x => x.transform.Find("Object").Find("Image").localPosition = Vector3.zero);
             SetPointableArea();
         }
         
