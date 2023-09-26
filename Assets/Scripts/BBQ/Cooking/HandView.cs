@@ -27,8 +27,20 @@ namespace BBQ.Cooking {
             await UniTask.Delay(TimeSpan.FromSeconds(turnDuration));
         }
 
-        public void Golden(Hand hand, bool isGold) {
-            hand.GetComponent<Image>().material = isGold ? goldMat : null;
+        public void Golden(Hand hand, bool isGold, bool isDouble) {
+            if(!isDouble) hand.GetComponent<Image>().material = isGold ? goldMat : null;
+            else {
+                hand.transform.Find("Double").Find("Hand (1)").GetComponent<Image>().material= isGold ? goldMat : null;
+                hand.transform.Find("Double").Find("Hand (2)").GetComponent<Image>().material= isGold ? goldMat : null;
+            }
+        }
+
+        public void Double(Hand hand, bool isDouble) {
+            if (isDouble) {
+                hand.GetComponent<Image>().enabled = false;
+                hand.transform.Find("Double").Find("Hand (1)").GetComponent<Image>().enabled = true;
+                hand.transform.Find("Double").Find("Hand (2)").GetComponent<Image>().enabled = true;
+            }
         }
     }
 }

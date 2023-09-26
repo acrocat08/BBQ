@@ -23,20 +23,37 @@ namespace BBQ.Cooking {
             _lanes = lanes;
         }
 
-        public async UniTask<List<FoodObject>> Shot() {
-            RectTransform tr = GetComponent<RectTransform>();
+        public async UniTask<List<FoodObject>> Shot(bool isDouble) {
             List<FoodObject> hitFoods = _lanes.Select(x => x.SearchNearestFood(transform.position.x)).ToList();
 
-            
+            RectTransform tr = GetComponent<RectTransform>();
             Vector2 toSize = tr.sizeDelta;
             toSize.y = maxHeight;
 
-            DOTween.To(
-                () => tr.sizeDelta,
-                x => tr.sizeDelta = x,
-                toSize,
-                moveDuration
-            ).SetEase(Ease.Linear);
+            if (!isDouble) {
+                DOTween.To(
+                    () => tr.sizeDelta,
+                    x => tr.sizeDelta = x,
+                    toSize,
+                    moveDuration
+                ).SetEase(Ease.Linear);
+            }
+            else {
+                RectTransform tr1 = transform.Find("Double").Find("Hand (1)").GetComponent<RectTransform>();
+                RectTransform tr2 = transform.Find("Double").Find("Hand (2)").GetComponent<RectTransform>();
+                DOTween.To(
+                    () => tr1.sizeDelta,
+                    x => tr1.sizeDelta = x,
+                    toSize,
+                    moveDuration
+                ).SetEase(Ease.Linear);
+                DOTween.To(
+                    () => tr2.sizeDelta,
+                    x => tr2.sizeDelta = x,
+                    toSize,
+                    moveDuration
+                ).SetEase(Ease.Linear);
+            }
             
             await UniTask.Delay(TimeSpan.FromSeconds(firstDuration));
             FoodObject bottom = hitFoods[2];

@@ -26,6 +26,7 @@ namespace BBQ.Cooking {
 
         private bool _afterShot;
         private bool _isGolden;
+        private bool _isDouble;
         
         
         void Awake() {
@@ -33,15 +34,17 @@ namespace BBQ.Cooking {
             _isGolden = true;
         }
 
-        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env, bool isGolden) {
+        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env, bool isGolden, bool isDouble) {
             _board = board;
             _dump = dump;
             _time = time;
             _missionSheet = missionSheet;
             _env = env;
             _isGolden = isGolden;
+            _isDouble = isDouble;
             shot.Init(lanes);
-            view.Golden(this, isGolden);
+            view.Double(this, isDouble);
+            view.Golden(this, isGolden, isDouble);
         }
 
         void Update() {
@@ -57,7 +60,7 @@ namespace BBQ.Cooking {
         
         async void OnShot() {
             _time.Pause();
-            List<FoodObject> hitFoods = await shot.Shot();
+            List<FoodObject> hitFoods = await shot.Shot(_isDouble);
             List<DeckFood> deckFoods = hitFoods.Select(x => x.deckFood).Reverse().ToList();
             
             List<FoodObject> boardFoods = _board.ReleaseFoods(deckFoods);
@@ -69,11 +72,15 @@ namespace BBQ.Cooking {
 
             if (_isGolden) {
                 if (deckFoods.Count == 3) {
-                    List<ActionCommand> _bonus = bonus[Random.Range(0, bonus.Count)].commands;
                     SoundPlayer.I.Play("se_goldenBonus");    
                     param.Create("Bonus!!", null);
                     await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+                    List<ActionCommand> _bonus = bonus[Random.Range(0, bonus.Count)].commands;
                     await assembly.Run(_bonus, _env, null, new List<DeckFood>());
+                    if (_isDouble) {
+                        List<ActionCommand> _bonus2 = bonus[Random.Range(0, bonus.Count)].commands;
+                        await assembly.Run(_bonus2, _env, null, new List<DeckFood>());
+                    }
                 }
             }
             await TriggerObserver.I.Invoke(ActionTrigger.AfterHit, deckFoods.Where(x => !x.isFired && !x.isFrozen).ToList(), true);
@@ -84,9 +91,9 @@ namespace BBQ.Cooking {
             }
             
             _time.Resume();
-            _board.UseHand();
+            _board.UseHand(_isDouble ? 2 : 1);
             if (deckFoods.Count > 0) {
-                _missionSheet.AddCount("hand", 1);
+                _missionSheet.AddCount("hand", _isDouble ? 2 : 1);
             }
             
             await view.AfterHit(this);

@@ -29,6 +29,7 @@ namespace BBQ.Cooking {
         private MissionSheet _missionSheet;
         private ActionEnvironment _env;
         private bool _nextGold;
+        private bool _nextDouble;
 
         public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet, ActionEnvironment env) {
             _foods = new List<DeckFood>();
@@ -55,8 +56,8 @@ namespace BBQ.Cooking {
         
         //-- TODO: 別クラスに移行　HandManager
 
-        public void UseHand() {
-            _handCount.Use(1);
+        public void UseHand(int num) {
+            _handCount.Use(num);
             StoreHand();
         }
 
@@ -67,10 +68,14 @@ namespace BBQ.Cooking {
         }
 
         private void CreateHand() {
-            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold);
+            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold, _nextDouble);
             if (_nextGold) {
                 _nextGold = false;
                 SoundPlayer.I.Play("se_goldenHand");                
+            }
+            if (_nextDouble && _handCount.GetHandCount() >= 2) {
+                _nextDouble = false;
+                SoundPlayer.I.Play("se_doubleHand");                
             }
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"));
@@ -139,6 +144,10 @@ namespace BBQ.Cooking {
 
         public void SetGold() {
             _nextGold = true;
+        }
+        
+        public void SetDouble() {
+            _nextDouble = true;
         }
         
     }
