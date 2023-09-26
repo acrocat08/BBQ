@@ -29,14 +29,14 @@ namespace BBQ.Common {
         [SerializeField] protected Color fireColor;
 
 
-        [SerializeField] private float effectDuration;
-        [SerializeField] private float effectStrength;
-        [SerializeField] Ease effectEasing;
+        [SerializeField] protected float effectDuration;
+        [SerializeField] protected float effectStrength;
+        [SerializeField] protected Ease effectEasing;
         
         public virtual void Draw(FoodObject foodObject) {
         }
 
-        public void DrawEffect(FoodObject foodObject) {
+        public virtual void DrawEffect(FoodObject foodObject) {
             FoodEffect effect = foodObject.deckFood.effect;
             if (effect == null) {
                 Transform frame = foodObject.transform.Find("FoodEffect");
@@ -50,7 +50,7 @@ namespace BBQ.Common {
             }
         }
 
-        public void AddEffect(FoodObject foodObject) {
+        public virtual void AddEffect(FoodObject foodObject) {
             FoodEffect effect = foodObject.deckFood.effect;
             if (effect == null) {
                 Transform frame = foodObject.transform.Find("FoodEffect");

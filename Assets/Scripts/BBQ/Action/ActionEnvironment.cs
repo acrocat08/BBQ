@@ -35,11 +35,12 @@ namespace BBQ.Action {
             this.rerollTicket = rerollTicket;
         }
 
-        public void Init(HandCount handCount, Coin coin, Carbon carbon, DeckInventory inventory) {
+        public void Init(HandCount handCount, Coin coin, Carbon carbon, DeckInventory inventory, CopyArea copyArea) {
             this.handCount = handCount;
             this.coin = coin;
             this.carbon = carbon;
             this.inventory = inventory;
+            this.copyArea = copyArea;
         }
     }
     

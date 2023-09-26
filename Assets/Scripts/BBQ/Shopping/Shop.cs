@@ -47,7 +47,7 @@ namespace BBQ.Shopping {
             if (!CheckCanBuyFood(shopFood, _coin, inventory)) return;
             InputGuard.Lock();
             _coin.Use(shopFood.GetFoodData().cost);
-            inventory.AddItem(shopFood.deckFood);
+            inventory.AddFood(shopFood.deckFood);
             DeleteFoods(new List<ShopFood>{shopFood});            
             SoundPlayer.I.Play("se_buy");
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));

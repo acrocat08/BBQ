@@ -25,7 +25,8 @@ namespace BBQ.Cooking {
             List<DeckFood> ret = new List<DeckFood>();
             foreach (DeckFood deckFood in foods) {
                 DeckFood copied = deckFood.Copy();
-                deck.RegisterFood(copied);
+                if(deck != null) deck.RegisterFood(copied);
+                else TriggerObserver.I.RegisterFood(copied);
                 copied.Releasable = this;
                 _deckFoods.Add(copied);
                 ret.Add(copied);

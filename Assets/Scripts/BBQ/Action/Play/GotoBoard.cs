@@ -14,6 +14,17 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
 
+            if (env.isShopping) {
+                List<DeckFood> newItems = deckFoods.Where(x => !env.inventory.GetDeckFoods().Contains(x)).ToList();
+                if (newItems.Count == 0) return;
+                foreach (DeckFood deckFood in newItems) {
+                    env.inventory.AddFood(deckFood);
+                }
+                SoundMgr.SoundPlayer.I.Play("se_draw");
+                await UniTask.Delay(TimeSpan.FromSeconds(duration));
+                return;
+            }
+
             int num = Mathf.Min(deckFoods.Count, 15 - env.board.SelectAll().Count);
             
             if (deckFoods.Count == 0) {

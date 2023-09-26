@@ -22,8 +22,8 @@ namespace BBQ.Shopping {
             }
             SetPointableArea();
         }
-
-        public void AddItem(DeckFood food) {
+        
+        public void AddFood(DeckFood food) {
             DeckFood deckFood = food;
             InventoryFood target = deckItems.FirstOrDefault(x => x.GetFoodData() == null);
             if (target == null) return;
