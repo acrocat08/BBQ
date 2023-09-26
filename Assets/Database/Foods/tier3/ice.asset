@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: ice
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: a69d46ee89175ce46923732115eadd29, type: 2}
+  - {fileID: 11400000, guid: ae6fb76250a5ba54680ef995f7851d51, type: 2}
   foodName: "\u30BD\u30D5\u30C8\u30AF\u30EA\u30FC\u30E0"
   tier: 3
   cost: 30

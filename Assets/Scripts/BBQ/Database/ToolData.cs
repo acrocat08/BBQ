@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Database;
+using BBQ.Shopping;
 using UnityEngine;
 using ToolData = BBQ.Database.ToolData;
 
@@ -37,13 +39,16 @@ public class ToolDataEditor : Editor
 
 namespace BBQ.Database {
     [CreateAssetMenu(menuName = "Database/Tool")]
-    public class ToolData : ScriptableObject {
+    public class ToolData : ExplainableItem {
         public string toolName;
         public int tier;
         public int cost;
         public Sprite toolImage;
         public FoodAction action;
         public string targetArea;
+        public override Sprite GetImage() {
+            return toolImage;
+        }
     }
     
 

@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Database;
+using BBQ.Shopping;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -36,7 +38,7 @@ public class FoodDataEditor : Editor
 
 namespace BBQ.Database {
     [CreateAssetMenu(menuName = "Database/Food")]
-    public class FoodData : ScriptableObject {
+    public class FoodData : ExplainableItem {
         public string foodName;
         public int tier;
         public int cost;
@@ -44,6 +46,9 @@ namespace BBQ.Database {
         public Color color;
         public bool isToken;
         public FoodAction action;
+        public override Sprite GetImage() {
+            return foodImage;
+        }
     }
     
 

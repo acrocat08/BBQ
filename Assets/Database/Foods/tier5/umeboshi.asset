@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: umeboshi
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: efa9c497a35f4d24ea056931bc9120a7, type: 2}
   foodName: "\u6885\u5E72\u3057"
   tier: 5
   cost: 50

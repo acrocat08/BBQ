@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: pinattsu
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: cf5cdb3fbe1b0954b87200421758611e, type: 2}
+  - {fileID: 11400000, guid: ae6fb76250a5ba54680ef995f7851d51, type: 2}
   foodName: "\u30D4\u30FC\u30CA\u30C3\u30C4"
   tier: 5
   cost: 50

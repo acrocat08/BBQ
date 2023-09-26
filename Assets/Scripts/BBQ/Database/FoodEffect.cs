@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Database;
+using BBQ.Shopping;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -37,12 +38,15 @@ public class FoodEffectEditor : Editor
 
 namespace BBQ.Database {
     [CreateAssetMenu(menuName = "Database/Effect")]
-    public class FoodEffect : ScriptableObject {
+    public class FoodEffect : ExplainableItem {
         public string effectName;
         public Sprite effectImage;
         public FoodAction action;
         public List<ActionCommand> onAttached;
         public List<ActionCommand> onReleased;
+        public override Sprite GetImage() {
+            return effectImage;
+        }
     }
     
 

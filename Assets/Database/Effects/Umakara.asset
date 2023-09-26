@@ -46,3 +46,4 @@ MonoBehaviour:
       priority: 0
   onAttached: []
   onReleased: []
+  subItem: []

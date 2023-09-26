@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: chizu
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 34622b3a162e26e43937f853df91790f, type: 2}
   foodName: "\u30C1\u30FC\u30BA"
   tier: 4
   cost: 40

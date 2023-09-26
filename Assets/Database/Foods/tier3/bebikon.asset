@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: bebikon
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: b98fcf579ba2544cdbfee070abb5d473, type: 2}
+  - {fileID: 11400000, guid: 42ff457d6df4c8c4bbb0b653c10ee87f, type: 2}
   foodName: "\u30D9\u30D3\u30FC\u30B3\u30FC\u30F3"
   tier: 3
   cost: 30

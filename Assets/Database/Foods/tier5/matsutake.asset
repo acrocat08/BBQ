@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: matsutake
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 42ff457d6df4c8c4bbb0b653c10ee87f, type: 2}
   foodName: "\u677E\u8338"
   tier: 5
   cost: 50

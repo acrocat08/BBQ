@@ -30,6 +30,7 @@ namespace BBQ.Shopping {
         [SerializeField] private List<int> levelUpCosts;
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private ActionEnvironment env;
+        [SerializeField] private ItemDetail detail;
 
         public void Init(int level, int levelupDiscount, Coin coin, Carbon carbon, int rerollTicket) {
             _foods = new ShopFood[] { null, null, null, null, null };
@@ -91,7 +92,7 @@ namespace BBQ.Shopping {
             for (int i = 0; i < 5; i++) {
                 if (cnt >= data.Count) break;
                 if (_foods[i] != null) continue;
-                _foods[i] = itemFactory.CreateFood(data[cnt], this, detailContainer);
+                _foods[i] = itemFactory.CreateFood(data[cnt], this, detail);
                 _foods[i].deckFood.Releasable = this;
                 view.PlaceFood(_foods[i], i, transform);
                 TriggerObserver.I.RegisterFood(_foods[i].deckFood);
@@ -106,7 +107,7 @@ namespace BBQ.Shopping {
                 _tool.Drop();
                 DeleteTool();
             }
-            _tool = itemFactory.CreateTool(tool, this, detailContainer);
+            _tool = itemFactory.CreateTool(tool, this, detail);
             view.PlaceTool(_tool, transform);
             await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: jagabata
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: f5bb9a91fb7ea154aa36bb21bd6cb8c9, type: 2}
+  - {fileID: 11400000, guid: caea3c9f8b741444d9a38e025b345c5b, type: 2}
   foodName: "\u3058\u3083\u304C\u30D0\u30BF\u30FC"
   tier: 5
   cost: 50

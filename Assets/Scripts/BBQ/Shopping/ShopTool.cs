@@ -5,23 +5,23 @@ using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BBQ.Shopping {
     public class ShopTool : MonoBehaviour {
         [SerializeField] private ShopItemView shopView;
-        [SerializeField] DetailView detailView;
+        private ItemDetail itemDetail;
 
         public ToolData data;
-        private Transform _detailContainer;
         private Shop _shop;
 
-        public void Init(ToolData data, Shop shop, string areaTag, Transform detail) {
+        public void Init(ToolData data, Shop shop, string areaTag, ItemDetail detail) {
             this.data = data;
             _shop = shop;
+            itemDetail = detail;
             PointableArea area = transform.Find("Image").Find("Pointable").GetComponent<PointableArea>();
             area.areaTag = areaTag;
             area.targetTag = data.targetArea;
-            _detailContainer = detail;
             area.onPointDown.AddListener(OnPointDown);
             area.onPointCancel.AddListener(OnPointCancel);
             area.onPointUp.AddListener(OnPointUp);
@@ -29,7 +29,7 @@ namespace BBQ.Shopping {
         }
 
         public void OnPointDown() {
-            detailView.DrawDetail(_detailContainer, data);
+            itemDetail.DrawDetail(data);
         }
 
         public void OnPointCancel() {

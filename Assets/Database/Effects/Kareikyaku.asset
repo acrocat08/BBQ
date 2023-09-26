@@ -9,17 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
-  m_Name: takoashi
+  m_Script: {fileID: 11500000, guid: c2b6230fcc2c37049ba479f9cb8d6639, type: 3}
+  m_Name: Kareikyaku
   m_EditorClassIdentifier: 
   subItem: []
-  foodName: "\u30BF\u30B3\u8DB3"
-  tier: 0
-  cost: 0
-  foodImage: {fileID: 21300000, guid: 70ebb46bfd5e260479f5f7a72015573b, type: 3}
-  color: {r: 0.40784317, g: 0.121568635, b: 0.21568629, a: 1}
-  isToken: 1
+  effectName: "\u904E\u51B7\u5374"
+  effectImage: {fileID: 21300000, guid: e9f8a601c770b9947a94434185a85e26, type: 3}
   action:
     summaries:
-    - "<< \u5408\u6210\u4E0D\u53EF >>"
+    - 
     sequences: []
+  onAttached: []
+  onReleased: []
+  subItem: []

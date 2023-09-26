@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: uchiwa
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 221466c7dfe4cda44bdca729f7e475c6, type: 2}
   toolName: "\u3046\u3061\u308F"
   tier: 2
   cost: 1
@@ -31,3 +33,4 @@ MonoBehaviour:
         n2: "\u98A8\u307E\u304B\u305B"
       priority: 0
   targetArea: deckItem
+  subItem: []

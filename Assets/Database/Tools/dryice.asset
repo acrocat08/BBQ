@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: dryice
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 6f9080c1d3a1df34e96489a4a7c9fb79, type: 2}
   toolName: "\u30C9\u30E9\u30A4\u30A2\u30A4\u30B9"
   tier: 3
   cost: 1
@@ -21,3 +23,4 @@ MonoBehaviour:
     - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u306B\u300C\u904E\u51B7\u5374\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
     sequences: []
   targetArea: deckItem
+  subItem: []
