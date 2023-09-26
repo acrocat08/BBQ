@@ -21,4 +21,17 @@ MonoBehaviour:
   action:
     summaries:
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u67503\u3064\u306B\u300C\u30D5\u30EC\u30C3\u30B7\u30E5\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B"
-    sequences: []
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
+        n1: f1
+        n2: 3
+      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+        n1: f1
+        n2: "\u30D5\u30EC\u30C3\u30B7\u30E5"
+      priority: 0

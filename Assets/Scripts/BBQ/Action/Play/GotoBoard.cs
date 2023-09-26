@@ -17,7 +17,6 @@ namespace BBQ.Action.Play {
             int num = Mathf.Min(deckFoods.Count, 15 - env.board.SelectAll().Count);
             
             if (deckFoods.Count == 0) {
-                await UniTask.Delay(TimeSpan.FromSeconds(duration));
                 return;
             }
             SoundMgr.SoundPlayer.I.Play("se_draw");

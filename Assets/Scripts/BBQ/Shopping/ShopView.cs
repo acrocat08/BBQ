@@ -12,21 +12,21 @@ namespace BBQ.Shopping {
         [SerializeField] private float moveDuration;
 
         public void PlaceFood(ShopFood item, int index, Transform container) {
-            item.transform.SetParent(container);
+            item.transform.SetParent(container, false);
             item.GetComponent<RectTransform>().anchoredPosition
                 = (itemWidth + margin) * index * Vector3.right;
             item.Fall();
         }
         
         public void PlaceTool(ShopTool item, Transform container) {
-            item.transform.SetParent(container);
+            item.transform.SetParent(container, false);
             item.GetComponent<RectTransform>().anchoredPosition
                 = (itemWidth + margin) * 5 * Vector3.right;
             item.Fall();
         }
         
         public void MoveFood(ShopFood item, int index, Transform container) {
-            item.transform.SetParent(container);
+            item.transform.SetParent(container, false);
             Vector3 toPos = (itemWidth + margin) * index * Vector3.right;
             item.GetComponent<RectTransform>().DOLocalMove(toPos, moveDuration);
         }

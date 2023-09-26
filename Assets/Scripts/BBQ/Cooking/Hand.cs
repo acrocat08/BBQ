@@ -65,6 +65,7 @@ namespace BBQ.Cooking {
 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await TriggerObserver.I.Invoke(ActionTrigger.Hit, deckFoods, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.HitOthers, deckFoods, false);
 
             if (_isGolden) {
                 if (deckFoods.Count == 3) {
@@ -75,9 +76,11 @@ namespace BBQ.Cooking {
                     await assembly.Run(_bonus, _env, null, new List<DeckFood>());
                 }
             }
+            await TriggerObserver.I.Invoke(ActionTrigger.AfterHit, deckFoods.Where(x => !x.isFired && !x.isFrozen).ToList(), true);
             
             foreach (var food in hitFoods) {
                 food.transform.SetParent(transform);
+                
             }
             
             _time.Resume();

@@ -15,11 +15,12 @@ namespace BBQ.Cooking {
         [SerializeField] private float[] loopLines;
         [SerializeField] private float[] speedPerSecond;
         private FoodObject[] _looped;
-        private bool _pauseMode;
+        private bool _pauseMode = true;
         private int[] speedLevel;
         
  
         public void Init() {
+            _pauseMode = false;
             _looped = new FoodObject[] { null, null, null };
             speedLevel = new [] { 0, 0, 0 };
             for (int i = 0; i < 3; i++) {

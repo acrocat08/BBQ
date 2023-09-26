@@ -16,7 +16,10 @@ namespace BBQ.PlayData {
         public bool isFrozen;
         public bool isFired;
         public bool isEphemeral;
+        public bool isDouble;
         public FoodEffect effect;
+        public int stack;
+        public string memory;
         [HideInInspector] public IReleasable Releasable;
 
         public DeckFood(FoodData data) {
@@ -27,6 +30,8 @@ namespace BBQ.PlayData {
             isEphemeral = false;
             Releasable = null;
             effect = null;
+            stack = 0;
+            memory = "";
         }
 
         public DeckFood Copy() {

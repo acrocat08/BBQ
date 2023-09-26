@@ -30,7 +30,8 @@ namespace BBQ.Common {
         public void Create(string imageName, int val, FoodObject foodObject) {
             if (_dict == null) InitDict();
             Vector2 pos = SetPos(foodObject);
-            Transform obj = Instantiate(effectPrefab, GameObject.Find("Canvas").transform).transform;
+            Transform obj = Instantiate(effectPrefab).transform;
+            obj.SetParent(GameObject.Find("Canvas").transform, false);
             obj.position = pos;
             obj.Find("Text").GetComponent<Text>().text = (val >= 0 ? "+" : "-") + Mathf.Abs(val);
             if (val < 0) obj.Find("Text").GetComponent<Text>().color = minusColor;
@@ -41,7 +42,8 @@ namespace BBQ.Common {
         public void Create(string text, FoodObject foodObject) {
             if (_dict == null) InitDict();
             Vector2 pos = SetPos(foodObject);
-            Transform obj = Instantiate(effectPrefab, GameObject.Find("Canvas").transform).transform;
+            Transform obj = Instantiate(effectPrefab).transform;
+            obj.SetParent(GameObject.Find("Canvas").transform, false);
             obj.position = pos;
             obj.Find("Text").GetComponent<Text>().text = text;
             obj.Find("Image").GetComponent<Image>().enabled = false;
@@ -52,13 +54,14 @@ namespace BBQ.Common {
         Vector2 SetPos(FoodObject foodObject) {
             Vector3 pos = foodObject == null ? defaultPos : foodObject.transform.position;
             pos += offset * (Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.up);
-            pos.x = Mathf.Clamp(pos.x, posXMin, posXMax);
-            pos.y = Mathf.Clamp(pos.y, posYMin, posYMax);
+            float rate = Screen.width / 1920f;
+            pos.x = Mathf.Clamp(pos.x, posXMin * rate, posXMax * rate);
+            pos.y = Mathf.Clamp(pos.y, posYMin * rate, posYMax * rate);
             return pos;
         }
         
         async void Float(Transform obj) {
-            obj.DOMoveY(obj.transform.position.y + moveLength, moveDuration).SetEase(moveEasing);
+            obj.DOMoveY(obj.transform.position.y + (moveLength / 1080) * Screen.height, moveDuration).SetEase(moveEasing);
             CanvasGroup canvasGroup = obj.GetComponent<CanvasGroup>();
             DOTween.To(() => canvasGroup.alpha, x => canvasGroup.alpha = x, 0f, moveDuration).SetEase(alphaEasing);
             await UniTask.Delay(TimeSpan.FromSeconds(moveDuration));

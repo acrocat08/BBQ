@@ -1014,10 +1014,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1068,19 +1068,28 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
+    stack: 0
+    memory: 
   - data: {fileID: 11400000, guid: d124919c8ec761e40a0a23c5fc1d725d, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
+    stack: 0
+    memory: 
   - data: {fileID: 11400000, guid: d124919c8ec761e40a0a23c5fc1d725d, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
+    stack: 0
+    memory: 
   shop: {fileID: 90693992}
   coin: {fileID: 1512946762}
   carbon: {fileID: 1111119076}
@@ -1787,6 +1796,7 @@ MonoBehaviour:
   loop: {fileID: 0}
   deck: {fileID: 0}
   dump: {fileID: 0}
+  inventory: {fileID: 0}
   copyArea: {fileID: 0}
   handCount: {fileID: 0}
   time: {fileID: 0}

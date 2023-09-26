@@ -32,7 +32,7 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
-            env.Init(handCount, coin, carbon);
+            env.Init(handCount, coin, carbon, deckInventory);
             view.Init(this);
             _nowMission = missionMaker.Create(_day);
             view.UpdateMission(this, _nowMission);

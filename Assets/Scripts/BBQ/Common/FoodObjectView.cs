@@ -43,7 +43,8 @@ namespace BBQ.Common {
                 frame.localScale = Vector3.zero;
             }
             else {
-                foodObject.transform.Find("FoodEffect").gameObject.SetActive(true);
+                Transform frame = foodObject.transform.Find("FoodEffect");
+                frame.localScale = Vector3.one;
                 Image icon = foodObject.transform.Find("FoodEffect").Find("Icon").GetComponent<Image>();
                 icon.sprite = foodObject.deckFood.effect.effectImage;
             }
@@ -101,7 +102,7 @@ namespace BBQ.Common {
             Image image = foodObject.transform.Find("Image").GetComponent<Image>();
             image.color = fireColor;
             Transform effect = Instantiate(fireEffectPrefab).transform;
-            effect.SetParent(foodObject.transform);
+            effect.SetParent(foodObject.transform, false);
             effect.localPosition = Vector3.zero;
             effect.localScale = Vector3.one;
             effect.SetSiblingIndex(0);
