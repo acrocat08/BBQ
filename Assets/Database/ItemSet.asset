@@ -76,6 +76,10 @@ MonoBehaviour:
   supportFoods:
   - {fileID: 11400000, guid: 455584ef28879ce49975ea5ce461c296, type: 2}
   - {fileID: 11400000, guid: a69d46ee89175ce46923732115eadd29, type: 2}
+  - {fileID: 11400000, guid: 963982f4d3c96c447837c84ea4602d98, type: 2}
+  - {fileID: 11400000, guid: f5bb9a91fb7ea154aa36bb21bd6cb8c9, type: 2}
+  - {fileID: 11400000, guid: caea3c9f8b741444d9a38e025b345c5b, type: 2}
+  - {fileID: 11400000, guid: cf5cdb3fbe1b0954b87200421758611e, type: 2}
   effects:
   - {fileID: 11400000, guid: 7a6dd23d5ba00af4f91e048544de6147, type: 2}
   - {fileID: 11400000, guid: ae6fb76250a5ba54680ef995f7851d51, type: 2}
@@ -84,6 +88,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 34622b3a162e26e43937f853df91790f, type: 2}
   - {fileID: 11400000, guid: 221466c7dfe4cda44bdca729f7e475c6, type: 2}
   - {fileID: 11400000, guid: 4e9cda94a02ad734383869c7e791255d, type: 2}
+  - {fileID: 11400000, guid: efa9c497a35f4d24ea056931bc9120a7, type: 2}
   tools:
   - {fileID: 11400000, guid: 1f34dfa4cca6c4f4696ec322b67869e5, type: 2}
   - {fileID: 11400000, guid: 436a0080c8dd59a40b2294b74535f3ae, type: 2}

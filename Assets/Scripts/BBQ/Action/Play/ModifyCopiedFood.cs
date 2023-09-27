@@ -11,18 +11,18 @@ using UnityEngine;
 namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/ModifyCopiedFood")]
     public class ModifyCopiedFood : PlayAction {
-        [SerializeField] private AddEffect addEffect;
+        [SerializeField] private ItemSet itemSet;
         [SerializeField] private ActionAssembly assembly;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.f1;
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.lank = v.GetNum(v.n1);
-                FoodEffect effect = addEffect.GetEffect(v.GetString(v.n2));
-                if (deckFood.effect != null) await assembly.Run(deckFood.effect.onReleased, env, deckFood, v.target);
+                FoodEffect effect = null;
+                if(v.GetString(v.n2) != "none") effect = itemSet.effects.First(x => x.effectName == v.GetString(v.n2));
                 if (effect != null) await assembly.Run(effect.onAttached, env, deckFood, v.target);
-                TriggerObserver.I.UpdateEffect(deckFood, deckFood.effect, effect);
                 deckFood.effect = effect;
             }
+            env.copyArea.RegisterFood(deckFoods);
         }
     }
 }

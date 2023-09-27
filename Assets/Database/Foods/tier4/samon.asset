@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: samon
   m_EditorClassIdentifier: 
+  subItem: []
   foodName: "\u30B5\u30FC\u30E2\u30F3"
   tier: 4
   cost: 40
   foodImage: {fileID: 21300000, guid: b3eb141fcbcef60489bc0248efc92c77, type: 3}
   color: {r: 0.87843144, g: 0.4901961, b: 0.30980393, a: 1}
   isToken: 0
+  useStack: 0
   action:
     summaries:
-    - "\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D\u306E\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\u6642\u306B\u7372\u5F97\u3059\u308B\u30CF\u30F3\u30C9\u30921\u5897\u3084\u3059\n!!\u672A\u5B9F\u88C5!!"
+    - "\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D\u306E\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u3044\u308B\u5834\u5408\u3001\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\u6642\u306B\u7372\u5F97\u3059\u308B\u30CF\u30F3\u30C9\u30921\u5897\u3084\u3059\n!!\u672A\u5B9F\u88C5!!"
     sequences: []

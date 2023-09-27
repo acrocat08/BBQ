@@ -45,6 +45,7 @@ namespace BBQ.Database {
         public Sprite foodImage;
         public Color color;
         public bool isToken;
+        public bool useStack;
         public FoodAction action;
         public override Sprite GetImage() {
             return foodImage;

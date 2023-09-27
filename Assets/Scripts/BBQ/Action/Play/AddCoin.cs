@@ -12,7 +12,7 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int num = v.GetNum(v.n1);
             env.coin.Add(num);
-            SoundMgr.SoundPlayer.I.Play("se_addCoin");
+            SoundMgr.SoundPlayer.I.Play(num >= 0 ? "se_addCoin" : "se_consume");
             effect.Create("coin", num, v.invoker?.GetObject());
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

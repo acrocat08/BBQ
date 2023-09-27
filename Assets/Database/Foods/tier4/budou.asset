@@ -21,7 +21,23 @@ MonoBehaviour:
   foodImage: {fileID: 21300000, guid: 83102db9255766a4fa42dab4946b24e9, type: 3}
   color: {r: 0.59607846, g: 0.27058825, b: 0.7607844, a: 1}
   isToken: 0
+  useStack: 0
   action:
     summaries:
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u300C\u3076\u3069\u3046\u306E\u5B9F\u300D1\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
-    sequences: []
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u30E9\u30F3\u30AF1\u300C\u3076\u3069\u3046\u306E\u5B9F\u300D1\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u30E9\u30F3\u30AF1\u300C\u3076\u3069\u3046\u306E\u5B9F\u300D2\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u30E9\u30F3\u30AF1\u300C\u3076\u3069\u3046\u306E\u5B9F\u300D3\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    sequences:
+    - trigger: 2
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: "\u3076\u3069\u3046\u306E\u5B9F"
+        n2: 1/2/3
+      - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
+        n1: 1
+        n2: "\u63EE\u767A\u6027"
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0

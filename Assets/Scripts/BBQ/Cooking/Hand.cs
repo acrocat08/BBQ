@@ -61,10 +61,10 @@ namespace BBQ.Cooking {
         async void OnShot() {
             _time.Pause();
             List<FoodObject> hitFoods = await shot.Shot(_isDouble);
-            List<DeckFood> deckFoods = hitFoods.Select(x => x.deckFood).Reverse().ToList();
+            List<DeckFood> deckFoods = hitFoods.Where(x => x).Select(x => x.deckFood).ToList();
             
-            List<FoodObject> boardFoods = _board.ReleaseFoods(deckFoods);
-            _dump.HitFoods(boardFoods);
+            _board.ReleaseFoods(deckFoods);
+            _dump.HitFoods(hitFoods);
 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await TriggerObserver.I.Invoke(ActionTrigger.Hit, deckFoods, true);
@@ -86,6 +86,7 @@ namespace BBQ.Cooking {
             await TriggerObserver.I.Invoke(ActionTrigger.AfterHit, deckFoods.Where(x => !x.isFired && !x.isFrozen).ToList(), true);
             
             foreach (var food in hitFoods) {
+                if(food == null) continue;
                 food.transform.SetParent(transform);
                 
             }

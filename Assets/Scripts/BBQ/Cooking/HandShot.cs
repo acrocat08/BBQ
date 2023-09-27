@@ -85,7 +85,7 @@ namespace BBQ.Cooking {
             }
 
             await UniTask.Delay(TimeSpan.FromSeconds(waitDuration));
-            return hitFoods.Where(x => x != null).Reverse().ToList();
+            return hitFoods.ToList();
         }
         
     }

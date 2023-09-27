@@ -116,6 +116,9 @@ namespace BBQ.Common {
 
         public virtual void LankUp(FoodObject foodObject) {
         }
-        
+
+        public virtual void UpdateStack(FoodObject foodObject) {
+            throw new NotImplementedException();
+        }
     }
 }

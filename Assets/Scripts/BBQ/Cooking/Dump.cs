@@ -11,10 +11,11 @@ namespace BBQ.Cooking {
 
         private List<DeckFood> _foods;
 
-        private List<FoodObject> _hittingFoods;
+        private FoodObject[] _hittingFoods;
 
         public void Init() {
             _foods = new List<DeckFood>();
+            _hittingFoods = new FoodObject[] { null, null, null };
         }
 
         public List<DeckFood> SelectAll() {
@@ -32,7 +33,7 @@ namespace BBQ.Cooking {
         }
         
         public FoodObject GetObject(DeckFood food) {
-            return _hittingFoods.FirstOrDefault(x => x.deckFood == food);
+            return _hittingFoods.Where(x => x).FirstOrDefault(x => x.deckFood == food);
         }
 
         public void AddFoods(List<FoodObject> foods) {
@@ -44,15 +45,24 @@ namespace BBQ.Cooking {
         }
 
         public void HitFoods(List<FoodObject> foods) {
-            _foods.AddRange(foods.Select(x => x.deckFood));
-            _hittingFoods = foods;
+            _foods.AddRange(foods.Where(x => x).Select(x => x.deckFood));
+            _hittingFoods = foods.ToArray();
             foreach (FoodObject laneFood in foods) {
+                if(laneFood == null) continue;
                 laneFood.deckFood.Releasable = this;
             }
         }
 
         public List<DeckFood> GetHittingFoods() {
-            return _hittingFoods.Select(x => x.deckFood).ToList();
+            return _hittingFoods.Where(x => x).Select(x => x.deckFood).ToList();
+        }
+
+        public int GetHittingFoodLane(DeckFood food) {
+            for (int i = 0; i < 3; i++) {
+                if (_hittingFoods[i] != null && _hittingFoods[i].deckFood == food)
+                    return i + 1;
+            }
+            return 0;
         }
         
     }

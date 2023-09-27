@@ -21,7 +21,42 @@ MonoBehaviour:
   foodImage: {fileID: 21300000, guid: a21422498e3b4534eb7f57cb37886445, type: 3}
   color: {r: 0.9568628, g: 0.8431373, b: 0.63529414, a: 1}
   isToken: 0
+  useStack: 0
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u3067\u6700\u3082\u30B3\u30B9\u30C8\u304C\u4F4E\u3044\u98DF\u67503\u3064\u3092\u843D\u3068\u3057\u3001\u300C\u30A8\u30D5\u30A7\u30E1\u30E9\u30EB\u300D\u6301\u3061\u306E\u30C6\u30A3\u30A21\u300C\u30C9\u30FC\u30CA\u30C3\u30C4\u300D1\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
-    sequences: []
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u3067\u6700\u3082\u30C6\u30A3\u30A2\u304C\u4F4E\u3044\u98DF\u67503\u3064\u3092\u843D\u3068\u3057\u3001\u300C\u30A8\u30D5\u30A7\u30E1\u30E9\u30EB\u300D\u6301\u3061\u306E\u30C6\u30A3\u30A21\u300C\u30C9\u30FC\u30CA\u30C3\u30C4\u300D1\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
+    sequences:
+    - trigger: 0
+      condition:
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 3
+      commands:
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 1bf032874ca47f348b27094135aaca69, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: f6b3698beab0c9a46aeae02682399b01, type: 2}
+        n1: f1
+        n2: 3
+      - action: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: "\u30C9\u30FC\u30CA\u30C3\u30C4"
+        n2: 1
+      - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
+        n1: 1/2/3
+        n2: "\u30A8\u30D5\u30A7\u30E1\u30E9\u30EB"
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0

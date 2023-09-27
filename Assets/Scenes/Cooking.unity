@@ -996,7 +996,7 @@ MonoBehaviour:
   dump: {fileID: 99292838}
   copyArea: {fileID: 833269095}
   testDeck:
-  - data: {fileID: 11400000, guid: 464efdcfe011fb641b191ac8eede07de, type: 2}
+  - data: {fileID: 11400000, guid: 0327ec68f907d0e48bc5a78fa1a7c417, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1005,7 +1005,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 08ff69162d788c24187764cd8efc13df, type: 2}
+  - data: {fileID: 11400000, guid: 52666a895fea639418df6a989f31ab8b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ce0c6039bbdc4784d843302f29674305, type: 2}
+  - data: {fileID: 11400000, guid: 781f890684c3738499918d2aed622930, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1050,7 +1050,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: c198482f6138d5949a18618425ae80d2, type: 2}
+  - data: {fileID: 11400000, guid: 93b5cbc9a5a43e34d96f3b12773fa84f, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1059,7 +1059,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+  - data: {fileID: 11400000, guid: 18a625005ad34c844bfbff23b5f60742, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
+  - data: {fileID: 11400000, guid: d5ec3eb5711d81e4cba19103646179f5, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
