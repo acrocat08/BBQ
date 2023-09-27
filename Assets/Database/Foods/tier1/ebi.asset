@@ -40,3 +40,19 @@ MonoBehaviour:
         n1: x1
         n2: 
       priority: 0
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
+        n1: 3/5/7
+        n2: 
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 1faf50857237495408a284297cfe6c8e, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 4f71f17e02994d0469ca6454d5921c84, type: 2}
+        n1: x1
+        n2: 
+      priority: 0
