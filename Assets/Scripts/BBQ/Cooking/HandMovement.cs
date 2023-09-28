@@ -8,17 +8,17 @@ namespace BBQ.Cooking {
         [SerializeField] private float leftBorder;
         
         public void MoveDelta() {
-            float mousePos = Input.mousePosition.x;
-            mousePos = Mathf.Clamp(mousePos, leftBorder, rightBorder);
+            float rate = Input.mousePosition.x / (float)Screen.width;
+            rate = Mathf.Clamp(rate, leftBorder, rightBorder);
             var tr = transform;
             Vector3 newPos = tr.position;
-            newPos.x = mousePos;
+            newPos.x = Screen.width * rate;
             tr.position = newPos;
         }
         
         public bool CheckIsInnerBorder() {
-            float mousePos = Input.mousePosition.x;
-            return mousePos >= leftBorder && mousePos <= rightBorder;
+            float rate = Input.mousePosition.x / (float)Screen.width;
+            return rate >= leftBorder && rate <= rightBorder;
         }
 
     }

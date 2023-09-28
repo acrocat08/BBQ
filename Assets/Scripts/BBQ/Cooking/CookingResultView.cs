@@ -35,7 +35,7 @@ namespace BBQ.Cooking {
             Transform missionList = container.Find("Mission").Find("Container");
             foreach (MissionStatus mission in missions) {
                 Transform obj = Instantiate(missionPrefab).transform;
-                obj.SetParent(missionList);
+                obj.SetParent(missionList, false);
                 obj.localScale = Vector3.one * 1.5f;
                 missionSheetView.UpdateText(obj, mission, true);
                 SoundPlayer.I.Play("se_resultShow");

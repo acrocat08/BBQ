@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: macchi
   m_EditorClassIdentifier: 
+  subItem: []
   toolName: "\u30DE\u30C3\u30C1\u68D2"
   tier: 1
   cost: 1

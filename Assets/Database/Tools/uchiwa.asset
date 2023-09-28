@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: uchiwa
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 221466c7dfe4cda44bdca729f7e475c6, type: 2}
   toolName: "\u3046\u3061\u308F"
   tier: 2
   cost: 1
@@ -19,5 +21,16 @@ MonoBehaviour:
   action:
     summaries:
     - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u306B\u300C\u98A8\u307E\u304B\u305B\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B"
-    sequences: []
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+        n1: f1
+        n2: "\u98A8\u307E\u304B\u305B"
+      priority: 0
   targetArea: deckItem
+  subItem: []

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using BBQ.Action;
+using BBQ.Common;
 using UnityEngine;
 
 namespace BBQ.Cooking {
@@ -13,7 +14,7 @@ namespace BBQ.Cooking {
          
         public async void OnAddHand() {
             if (env.time.GetNowTime() == 0) return;
-            if (_isRunning) return;
+            if (InputGuard.Guard()) return;
             _isRunning = true;
             env.time.Pause();
             await assembly.Run(addHand, env, null, null);
@@ -23,7 +24,7 @@ namespace BBQ.Cooking {
         
         public async void OnDraw() {
             if (env.time.GetNowTime() == 0) return;
-            if (_isRunning) return;
+            if (InputGuard.Guard()) return;
             _isRunning = true;
             env.time.Pause();
             await assembly.Run(draw, env, null, null);

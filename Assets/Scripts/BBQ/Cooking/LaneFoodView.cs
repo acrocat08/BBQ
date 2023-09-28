@@ -27,7 +27,14 @@ namespace BBQ.Cooking {
             Material mat = lankMaterial[foodObject.deckFood.lank - 1];
             if(mat != null) image.material = new Material(mat);
             if(image.material != null) image.material.SetFloat(Seed, Random.value);
+            if(foodObject.deckFood.data.useStack) foodObject.transform.Find("Stack").gameObject.SetActive(true);
             DrawEffect(foodObject);
+            UpdateStack(foodObject);
+        }
+
+        public override void UpdateStack(FoodObject foodObject) {
+            if (!foodObject.deckFood.data.useStack) return;
+            foodObject.transform.Find("Stack").GetComponent<Text>().text = foodObject.deckFood.stack.ToString();
         }
         
         public override async void LankUp(FoodObject foodObject) {

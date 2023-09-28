@@ -291,9 +291,11 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
+    stack: 0
+    memory: 
   shopView: {fileID: 11400000, guid: 81dc6e8ff05d26f4fa5f279a8e67436e, type: 2}
-  detailView: {fileID: 11400000, guid: 1836e2f9fc3036b48b8a624374427b8b, type: 2}
 --- !u!1 &6421921224480008392
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +692,10 @@ PrefabInstance:
     - target: {fileID: 1349663224128162299, guid: 944f2799398b29043a0e75ae6b90d18d, type: 3}
       propertyPath: areaTag
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349663224128162299, guid: 944f2799398b29043a0e75ae6b90d18d, type: 3}
+      propertyPath: canDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1349663224128162299, guid: 944f2799398b29043a0e75ae6b90d18d, type: 3}
       propertyPath: canPointDown

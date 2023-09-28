@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26898945a1be3e4ab080518dff35bf7, type: 3}
   m_Name: ModifyCopiedFood
   m_EditorClassIdentifier: 
-  addEffect: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
   assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}

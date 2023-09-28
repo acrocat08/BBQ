@@ -16,6 +16,7 @@ namespace BBQ.Shopping {
         public string targetTag;
 
         public bool canPointDown;
+        public bool canDrag;
         public bool isGrouped;
         
         private void Start() {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BBQ.Common;
+using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -15,6 +16,36 @@ namespace BBQ.Shopping {
         [SerializeField] private List<Color> lankColor;
         [SerializeField] private float lankUpStrength;
         [SerializeField] private float lankUpDuration;
+        
+        
+        public override void DrawEffect(FoodObject foodObject) {
+            FoodEffect effect = foodObject.deckFood.effect;
+            if (effect == null) {
+                Transform frame = foodObject.transform.Find("Object").Find("FoodEffect");
+                frame.localScale = Vector3.zero;
+            }
+            else {
+                Transform frame = foodObject.transform.Find("Object").Find("FoodEffect");
+                frame.localScale = Vector3.one;
+                Image icon = foodObject.transform.Find("Object").Find("FoodEffect").Find("Icon").GetComponent<Image>();
+                icon.sprite = foodObject.deckFood.effect.effectImage;
+            }
+        }
+
+        public override void AddEffect(FoodObject foodObject) {
+            FoodEffect effect = foodObject.deckFood.effect;
+            if (effect == null) {
+                Transform frame = foodObject.transform.Find("Object").Find("FoodEffect");
+                frame.DOScale(Vector3.zero, effectDuration);
+            }
+            else {
+                Image icon = foodObject.transform.Find("Object").Find("FoodEffect").Find("Icon").GetComponent<Image>();
+                icon.sprite = foodObject.deckFood.effect.effectImage;
+                Transform frame = foodObject.transform.Find("Object").Find("FoodEffect");
+                frame.localScale = Vector3.one * effectStrength;
+                frame.DOScale(Vector3.one, effectDuration).SetEase(effectEasing);
+            }
+        }
         
         public override void Draw(FoodObject foodObject) {
             DeckFood deckFood = foodObject.deckFood;
@@ -51,7 +82,7 @@ namespace BBQ.Shopping {
             Transform effect = Instantiate(fireEffectPrefab).transform;
             effect.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); 
             effect.Find("Effect").GetComponent<RectTransform>().sizeDelta = new Vector2(150, 150); 
-            effect.SetParent(foodObject.transform.Find("Object"));
+            effect.SetParent(foodObject.transform.Find("Object"), false);
             effect.localPosition = Vector3.zero;
             effect.Find("Effect").localPosition = Vector3.zero + Vector3.up * 30;
             effect.localScale = Vector3.one;

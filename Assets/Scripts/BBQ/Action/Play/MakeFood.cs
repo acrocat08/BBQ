@@ -10,6 +10,7 @@ namespace BBQ.Action.Play {
     public class MakeFood : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             string foodName = v.GetString(v.n1);
+            if (foodName == "") return;
             List<DeckFood> deckFoods = env.copyArea.MakeFood(foodName);
             int num = v.GetNum(v.n2);
             if (!env.isShopping && env.dump.GetObject(v.invoker) != null) {

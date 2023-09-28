@@ -42,5 +42,9 @@ namespace BBQ.Common {
         public virtual void LankUp() {
         }
 
+        public void UpdateStack() {
+            view.UpdateStack(this);
+        } 
+
     }
 }

@@ -39,7 +39,7 @@ namespace BBQ.Cooking {
         public FoodObject SearchNearestFood(float x) {
             for (int i = 0; i < param.foodMaxNumInLane; i++) {
                 if (_foods[i] == null) continue;
-                if (Mathf.Abs(_foods[i].transform.position.x - x) < param.foodCollisionSize) {
+                if (Mathf.Abs(_foods[i].transform.position.x - x) < param.foodCollisionSize * (Screen.width / 1920f)) {
                     return _foods[i];
                 }
             }
