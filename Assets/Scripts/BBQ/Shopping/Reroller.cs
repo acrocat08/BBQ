@@ -16,7 +16,6 @@ namespace BBQ.Shopping {
         private Coin _coin;
         [SerializeField] private ShopItemChoice choice;
 
-        private bool _isWaiting;
         private int _cost;
         private int _rerollTicket;
 
@@ -25,12 +24,11 @@ namespace BBQ.Shopping {
             _coin = coin;
             _rerollTicket = rerollTicket;
             _cost = 5;
-            _isWaiting = false;
             Draw();
         }
         
         public async void Reroll() {
-            _isWaiting = true;
+            InputGuard.Lock();
             List<ShopFood> shopItems = _shop.GetShopFoods();
             if(shopItems != null) _shop.DeleteFoods(new List<ShopFood>(shopItems));
             List<FoodData> foods = choice.ChoiceFoods(_shop.GetShopLevel());
@@ -39,11 +37,11 @@ namespace BBQ.Shopping {
             tasks.Add(_shop.AddFoods(foods));
             tasks.Add(_shop.AddTool(tool));
             await tasks;
-            _isWaiting = false;
+            InputGuard.UnLock();
         }
         
         public void OnClickRerollButton() {
-            if(_isWaiting) return;
+            if (InputGuard.Guard()) return;
             if (_coin.GetCoin() < _cost) return;
             SoundPlayer.I.Play("se_reroll1");
             SoundPlayer.I.Play("se_reroll2");

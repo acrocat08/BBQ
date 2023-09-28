@@ -13,7 +13,7 @@ namespace BBQ.Cooking {
             Transform container = missionSheet.transform.Find("Container").Find("MissionList");
             foreach (MissionStatus mission in missions) {
                 Transform obj = Instantiate(prefab).transform;
-                obj.SetParent(container);
+                obj.SetParent(container, false);
                 UpdateText(obj, mission, false);
             }
         }

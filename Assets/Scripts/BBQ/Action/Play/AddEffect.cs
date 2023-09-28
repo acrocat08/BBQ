@@ -12,13 +12,13 @@ namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/AddEffect")]
     public class AddEffect : PlayAction {
         [SerializeField] private float duration;
-        [SerializeField] private List<FoodEffect> effectList;
         [SerializeField] private ActionAssembly assembly;
+        [SerializeField] private ItemSet itemSet;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             string effectName = v.GetString(v.n2);
             FoodEffect effect = null;
-            if (effectName != "none") effect = effectList.First(x => x.effectName == effectName);
+            if (effectName != "none") effect = itemSet.effects.First(x => x.effectName == effectName);
             List<DeckFood> target = deckFoods.Where(x => x.effect != effect).ToList();
 
             if (target.Count == 0) {
@@ -46,7 +46,7 @@ namespace BBQ.Action.Play {
         //TODO:別クラスに移行
         public FoodEffect GetEffect(string effectName) {
             FoodEffect effect = null;
-            if (effectName != "none") effect = effectList.First(x => x.effectName == effectName);
+            if (effectName != "none") effect = itemSet.effects.First(x => x.effectName == effectName);
             return effect;
         }
     }

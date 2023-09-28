@@ -14,8 +14,7 @@ namespace BBQ.Shopping {
     public class InventoryFood : FoodObject {
         [SerializeField] private DeckInventory inventory;
 
-        [SerializeField] private Transform detail;
-        [SerializeField] private DetailView detailView;
+        [SerializeField] private ItemDetail itemDetail;
         [SerializeField] private Merger merger;
         [SerializeField] private int index;
         [SerializeField] private Shop shop;
@@ -30,10 +29,11 @@ namespace BBQ.Shopping {
         }
 
         public void OnPointDown() {
-            if(deckFood.data != null) detailView.DrawDetail(detail, deckFood);
+            if(deckFood.data != null) itemDetail.DrawDetail(deckFood);
         }
 
         public async void OnPointUp(List<PointableArea> areas) {
+            if (InputGuard.Guard()) return;
             List<InventoryFood> target = areas.Select(x => x.transform.parent.GetComponent<InventoryFood>()).ToList();
             target.Add(this);
             await merger.Merge(target, shop);

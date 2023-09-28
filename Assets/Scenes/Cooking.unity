@@ -610,7 +610,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -4
+  m_Text: -5
 --- !u!222 &150823405
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -874,6 +874,7 @@ GameObject:
   - component: {fileID: 259126917}
   - component: {fileID: 259126916}
   - component: {fileID: 259126920}
+  - component: {fileID: 259126921}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -995,66 +996,96 @@ MonoBehaviour:
   dump: {fileID: 99292838}
   copyArea: {fileID: 833269095}
   testDeck:
-  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
+  - data: {fileID: 11400000, guid: 0327ec68f907d0e48bc5a78fa1a7c417, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: a727a4c92afe3894b80b026831f74ad5, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 52666a895fea639418df6a989f31ab8b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 7943822a6fb66ce47b9b6d19a7a7da42, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 781f890684c3738499918d2aed622930, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: e1d85f63127755f4e8a86c2fbc6d8e79, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: ce45a4cd241c03a4baa452b3e4d360f6, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 3b8b181bce0034a4ca670a4f46a3c712, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 20d82cbd7a4c40f409bcfd8ab8856440, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: ff2223eb6fd5eba41ac1a46a7733c001, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: dfa217e5d253c834f92743abb69f6725, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 4091da658df326b449571c305e99ba1e, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 93b5cbc9a5a43e34d96f3b12773fa84f, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 18a625005ad34c844bfbff23b5f60742, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: d5ec3eb5711d81e4cba19103646179f5, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
-  - data: {fileID: 11400000, guid: 1cf5cca06da27364faef1c630c9ef93f, type: 2}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 0442f474b7d8082439fbbe1c1a1c6911, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
+    isDouble: 0
     effect: {fileID: 0}
+    stack: 0
+    memory: 
   startCommands:
   - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
     n1: 5
@@ -1065,6 +1096,18 @@ MonoBehaviour:
   - mission: {fileID: 11400000, guid: 0c715905e75444a49ac730fae149d691, type: 2}
     goal: 10
     now: 0
+--- !u!114 &259126921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259126915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3e5d766ed5d56499476f89828d4d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &280923459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,6 +2411,7 @@ MonoBehaviour:
   loop: {fileID: 0}
   deck: {fileID: 2080805981}
   dump: {fileID: 99292838}
+  inventory: {fileID: 0}
   copyArea: {fileID: 0}
   handCount: {fileID: 0}
   time: {fileID: 0}
@@ -2432,14 +2476,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addHand:
   - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-    n1: -4
+    n1: -5
     n2: 
   - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
     n1: 1
     n2: 
   draw:
   - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-    n1: -4
+    n1: -5
     n2: 
   - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
     n1: 1
@@ -3659,7 +3703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -4
+  m_Text: -5
 --- !u!222 &1266708828
 CanvasRenderer:
   m_ObjectHideFlags: 0

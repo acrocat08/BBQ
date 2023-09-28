@@ -10,9 +10,9 @@ namespace BBQ.Cooking {
 
         [SerializeField] private Vector3 pos;
 
-        public Hand Create(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet) {
+        public Hand Create(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env, bool isGolden, bool isDouble) {
             Hand obj = Instantiate(prefab).GetComponent<Hand>();
-            obj.Init(board, dump, lanes, time, missionSheet);
+            obj.Init(board, dump, lanes, time, missionSheet, env, isGolden, isDouble);
             obj.transform.localPosition = pos;
             obj.transform.localScale = Vector3.one;
             return obj;

@@ -8,6 +8,7 @@ using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
+using SoundMgr;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,8 +27,11 @@ namespace BBQ.Cooking {
         private HandCount _handCount;
         private CookTime _time;
         private MissionSheet _missionSheet;
+        private ActionEnvironment _env;
+        private bool _nextGold;
+        private bool _nextDouble;
 
-        public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet) {
+        public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet, ActionEnvironment env) {
             _foods = new List<DeckFood>();
             _lanes = lanes;
             _dump = dump;
@@ -35,24 +39,25 @@ namespace BBQ.Cooking {
             _hand = null;
             _time = time;
             _missionSheet = missionSheet;
+            _env = env;
+            _nextGold = false;
+            
             StoreHand();
             Pause();
         }
 
         public void Pause() {
-            if(_hand != null) _hand.SetPauseMode(true);
             loop.SetPauseMode(true);
         }
         
         public void Resume() {
-            if(_hand != null) _hand.SetPauseMode(false);
             loop.SetPauseMode(false);
         }
         
         //-- TODO: 別クラスに移行　HandManager
 
-        public void UseHand() {
-            _handCount.Use(1);
+        public void UseHand(int num) {
+            _handCount.Use(num);
             StoreHand();
         }
 
@@ -63,7 +68,15 @@ namespace BBQ.Cooking {
         }
 
         private void CreateHand() {
-            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet);
+            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold, _nextDouble);
+            if (_nextGold) {
+                _nextGold = false;
+                SoundPlayer.I.Play("se_goldenHand");                
+            }
+            if (_nextDouble && _handCount.GetHandCount() >= 2) {
+                _nextDouble = false;
+                SoundPlayer.I.Play("se_doubleHand");                
+            }
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"));
             _hand.transform.localPosition = handInitialPos;
@@ -128,8 +141,14 @@ namespace BBQ.Cooking {
                 .First(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
             return _lanes.IndexOf(lane) + 1;
         }
+
+        public void SetGold() {
+            _nextGold = true;
+        }
         
-        
+        public void SetDouble() {
+            _nextDouble = true;
+        }
         
     }
 }

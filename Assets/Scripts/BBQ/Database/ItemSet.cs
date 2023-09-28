@@ -8,6 +8,7 @@ namespace BBQ.Database {
     public class ItemSet : ScriptableObject {
         public List<FoodData> foods;
         public List<FoodData> supportFoods;
+        public List<FoodEffect> effects;
         public List<ToolData> tools;
         
         public FoodData GetRandomFood(int tier) {

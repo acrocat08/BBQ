@@ -40,7 +40,7 @@ namespace BBQ.Shopping {
             }
             else {
                 Color color = _fromArea.transform.Find("Frame").GetComponent<Image>().color;
-                arrow.SetPos(_fromArea.transform.position, pointed, color);
+                if(_fromArea.canDrag) arrow.SetPos(_fromArea.transform.position, pointed, color);
                 PointableArea toArea = _areas
                     .Where(x => x != _fromArea)
                     .Where(x => x.areaTag == _fromArea.targetTag)

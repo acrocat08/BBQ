@@ -25,7 +25,7 @@ namespace BBQ.Action.Play {
             if(laneIndex == 0) drawNum = Mathf.Min(drawNum, 15 - env.board.SelectAll().Count);
             else drawNum = Mathf.Min(drawNum, 5 - env.board.SelectLane(laneIndex).Count);
             
-            if (drawNum == 0) {
+            if (drawNum <= 0) {
                 return;
             }
             List<FoodObject> taken = env.deck.TakeFood(drawNum);

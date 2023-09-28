@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: chirisource
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 9cca260a205abc642aa33a750cbd688c, type: 2}
   toolName: "\u30C1\u30EA\u30BD\u30FC\u30B9"
   tier: 1
   cost: 1
@@ -31,3 +33,4 @@ MonoBehaviour:
         n2: "\u3046\u307E\u8F9B"
       priority: 0
   targetArea: deckItem
+  subItem: []

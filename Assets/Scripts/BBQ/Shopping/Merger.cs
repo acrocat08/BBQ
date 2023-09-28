@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace BBQ.Shopping {
         }
 
         public async UniTask Merge(List<InventoryFood> items, Shop shop) {
+            InputGuard.Lock();            
             List<InventoryFood> target = items.OrderBy(x => x.GetIndex()).Take(3).ToList();
             for (int i = 1; i < target.Count; i++) {
                 Transform image = target[i].transform.Find("Object").Find("Image");
@@ -46,6 +48,7 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(discoverDuration));
             FoodData discovered = itemSet.GetRandomFood(Mathf.Min(5, shop.GetShopLevel() + 1));
             await shop.AddFoods(new List<FoodData> { discovered });
+            InputGuard.UnLock();            
         }
 
     }

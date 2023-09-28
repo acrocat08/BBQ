@@ -31,6 +31,9 @@ namespace BBQ.Action {
         LankUp,
         LankUpOthers,
         UseTool,
+        AfterHit,
+        Drop,
+        DropOthers,
     }
     
     [Serializable]

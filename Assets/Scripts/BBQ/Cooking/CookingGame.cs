@@ -103,7 +103,7 @@ namespace BBQ.Cooking {
             dump.Init();
             copyArea.Init();
             loopManager.Init();
-            board.Init(lanes, dump, handCount, cookTime, missionSheet);
+            board.Init(lanes, dump, handCount, cookTime, missionSheet, env);
             env.Init(board, loopManager, deck, dump, copyArea, handCount, cookTime, coin, carbon, 0);
         }
 

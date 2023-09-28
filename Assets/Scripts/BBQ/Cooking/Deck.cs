@@ -84,7 +84,11 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> GetUsableFoods() {
-            return _allFoods.Where(x => CheckUsable(x.Item1)).Select(x => x.Item2).ToList();
+            var usable = _allFoods.Where(x => CheckUsable(x.Item1)).ToList();
+            foreach (var tuple in usable) {
+                tuple.Item2.stack = tuple.Item1.stack;
+            }
+            return usable.Select(x => x.Item2).ToList();
         }
         
         public int Count() {

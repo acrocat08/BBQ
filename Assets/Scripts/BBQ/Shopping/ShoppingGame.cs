@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Common;
+using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
@@ -13,6 +14,7 @@ namespace BBQ.Shopping {
 
         [SerializeField] private ShoppingGameView view;
         [SerializeField] private DeckInventory deckInventory;
+        [SerializeField] private CopyArea copyArea;
         [SerializeField] private List<DeckFood> firstFoods;
         [SerializeField] private Shop shop;
         [SerializeField] private Coin coin;
@@ -32,7 +34,7 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
-            env.Init(handCount, coin, carbon);
+            env.Init(handCount, coin, carbon, deckInventory, copyArea);
             view.Init(this);
             _nowMission = missionMaker.Create(_day);
             view.UpdateMission(this, _nowMission);
@@ -72,6 +74,7 @@ namespace BBQ.Shopping {
             carbon.Init(PlayerStatus.GetCarbon() + (_day - 1) / 5 + 1);
             handCount.Init(5);
             shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket());
+            copyArea.Init();
             int star = PlayerStatus.GetStar();
             int life = PlayerStatus.GetLife();
             view.SetStatus(this, star, life);

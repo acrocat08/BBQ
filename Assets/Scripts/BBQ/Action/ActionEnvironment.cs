@@ -4,6 +4,7 @@ using System.ComponentModel;
 using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
+using BBQ.Shopping;
 using UnityEngine;
 
 namespace BBQ.Action {
@@ -14,6 +15,7 @@ namespace BBQ.Action {
         [HideInInspector] public LoopManager loop;
         [HideInInspector] public Deck deck;
         [HideInInspector] public Dump dump;
+        [HideInInspector] public DeckInventory inventory;
         [HideInInspector] public CopyArea copyArea;
         [HideInInspector] public HandCount handCount;
         [HideInInspector] public CookTime time;
@@ -33,10 +35,12 @@ namespace BBQ.Action {
             this.rerollTicket = rerollTicket;
         }
 
-        public void Init(HandCount handCount, Coin coin, Carbon carbon) {
+        public void Init(HandCount handCount, Coin coin, Carbon carbon, DeckInventory inventory, CopyArea copyArea) {
             this.handCount = handCount;
             this.coin = coin;
             this.carbon = carbon;
+            this.inventory = inventory;
+            this.copyArea = copyArea;
         }
     }
     
@@ -59,6 +63,9 @@ namespace BBQ.Action {
             f1 = new List<DeckFood>();
             f2 = new List<DeckFood>();
             f3 = new List<DeckFood>();
+            s1 = "";
+            s2 = "";
+            s3 = "";
             this.invoker = invoker;
             this.target = target;
         }
@@ -73,6 +80,9 @@ namespace BBQ.Action {
                 f1 = f1,
                 f2 = f2,
                 f3 = f3,
+                s1 = s1,
+                s2 = s2,
+                s3 = s3,
             };
         }
         
@@ -81,6 +91,7 @@ namespace BBQ.Action {
             if (index == "x1") return x1;
             if (index == "x2") return x2;
             if (index == "x3") return x3;
+            if (index == "stack") return invoker.stack;
             if (index.Contains("/")) {
                 return int.Parse(index.Split("/")[invoker.lank - 1]);
             }
@@ -100,6 +111,7 @@ namespace BBQ.Action {
             if (index == "s1") return s1;
             if (index == "s2") return s2;
             if (index == "s3") return s3;
+            if (index == "memory") return invoker.memory;
             return index;
         }
         
@@ -108,6 +120,7 @@ namespace BBQ.Action {
             if (index == "x1") x1 = val;
             if (index == "x2") x2 = val;
             if (index == "x3") x3 = val;
+            if (index == "stack") invoker.stack = val;
         }
 
         public void SetFoods(string index, List<DeckFood> val) {
@@ -115,6 +128,15 @@ namespace BBQ.Action {
             if (index == "f1") f1 = val;
             if (index == "f2") f2 = val;
             if (index == "f3") f3 = val;
+        }
+        
+        public string SetString(string index, string str) {
+            if (index == null) Debug.LogWarning("値が設定されていません。"); 
+            if (index == "s1") s1 = str;
+            if (index == "s2") s2 = str;
+            if (index == "s3") s3 = str;
+            if (index == "memory") invoker.memory = str;
+            return index;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BBQ.Common {
             FoodObject obj = Instantiate(prefab).GetComponent<FoodObject>();
             obj.Init(deckFood);
             Transform tr = obj.transform;
-            tr.SetParent(parent);
+            tr.SetParent(parent, false);
             tr.localPosition = Vector3.zero;
             tr.localScale = Vector3.one;
             return obj;

@@ -14,7 +14,7 @@ namespace BBQ.Action.Play {
             int num = v.GetNum(v.n1);
             if (num < 0) {
                 env.time.UseTime(-num);
-                SoundPlayer.I.Play("se_useTime");
+                SoundPlayer.I.Play("se_consume");
             }
             else {
                 env.time.AddTime(num);

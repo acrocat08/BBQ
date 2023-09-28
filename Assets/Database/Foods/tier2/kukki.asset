@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: kukki
   m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 7a6dd23d5ba00af4f91e048544de6147, type: 2}
   foodName: "\u30AF\u30C3\u30AD\u30FC"
   tier: 2
   cost: 20

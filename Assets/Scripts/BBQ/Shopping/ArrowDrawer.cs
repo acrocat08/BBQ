@@ -35,8 +35,8 @@ namespace BBQ.Shopping {
         }
 
         public void SetPos(Vector2 from, Vector2 to, Color color) {
-            _topPoint = to;
-            _bottomPoint = from;
+            _topPoint = to * (1920f / Screen.width);
+            _bottomPoint = from * (1920f / Screen.width);;
             this.color = color;
             SetVerticesDirty();
         }
