@@ -13,6 +13,7 @@ namespace BBQ.Database {
         
         public FoodData GetRandomFood(int minTier, int maxTier, string tag = "") {
             return foods.Where(x => x.tier >= minTier && x.tier <= maxTier)
+                .Where(x => tag == "" || x.tag == tag)
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
 

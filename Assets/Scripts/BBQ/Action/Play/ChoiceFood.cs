@@ -13,7 +13,9 @@ namespace BBQ.Action.Play {
         [SerializeField] private ItemSet itemSet;
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            FoodData food = itemSet.GetRandomFood(env.shop.GetShopLevel(), env.shop.GetShopLevel());
+            int x = v.GetNum(v.n1);
+            int y = v.GetNum(v.n2);
+            FoodData food = itemSet.GetRandomFood(x, y, v.s1);
             v.s1 = food.foodName;
         }
     }

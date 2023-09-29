@@ -20,6 +20,7 @@ MonoBehaviour:
   color: {r: 0.83921576, g: 0.8196079, b: 0.7294118, a: 1}
   isToken: 0
   useStack: 0
+  tag: "\u6D77\u9BAE\u7CFB"
   action:
     summaries:
     - "\u8CFC\u5165\uFF1A\n-\u3000\u30B7\u30E7\u30C3\u30D7\u306E\u9053\u5177\u3092\u66F4\u65B0\u3059\u308B\n\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u26C4\u30D5\u30EA\u30FC\u30BA
