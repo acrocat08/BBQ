@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,7 @@ namespace BBQ.Shopping {
         void Update() {
             Vector2 pointed = Input.mousePosition;
             if (!_isDragging) {
+                if (InputGuard.Guard()) return;
                 if (Input.GetMouseButtonDown(0)) {
                     _toAreas = null;
                     _fromArea = _areas.Where(x => x.canPointDown).FirstOrDefault(x => x.CheckPointed(pointed));

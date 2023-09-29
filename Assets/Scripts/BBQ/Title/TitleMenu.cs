@@ -37,8 +37,8 @@ namespace BBQ.Title {
         private async void GotoMainGame() {
             SoundPlayer.I.Play("se_select1");
             await SoundPlayer.I.FadeOutSound("bgm_title");
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
             view.GotoNext();
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));
             SceneManager.LoadScene("Scenes/Shopping");
         }
         

@@ -19,7 +19,8 @@ namespace BBQ.Title {
         [SerializeField] private GameObject smogPrefab;
         [SerializeField] private Vector3 smogMinPos;
         [SerializeField] private Vector3 smogMaxPos;
-        private List<Transform> smogs = new List<Transform>();
+        private List<Transform> _smogs;
+        private bool _isMoving;
         public async void FloatLogo(TitleMenu titleMenu) {
             Transform logo = titleMenu.transform.Find("Logo");
             Vector3 centerPos = logo.localPosition;
@@ -38,7 +39,9 @@ namespace BBQ.Title {
         }
 
         public async void Smog(Transform bg) {
+            if (_smogs == null) _smogs = new List<Transform>();
             while (bg != null) {
+                if (_isMoving) return;
                 await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(0.2f, 1f)));
                 int num = Random.Range(1, 3);
                 for (int i = 0; i < num; i++) {
@@ -60,14 +63,16 @@ namespace BBQ.Title {
             smog.DOLocalMoveY(smog.localPosition.y + 200f * Random.Range(1f, 1.5f) * (Screen.width / 1920f), life).SetEase(Ease.OutQuad);
             smog.DOScale(smog.transform.localScale * Random.Range(1.5f, 3f), life);
             smog.GetComponent<Image>().DOFade(0f, life);
-            smogs.Add(smog);
+            _smogs.Add(smog);
             await UniTask.Delay(TimeSpan.FromSeconds(life));
-            smogs.Remove(smog);
+            _smogs.Remove(smog);
             Destroy(smog.gameObject);
         }
 
         public void GotoNext() {
-            foreach (Transform smog in smogs) {
+            _isMoving = true;
+            foreach (Transform smog in _smogs) {
+                if (smog == null) continue;
                 Destroy(smog.gameObject);
             }
         }

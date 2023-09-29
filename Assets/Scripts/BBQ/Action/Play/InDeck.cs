@@ -11,7 +11,13 @@ namespace BBQ.Action.Play {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            bool isOk = deckFoods.All(x => env.deck.SelectAll().Contains(x));
+            bool isOk = false;
+            if (env.isShopping) {
+                isOk = deckFoods.All(x => env.inventory.GetDeckFoods().Contains(x));
+            }
+            else {
+                isOk = deckFoods.All(x => env.deck.SelectAll().Contains(x));
+            }
             v.x1 = isOk ? 1 : 0;
         }
     }

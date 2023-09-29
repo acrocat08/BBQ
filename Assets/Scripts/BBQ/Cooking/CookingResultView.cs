@@ -23,6 +23,9 @@ namespace BBQ.Cooking {
         [SerializeField] private float shakeStrength;
         [SerializeField] private float shakeDuration;
 
+        [SerializeField] private Sprite takoSpriteInClear;
+        [SerializeField] private Sprite takoSpriteInFailed;
+
         public async UniTask ShowResult(Transform container, List<MissionStatus> missions, int star, int gainStar, int life, int lostLife, bool isClear) {
             Text starText = container.Find("Star").Find("Amount").GetComponent<Text>();
             starText.text = star + " / " + 10; //TODO:fix
@@ -47,12 +50,13 @@ namespace BBQ.Cooking {
                 star += gainStar;
                 resultText.text = clearText;
                 SoundPlayer.I.Play("se_missionClear");
-
+                container.Find("Tako").GetComponent<Image>().sprite = takoSpriteInClear;
             }
             else {
                 life -= lostLife;
                 resultText.text = failedText;
                 SoundPlayer.I.Play("se_missionFailed");
+                container.Find("Tako").GetComponent<Image>().sprite = takoSpriteInFailed;
             }
             resultText.enabled = true;
             await UniTask.Delay(TimeSpan.FromSeconds(durationD));

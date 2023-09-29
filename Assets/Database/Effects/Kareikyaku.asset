@@ -17,8 +17,17 @@ MonoBehaviour:
   effectImage: {fileID: 21300000, guid: e9f8a601c770b9947a94434185a85e26, type: 3}
   action:
     summaries:
-    - 
-    sequences: []
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n-\u3000\u3053\u306E\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 045d824891c82ec4fbc229cc6422b036, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
   onAttached: []
   onReleased: []
-  subItem: []

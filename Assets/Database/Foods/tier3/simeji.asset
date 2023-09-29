@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: simeji
   m_EditorClassIdentifier: 
+  subItem: []
   foodName: "\u3057\u3081\u3058"
   tier: 3
   cost: 30
   foodImage: {fileID: 21300000, guid: cf237ad64d4acc04cb501512fb495588, type: 3}
   color: {r: 0.70980394, g: 0.4666667, b: 0.24705884, a: 1}
   isToken: 0
+  useStack: 0
   action:
     summaries:
-    - "\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u6700\u5F8C\u306B\u30D2\u30C3\u30C8\u3057\u305F\u98DF\u67501\u3064\u306E\u30E9\u30F3\u30AF1\u30D2\u30C3\u30C8\u52B9\u679C\u3092\u767A\u52D5\u3059\u308B\n<<\u30AD\u30CE\u30B3\u7CFB\u98DF\u6750>>\n!!\u672A\u5B9F\u88C5!!"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u6700\u5F8C\u306B\u30D2\u30C3\u30C8\u3057\u305F\u98DF\u67501\u3064\u306E\u30E9\u30F3\u30AF1\u30D2\u30C3\u30C8\u52B9\u679C\u3092\u767A\u52D5\u3059\u308B\n<<\u30AD\u30CE\u30B3\u7CFB\u98DF\u6750>>\n!!\u672A\u5B9F\u88C5!!"
     sequences: []

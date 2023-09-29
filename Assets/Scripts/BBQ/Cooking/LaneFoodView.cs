@@ -37,7 +37,7 @@ namespace BBQ.Cooking {
             foodObject.transform.Find("Stack").GetComponent<Text>().text = foodObject.deckFood.stack.ToString();
         }
         
-        public override async void LankUp(FoodObject foodObject) {
+        public override async UniTask LankUp(FoodObject foodObject) {
             Draw(foodObject);
             Transform foodImage = foodObject.transform.Find("Image");
             foodImage.SetParent(GameObject.Find("Canvas").transform);

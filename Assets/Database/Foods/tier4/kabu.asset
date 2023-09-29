@@ -12,13 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: kabu
   m_EditorClassIdentifier: 
+  subItem: []
   foodName: "\u30AB\u30D6"
   tier: 4
   cost: 40
   foodImage: {fileID: 21300000, guid: 3d6e25915fa19e34b81de161da856f10, type: 3}
   color: {r: 0.4901961, g: 0.7058824, b: 0.25882354, a: 1}
   isToken: 0
+  useStack: 1
   action:
     summaries:
-    - "\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3-1\u3001\u30B7\u30E7\u30C3\u30D7\u306B\u98DF\u67501\u3064\u3092\u8FFD\u52A0\u3059\u308B\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\u52B9\u679C\u3067\u6D88\u8CBB\u3057\u305F\u30AB\u30FC\u30DC\u30F3\u3092\u7372\u5F97\u3059\u308B\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA\n!!\u672A\u5B9F\u88C5!!"
-    sequences: []
+    - "\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3-1\u3001\u30B7\u30E7\u30C3\u30D7\u306B\u98DF\u67501\u3064\u3092\u8FFD\u52A0\u3059\u308B\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\u52B9\u679C\u3067\u6D88\u8CBB\u3057\u305F\u30AB\u30FC\u30DC\u30F3\u3092\u7372\u5F97\u3059\u308B\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA"
+    - "\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3-1\u3001\u30B7\u30E7\u30C3\u30D7\u306B\u98DF\u67501\u3064\u3092\u8FFD\u52A0\u3059\u308B\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\u52B9\u679C\u3067\u6D88\u8CBB\u3057\u305F\u30AB\u30FC\u30DC\u30F3+1\u3092\u7372\u5F97\u3059\u308B\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA"
+    - "\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3-1\u3001\u30B7\u30E7\u30C3\u30D7\u306B\u98DF\u67501\u3064\u3092\u8FFD\u52A0\u3059\u308B\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B7\u30E7\u30C3\u30D7\u306E\u30EA\u30ED\u30FC\u30EB\u52B9\u679C\u3067\u6D88\u8CBB\u3057\u305F\u30AB\u30FC\u30DC\u30F3+2\u3092\u7372\u5F97\u3059\u308B\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA"
+    sequences:
+    - trigger: 15
+      condition:
+      - action: {fileID: 11400000, guid: 7ef5f1f1df38cbb41a1ce4884aa91315, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 2
+      commands:
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: -1
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: stack
+        n2: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      - action: {fileID: 11400000, guid: a8b4e552292f12a468a7971fed0955a2, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 6d6f0ed127e2535429898017d510d05b, type: 2}
+        n1: s1
+        n2: 
+      priority: 0
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: stack
+        n2: 0/1/2
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: x1
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: stack
+        n2: x1
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 045d824891c82ec4fbc229cc6422b036, type: 2}
+        n1: f1
+        n2: 
+      priority: 0

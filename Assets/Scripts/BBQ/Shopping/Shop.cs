@@ -39,7 +39,7 @@ namespace BBQ.Shopping {
             _coin = coin;
             _carbon = carbon;
             reroller.Init(this, _coin, rerollTicket);
-            reroller.Reroll();
+            reroller.Reroll(true);
             view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
         }
         

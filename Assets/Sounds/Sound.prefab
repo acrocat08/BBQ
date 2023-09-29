@@ -48,6 +48,8 @@ MonoBehaviour:
   sounds:
   - {fileID: 11400000, guid: 550e209d32a5c4945ba3251ec2b8f8df, type: 2}
   - {fileID: 11400000, guid: 6d3bfc42bcf179c498169d9f4f431ced, type: 2}
+  - {fileID: 11400000, guid: d605cc966a7b2204fac61c6c69c457a0, type: 2}
+  - {fileID: 11400000, guid: 8333e093ade3d594d80ff45034bc0a6f, type: 2}
   - {fileID: 11400000, guid: 4f444a0fba1c13c479e19a8a471bc3fe, type: 2}
   - {fileID: 11400000, guid: 2b3e3f0757f54d848a14baba86385df4, type: 2}
   - {fileID: 11400000, guid: c66bfca8fabc2884e89f4fa64faf6ffb, type: 2}
@@ -83,5 +85,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2c4926bddc9d7e40b307831442a2c45, type: 2}
   - {fileID: 11400000, guid: 888fdff66fe8a314bb2bbd0de3e2cf63, type: 2}
   - {fileID: 11400000, guid: b201ffff6abcc4340aca8abc8c64eac5, type: 2}
-  - {fileID: 11400000, guid: a43f3149b5340f44e8c2e4fb8787f975, type: 2}
   fadeDuration: 1

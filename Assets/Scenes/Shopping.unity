@@ -2066,6 +2066,7 @@ MonoBehaviour:
   time: {fileID: 0}
   coin: {fileID: 0}
   carbon: {fileID: 0}
+  shop: {fileID: 0}
   rerollTicket: 0
 --- !u!114 &538731123
 MonoBehaviour:

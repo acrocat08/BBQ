@@ -35,6 +35,8 @@ namespace BBQ.Action.Play {
             List<DeckFood> deckFoods = taken.Select(x => x.deckFood).ToList();
             await TriggerObserver.I.Invoke(ActionTrigger.Draw, deckFoods, true);
             await TriggerObserver.I.Invoke(ActionTrigger.DrawOthers, deckFoods, false);
+            await TriggerObserver.I.Invoke(ActionTrigger.Placed, deckFoods, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, deckFoods, false);
         }
 
         bool CheckDrawable(ActionEnvironment env, int drawNum) {

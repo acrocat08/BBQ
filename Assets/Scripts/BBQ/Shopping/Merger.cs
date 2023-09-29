@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Action;
 using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
@@ -40,13 +41,18 @@ namespace BBQ.Shopping {
             }
             await UniTask.Delay(TimeSpan.FromSeconds(mergeDuration));
             SoundPlayer.I.Play("se_merge");
+            target[0].deckFood.lank += 1;
             target[0].LankUp();
             for (int i = 1; i < target.Count; i++) {
+                TriggerObserver.I.RemoveFood(target[i].deckFood);
                 DeckFood emptyFood = new DeckFood(null);
                 target[i].SetFood(emptyFood);
             }
             await UniTask.Delay(TimeSpan.FromSeconds(discoverDuration));
-            FoodData discovered = itemSet.GetRandomFood(Mathf.Min(5, shop.GetShopLevel() + 1));
+            await TriggerObserver.I.Invoke(ActionTrigger.LankUp, new List<DeckFood> { target[0].deckFood }, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new List<DeckFood> { target[0].deckFood }, false);
+            int discoverTier = Mathf.Min(5, shop.GetShopLevel() + 1);
+            FoodData discovered = itemSet.GetRandomFood(discoverTier, discoverTier);
             await shop.AddFoods(new List<FoodData> { discovered });
             InputGuard.UnLock();            
         }

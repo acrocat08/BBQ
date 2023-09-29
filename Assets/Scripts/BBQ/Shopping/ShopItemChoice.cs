@@ -23,7 +23,7 @@ namespace BBQ.Shopping {
                     cnt += per[tier];
                     if (r < cnt) break;
                 }
-                ret.Add(itemSet.GetRandomFood(tier + 1));
+                ret.Add(itemSet.GetRandomFood(tier + 1, tier + 1));
             }
 
             return ret;

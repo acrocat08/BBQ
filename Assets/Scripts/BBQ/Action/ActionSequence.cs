@@ -34,6 +34,10 @@ namespace BBQ.Action {
         AfterHit,
         Drop,
         DropOthers,
+        Placed,
+        PlacedOthers,
+        StartCooking,
+        StartShopping,
     }
     
     [Serializable]

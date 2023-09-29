@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Action;
 using BBQ.Action.Play;
 using BBQ.Common;
 using BBQ.Database;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using UnityEngine;
@@ -27,8 +29,9 @@ namespace BBQ.Shopping {
             Draw();
         }
         
-        public async void Reroll() {
+        public async void Reroll(bool isFirst) {
             InputGuard.Lock();
+            if(!isFirst) await TriggerObserver.I.Invoke(ActionTrigger.BeforeReroll, new List<DeckFood>(), false);
             List<ShopFood> shopItems = _shop.GetShopFoods();
             if(shopItems != null) _shop.DeleteFoods(new List<ShopFood>(shopItems));
             List<FoodData> foods = choice.ChoiceFoods(_shop.GetShopLevel());
@@ -37,6 +40,8 @@ namespace BBQ.Shopping {
             tasks.Add(_shop.AddFoods(foods));
             tasks.Add(_shop.AddTool(tool));
             await tasks;
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            if(!isFirst) await TriggerObserver.I.Invoke(ActionTrigger.AfterReroll, new List<DeckFood>(), false);
             InputGuard.UnLock();
         }
         
@@ -53,7 +58,7 @@ namespace BBQ.Shopping {
                 _coin.Use(_cost);
                 _cost += 5;    
             }
-            Reroll();
+            Reroll(false);
             Draw();
         }
 

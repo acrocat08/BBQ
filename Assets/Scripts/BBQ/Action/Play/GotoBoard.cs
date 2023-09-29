@@ -33,6 +33,8 @@ namespace BBQ.Action.Play {
             SoundMgr.SoundPlayer.I.Play("se_draw");
             List<DeckFood> target = deckFoods.Take(num).ToList();
             await env.board.AddFoodsRandomly(target[0].Releasable.ReleaseFoods(deckFoods));
+            await TriggerObserver.I.Invoke(ActionTrigger.Placed, deckFoods, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, deckFoods, false);
         }
     }
 }

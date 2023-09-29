@@ -114,11 +114,11 @@ namespace BBQ.Common {
             foodObject.transform.Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
         }
 
-        public virtual void LankUp(FoodObject foodObject) {
+        public virtual UniTask LankUp(FoodObject foodObject) {
+            return default;
         }
 
         public virtual void UpdateStack(FoodObject foodObject) {
-            throw new NotImplementedException();
         }
     }
 }

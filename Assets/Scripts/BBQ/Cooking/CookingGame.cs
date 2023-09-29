@@ -40,6 +40,7 @@ namespace BBQ.Cooking {
         private int _star;
         private int _life;
         private List<MissionStatus> _missions;
+        private int _gameStatus;
 
         [SerializeField] private List<MissionStatus> testMission;
         
@@ -78,10 +79,28 @@ namespace BBQ.Cooking {
             await view.GameEnd(transform.Find("Result"), _missions, _star, gainStar, _life, lostLife, isClear);
             _star += gainStar;
             _life -= lostLife;
+            _gameStatus = CheckResult();
+            
             SaveStatus();
             await view.ChangeColor(this);
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
-            SceneManager.LoadScene("Scenes/Shopping");
+            GotoNextScene();
+        }
+
+        int CheckResult() {
+            if (_star >= 10) return 1;
+            if (_life <= 0) return 2;
+            return 0;
+        }
+
+        async void GotoNextScene() {
+            if (_gameStatus > 0) {
+                await SoundPlayer.I.FadeOutSound("bgm_cooking");
+                SceneManager.LoadScene("Scenes/Result");
+            }
+            else {
+                await UniTask.Delay(TimeSpan.FromSeconds(1));
+                SceneManager.LoadScene("Scenes/Shopping");
+            }
         }
 
 
@@ -111,7 +130,7 @@ namespace BBQ.Cooking {
             List<DeckFood> deckFoods = deck.GetUsableFoods();
             int coinNum = coin.GetCoin();
             PlayerStatus.Create(deckFoods, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
-                env.rerollTicket, _star, _life, new List<MissionStatus>());
+                env.rerollTicket, _star, _life, new List<MissionStatus>(), _gameStatus);
         }
 
         public int GetDay() {

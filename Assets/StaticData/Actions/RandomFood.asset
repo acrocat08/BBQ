@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6fe293349566048acfca8b633adb4c, type: 3}
-  m_Name: GetLaneIndex
+  m_Script: {fileID: 11500000, guid: 72f103335bd617f449da2943d86d4f11, type: 3}
+  m_Name: RandomFood
   m_EditorClassIdentifier: 
+  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}

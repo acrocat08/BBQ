@@ -70,7 +70,10 @@ namespace BBQ.Shopping {
                 if(_nowItem != null) DrawDetail(_nowItem);
                 if(_nowFood != null) DrawDetail(_nowFood);
             }
-            else DrawDetail(_nowItem.subItem[index - 1]);
+            else {
+                if(_nowItem != null) DrawDetail(_nowItem.subItem[index - 1]);
+                if(_nowFood != null) DrawDetail(_nowFood.data.subItem[index - 1]);
+            }
         }
 
     }

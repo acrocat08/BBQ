@@ -93,6 +93,7 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> SelectLane(int index) {
+            if (index == 0) return new List<DeckFood>();
             return _lanes[index - 1].GetFoods().Where(x => x != null).Select(x => x.deckFood).ToList();
         }
 
@@ -138,7 +139,8 @@ namespace BBQ.Cooking {
 
         public int GetLaneIndex(DeckFood food) {
             Lane lane = _lanes
-                .First(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
+                .FirstOrDefault(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
+            if (lane == null) return 0;
             return _lanes.IndexOf(lane) + 1;
         }
 
