@@ -28,7 +28,7 @@ namespace BBQ.Cooking {
 
         public async UniTask ShowResult(Transform container, List<MissionStatus> missions, int star, int gainStar, int life, int lostLife, bool isClear) {
             Text starText = container.Find("Star").Find("Amount").GetComponent<Text>();
-            starText.text = star + " / " + 10; //TODO:fix
+            starText.text = star + " / " + 8; //TODO:fix
             Text lifeText = container.Find("Life").Find("Amount").GetComponent<Text>();
             lifeText.text = life.ToString();
             await UniTask.Delay(TimeSpan.FromSeconds(durationA));
@@ -60,7 +60,7 @@ namespace BBQ.Cooking {
             }
             resultText.enabled = true;
             await UniTask.Delay(TimeSpan.FromSeconds(durationD));
-            starText.text = star + " / " + 10; //TODO:fix
+            starText.text = star + " / " + 8; //TODO:fix
             lifeText.text = life.ToString();
             SoundPlayer.I.Play(isClear ? "se_gainStar" : "se_lostLife");
             Image targetImage = container.Find(isClear ? "Star" : "Life")

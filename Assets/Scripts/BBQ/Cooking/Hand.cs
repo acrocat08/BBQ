@@ -92,7 +92,7 @@ namespace BBQ.Cooking {
             }
             
             _time.Resume();
-            _board.UseHand(_isDouble ? 2 : 1);
+            _board.StoreHand();
             if (deckFoods.Count > 0) {
                 _missionSheet.AddCount("hand", _isDouble ? 2 : 1);
             }

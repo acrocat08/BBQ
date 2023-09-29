@@ -105,7 +105,7 @@ namespace BBQ.Shopping {
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
             await UniTask.Delay(TimeSpan.FromSeconds(lankUpDuration));
             foodImage.SetParent(foodObject.transform.Find("Object"));
-            foodObject.transform.Find("Object").SetSiblingIndex(0);
+            foodImage.transform.SetSiblingIndex(0);
         }
         
         public override void Invoke(FoodObject foodObject) {

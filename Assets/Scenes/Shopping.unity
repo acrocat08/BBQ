@@ -1188,7 +1188,7 @@ MonoBehaviour:
   coin: {fileID: 1512946762}
   carbon: {fileID: 1111119076}
   handCount: {fileID: 788647726}
-  income: 5000
+  income: 50
   missionMaker: {fileID: 11400000, guid: d01ae1d167b2d464db6d68741a24312c, type: 2}
   env: {fileID: 538731122}
 --- !u!114 &211513936
@@ -6898,7 +6898,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0/10
+  m_Text: 0/8
 --- !u!222 &1642042239
 CanvasRenderer:
   m_ObjectHideFlags: 0

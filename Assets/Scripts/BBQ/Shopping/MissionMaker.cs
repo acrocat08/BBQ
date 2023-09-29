@@ -11,9 +11,18 @@ namespace BBQ.Shopping {
         public List<MissionStatus> Create(int day) {
             MissionStatus mission = new MissionStatus {
                 mission = hand,
-                goal = 9 + day * 1
+                goal = MakeDifficulty(day)
             };
             return new List<MissionStatus> { mission };
+        }
+
+        int MakeDifficulty(int day) {
+            int x = day - 1;
+            int ret = 10;
+            ret += x;
+            ret += Mathf.Max(0, x - 4);
+            ret += Mathf.Max(0, x - 9);
+            return ret;
         }
 
     }

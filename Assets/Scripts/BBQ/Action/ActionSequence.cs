@@ -39,6 +39,7 @@ namespace BBQ.Action {
         StartCooking,
         StartShopping,
         BonusTime,
+        GainCoin,
     }
     
     [Serializable]

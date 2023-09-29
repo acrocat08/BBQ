@@ -87,7 +87,7 @@ namespace BBQ.Cooking {
         }
 
         int CheckResult() {
-            if (_star >= 10) return 1;
+            if (_star >= 8) return 1;
             if (_life <= 0) return 2;
             return 0;
         }

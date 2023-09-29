@@ -55,12 +55,7 @@ namespace BBQ.Cooking {
         }
         
         //-- TODO: 別クラスに移行　HandManager
-
-        public void UseHand(int num) {
-            _handCount.Use(num);
-            StoreHand();
-        }
-
+        
         public void StoreHand() {
             if (_handCount.GetHandCount() > 0) {
                 CreateHand();
@@ -74,9 +69,11 @@ namespace BBQ.Cooking {
                 SoundPlayer.I.Play("se_goldenHand");                
             }
             if (_nextDouble && _handCount.GetHandCount() >= 2) {
+                _handCount.Use(2);
                 _nextDouble = false;
                 SoundPlayer.I.Play("se_doubleHand");                
             }
+            else _handCount.Use(1);
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"));
             _hand.transform.localPosition = handInitialPos;
