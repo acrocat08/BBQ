@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
+using BBQ.Action;
 using BBQ.Common;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -34,6 +37,9 @@ namespace BBQ.Cooking {
                 if (_nowTime == 0 && !_bonusMode) {
                     _nowTime += _bonusTime;
                     _bonusMode = true;
+                    Pause();
+                    await TriggerObserver.I.Invoke(ActionTrigger.BonusTime, new List<DeckFood>(), false);
+                    Resume();
                 }
                 view.UpdateText(this, _bonusMode);
             }
@@ -71,6 +77,10 @@ namespace BBQ.Cooking {
             if (_bonusMode) return;
             _bonusTime += val;
             view.UpdateTime(this, _bonusMode);
+        }
+
+        public bool IsBonusMode() {
+            return _bonusMode;
         }
         
     }

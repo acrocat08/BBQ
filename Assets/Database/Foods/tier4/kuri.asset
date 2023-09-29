@@ -20,18 +20,25 @@ MonoBehaviour:
   color: {r: 0.38431376, g: 0.19215688, b: 0.03529412, a: 1}
   isToken: 0
   useStack: 1
+  tag: 
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309220\u56DE\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+20\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309215\u56DE\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+20\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309210\u56DE\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+20\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309220\u500B\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+50\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309215\u500B\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+50\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309210\u500B\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+50\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
     sequences:
     - trigger: 1
       condition: []
       commands:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: stack
-        n2: 1
+        n2: x1
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
         n1: x1
         n2: stack
@@ -43,7 +50,7 @@ MonoBehaviour:
         n2: 20/15/10
       commands:
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
-        n1: 20
+        n1: 50
         n2: 
       - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
         n1: 

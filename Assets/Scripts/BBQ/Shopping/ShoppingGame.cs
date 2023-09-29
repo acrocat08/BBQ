@@ -34,7 +34,7 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
-            env.Init(handCount, coin, carbon, deckInventory, copyArea);
+            env.Init(shop, handCount, coin, carbon, deckInventory, copyArea);
             view.Init(this);
             _nowMission = missionMaker.Create(_day);
             view.UpdateMission(this, _nowMission);
@@ -43,6 +43,7 @@ namespace BBQ.Shopping {
 
         async void GameStart() {
             await view.OpenBG(this);
+            await TriggerObserver.I.Invoke(ActionTrigger.StartShopping, new List<DeckFood>(), false);
             SoundPlayer.I.Play("bgm_cooking");
         }
 
@@ -84,7 +85,7 @@ namespace BBQ.Shopping {
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
             PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
-                PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission);
+                PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission, 0);
         }
 
         public int GetDay() {

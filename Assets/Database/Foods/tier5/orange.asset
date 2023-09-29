@@ -33,6 +33,9 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
         n1: 
         n2: 
+      - action: {fileID: 11400000, guid: 42d4388fe3c1113489780519f5d7fe6c, type: 2}
+        n1: f1
+        n2: none
       - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
         n1: f1
         n2: 3/4/5

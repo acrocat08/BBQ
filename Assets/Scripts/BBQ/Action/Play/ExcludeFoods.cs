@@ -12,7 +12,9 @@ namespace BBQ.Action.Play {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             List<DeckFood> excludeFoods = v.GetFoods(v.n2);
 
-            v.f1 = deckFoods.Where(x => !excludeFoods.Contains(x)).ToList();
+            v.f1 = deckFoods.Where(x => excludeFoods.Contains(x)).ToList();
+            v.f2 = deckFoods.Where(x => !excludeFoods.Contains(x)).ToList();
+            
         }
     }
 }

@@ -11,8 +11,9 @@ namespace BBQ.Database {
         public List<FoodEffect> effects;
         public List<ToolData> tools;
         
-        public FoodData GetRandomFood(int tier) {
-            return foods.Where(x => x.tier == tier)
+        public FoodData GetRandomFood(int minTier, int maxTier, string tag = "") {
+            return foods.Where(x => x.tier >= minTier && x.tier <= maxTier)
+                .Where(x => tag == "" || x.tag == tag)
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
 
@@ -24,6 +25,12 @@ namespace BBQ.Database {
             return tools.Where(x => x.tier <= level)
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
+        
+        public ToolData SearchTool(string toolName) {
+            return tools.FirstOrDefault(x => x.toolName == toolName);
+        }
+        
+        
     }
     
 

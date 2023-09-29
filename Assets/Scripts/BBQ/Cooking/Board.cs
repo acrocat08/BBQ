@@ -55,12 +55,7 @@ namespace BBQ.Cooking {
         }
         
         //-- TODO: 別クラスに移行　HandManager
-
-        public void UseHand(int num) {
-            _handCount.Use(num);
-            StoreHand();
-        }
-
+        
         public void StoreHand() {
             if (_handCount.GetHandCount() > 0) {
                 CreateHand();
@@ -74,9 +69,11 @@ namespace BBQ.Cooking {
                 SoundPlayer.I.Play("se_goldenHand");                
             }
             if (_nextDouble && _handCount.GetHandCount() >= 2) {
+                _handCount.Use(2);
                 _nextDouble = false;
                 SoundPlayer.I.Play("se_doubleHand");                
             }
+            else _handCount.Use(1);
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"));
             _hand.transform.localPosition = handInitialPos;
@@ -93,6 +90,7 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> SelectLane(int index) {
+            if (index == 0) return new List<DeckFood>();
             return _lanes[index - 1].GetFoods().Where(x => x != null).Select(x => x.deckFood).ToList();
         }
 
@@ -138,7 +136,8 @@ namespace BBQ.Cooking {
 
         public int GetLaneIndex(DeckFood food) {
             Lane lane = _lanes
-                .First(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
+                .FirstOrDefault(x => x.GetFoods().Where(x => x != null).Select(x => x.deckFood).Contains(food));
+            if (lane == null) return 0;
             return _lanes.IndexOf(lane) + 1;
         }
 

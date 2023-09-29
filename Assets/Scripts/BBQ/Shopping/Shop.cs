@@ -39,14 +39,14 @@ namespace BBQ.Shopping {
             _coin = coin;
             _carbon = carbon;
             reroller.Init(this, _coin, rerollTicket);
-            reroller.Reroll();
+            reroller.Reroll(true);
             view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
         }
         
         public async void BuyFood(ShopFood shopFood, DeckInventory inventory) {
             if (!CheckCanBuyFood(shopFood, _coin, inventory)) return;
             InputGuard.Lock();
-            _coin.Use(shopFood.GetFoodData().cost);
+            _coin.Use(shopFood.GetCost());
             inventory.AddFood(shopFood.deckFood);
             DeleteFoods(new List<ShopFood>{shopFood});            
             SoundPlayer.I.Play("se_buy");
@@ -59,7 +59,7 @@ namespace BBQ.Shopping {
         }
 
         bool CheckCanBuyFood(ShopFood shopFood, Coin coin, DeckInventory inventory) {
-            if (coin.GetCoin() < shopFood.GetFoodData().cost) return false;
+            if (coin.GetCoin() < shopFood.GetCost()) return false;
             return inventory.CheckIsEmpty();
         }
 
@@ -173,6 +173,12 @@ namespace BBQ.Shopping {
             DeleteTool();
             await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, target);
             InputGuard.UnLock();
+        }
+
+        public void DiscountFood(int val) {
+            foreach (ShopFood food in _foods) {
+                if(food != null) food.SetCost((int)(food.GetCost() / val));
+            }
         }
     }
 }

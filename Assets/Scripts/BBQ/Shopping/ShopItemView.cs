@@ -26,7 +26,7 @@ namespace BBQ.Shopping {
         public void DrawFood(ShopFood shopFood) {
             FoodData data = shopFood.GetFoodData();
             shopFood.transform.Find("Image").GetComponent<Image>().sprite = data.foodImage;
-            shopFood.transform.Find("Cost").GetComponent<Text>().text = data.cost.ToString();
+            shopFood.transform.Find("Cost").GetComponent<Text>().text = shopFood.GetCost().ToString();
             shopFood.transform.Find("Name").GetComponent<Text>().text = data.foodName;
             shopFood.transform.Find("Line").GetComponent<Image>().color = colors[data.tier - 1];
             shopFood.transform.Find("Shadow").GetComponent<Image>().color = colors[data.tier - 1];

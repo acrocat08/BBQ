@@ -15,7 +15,7 @@ namespace BBQ.Common {
         [SerializeField] private float fractalMinSize;
         [SerializeField] private float fractalMaxSize;
 
-        public void Draw() {
+        public void Freeze() {
             transform.localScale = Vector3.zero;
             transform.Rotate(0, 0, Random.Range(0, 360));
             transform.DOScale(Vector3.one, duration).SetEase(easing);
@@ -37,6 +37,10 @@ namespace BBQ.Common {
                     fractalDuration 
                 ).SetEase(Ease.InQuad);
             }
+        }
+
+        public void UnFreeze() {
+            transform.DOScale(Vector3.zero, duration).SetEase(easing);
         }
     }
 }

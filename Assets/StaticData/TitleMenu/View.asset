@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logoFloatLength: 20
   logoFloatSpeed: 1
+  waveLength: 70
+  waveSpeed: 0.3
+  waveDirection: {x: 1, y: -1, z: 0}
+  smogPrefab: {fileID: 7446200740777987446, guid: 645d7ca2ba625424caf09dc06a8bb136, type: 3}
+  smogMinPos: {x: 120, y: -250, z: 0}
+  smogMaxPos: {x: 650, y: -20, z: 0}

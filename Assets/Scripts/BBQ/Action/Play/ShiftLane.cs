@@ -23,12 +23,13 @@ namespace BBQ.Action.Play {
             }
 
             if (tasks.Count == 0) {
-                await UniTask.Delay(TimeSpan.FromSeconds(duration));
                 return;
             }
             
             SoundMgr.SoundPlayer.I.Play("se_move");
             await tasks;
+            await TriggerObserver.I.Invoke(ActionTrigger.Placed, deckFoods, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, deckFoods, false);
         }
     }
 }

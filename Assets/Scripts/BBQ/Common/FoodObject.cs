@@ -44,7 +44,11 @@ namespace BBQ.Common {
 
         public void UpdateStack() {
             view.UpdateStack(this);
-        } 
+        }
 
+        public void UnFreeze() {
+            deckFood.isFrozen = false;
+            view.UnFreeze(this);
+        }
     }
 }

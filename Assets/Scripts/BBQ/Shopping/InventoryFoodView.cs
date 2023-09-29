@@ -49,6 +49,7 @@ namespace BBQ.Shopping {
         
         public override void Draw(FoodObject foodObject) {
             DeckFood deckFood = foodObject.deckFood;
+            Debug.Log(foodObject.transform.Find("Object").parent.gameObject.name);
             Image foodImage = foodObject.transform.Find("Object").Find("Image").GetComponent<Image>();
             foodImage.sprite = deckFood.data ? deckFood.data.foodImage : null;
             foodImage.enabled = deckFood.data != null;
@@ -57,7 +58,15 @@ namespace BBQ.Shopping {
             lankImage.color = deckFood.data != null ? lankColor[deckFood.lank - 1] : Color.clear;
             if(foodObject.transform.Find("Object").Find("FireEffect(Clone)")) 
                 Destroy(foodObject.transform.Find("Object").Find("FireEffect(Clone)").gameObject);
+            if(foodObject.deckFood.data && foodObject.deckFood.data.useStack) foodObject.transform.Find("Object").Find("Stack").gameObject.SetActive(true);
             DrawEffect(foodObject);
+            UpdateStack(foodObject);
+        }
+        
+        public override void UpdateStack(FoodObject foodObject) {
+            if (foodObject.deckFood.data == null) return;
+            if (!foodObject.deckFood.data.useStack) return;
+            foodObject.transform.Find("Object").Find("Stack").GetComponent<Text>().text = foodObject.deckFood.stack.ToString();
         }
         
         public override async void Drop(FoodObject foodObject) {
@@ -89,13 +98,14 @@ namespace BBQ.Shopping {
             effect.SetSiblingIndex(0);
         }
 
-        public override async void LankUp(FoodObject foodObject) {
+        public override async UniTask LankUp(FoodObject foodObject) {
             Transform foodImage = foodObject.transform.Find("Object").Find("Image");
             foodImage.SetParent(GameObject.Find("Canvas").transform);
             foodImage.localScale = Vector3.one * lankUpStrength;
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
             await UniTask.Delay(TimeSpan.FromSeconds(lankUpDuration));
             foodImage.SetParent(foodObject.transform.Find("Object"));
+            foodImage.transform.SetSiblingIndex(0);
         }
         
         public override void Invoke(FoodObject foodObject) {

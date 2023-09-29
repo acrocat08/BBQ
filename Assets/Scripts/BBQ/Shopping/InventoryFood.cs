@@ -45,9 +45,7 @@ namespace BBQ.Shopping {
         }
 
         public override async void LankUp() {
-            deckFood.lank += 1;
-            view.LankUp(this);
-            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            await view.LankUp(this);
             view.Draw(this);
         }
     }
