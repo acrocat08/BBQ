@@ -20,28 +20,13 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 0.83921576, a: 1}
   isToken: 0
   useStack: 1
+  tag: 
   action:
     summaries:
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570\xD710)\n-\u3000\u30C9\u30ED\u30FC+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570)\n-\u3000\u30CF\u30F3\u30C9+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570)"
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570\xD715)\n-\u3000\u30C9\u30ED\u30FC+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570)\n-\u3000\u30CF\u30F3\u30C9+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570)"
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570\xD720)\n-\u3000\u30C9\u30ED\u30FC+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570)\n-\u3000\u30CF\u30F3\u30C9+(\u30EA\u30BB\u30C3\u30C8\u3057\u305F\u56DE\u6570)"
     sequences:
-    - trigger: 25
-      condition:
-      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
-        n1: 
-        n2: 
-      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
-        n1: f1
-        n2: 
-      commands:
-      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 1
-        n2: 1
-      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
-        n1: x1
-        n2: stack
-      priority: 0
     - trigger: 11
       condition: []
       commands:
@@ -67,4 +52,36 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
         n1: stack
         n2: 
+      priority: 0
+    - trigger: 25
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 1
+        n2: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+    - trigger: 12
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 1
+        n2: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
       priority: 0

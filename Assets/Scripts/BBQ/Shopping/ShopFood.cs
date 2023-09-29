@@ -12,11 +12,13 @@ namespace BBQ.Shopping {
         
 
         private Shop _shop;
+        private int _cost;
 
         public void Init(FoodData data, Shop shop, string areaTag, string targetTag, ItemDetail detail) {
             itemDetail = detail;
             deckFood = new DeckFood(data);
             _shop = shop;
+            _cost = data.cost;
             PointableArea area = transform.Find("Image").Find("Pointable").GetComponent<PointableArea>();
             area.areaTag = areaTag;
             area.targetTag = targetTag;
@@ -36,6 +38,15 @@ namespace BBQ.Shopping {
 
         public FoodData GetFoodData() {
             return deckFood.data;
+        }
+
+        public void SetCost(int newCost) {
+            _cost = newCost;
+            shopView.DrawFood(this);
+        }
+
+        public int GetCost() {
+            return _cost;
         }
 
         public void OnPointDown() {

@@ -66,7 +66,7 @@ namespace BBQ.PlayData {
         }
 
         public static int GetShopLevel() {
-            if (_saveData == null) return 1;
+            if (_saveData == null) return 5;
             return _saveData._shopLevel;
         }
 

@@ -28,6 +28,10 @@ namespace BBQ.Cooking {
             if(mat != null) image.material = new Material(mat);
             if(image.material != null) image.material.SetFloat(Seed, Random.value);
             if(foodObject.deckFood.data.useStack) foodObject.transform.Find("Stack").gameObject.SetActive(true);
+            if (foodObject.deckFood.isFrozen) {
+                Transform effect = Instantiate(freezeEffectPrefab, foodObject.transform).transform;
+                effect.localPosition = Vector3.one;
+            }
             DrawEffect(foodObject);
             UpdateStack(foodObject);
         }

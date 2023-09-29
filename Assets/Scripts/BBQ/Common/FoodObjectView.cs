@@ -22,7 +22,7 @@ namespace BBQ.Common {
         [SerializeField] protected float fallXLength;
         [SerializeField] protected float fallDuration;
         
-        [SerializeField] private GameObject freezeEffectPrefab;
+        [SerializeField] protected GameObject freezeEffectPrefab;
         [SerializeField] private Color freezeColor;
         
         [SerializeField] protected GameObject fireEffectPrefab;
@@ -95,7 +95,12 @@ namespace BBQ.Common {
             FreezeEffect effect = Instantiate(freezeEffectPrefab, foodObject.transform)
                 .GetComponent<FreezeEffect>();
             effect.transform.localPosition = Vector3.zero;
-            effect.Draw();
+            effect.Freeze();
+        }
+        
+        public void UnFreeze(FoodObject foodObject) {
+            FreezeEffect effect = foodObject.transform.Find("FreezeEffect(Clone)").GetComponent<FreezeEffect>();
+            effect.UnFreeze();
         }
         
         public virtual void Fire(FoodObject foodObject) {

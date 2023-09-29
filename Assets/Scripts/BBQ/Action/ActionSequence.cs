@@ -38,6 +38,7 @@ namespace BBQ.Action {
         PlacedOthers,
         StartCooking,
         StartShopping,
+        BonusTime,
     }
     
     [Serializable]
