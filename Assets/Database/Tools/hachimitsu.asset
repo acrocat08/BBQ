@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
+  m_Name: hachimitsu
+  m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 985702eb785414b4abc273e1d17c859d, type: 2}
+  toolName: "\u306F\u3061\u307F\u3064"
+  tier: 4
+  cost: 2
+  toolImage: {fileID: 21300000, guid: ba1310919916bdd4f93919f188dc9d3e, type: 3}
+  action:
+    summaries:
+    - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u306B\u300C\u30CF\u30CB\u30FC\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+        n1: f1
+        n2: "\u30CF\u30CB\u30FC"
+      priority: 0
+  targetArea: deckItem
