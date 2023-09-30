@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BBQ.Common;
+using BBQ.Database;
 using BBQ.PlayData;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace BBQ.Cooking {
     public class Dump : MonoBehaviour, IReleasable {
         [SerializeField] private DumpView view;
         [SerializeField] private FoodObjectFactory foodFactory;
+        [SerializeField] private DesignParam param;
 
         private List<DeckFood> _foods;
 
@@ -41,6 +43,7 @@ namespace BBQ.Cooking {
         }
 
         public void AddFoods(List<FoodObject> foods) {
+            foods = foods.Where(x => x != null && x.deckFood.data != param.resetFood).ToList();
             _foods.AddRange(foods.Select(x => x.deckFood));
             foreach (FoodObject laneFood in foods) {
                 laneFood.deckFood.Releasable = this;
@@ -49,7 +52,8 @@ namespace BBQ.Cooking {
         }
 
         public void HitFoods(List<FoodObject> foods) {
-            _foods.AddRange(foods.Where(x => x).Select(x => x.deckFood));
+            foods = foods.Where(x => x != null && x.deckFood.data != param.resetFood).ToList();
+            _foods.AddRange(foods.Select(x => x.deckFood));
             _hittingFoods = foods.ToArray();
             foreach (FoodObject laneFood in foods) {
                 if(laneFood == null) continue;
@@ -58,7 +62,7 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> GetHittingFoods() {
-            return _hittingFoods.Where(x => x).Select(x => x.deckFood).ToList();
+            return _hittingFoods.Where(x => x != null && x.deckFood.data != param.resetFood).Select(x => x.deckFood).ToList();
         }
 
         public int GetHittingFoodLane(DeckFood food) {

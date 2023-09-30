@@ -7,6 +7,9 @@ namespace BBQ.Shopping {
     public class MissionMaker : ScriptableObject {
 
         [SerializeField] private Mission hand;
+        [SerializeField] private int initialHand;
+        [SerializeField] private int firstPoint;
+        [SerializeField] private int secondPoint;
 
         public List<MissionStatus> Create(int day) {
             MissionStatus mission = new MissionStatus {
@@ -17,13 +20,19 @@ namespace BBQ.Shopping {
         }
 
         int MakeDifficulty(int day) {
+            /*
             int x = day - 1;
-            int ret = 10;
+            int ret = initialHand;
             ret += x;
-            ret += Mathf.Max(0, x - 4);
-            ret += Mathf.Max(0, x - 9);
+            ret += Mathf.Max(0, x - firstPoint);
+            ret += Mathf.Max(0, x - secondPoint);
             return ret;
+            */
+            return 6 + day * 2;
         }
 
     }
 }
+
+
+

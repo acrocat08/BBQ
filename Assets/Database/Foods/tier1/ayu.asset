@@ -23,18 +23,21 @@ MonoBehaviour:
   tag: "\u6D77\u9BAE\u7CFB"
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+5\n-\u3000\u6700\u3082\u8FD1\u3044\u98DF\u67501\u3064\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n<<
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+1\n-\u3000\u30BF\u30A4\u30E0+3\n-\u3000\u6700\u3082\u8FD1\u3044\u98DF\u67501\u3064\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n<<
       \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+7\n-\u3000\u6700\u3082\u8FD1\u3044\u98DF\u67501\u3064\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n<<
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30BF\u30A4\u30E0+3\n-\u3000\u6700\u3082\u8FD1\u3044\u98DF\u67501\u3064\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n<<
       \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+9\n-\u3000\u6700\u3082\u8FD1\u3044\u98DF\u67501\u3064\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n<<
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n-\u3000\u30BF\u30A4\u30E0+3\n-\u3000\u6700\u3082\u8FD1\u3044\u98DF\u67501\u3064\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n<<
       \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
     sequences:
     - trigger: 0
       condition: []
       commands:
+      - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
+        n1: 1/2/3
+        n2: 
       - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-        n1: 5/7/9
+        n1: 3
         n2: 
       - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
         n1: 

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: tsurizao
   m_EditorClassIdentifier: 
+  subItem: []
   toolName: "\u91E3\u308A\u7AFF"
-  tier: 2
+  tier: 4
   cost: 1
   toolImage: {fileID: 21300000, guid: 1f75e04c00363f648a19feeb2c1be378, type: 3}
   action:
     summaries:
-    - "\u30E9\u30F3\u30C0\u30E0\u306A\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D1\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u8FFD\u52A0\u3057\u3001\u305D\u306E\u98DF\u6750\u306E\u30B3\u30B9\u30C8\u30920\u306B\u3059\u308B\n\uFF08\u5404\u30C6\u30A3\u30A2\u306E\u6392\u51FA\u7387\u306F1\u3064\u4E0A\u306E\u30EC\u30D9\u30EB\u3092\u53C2\u7167\u3059\u308B\uFF09\n!!\u672A\u5B9F\u88C5!!"
+    - "\u30E9\u30F3\u30C0\u30E0\u306A\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D1\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u8FFD\u52A0\u3057\u3001\u305D\u306E\u98DF\u6750\u306E\u30B3\u30B9\u30C8\u30920\u306B\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
     sequences: []
   targetArea: shop

@@ -28,6 +28,12 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 045d824891c82ec4fbc229cc6422b036, type: 2}
         n1: f1
         n2: 
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: 1
+        n2: 
+      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+        n1: f1
+        n2: none*
       priority: 0
   onAttached: []
   onReleased: []

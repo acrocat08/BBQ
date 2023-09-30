@@ -10,8 +10,9 @@ using UnityEngine;
 namespace BBQ.Cooking {
     public class Lane : MonoBehaviour {
         private List<FoodObject> _foods;
-        [SerializeField] private CookingParam param;
+        [SerializeField] private ViewParam param;
         [SerializeField] private LaneMovement movement;
+        [SerializeField] private DesignParam designParam;
         void Awake() {
             _foods = new List<FoodObject>();
             for (int i = 0; i < param.foodMaxNumInLane; i++) {

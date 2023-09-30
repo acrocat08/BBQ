@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: MissionMaker
   m_EditorClassIdentifier: 
   hand: {fileID: 11400000, guid: 0c715905e75444a49ac730fae149d691, type: 2}
+  initialHand: 8
+  firstPoint: 2
+  secondPoint: 5

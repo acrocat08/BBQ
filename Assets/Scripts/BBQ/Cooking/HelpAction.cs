@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Common;
+using BBQ.Database;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BBQ.Cooking {
     public class HelpAction : MonoBehaviour {
@@ -9,8 +11,18 @@ namespace BBQ.Cooking {
         [SerializeField] private List<ActionCommand> draw;
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private ActionEnvironment env;
+        [SerializeField] private DesignParam param;
+        [SerializeField] private Text handText;
+        [SerializeField] private Text drawText;
 
         private bool _isRunning;
+
+        public void Start() {
+            addHand[0].n1 = (param.helpHandPenalty * -1).ToString();
+            draw[0].n1 = (param.helpDrawPenalty * -1).ToString();
+            handText.text = (param.helpHandPenalty * -1).ToString();
+            drawText.text = (param.helpDrawPenalty * -1).ToString();
+        }
          
         public async void OnAddHand() {
             if (env.time.GetNowTime() == 0) return;

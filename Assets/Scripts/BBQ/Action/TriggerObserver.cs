@@ -34,13 +34,13 @@ namespace BBQ.Action {
         }
 
         public void RegisterFood(DeckFood deckFood) {
-            if (deckFood == null) return;
+            if (deckFood == null || deckFood.data == null) return;
             register.Add(deckFood, deckFood.data.action.sequences);
             if(deckFood.effect != null) register.Add(deckFood, deckFood.effect.action.sequences);
         }
 
         public void RemoveFood(DeckFood deckFood) {
-            if (deckFood == null) return;
+            if (deckFood == null || deckFood.data == null) return;
             register.Remove(deckFood, deckFood.data.action.sequences);
             if(deckFood.effect != null) register.Remove(deckFood, deckFood.effect.action.sequences);
         }

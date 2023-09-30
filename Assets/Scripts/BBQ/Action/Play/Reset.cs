@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BBQ.Common;
 using BBQ.Cooking;
+using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -13,8 +14,6 @@ namespace BBQ.Action.Play {
 
         [SerializeField] private Draw draw;
         [SerializeField] private int drawNum;
-        [SerializeField] private int penalty;
-        [SerializeField] private ParamUpEffectFactory effect;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             
             await TriggerObserver.I.Invoke(ActionTrigger.BeforeReset, new List<DeckFood>(), false);
@@ -24,8 +23,6 @@ namespace BBQ.Action.Play {
             List<FoodObject> dumpFoods = env.dump.ReleaseFoods(env.dump.SelectAll());
             tasks.Add(env.deck.AddFoods(dumpFoods));
             SoundMgr.SoundPlayer.I.Play("se_reset");
-            env.time.UseTime(penalty);
-            effect.Create("time", -penalty, v.invoker?.GetObject());
             await tasks;
             await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new List<DeckFood>(), false);
 

@@ -18,7 +18,7 @@ namespace BBQ.Action.Play {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             string effectName = v.GetString(v.n2);
             FoodEffect effect = null;
-            if (effectName != "none") effect = itemSet.effects.First(x => x.effectName == effectName);
+            if (!effectName.Contains("none")) effect = itemSet.effects.First(x => x.effectName == effectName);
             List<DeckFood> target = deckFoods.Where(x => x.effect != effect).ToList();
 
             if (target.Count == 0) {
@@ -33,6 +33,7 @@ namespace BBQ.Action.Play {
                 deckFood.effect = effect;
                 FoodObject foodObject = deckFood.GetObject();
                 foodObject.SetEffect();
+                if(effectName == "none*") env.deck.RemoveEffect(deckFood);
             }
 
             if (effect != null) {
@@ -42,12 +43,6 @@ namespace BBQ.Action.Play {
 
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
-
-        //TODO:別クラスに移行
-        public FoodEffect GetEffect(string effectName) {
-            FoodEffect effect = null;
-            if (effectName != "none") effect = itemSet.effects.First(x => x.effectName == effectName);
-            return effect;
-        }
+        
     }
 }

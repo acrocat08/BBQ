@@ -540,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 0}
   foodFactory: {fileID: 11400000, guid: 909eef00c7e3b7f4fb422df6536b21d6, type: 2}
+  param: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!1 &150823402
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +832,7 @@ MonoBehaviour:
   handFactory: {fileID: 11400000, guid: 1d0d58a93f356084a80ef1792b3a6ca1, type: 2}
   handInitialPos: {x: 0, y: -540, z: 0}
   loop: {fileID: 256707343}
+  param: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!114 &256707343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,7 +1007,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
+  - data: {fileID: 11400000, guid: b98fcf579ba2544cdbfee070abb5d473, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1014,25 +1016,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
-    lank: 2
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isDouble: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
-    lank: 2
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isDouble: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
+  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -1041,7 +1025,79 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
+  - data: {fileID: 11400000, guid: 6f7c376eb7f3be64f982ceb4b3f3b3ae, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 3cec5be465ef8cd4e8dcc21d694aae09, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: ff2223eb6fd5eba41ac1a46a7733c001, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: a727a4c92afe3894b80b026831f74ad5, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 27c47e29b5580064e9c6c73e911af3b3, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 2520ab5229203ac41b2661bfde96a0db, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: ce45a4cd241c03a4baa452b3e4d360f6, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 103f75173b3f08e4ba3ecc56d47a056f, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isDouble: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 15d8efa396372214395570810b60fafb, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -2455,6 +2511,9 @@ MonoBehaviour:
     n2: 
   assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
   env: {fileID: 852149188}
+  param: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
+  handText: {fileID: 150823404}
+  drawText: {fileID: 1266708827}
 --- !u!1 &865019788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +2822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
   movement: {fileID: 940086025}
+  designParam: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!114 &940086025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3590,6 +3650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
   movement: {fileID: 1229934551}
+  designParam: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!222 &1229934553
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3754,6 +3815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
   movement: {fileID: 1309599278}
+  designParam: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!1 &1393806821
 GameObject:
   m_ObjectHideFlags: 0
@@ -5274,6 +5336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodFactory: {fileID: 11400000, guid: 909eef00c7e3b7f4fb422df6536b21d6, type: 2}
   view: {fileID: 11400000, guid: ad71635138c8a934ab460dce44623e1f, type: 2}
+  param: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!1 &2127286225
 GameObject:
   m_ObjectHideFlags: 0

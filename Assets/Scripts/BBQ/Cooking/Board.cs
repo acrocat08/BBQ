@@ -18,6 +18,7 @@ namespace BBQ.Cooking {
         [SerializeField] private HandFactory handFactory;
         [SerializeField] private Vector3 handInitialPos;
         [SerializeField] private LoopManager loop;
+        [SerializeField] private DesignParam param;
 
         private List<DeckFood> _foods;
         private Hand _hand;
@@ -86,12 +87,13 @@ namespace BBQ.Cooking {
         //---
 
         public List<DeckFood> SelectAll() {
-            return new List<DeckFood>(_foods);
+            return new List<DeckFood>(_foods.Where(x => x.data != param.resetFood));
         }
 
         public List<DeckFood> SelectLane(int index) {
             if (index == 0) return new List<DeckFood>();
-            return _lanes[index - 1].GetFoods().Where(x => x != null).Select(x => x.deckFood).ToList();
+            return _lanes[index - 1].GetFoods().Where(x => x != null && x.deckFood.data != param.resetFood)
+                .Select(x => x.deckFood).ToList();
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {

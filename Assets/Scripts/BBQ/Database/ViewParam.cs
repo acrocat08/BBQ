@@ -3,9 +3,7 @@ using UnityEngine;
 
 namespace BBQ.Database {
     [CreateAssetMenu(menuName = "Database/Cooking")]
-    public class CookingParam : ScriptableObject {
-        public Vector2 laneWindowSize;
-        public List<int> laneSpeed;
+    public class ViewParam : ScriptableObject {
         public int foodMaxNumInLane;
         public int foodSize;
         public int foodMargin;

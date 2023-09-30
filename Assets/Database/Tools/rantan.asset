@@ -15,11 +15,21 @@ MonoBehaviour:
   subItem:
   - {fileID: 11400000, guid: 1dd6d4630c4b6154b999e2b2c4457a50, type: 2}
   toolName: "\u30E9\u30F3\u30BF\u30F3"
-  tier: 4
+  tier: 5
   cost: 2
   toolImage: {fileID: 21300000, guid: b2e41a791ddb99f46a594b3c17adc72d, type: 3}
   action:
     summaries:
     - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u306B\u300C\u30E9\u30F3\u30BF\u30F3\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
-    sequences: []
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+        n1: f1
+        n2: "\u30E9\u30F3\u30BF\u30F3"
+      priority: 0
   targetArea: deckItem

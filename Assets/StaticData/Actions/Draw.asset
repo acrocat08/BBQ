@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetBorder: 2
   reset: {fileID: 11400000, guid: d423360087293874089b00b0d63b7ea8, type: 2}
-  nullDrawDuration: 0.5
-  addTime: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-  resetPenalty: -4
+  effect: {fileID: 11400000, guid: 66f9870c94e7bff4a8db7e59cbc37b01, type: 2}
+  param: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}

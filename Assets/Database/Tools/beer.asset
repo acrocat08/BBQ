@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: beer
   m_EditorClassIdentifier: 
+  subItem: []
   toolName: "\u30D3\u30FC\u30EB"
   tier: 5
-  cost: 1
+  cost: 3
   toolImage: {fileID: 21300000, guid: e185e23664e7b98489ba8cf0dcf4efcf, type: 3}
   action:
     summaries:
-    - "!!\u672A\u5B9F\u88C5!!"
+    - "\u30E9\u30A4\u30D5\u30921\u56DE\u5FA9\u3059\u308B\n!!\u672A\u5B9F\u88C5!!"
     sequences: []
-  targetArea: 
+  targetArea: deck

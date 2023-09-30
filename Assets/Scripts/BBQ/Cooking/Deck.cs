@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BBQ.Action;
 using BBQ.Common;
+using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using SoundMgr;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -16,8 +19,9 @@ namespace BBQ.Cooking {
         private List<(DeckFood, DeckFood)> _allFoods;
         private LinkedList<DeckFood> _foods;
         [SerializeField] private FoodObjectFactory foodFactory;
-
         [SerializeField] DeckView view;
+
+        [SerializeField] private DesignParam param;
 
         public void Init(List<DeckFood> deckFoods) {
             _foods = new LinkedList<DeckFood>(deckFoods.OrderBy(_ => Guid.NewGuid()));
@@ -78,6 +82,11 @@ namespace BBQ.Cooking {
             }
             return ret;
         }
+
+        public void RemoveEffect(DeckFood deckFood) {
+            var target = _allFoods.First(x => x.Item1 == deckFood);
+            target.Item2.effect = null;
+        }
         
         public FoodObject GetObject(DeckFood food) {
             return null;
@@ -101,6 +110,13 @@ namespace BBQ.Cooking {
 
         private bool CheckUsable(DeckFood deckFood) {
             return !deckFood.isFired && !deckFood.isEphemeral;
+        }
+
+        public async UniTask ResetEgg(Board board) {
+            List<FoodObject> egg = ReleaseFoods(new List<DeckFood> { new DeckFood(param.resetFood) });
+            TriggerObserver.I.RegisterFood(egg[0].deckFood);
+            SoundPlayer.I.Play("se_resetEgg");
+            await board.AddFoodsRandomly(egg);
         }
     }
 }

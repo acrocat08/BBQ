@@ -14,7 +14,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace BBQ.Cooking {
     public class LaneMovement : MonoBehaviour {
-        [SerializeField] private CookingParam param;
+        [SerializeField] private ViewParam param;
         [SerializeField] private Lane lane;
         [SerializeField] private int rightBorder;
         [SerializeField] private float addFoodDuration;  

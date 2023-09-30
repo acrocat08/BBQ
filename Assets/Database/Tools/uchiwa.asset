@@ -17,7 +17,7 @@ MonoBehaviour:
   toolName: "\u3046\u3061\u308F"
   tier: 2
   cost: 1
-  toolImage: {fileID: 21300000, guid: dd2173931fbfa4d4fa27b8e5924e5658, type: 3}
+  toolImage: {fileID: 21300000, guid: 673371abec7309449bfef9b33638569d, type: 3}
   action:
     summaries:
     - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u306B\u300C\u98A8\u307E\u304B\u305B\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B"
@@ -33,4 +33,3 @@ MonoBehaviour:
         n2: "\u98A8\u307E\u304B\u305B"
       priority: 0
   targetArea: deckItem
-  subItem: []
