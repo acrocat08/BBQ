@@ -49,7 +49,6 @@ namespace BBQ.Shopping {
         
         public override void Draw(FoodObject foodObject) {
             DeckFood deckFood = foodObject.deckFood;
-            Debug.Log(foodObject.transform.Find("Object").parent.gameObject.name);
             Image foodImage = foodObject.transform.Find("Object").Find("Image").GetComponent<Image>();
             foodImage.sprite = deckFood.data ? deckFood.data.foodImage : null;
             foodImage.enabled = deckFood.data != null;
@@ -81,7 +80,6 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(fallDuration));
             image.transform.localPosition = prevPos;
             image.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            foodObject.deckFood.data = null;
             Draw(foodObject);
         }
         

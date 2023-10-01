@@ -13,6 +13,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private float duration;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
+            deckFoods = deckFoods.Where(x => !x.isFired && !x.isFrozen).ToList();
 
             if (env.isShopping) {
                 List<DeckFood> newItems = deckFoods.Where(x => !env.inventory.GetDeckFoods().Contains(x)).ToList();

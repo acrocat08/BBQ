@@ -11,6 +11,7 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             FoodObject invoker = v.invoker.GetObject();
+            if (invoker == null) return;
             v.f1 = deckFoods
                 .Select(x => x.GetObject())
                 .OrderBy(x => (x.transform.position - invoker.transform.position).magnitude)

@@ -27,6 +27,7 @@ namespace BBQ.Shopping {
         [SerializeField] private DesignParam param;
         
         private int _day;
+        private int _life;
         private List<MissionStatus> _nowMission;
         private bool _isEnd;
         void Start() {
@@ -36,7 +37,7 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
-            env.Init(shop, handCount, coin, carbon, deckInventory, copyArea);
+            env.Init(this, shop, handCount, coin, carbon, deckInventory, copyArea);
             view.Init(this);
             _nowMission = missionMaker.Create(_day);
             view.UpdateMission(this, _nowMission);
@@ -75,15 +76,15 @@ namespace BBQ.Shopping {
             shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket());
             copyArea.Init();
             int star = PlayerStatus.GetStar();
-            int life = PlayerStatus.GetLife();
-            view.SetStatus(this, star, life);
+            _life = PlayerStatus.GetLife();
+            view.SetStatus(this, star, _life);
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
             PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
-                deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission, 0);
+                deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), _life, _nowMission, 0);
         }
 
         public int GetDay() {
@@ -94,6 +95,11 @@ namespace BBQ.Shopping {
             int dayIncome = income;
             //if (_day > 1) dayIncome /= 2;
             return dayIncome;
+        }
+
+        public void AddLife() {
+            _life++;
+            view.AddLife(this, _life);
         }
 
     }

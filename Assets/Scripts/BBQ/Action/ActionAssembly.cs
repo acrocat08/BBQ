@@ -15,7 +15,6 @@ namespace BBQ.Action {
                 v.n2 = commands[i].n2;
                 await commands[i].action.Execute(env, v);
             }
-            if(!env.isShopping) env.board.StoreHand();
             return v;
         }
     }

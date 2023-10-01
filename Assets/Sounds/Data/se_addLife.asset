@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86269963dc01c614899d191bf68298aa, type: 3}
+  m_Name: se_addLife
+  m_EditorClassIdentifier: 
+  soundName: se_addLife
+  source: {fileID: 8300000, guid: 82055617bb9ed4240858cc5858e9b4a3, type: 3}
+  volume: 0.5
+  isLoop: 0

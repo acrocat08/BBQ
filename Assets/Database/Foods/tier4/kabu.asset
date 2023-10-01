@@ -68,7 +68,7 @@ MonoBehaviour:
         n2: x1
       - action: {fileID: 11400000, guid: 6d6f0ed127e2535429898017d510d05b, type: 2}
         n1: s1
-        n2: 
+        n2: 0
       priority: 0
     - trigger: 0
       condition: []

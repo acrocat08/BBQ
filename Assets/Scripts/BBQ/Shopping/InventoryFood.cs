@@ -48,5 +48,11 @@ namespace BBQ.Shopping {
             await view.LankUp(this);
             view.Draw(this);
         }
+        
+        public override void Drop() {
+            deckFood.data = null;
+            view.Drop(this);
+        }
+
     }
 }

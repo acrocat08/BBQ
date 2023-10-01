@@ -1004,7 +1004,7 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -1013,26 +1013,26 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 958c2d236121d4646a237ad7cc5af93b, type: 2}
+  - data: {fileID: 11400000, guid: 52666a895fea639418df6a989f31ab8b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 6f7c376eb7f3be64f982ceb4b3f3b3ae, type: 2}
+  - data: {fileID: 11400000, guid: 51552c5fa1b7cbc42abea552c0b57e36, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
-    effect: {fileID: 0}
+    isRantan: 0
+    effect: {fileID: 11400000, guid: 9cca260a205abc642aa33a750cbd688c, type: 2}
     stack: 0
     memory: 
   - data: {fileID: 11400000, guid: ce0c6039bbdc4784d843302f29674305, type: 2}
@@ -1040,7 +1040,7 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -1049,7 +1049,7 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -1067,7 +1067,7 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -1076,16 +1076,16 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ce45a4cd241c03a4baa452b3e4d360f6, type: 2}
+  - data: {fileID: 11400000, guid: e1d85f63127755f4e8a86c2fbc6d8e79, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -2420,6 +2420,7 @@ MonoBehaviour:
   time: {fileID: 0}
   coin: {fileID: 0}
   carbon: {fileID: 0}
+  shoppingGame: {fileID: 0}
   shop: {fileID: 0}
   rerollTicket: 0
 --- !u!114 &852149189

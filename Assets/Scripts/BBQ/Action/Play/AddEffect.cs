@@ -27,13 +27,14 @@ namespace BBQ.Action.Play {
             }
             
             foreach (DeckFood deckFood in deckFoods) {
+                if(effectName == "none*") env.deck.RemoveEffect(deckFood);
+                if (deckFood.effect == null && effect == null) continue;
                 TriggerObserver.I.UpdateEffect(deckFood, deckFood.effect, effect);
                 if (deckFood.effect != null) await assembly.Run(deckFood.effect.onReleased, env, deckFood, v.target);
                 if (effect != null) await assembly.Run(effect.onAttached, env, deckFood, v.target);
                 deckFood.effect = effect;
                 FoodObject foodObject = deckFood.GetObject();
                 foodObject.SetEffect();
-                if(effectName == "none*") env.deck.RemoveEffect(deckFood);
             }
 
             if (effect != null) {

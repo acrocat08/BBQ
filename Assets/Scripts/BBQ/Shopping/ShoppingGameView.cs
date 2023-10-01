@@ -19,6 +19,8 @@ namespace BBQ.Shopping {
         [SerializeField] private Ease openEasing;
         [SerializeField] private Color cookingBGColor;
         [SerializeField] private float colorDuration;
+        [SerializeField] private float lifeShakeDuration;
+        [SerializeField] private float lifeShakeStrength;
 
         public void Init(ShoppingGame shoppingGame) {
             RectTransform topBG = shoppingGame.transform.Find("BG").Find("BG_T")
@@ -95,7 +97,15 @@ namespace BBQ.Shopping {
                 string[] split = baseDetail.Split("#");
                 missionText.text = "-　" + split[0] + status.goal + split[1] + "\n";
             }
+        }
 
+        public void AddLife(ShoppingGame shoppingGame, int life) {
+            Transform tr = shoppingGame.transform.Find("Header").Find("Life").transform;
+            Image image = tr.Find("LifeImage").GetComponent<Image>();
+            image.transform.localScale = Vector3.one * lifeShakeStrength;
+            image.transform.DOScale(Vector3.one, lifeShakeDuration).SetEase(Ease.OutElastic);
+            Text lifeText = shoppingGame.transform.Find("Header").Find("Life").Find("Text").GetComponent<Text>();
+            lifeText.text = life.ToString();
         }
     }
 }

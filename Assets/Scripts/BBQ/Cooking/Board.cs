@@ -47,6 +47,10 @@ namespace BBQ.Cooking {
             Pause();
         }
 
+        void Update() {
+            if(!InputGuard.Guard()) StoreHand();
+        }
+
         public void Pause() {
             loop.SetPauseMode(true);
         }
@@ -155,6 +159,9 @@ namespace BBQ.Cooking {
         public void SetDouble() {
             _nextDouble = true;
         }
-        
+
+        public bool HasResetEgg() {
+            return _foods.Any(x => x.data == param.resetFood);
+        }
     }
 }

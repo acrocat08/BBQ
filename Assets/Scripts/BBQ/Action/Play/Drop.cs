@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
@@ -17,7 +18,10 @@ namespace BBQ.Action.Play {
             }
 
             if (env.isShopping) {
+                deckFoods = deckFoods.Where(x => x.isFired).ToList();
+                if (deckFoods.Count == 0) return;
                 foreach (DeckFood deckFood in deckFoods) {
+                    TriggerObserver.I.RemoveFood(deckFood);
                     deckFood.GetObject().Drop();
                 }    
             }

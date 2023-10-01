@@ -28,8 +28,8 @@ namespace BBQ.Shopping {
             shopFood.transform.Find("Image").GetComponent<Image>().sprite = data.foodImage;
             shopFood.transform.Find("Cost").GetComponent<Text>().text = shopFood.GetCost().ToString();
             shopFood.transform.Find("Name").GetComponent<Text>().text = data.foodName;
-            shopFood.transform.Find("Line").GetComponent<Image>().color = colors[data.tier - 1];
-            shopFood.transform.Find("Shadow").GetComponent<Image>().color = colors[data.tier - 1];
+            shopFood.transform.Find("Line").GetComponent<Image>().color = colors[data.tier];
+            shopFood.transform.Find("Shadow").GetComponent<Image>().color = colors[data.tier];
         }
         
         public void DrawTool(ShopTool shopTool) {

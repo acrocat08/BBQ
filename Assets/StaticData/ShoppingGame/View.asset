@@ -20,3 +20,5 @@ MonoBehaviour:
   openEasing: 14
   cookingBGColor: {r: 0, g: 0.64705884, b: 0.70980394, a: 1}
   colorDuration: 0.5
+  lifeShakeDuration: 0.5
+  lifeShakeStrength: 2

@@ -40,7 +40,7 @@ namespace BBQ.Cooking {
         public void RegisterFood(List<DeckFood> foods) {
             foreach (DeckFood deckFood in foods) {
                 if (deck != null) deck.RegisterFood(deckFood);
-                else TriggerObserver.I.RegisterFood(deckFood);
+                //else TriggerObserver.I.RegisterFood(deckFood);
             }
         }
 

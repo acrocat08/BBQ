@@ -7,6 +7,7 @@ using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using SoundMgr;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -24,8 +25,8 @@ namespace BBQ.Cooking {
         [SerializeField] private DesignParam param;
 
         public void Init(List<DeckFood> deckFoods) {
-            _foods = new LinkedList<DeckFood>(deckFoods.OrderBy(_ => Guid.NewGuid()));
-            _allFoods = deckFoods.Select(x => (x, x.Copy())).ToList();
+            SortFoods(deckFoods);
+            _allFoods = deckFoods.Select(x => (x, x.CopyWithEffect())).ToList();
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.Releasable = this;
             }
@@ -36,7 +37,7 @@ namespace BBQ.Cooking {
         }
 
         public void RegisterFood(DeckFood deckFood) {
-            _allFoods.Add((deckFood, deckFood.Copy()));
+            _allFoods.Add((deckFood, deckFood.CopyWithEffect()));
             TriggerObserver.I.RegisterFood(deckFood);
             view.UpdateText(this);
         }
@@ -60,7 +61,7 @@ namespace BBQ.Cooking {
 
         public async UniTask AddFoods(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
-            _foods = new LinkedList<DeckFood>(_foods.OrderBy(_ => Guid.NewGuid()));
+            SortFoods(_foods.ToList());
             List<UniTask> tasks = new List<UniTask>();
             foreach (FoodObject food in foods) {
                 tasks.Add(view.AddFood(this, food));
@@ -117,6 +118,12 @@ namespace BBQ.Cooking {
             TriggerObserver.I.RegisterFood(egg[0].deckFood);
             SoundPlayer.I.Play("se_resetEgg");
             await board.AddFoodsRandomly(egg);
+        }
+
+        void SortFoods(List<DeckFood> target) {
+            List<DeckFood> rantanFoods = target.Where(x => x.isRantan).OrderBy(_ => Guid.NewGuid()).ToList();
+            List<DeckFood> others = target.Where(x => !x.isRantan).OrderBy(_ => Guid.NewGuid()).ToList();
+            _foods = new LinkedList<DeckFood>(rantanFoods.Concat(others));
         }
     }
 }

@@ -17,7 +17,19 @@ MonoBehaviour:
   effectImage: {fileID: 21300000, guid: 65945cef68597444680e2c29d96c8eb4, type: 3}
   action:
     summaries:
-    - "\u671D\u306E\u30BF\u30FC\u30F3\u958B\u59CB\u6642\u307E\u305F\u306F\u30EA\u30BB\u30C3\u30C8\u5F8C\u306E\u30C9\u30ED\u30FC\u6642\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u304C\u512A\u5148\u7684\u306B\u30C9\u30ED\u30FC\u3055\u308C\u308B"
+    - "\u30C9\u30ED\u30FC\u524D\uFF1A\n-\u3000\u30C7\u30C3\u30AD\u5185\u306B\u3044\u308B\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u304C\u512A\u5148\u7684\u306B\u30C9\u30ED\u30FC\u3055\u308C\u308B"
     sequences: []
-  onAttached: []
-  onReleased: []
+  onAttached:
+  - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+    n1: 
+    n2: 
+  - action: {fileID: 11400000, guid: 9097b742b3f4dc745b9ecceb0419fcb6, type: 2}
+    n1: f1
+    n2: 1
+  onReleased:
+  - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+    n1: 
+    n2: 
+  - action: {fileID: 11400000, guid: 9097b742b3f4dc745b9ecceb0419fcb6, type: 2}
+    n1: f1
+    n2: 0

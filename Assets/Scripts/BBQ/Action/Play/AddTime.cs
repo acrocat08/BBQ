@@ -12,6 +12,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private ParamUpEffectFactory effect;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int num = v.GetNum(v.n1);
+            if (env.time.IsBonusMode() && num > 0) return;
             if (num < 0) {
                 env.time.UseTime(-num);
                 SoundPlayer.I.Play("se_consume");

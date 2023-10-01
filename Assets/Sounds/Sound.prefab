@@ -90,4 +90,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6901cbbf445a95845b4eb1c2bd1d89a5, type: 2}
   - {fileID: 11400000, guid: a4f78650989113040ad187fceadc599b, type: 2}
   - {fileID: 11400000, guid: 7b24e8b430b55e64997b06d690142fb7, type: 2}
+  - {fileID: 11400000, guid: 9984155b8d4aac341b9ede03bd779bc1, type: 2}
+  - {fileID: 11400000, guid: 62d6a80cf8a6c8c438b7cd95d2991170, type: 2}
+  - {fileID: 11400000, guid: 0ddb5bf24186e474493db1a02bacb3a8, type: 2}
   fadeDuration: 1

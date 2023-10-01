@@ -4,6 +4,7 @@ using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using Cysharp.Threading.Tasks;
+using SoundMgr;
 using UnityEngine;
 
 namespace BBQ.Action.Play {
@@ -14,7 +15,8 @@ namespace BBQ.Action.Play {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             FoodData food = itemSet.SearchFood(v.GetString(v.n1));
-            await env.shop.AddFoods(new List<FoodData> { food });
+            SoundPlayer.I.Play("se_addShopFood");
+            await env.shop.AddFoods(new List<FoodData> { food }, false);
         }
     }
 }

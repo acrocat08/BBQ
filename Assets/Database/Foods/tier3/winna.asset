@@ -63,9 +63,9 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: x1
         n2: 1
-      - action: {fileID: 11400000, guid: d581082b16499b24caf8aac01ce967ea, type: 2}
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
         n1: f1
-        n2: 
+        n2: f2
       - action: {fileID: 11400000, guid: 16676b8ed93a359428ed3c6beef6d16f, type: 2}
         n1: x1
         n2: x1
@@ -77,6 +77,9 @@ MonoBehaviour:
         n2: none
       - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
         n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: d581082b16499b24caf8aac01ce967ea, type: 2}
+        n1: f2
         n2: 
       priority: 0
     - trigger: 0

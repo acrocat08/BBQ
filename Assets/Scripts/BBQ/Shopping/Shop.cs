@@ -86,7 +86,8 @@ namespace BBQ.Shopping {
             return _foods.Where(x => x != null).ToList();
         }
 
-        public async UniTask AddFoods(List<FoodData> data) {
+        public async UniTask AddFoods(List<FoodData> data, bool refresh) {
+            if(refresh && GetShopFoods() != null) DeleteFoods(new List<ShopFood>(GetShopFoods()));
             await MoveFoods();
             int cnt = 0;
             for (int i = 0; i < 5; i++) {

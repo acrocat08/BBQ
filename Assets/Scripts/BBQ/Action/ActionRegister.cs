@@ -25,7 +25,8 @@ namespace BBQ.Action {
         
         public void Remove(DeckFood food, List<ActionSequence> sequences) {
             foreach (ActionSequence sequence in sequences) {
-                InvokeSet target = _dict[sequence.trigger].First(x => x.invoker == food && x.sequence == sequence);
+                InvokeSet target = _dict[sequence.trigger].FirstOrDefault(x => x.invoker == food && x.sequence == sequence);
+                if (target == null) continue;
                 _dict[sequence.trigger].Remove(target);
             }
         }

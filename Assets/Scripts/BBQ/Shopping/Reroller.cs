@@ -32,12 +32,10 @@ namespace BBQ.Shopping {
         public async void Reroll(bool isFirst) {
             InputGuard.Lock();
             if(!isFirst) await TriggerObserver.I.Invoke(ActionTrigger.BeforeReroll, new List<DeckFood>(), false);
-            List<ShopFood> shopItems = _shop.GetShopFoods();
-            if(shopItems != null) _shop.DeleteFoods(new List<ShopFood>(shopItems));
             List<FoodData> foods = choice.ChoiceFoods(_shop.GetShopLevel());
             ToolData tool = choice.ChoiceTool(_shop.GetShopLevel());
             List<UniTask> tasks = new List<UniTask>();
-            tasks.Add(_shop.AddFoods(foods));
+            tasks.Add(_shop.AddFoods(foods, true));
             tasks.Add(_shop.AddTool(tool));
             await tasks;
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));

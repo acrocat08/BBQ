@@ -20,7 +20,7 @@ namespace BBQ.Shopping {
         [SerializeField] private Ease mergeEasing;
         [SerializeField] private float discoverDuration;
         [SerializeField] private ItemSet itemSet;
-
+        [SerializeField] private ActionAssembly assembly;
         public bool CheckCanMerge(FoodData food, int lank, int count) {
             if (food == null) return false;
             if (food.isToken) return false;
@@ -43,6 +43,12 @@ namespace BBQ.Shopping {
             SoundPlayer.I.Play("se_merge");
             target[0].deckFood.lank += 1;
             target[0].LankUp();
+            FoodEffect effect = target.Select(x => x.deckFood.effect).Where(x => x != null).OrderBy(x => Guid.NewGuid())
+                .FirstOrDefault();
+            if (target[0].deckFood.effect != null) await assembly.Run(target[0].deckFood.effect.onReleased, null, target[0].deckFood, null);
+            if (effect != null) await assembly.Run(effect.onAttached, null, target[0].deckFood, null);
+            target[0].deckFood.effect = effect;
+            target[0].SetEffect();
             for (int i = 1; i < target.Count; i++) {
                 TriggerObserver.I.RemoveFood(target[i].deckFood);
                 DeckFood emptyFood = new DeckFood(null);
@@ -53,7 +59,7 @@ namespace BBQ.Shopping {
             await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new List<DeckFood> { target[0].deckFood }, false);
             int discoverTier = Mathf.Min(5, shop.GetShopLevel() + 1);
             FoodData discovered = itemSet.GetRandomFood(discoverTier, discoverTier);
-            await shop.AddFoods(new List<FoodData> { discovered });
+            await shop.AddFoods(new List<FoodData> { discovered }, false);
             InputGuard.UnLock();            
         }
 
