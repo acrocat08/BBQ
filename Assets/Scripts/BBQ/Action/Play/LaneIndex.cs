@@ -10,6 +10,7 @@ namespace BBQ.Action.Play {
     public class LaneIndex : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
+            if (env.isShopping) return;
             if (deckFoods.Count == 0) return;
             v.x1 = env.board.GetLaneIndex(deckFoods[0]);
         }

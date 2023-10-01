@@ -64,7 +64,10 @@ MonoBehaviour:
         n1: 
         n2: 
       commands:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
       - action: {fileID: 11400000, guid: 7797a6426ea2a0946841e7a28ed4fb33, type: 2}
         n1: memory
-        n2: 
+        n2: f1
       priority: 0

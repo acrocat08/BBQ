@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/SelectDump")]
     public class SelectDump : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            v.f1 = new List<DeckFood>(env.dump.SelectAll());
+            if(env.isShopping) v.f1 = new List<DeckFood>(env.inventory.GetDeckFoods().Where(x => !x.isFrozen));
+            else v.f1 = new List<DeckFood>(env.dump.SelectAll());
         }
     }
 }

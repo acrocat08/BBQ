@@ -95,6 +95,16 @@ namespace BBQ.Shopping {
             effect.localScale = Vector3.one;
             effect.SetSiblingIndex(0);
         }
+        
+        public override void Freeze(FoodObject foodObject) {
+            Image image = foodObject.transform.Find("Object").transform.Find("Image").GetComponent<Image>();
+            image.color = freezeColor;
+            FreezeEffect effect = Instantiate(freezeEffectPrefab, foodObject.transform)
+                .GetComponent<FreezeEffect>();
+            effect.transform.localPosition = Vector3.zero;
+            effect.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); 
+            effect.Freeze(0.3f);
+        }
 
         public override async UniTask LankUp(FoodObject foodObject) {
             Transform foodImage = foodObject.transform.Find("Object").Find("Image");

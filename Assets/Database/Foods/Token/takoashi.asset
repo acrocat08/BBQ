@@ -26,4 +26,8 @@ MonoBehaviour:
     - "<< \u5408\u6210\u4E0D\u53EF >>"
     - "<< \u5408\u6210\u4E0D\u53EF >>"
     - "<< \u5408\u6210\u4E0D\u53EF >>"
-    sequences: []
+    sequences:
+    - trigger: 0
+      condition: []
+      commands: []
+      priority: 0

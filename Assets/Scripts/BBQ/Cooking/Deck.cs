@@ -49,7 +49,7 @@ namespace BBQ.Cooking {
         public List<FoodObject> TakeFood(int num) {
             List<FoodObject> taken = new List<FoodObject>();
             for (int i = 0; i < num; i++) {
-                DeckFood target = _foods.First();
+                DeckFood target = _foods.First(x => !x.isFrozen);
                 _foods.RemoveFirst();
                 FoodObject laneFood = foodFactory.Create(target, transform);
                 taken.Add(laneFood);

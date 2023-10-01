@@ -11,6 +11,7 @@ namespace BBQ.Action.Play {
     public class ShiftLane : PlayAction {
         [SerializeField] private float duration;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (env.isShopping) return;
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             int dir = v.GetNum(v.n2);
             List<UniTask> tasks = new List<UniTask>();

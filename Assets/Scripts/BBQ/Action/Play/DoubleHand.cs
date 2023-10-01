@@ -9,6 +9,7 @@ namespace BBQ.Action.Play {
     public class DoubleHand : PlayAction {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (env.isShopping) return;
             env.board.SetDouble();
         }
     }

@@ -15,7 +15,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private Draw draw;
         [SerializeField] private int drawNum;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            
+            if(env.isShopping) return;
             await TriggerObserver.I.Invoke(ActionTrigger.BeforeReset, new List<DeckFood>(), false);
             List<UniTask> tasks = new List<UniTask>();
             List<FoodObject> boardFoods = env.board.ReleaseFoods(env.board.SelectAll());

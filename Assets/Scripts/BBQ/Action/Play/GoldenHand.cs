@@ -9,6 +9,7 @@ namespace BBQ.Action.Play {
     public class GoldenHand : PlayAction {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (env.isShopping) return;
             env.board.SetGold();
         }
     }

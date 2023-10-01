@@ -13,6 +13,7 @@ namespace BBQ.Action.Play {
     public class Draw : PlayAction {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (env.isShopping) return;
             int drawNum = v.GetNum(v.n1);
             int laneIndex = 0;
             if (v.n2 != "") laneIndex = v.GetNum(v.n2);

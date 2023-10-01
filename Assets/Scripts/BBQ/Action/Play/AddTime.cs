@@ -11,6 +11,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private float duration;
         [SerializeField] private ParamUpEffectFactory effect;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (env.isShopping) return;
             int num = v.GetNum(v.n1);
             if (env.time.IsBonusMode() && num > 0) return;
             if (num < 0) {

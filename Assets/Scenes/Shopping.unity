@@ -1295,6 +1295,15 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
+  - data: {fileID: 11400000, guid: bbc34892c3b83204dbe65493cc240398, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
   shop: {fileID: 90693992}
   coin: {fileID: 1512946762}
   carbon: {fileID: 1111119076}
