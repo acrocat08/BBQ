@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using BBQ.Action;
 using BBQ.Common;
 using BBQ.Cooking;
+using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
@@ -23,6 +24,7 @@ namespace BBQ.Shopping {
         [SerializeField] private int income;
         [SerializeField] private MissionMaker missionMaker;
         [SerializeField] private ActionEnvironment env;
+        [SerializeField] private DesignParam param;
         
         private int _day;
         private List<MissionStatus> _nowMission;
@@ -63,16 +65,12 @@ namespace BBQ.Shopping {
             _day = PlayerStatus.GetDay();
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
             firstFoods.ForEach(x => Debug.Log(x.lank));
-
             if(targetDeck != null) deckInventory.Init(targetDeck);
             else deckInventory.Init(firstFoods);
-
-            int shopLevel = PlayerStatus.GetShopLevel();
-
+            int shopLevel = param.isDebugMode ?  5 : PlayerStatus.GetShopLevel();
             int nowIncome = Mathf.Max(0, GetDayIncome()); 
-            
-            coin.Init(PlayerStatus.GetCoin() + nowIncome);
-            carbon.Init(PlayerStatus.GetCarbon() + (_day - 1) / 5 + 1);
+            coin.Init(param.isDebugMode ?  10000 : PlayerStatus.GetCoin() + nowIncome);
+            carbon.Init(param.isDebugMode ?  100 : PlayerStatus.GetCarbon() + (_day - 1) / 5 + 1);
             handCount.Init(5);
             shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket());
             copyArea.Init();
@@ -85,7 +83,7 @@ namespace BBQ.Shopping {
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
             PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
-                PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission, 0);
+                deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), PlayerStatus.GetLife(), _nowMission, 0);
         }
 
         public int GetDay() {

@@ -64,6 +64,7 @@ namespace BBQ.Cooking {
         public List<DeckFood> GetHittingFoods() {
             return _hittingFoods.Where(x => x != null && x.deckFood.data != param.resetFood).Select(x => x.deckFood).ToList();
         }
+        
 
         public int GetHittingFoodLane(DeckFood food) {
             for (int i = 0; i < 3; i++) {

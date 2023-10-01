@@ -83,7 +83,7 @@ namespace BBQ.Shopping {
         public void SetStatus(ShoppingGame shoppingGame, int star, int life) {
             Text starText = shoppingGame.transform.Find("Header").Find("Star").Find("Text").GetComponent<Text>();
             Text lifeText = shoppingGame.transform.Find("Header").Find("Life").Find("Text").GetComponent<Text>();
-            starText.text = star + "/" + 8; //TODO:fix
+            starText.text = star + "/" + 10; //TODO:fix
             lifeText.text = life.ToString();
         }
 

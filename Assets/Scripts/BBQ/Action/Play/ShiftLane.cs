@@ -17,7 +17,7 @@ namespace BBQ.Action.Play {
             foreach (DeckFood deckFood in deckFoods) {
                 int index = env.board.GetLaneIndex(deckFood);
                 int nextIndex = (index + 2 + dir) % 3 + 1;
-                if (env.board.SelectLane(nextIndex).Count == 5) continue;
+                if (env.board.GetFoodNum(nextIndex) == 5) continue;
                 FoodObject laneFood = deckFood.Release();
                 tasks.Add(env.board.AddFoodsRandomly(new List<FoodObject> { laneFood }, nextIndex));
             }

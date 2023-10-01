@@ -16,7 +16,7 @@ namespace BBQ.Action.Play {
             int index = v.GetNum(v.n2);
             List<UniTask> tasks = new List<UniTask>();
             foreach (DeckFood deckFood in deckFoods) {
-                if (env.board.SelectLane(index).Count == 5) continue;
+                if (env.board.GetFoodNum(index) == 5) continue;
                 FoodObject laneFood = deckFood.Release();
                 tasks.Add(env.board.AddFoodsRandomly(new List<FoodObject> { laneFood }, index));
             }

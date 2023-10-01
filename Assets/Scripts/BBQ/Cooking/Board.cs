@@ -58,7 +58,7 @@ namespace BBQ.Cooking {
         //-- TODO: 別クラスに移行　HandManager
         
         public void StoreHand() {
-            if (_handCount.GetHandCount() > 0) {
+            if (_handCount.GetHandCount() > 0 && _hand == null) {
                 CreateHand();
             }
         }
@@ -79,9 +79,9 @@ namespace BBQ.Cooking {
             _hand.transform.SetParent(transform.Find("HandContainer"));
             _hand.transform.localPosition = handInitialPos;
         }
-        
-        public void DiscardHand() {
-            if(_hand != null) Destroy(_hand.gameObject);
+
+        public void UseHand() {
+            _hand = null;
         }
         
         //---
@@ -94,6 +94,11 @@ namespace BBQ.Cooking {
             if (index == 0) return new List<DeckFood>();
             return _lanes[index - 1].GetFoods().Where(x => x != null && x.deckFood.data != param.resetFood)
                 .Select(x => x.deckFood).ToList();
+        }
+
+        public int GetFoodNum(int index) {
+            if (index == 0) return 0;
+            return _lanes[index - 1].GetFoods().Count(x => x != null);
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {

@@ -23,12 +23,18 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30CF\u30F3\u30C9+1"
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2"
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30CF\u30F3\u30C9\u306E\u6570\u304C2\u672C\u4EE5\u4E0B\u306E\u5834\u5408\u3001\u30CF\u30F3\u30C9+1"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30CF\u30F3\u30C9\u306E\u6570\u304C2\u672C\u4EE5\u4E0B\u306E\u5834\u5408\u3001\u30CF\u30F3\u30C9+2"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30CF\u30F3\u30C9\u306E\u6570\u304C2\u672C\u4EE5\u4E0B\u306E\u5834\u5408\u3001\u30CF\u30F3\u30C9+3"
     sequences:
     - trigger: 2
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: 3280c8ad1bcf9f747a39c83c8f655a18, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: 2
+        n2: x1
       commands:
       - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
         n1: 1/2/3

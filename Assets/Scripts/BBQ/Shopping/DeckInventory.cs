@@ -6,15 +6,21 @@ using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
+using SoundMgr;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace BBQ.Shopping {
     public class DeckInventory : MonoBehaviour, IReleasable {
         [SerializeField] private DeckInventoryView view;
         [SerializeField] List<InventoryFood> deckItems;
         [SerializeField] private Merger merger;
-
+        [SerializeField] private ItemSet itemSet;
+        private int _additionalTime;
+        private int _helpPenaltyReduce;
+        
         public void Init(List<DeckFood> deckFoods) {
+            deckFoods = deckFoods.OrderBy(x => itemSet.GetFoodIndex(x.data)).Take(deckItems.Count).ToList();
             for (int i = 0; i < deckFoods.Count; i++) {
                 deckItems[i].SetFood(deckFoods[i]);
                 deckFoods[i].Releasable = this;
@@ -70,6 +76,32 @@ namespace BBQ.Shopping {
         public FoodObject GetObject(DeckFood food) {
             return deckItems.FirstOrDefault(x => x.deckFood == food);
         }
+        
+        public void SetAdditionalTime(int time) {
+            if (_additionalTime > 0) return;
+            _additionalTime = time;
+            view.SetItem(this, "tokei");
+            SoundPlayer.I.Play("se_addBaseTime");
+        }
+
+        public int GetAdditionalTime() {
+            return _additionalTime;
+        }
+
+        public void SetHelpPenaltyReduce(int reduce) {
+            if (_helpPenaltyReduce > 0) return;
+            _helpPenaltyReduce = reduce;
+            view.SetItem(this, "skiret");
+            SoundPlayer.I.Play("se_penaltyReduce");
+
+        }
+
+        public int GetHelpPenaltyReduce() {
+            return _helpPenaltyReduce;
+        }
+
+
+        
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using BBQ.Action.Play;
 
 namespace BBQ.Database {
     [CreateAssetMenu(menuName = "Database/ItemSet")]
@@ -29,8 +30,12 @@ namespace BBQ.Database {
         public ToolData SearchTool(string toolName) {
             return tools.FirstOrDefault(x => x.toolName == toolName);
         }
-        
-        
+
+
+        public int GetFoodIndex(FoodData data) {
+            if (data.foodName == "タコ足") return 0;
+            return foods.Concat(supportFoods).ToList().IndexOf(data) + 1;
+        }
     }
     
 

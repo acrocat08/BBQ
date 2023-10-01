@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subItem: []
   toolName: "\u30D5\u30A9\u30FC\u30AF"
-  tier: 3
+  tier: 4
   cost: 1
   toolImage: {fileID: 21300000, guid: 47c896c40270837448c70d96003877bf, type: 3}
   action:

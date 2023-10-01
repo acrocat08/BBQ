@@ -1188,9 +1188,10 @@ MonoBehaviour:
   coin: {fileID: 1512946762}
   carbon: {fileID: 1111119076}
   handCount: {fileID: 788647726}
-  income: 5000
+  income: 50
   missionMaker: {fileID: 11400000, guid: d01ae1d167b2d464db6d68741a24312c, type: 2}
   env: {fileID: 538731122}
+  param: {fileID: 11400000, guid: e134bc59208c2bf42a99a3161636e145, type: 2}
 --- !u!114 &211513936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,7 +1546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3948,7 +3949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5897,6 +5898,7 @@ MonoBehaviour:
   - {fileID: 1224786496}
   - {fileID: 636208261}
   merger: {fileID: 11400000, guid: 2817044d3440b344098bdcc0003b4c5c, type: 2}
+  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
 --- !u!1 &1278610582
 GameObject:
   m_ObjectHideFlags: 0

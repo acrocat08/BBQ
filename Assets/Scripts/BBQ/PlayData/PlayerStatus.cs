@@ -13,13 +13,15 @@ namespace BBQ.PlayData {
         private int _shopLevel;
         private int _levelUpDiscount;
         private int _rerollTicket;
+        private int _additionalTime;
+        private int _helpPenaltyReduce;
         private int _star;
         private int _life;
         private List<MissionStatus> _nowMission;
         private int _gameStatus;
         
         public static void Create(List<DeckFood> deckFoods, int coin, int hand, int carbon, int day, int shopLevel, 
-            int levelUpDiscount, int rerollTicket, int star, int life, List<MissionStatus> nowMission, int gameStatus) {
+            int levelUpDiscount, int rerollTicket, int additionalTime, int helpPenaltyReduce, int star, int life, List<MissionStatus> nowMission, int gameStatus) {
             _saveData = new PlayerStatus();
             _saveData._deckFoods = deckFoods;
             _saveData._coin = coin;
@@ -29,6 +31,8 @@ namespace BBQ.PlayData {
             _saveData._shopLevel = shopLevel;
             _saveData._levelUpDiscount = levelUpDiscount;
             _saveData._rerollTicket = rerollTicket;
+            _saveData._additionalTime = additionalTime;
+            _saveData._helpPenaltyReduce = helpPenaltyReduce;
             _saveData._star = star;
             _saveData._life = life;
             _saveData._nowMission = nowMission;
@@ -66,7 +70,7 @@ namespace BBQ.PlayData {
         }
 
         public static int GetShopLevel() {
-            if (_saveData == null) return 5;
+            if (_saveData == null) return 1;
             return _saveData._shopLevel;
         }
 
@@ -79,6 +83,16 @@ namespace BBQ.PlayData {
             if (_saveData == null) return 0;
             return _saveData._rerollTicket;
         }
+
+        public static int GetadditionalTime() {
+            if (_saveData == null) return 0;
+            return _saveData._additionalTime;
+        }
+
+        public static int GetHelpPenaltyReduce() {
+            if (_saveData == null) return 0;
+            return _saveData._helpPenaltyReduce;
+        }
         
         public static int GetStar() {
             if (_saveData == null) return 0;
@@ -86,7 +100,7 @@ namespace BBQ.PlayData {
         }
         
         public static int GetLife() {
-            if (_saveData == null) return 10; //TODO:fix
+            if (_saveData == null) return 6; //TODO:fix
             return _saveData._life;
         }
 

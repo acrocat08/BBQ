@@ -19,6 +19,13 @@ MonoBehaviour:
   toolImage: {fileID: 21300000, guid: 60a74f56fee32a642803b3de2dd12a4b, type: 3}
   action:
     summaries:
-    - "\u6B21\u306E\u671D\u306E\u30BF\u30FC\u30F3\u306E\u9593\u3001\u304A\u52A9\u3051\u30A2\u30AF\u30B7\u30E7\u30F3\u306E\u30DA\u30CA\u30EB\u30C6\u30A3\u6642\u9593\u30921\u6E1B\u3089\u3059\n!!\u672A\u5B9F\u88C5!!"
-    sequences: []
+    - "\u6B21\u306E\u671D\u306E\u30BF\u30FC\u30F3\u306E\u9593\u3001\u304A\u52A9\u3051\u30A2\u30AF\u30B7\u30E7\u30F3\u306E\u30DA\u30CA\u30EB\u30C6\u30A3\u6642\u9593\u30921\u6E1B\u3089\u3059"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 59142f50455da6e4fa1308c317c53028, type: 2}
+        n1: 1
+        n2: 
+      priority: 0
   targetArea: deck

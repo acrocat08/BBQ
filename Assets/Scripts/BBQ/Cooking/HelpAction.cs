@@ -16,12 +16,15 @@ namespace BBQ.Cooking {
         [SerializeField] private Text drawText;
 
         private bool _isRunning;
+        
+        public void Init(int reduce) {
+            int handPenalty = param.helpHandPenalty - reduce;
+            int drawPenalty = param.helpDrawPenalty - reduce;
 
-        public void Start() {
-            addHand[0].n1 = (param.helpHandPenalty * -1).ToString();
-            draw[0].n1 = (param.helpDrawPenalty * -1).ToString();
-            handText.text = (param.helpHandPenalty * -1).ToString();
-            drawText.text = (param.helpDrawPenalty * -1).ToString();
+            addHand[0].n1 = (handPenalty * -1).ToString();
+            draw[0].n1 = (drawPenalty * -1).ToString();
+            handText.text = (handPenalty * -1).ToString();
+            drawText.text = (drawPenalty * -1).ToString();
         }
          
         public async void OnAddHand() {
@@ -43,6 +46,7 @@ namespace BBQ.Cooking {
             env.time.Resume();
             _isRunning = false;
         }
+
 
     }
 }

@@ -28,6 +28,7 @@ namespace BBQ.Cooking {
         [SerializeField] private Deck deck;
         [SerializeField] private Dump dump;
         [SerializeField] private CopyArea copyArea;
+        [SerializeField] private HelpAction help;
 
         [SerializeField] private List<DeckFood> testDeck;
         
@@ -67,7 +68,6 @@ namespace BBQ.Cooking {
 
         public async void GameEnd() {
             cookTime.Pause();
-            board.DiscardHand();
             SoundPlayer.I.Play("se_cookingEnd");
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
@@ -75,7 +75,8 @@ namespace BBQ.Cooking {
 
             bool isClear = missionSheet.CheckMissionCleared();
             int gainStar = isClear ? 1 : 0;
-            int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
+            //int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
+            int lostLife = isClear ? 0 : 1;
             await view.GameEnd(transform.Find("Result"), _missions, _star, gainStar, _life, lostLife, isClear);
             _star += gainStar;
             _life -= lostLife;
@@ -87,7 +88,7 @@ namespace BBQ.Cooking {
         }
 
         int CheckResult() {
-            if (_star >= 8) return 1;
+            if (_star >= 10) return 1;  //TODO:
             if (_life <= 0) return 2;
             return 0;
         }
@@ -118,10 +119,11 @@ namespace BBQ.Cooking {
             _star = PlayerStatus.GetStar();
             _life = PlayerStatus.GetLife();
             view.Init(this);
-            cookTime.Init(60);      
+            cookTime.Init(60 + PlayerStatus.GetadditionalTime());      
             dump.Init();
             copyArea.Init();
             loopManager.Init();
+            help.Init(PlayerStatus.GetHelpPenaltyReduce());
             board.Init(lanes, dump, handCount, cookTime, missionSheet, env);
             env.Init(board, loopManager, deck, dump, copyArea, handCount, cookTime, coin, carbon, 0);
         }
@@ -130,7 +132,7 @@ namespace BBQ.Cooking {
             List<DeckFood> deckFoods = deck.GetUsableFoods();
             int coinNum = coin.GetCoin();
             PlayerStatus.Create(deckFoods, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
-                env.rerollTicket, _star, _life, new List<MissionStatus>(), _gameStatus);
+                env.rerollTicket, 0, 0, _star, _life, new List<MissionStatus>(), _gameStatus);
         }
 
         public int GetDay() {

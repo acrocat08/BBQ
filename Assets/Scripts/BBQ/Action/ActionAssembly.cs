@@ -10,13 +10,12 @@ namespace BBQ.Action {
 
         public async UniTask<ActionVariable> Run(List<ActionCommand> commands, ActionEnvironment env, DeckFood invoker, List<DeckFood> target) {
             ActionVariable v = new ActionVariable(invoker, target);
-            bool noHand = env.handCount.GetHandCount() == 0;
             for (int i = 0; i < commands.Count; i++) {
                 v.n1 = commands[i].n1;
                 v.n2 = commands[i].n2;
                 await commands[i].action.Execute(env, v);
             }
-            if(noHand) env.board.StoreHand();
+            if(!env.isShopping) env.board.StoreHand();
             return v;
         }
     }

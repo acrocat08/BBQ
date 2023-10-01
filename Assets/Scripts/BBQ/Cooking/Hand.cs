@@ -64,6 +64,7 @@ namespace BBQ.Cooking {
             List<DeckFood> deckFoods = hitFoods.Where(x => x).Select(x => x.deckFood).ToList();
             
             _board.ReleaseFoods(deckFoods);
+            _board.UseHand();
             _dump.HitFoods(hitFoods);
 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
@@ -88,11 +89,9 @@ namespace BBQ.Cooking {
             foreach (var food in hitFoods) {
                 if(food == null) continue;
                 food.transform.SetParent(transform);
-                
             }
-            
             _time.Resume();
-            _board.StoreHand();
+            
             if (deckFoods.Count > 0) {
                 _missionSheet.AddCount("hand", _isDouble ? 2 : 1);
             }

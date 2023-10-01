@@ -11,6 +11,8 @@ namespace BBQ.Database {
         public int firstMissionPoint;
         public int secondMissionPoint;
 
+        public bool isDebugMode;
+
 
     }
 }
