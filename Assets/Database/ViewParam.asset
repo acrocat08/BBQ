@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f01f001b6bfb4ff1ab3283515e09897, type: 3}
   m_Name: ViewParam
   m_EditorClassIdentifier: 
-  laneWindowSize: {x: 1500, y: 1080}
-  laneSpeed: 
   foodMaxNumInLane: 5
   foodSize: 300
   foodMargin: 0
   foodCollisionSize: 75
+  tierColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  - {r: 0.4333941, g: 0.764151, b: 0.3868814, a: 1}
+  - {r: 0.39231038, g: 0.5315547, b: 0.8207547, a: 1}
+  - {r: 0.66783386, g: 0.39409038, b: 0.764151, a: 1}
+  - {r: 0.8773585, g: 0.67328846, b: 0.27038085, a: 1}
+  toolColor: {r: 0.7647059, g: 0.39215687, b: 0.32941177, a: 1}
+  effectColor: {r: 0.32941177, g: 0.7647059, b: 0.68235296, a: 1}

@@ -12,12 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9588fc802e4a24a9e0e75f8ae6fb73, type: 3}
   m_Name: DetailView
   m_EditorClassIdentifier: 
-  tierColors:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
-  - {r: 0.4333941, g: 0.764151, b: 0.3868814, a: 1}
-  - {r: 0.39231038, g: 0.5315547, b: 0.8207547, a: 1}
-  - {r: 0.66783386, g: 0.39409038, b: 0.764151, a: 1}
-  - {r: 0.8773585, g: 0.67328846, b: 0.27038085, a: 1}
-  toolColor: {r: 0.7647059, g: 0.39215687, b: 0.32941177, a: 1}
-  effectColor: {r: 0.3294118, g: 0.7647059, b: 0.6832106, a: 1}
+  param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}

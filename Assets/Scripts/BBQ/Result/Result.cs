@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace BBQ.Result {
     
     public class Result : MonoBehaviour {
-        private bool isClear;
+        [SerializeField] private bool isClear;
         [SerializeField] private TrueEnd trueend;
         [SerializeField] private BadEnd badend;
 

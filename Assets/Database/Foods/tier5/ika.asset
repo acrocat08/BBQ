@@ -59,7 +59,7 @@ MonoBehaviour:
         n2: x2
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
         n1: stack
-        n2: 7/6/5
+        n2: 6/5/4
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: x1
         n2: x2

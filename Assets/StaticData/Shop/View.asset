@@ -15,3 +15,13 @@ MonoBehaviour:
   itemWidth: 250
   margin: 20
   moveDuration: 0.5
+  levelUpPrefab: {fileID: 9081471494347829141, guid: 3109bcb512e64274e89b4cff03183d38, type: 3}
+  levelUpShowUpDuration: 0.5
+  levelUpShowUpEasing: 3
+  levelUpImagePrefab: {fileID: 8885203624946064919, guid: 00c65474f6879494fbb9b95f714976ba, type: 3}
+  levelUpImageLength: 400
+  levelUpImageEasing: 21
+  levelUpShowDuration: 0.75
+  levelUpFadeDuration: 0.25
+  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+  param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}

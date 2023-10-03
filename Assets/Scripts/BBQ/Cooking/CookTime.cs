@@ -27,21 +27,21 @@ namespace BBQ.Cooking {
         }
 
         private async void CountDown() {
-            while (_nowTime > 0) {
+            while (_nowTime >= 0) {
                 if (InputGuard.Guard()) {
                     await UniTask.DelayFrame(1);
                     continue;
                 }
                 await UniTask.Delay(TimeSpan.FromSeconds(1f));
                 _nowTime -= 1;
-                if (_nowTime == 0 && !_bonusMode) {
+                if (_nowTime <= 0 && !_bonusMode) {
                     _nowTime += _bonusTime;
                     _bonusMode = true;
                     Pause();
                     await TriggerObserver.I.Invoke(ActionTrigger.BonusTime, new List<DeckFood>(), false);
                     Resume();
                 }
-                view.UpdateText(this, _bonusMode);
+                if(_nowTime >= 0) view.UpdateText(this, _bonusMode);
             }
 
             while (InputGuard.Guard()) {
@@ -69,7 +69,8 @@ namespace BBQ.Cooking {
         }
 
         public void UseTime(int val) {
-            _nowTime = Mathf.Max(_nowTime - val, 1);
+            _bonusTime = Mathf.Min(_bonusTime, Mathf.Max(_bonusTime - val + _nowTime, 0));
+            _nowTime = Mathf.Max(_nowTime - val, 0);
             view.UpdateTime(this, _bonusMode);
         }
 

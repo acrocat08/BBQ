@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23087d99dcbe25b47abb2083a03e55c3, type: 3}
   m_Name: GainRerollTicket
   m_EditorClassIdentifier: 
+  duration: 0.5
+  effect: {fileID: 11400000, guid: 66f9870c94e7bff4a8db7e59cbc37b01, type: 2}

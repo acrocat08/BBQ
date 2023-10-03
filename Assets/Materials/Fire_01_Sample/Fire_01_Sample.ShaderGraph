@@ -2,7 +2,11 @@
     "m_SGVersion": 3,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "020227a004cd4f489e15f7dd27abfd45",
-    "m_Properties": [],
+    "m_Properties": [
+        {
+            "m_Id": "587ffef44b434eee8e92b340654b633f"
+        }
+    ],
     "m_Keywords": [],
     "m_Dropdowns": [],
     "m_CategoryData": [
@@ -749,8 +753,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 732.6433715820313,
-            "y": 776.720458984375
+            "x": 732.0,
+            "y": 776.6666259765625
         },
         "m_Blocks": [
             {
@@ -2814,6 +2818,36 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "587ffef44b434eee8e92b340654b633f",
+    "m_Guid": {
+        "m_GuidSerialized": "4c3647a1-8740-4577-8c8c-589fae1e9017"
+    },
+    "m_Name": "MainTex",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "MainTex",
+    "m_DefaultReferenceName": "_MainTex",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
 }
 
 {
@@ -4892,7 +4926,11 @@
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "c091268bac44468db1e57fc8defad1b5",
     "m_Name": "",
-    "m_ChildObjectList": []
+    "m_ChildObjectList": [
+        {
+            "m_Id": "587ffef44b434eee8e92b340654b633f"
+        }
+    ]
 }
 
 {

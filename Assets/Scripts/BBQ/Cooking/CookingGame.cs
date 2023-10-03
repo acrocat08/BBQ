@@ -5,6 +5,7 @@ using BBQ.Action;
 using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
+using BBQ.Test;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using SoundMgr;
@@ -30,7 +31,7 @@ namespace BBQ.Cooking {
         [SerializeField] private CopyArea copyArea;
         [SerializeField] private HelpAction help;
 
-        [SerializeField] private List<DeckFood> testDeck;
+        [SerializeField] private TestDeck testDeck;
         
         [SerializeField] private List<ActionCommand> startCommands;
         [SerializeField] private ActionAssembly assembly;
@@ -107,7 +108,7 @@ namespace BBQ.Cooking {
 
         private void LoadStatus() {
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
-            if(targetDeck == null) deck.Init(testDeck);
+            if(targetDeck == null) deck.Init(testDeck.foods);
             else deck.Init(targetDeck);
             handCount.Init(PlayerStatus.GetHand());
             coin.Init(PlayerStatus.GetCoin());

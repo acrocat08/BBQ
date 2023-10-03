@@ -34,7 +34,7 @@ namespace BBQ.Action.Play {
                 if (effect != null) await assembly.Run(effect.onAttached, env, deckFood, v.target);
                 deckFood.effect = effect;
                 FoodObject foodObject = deckFood.GetObject();
-                foodObject.SetEffect();
+                if(foodObject != null) foodObject.SetEffect();
             }
 
             if (effect != null) {

@@ -20,17 +20,18 @@ MonoBehaviour:
   color: {r: 0.7725491, g: 0.48627454, b: 0.18823531, a: 1}
   isToken: 0
   useStack: 0
+  tag: 
   action:
     summaries:
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u300C\u98DF\u30D1\u30F3\u300D\u4EE5\u5916\u306E\u843D\u3061\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n-\u3000\u300C\u98DF\u30D1\u30F3\u300D\u4EE5\u5916\u306E\u843D\u3061\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+4\n-\u3000\u300C\u98DF\u30D1\u30F3\u300D\u4EE5\u5916\u306E\u843D\u3061\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u300C\u98DF\u30D1\u30F3\u300D\u4EE5\u5916\u306E\u843D\u3061\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u300C\u98DF\u30D1\u30F3\u300D\u4EE5\u5916\u306E\u843D\u3061\u3066\u3044\u308B\u98DF\u67503\u3064\u3092\u30C7\u30C3\u30AD\u306B\u79FB\u52D5\u3059\u308B"
     sequences:
     - trigger: 0
       condition: []
       commands:
       - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
-        n1: 2/3/4
+        n1: 2
         n2: 
       - action: {fileID: 11400000, guid: 9c28101661284c8489af85300dd0428d, type: 2}
         n1: 
@@ -52,7 +53,7 @@ MonoBehaviour:
         n2: f2
       - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
         n1: f1
-        n2: 1
+        n2: 1/2/3
       - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
         n1: f1
         n2: 

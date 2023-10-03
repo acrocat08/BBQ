@@ -144,15 +144,19 @@ namespace BBQ.Shopping {
             return _levelUpDiscount;
         }
 
-        void LevelUp() {
+        async void LevelUp() {
             int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
             _coin.Use(cost);
             _level += 1;
             _levelUpDiscount = 0;
             view.UpdateText(this, levelUpCosts[_level - 1]);
+            InputGuard.Lock();
+            await view.LevelUp(_level);
+            InputGuard.UnLock();
         }
 
         public void OnLevelUpButtonClicked() {
+            if (InputGuard.Guard()) return;
             int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
             if (_coin.GetCoin() < cost) return;
             SoundPlayer.I.Play("se_levelup");
@@ -180,6 +184,10 @@ namespace BBQ.Shopping {
             foreach (ShopFood food in _foods) {
                 if(food != null) food.SetCost((int)(food.GetCost() / val));
             }
+        }
+
+        public void GainRerollTicket(int num) {
+            reroller.GainRerollTicket(num);
         }
     }
 }

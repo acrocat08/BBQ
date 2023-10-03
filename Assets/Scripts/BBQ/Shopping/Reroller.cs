@@ -45,7 +45,7 @@ namespace BBQ.Shopping {
         
         public void OnClickRerollButton() {
             if (InputGuard.Guard()) return;
-            if (_coin.GetCoin() < _cost) return;
+            if (_rerollTicket == 0 && _coin.GetCoin() < _cost) return;
             SoundPlayer.I.Play("se_reroll1");
             SoundPlayer.I.Play("se_reroll2");
             if (_rerollTicket > 0) {
@@ -60,9 +60,18 @@ namespace BBQ.Shopping {
             Draw();
         }
 
+        public void GainRerollTicket(int num) {
+            _rerollTicket += num;
+            Draw();
+        }
+
         void Draw() {
-            transform.Find("Cost").GetComponent<Text>().text = _rerollTicket > 0 ?  "0" : _cost.ToString();
+            transform.Find("Cost").GetComponent<Text>().text = _rerollTicket > 0 ?  "" : _cost.ToString();
+            transform.Find("Text").GetComponent<Text>().text = _rerollTicket > 0 ?  "Free!!" : "Reroll";
+            transform.Find("CoinImage").GetComponent<Image>().enabled = _rerollTicket == 0;
             transform.Find("Onion").GetComponent<Image>().enabled = _rerollTicket > 0;
+            transform.Find("Avocado").GetComponent<Image>().enabled = _rerollTicket > 0 && _shop.GetShopLevel() >= 4;
+            transform.Find("Asparagus").GetComponent<Image>().enabled = _rerollTicket > 0 && _shop.GetShopLevel() >= 5;
         }
 
 

@@ -8,6 +8,9 @@ namespace BBQ.Database {
         public int foodSize;
         public int foodMargin;
         public int foodCollisionSize;
+        public List<Color> tierColors;
+        public Color toolColor;
+        public Color effectColor;
 
 
     }

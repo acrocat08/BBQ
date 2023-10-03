@@ -5,6 +5,7 @@ using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
+using BBQ.Test;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace BBQ.Shopping {
         [SerializeField] private MissionMaker missionMaker;
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private DesignParam param;
+        [SerializeField] private TestDeck testDeck;
         
         private int _day;
         private int _life;
@@ -67,6 +69,7 @@ namespace BBQ.Shopping {
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
             firstFoods.ForEach(x => Debug.Log(x.lank));
             if(targetDeck != null) deckInventory.Init(targetDeck);
+            else if(param.isDebugMode) deckInventory.Init(new List<DeckFood>(testDeck.foods));
             else deckInventory.Init(firstFoods);
             int shopLevel = param.isDebugMode ?  5 : PlayerStatus.GetShopLevel();
             int nowIncome = Mathf.Max(0, GetDayIncome()); 

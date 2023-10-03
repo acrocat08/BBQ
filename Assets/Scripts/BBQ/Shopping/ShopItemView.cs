@@ -11,8 +11,6 @@ namespace BBQ.Shopping {
     [CreateAssetMenu(menuName = "ShopItem/View")]
     public class ShopItemView : ScriptableObject {
 
-        [SerializeField] private Color[] colors;
-        [SerializeField] private Color toolColor;
         [SerializeField] private int fallPos;
         [SerializeField] private float fallDuration;
         [SerializeField] private Ease fallEasing;
@@ -22,14 +20,15 @@ namespace BBQ.Shopping {
         [SerializeField] private float jumpLength;
         [SerializeField] private float dropXLength;
         [SerializeField] private float dropDuration;
-
+        [SerializeField] private ViewParam param;
+        
         public void DrawFood(ShopFood shopFood) {
             FoodData data = shopFood.GetFoodData();
             shopFood.transform.Find("Image").GetComponent<Image>().sprite = data.foodImage;
             shopFood.transform.Find("Cost").GetComponent<Text>().text = shopFood.GetCost().ToString();
             shopFood.transform.Find("Name").GetComponent<Text>().text = data.foodName;
-            shopFood.transform.Find("Line").GetComponent<Image>().color = colors[data.tier];
-            shopFood.transform.Find("Shadow").GetComponent<Image>().color = colors[data.tier];
+            shopFood.transform.Find("Line").GetComponent<Image>().color = param.tierColors[data.tier];
+            shopFood.transform.Find("Shadow").GetComponent<Image>().color = param.tierColors[data.tier];
         }
         
         public void DrawTool(ShopTool shopTool) {
@@ -37,8 +36,8 @@ namespace BBQ.Shopping {
             shopTool.transform.Find("Image").GetComponent<Image>().sprite = data.toolImage;
             shopTool.transform.Find("Cost").GetComponent<Text>().text = data.cost.ToString();
             shopTool.transform.Find("Name").GetComponent<Text>().text = data.toolName;
-            shopTool.transform.Find("Line").GetComponent<Image>().color = toolColor;
-            shopTool.transform.Find("Shadow").GetComponent<Image>().color = toolColor;
+            shopTool.transform.Find("Line").GetComponent<Image>().color = param.toolColor;
+            shopTool.transform.Find("Shadow").GetComponent<Image>().color = param.toolColor;
         }
 
         public void Fall(Transform tr) {
