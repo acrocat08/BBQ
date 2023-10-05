@@ -17,9 +17,11 @@ namespace BBQ.Shopping {
         private Shop _shop;
         private Coin _coin;
         [SerializeField] private ShopItemChoice choice;
-
+        [SerializeField] private List<Color> textColor;
+        
         private int _cost;
         private int _rerollTicket;
+        
 
         public void Init(Shop shop, Coin coin, int rerollTicket) {
             _shop = shop;
@@ -68,6 +70,7 @@ namespace BBQ.Shopping {
         void Draw() {
             transform.Find("Cost").GetComponent<Text>().text = _rerollTicket > 0 ?  "" : _cost.ToString();
             transform.Find("Text").GetComponent<Text>().text = _rerollTicket > 0 ?  "Free!!" : "Reroll";
+            transform.Find("Text").GetComponent<Text>().color = textColor[_rerollTicket > 0 ? 1 : 0];
             transform.Find("CoinImage").GetComponent<Image>().enabled = _rerollTicket == 0;
             transform.Find("Onion").GetComponent<Image>().enabled = _rerollTicket > 0;
             transform.Find("Avocado").GetComponent<Image>().enabled = _rerollTicket > 0 && _shop.GetShopLevel() >= 4;

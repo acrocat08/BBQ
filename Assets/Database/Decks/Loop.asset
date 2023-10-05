@@ -10,10 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2701b4716884724a8d04196099741b0, type: 3}
-  m_Name: SingleHits
+  m_Name: Loop
   m_EditorClassIdentifier: 
   foods:
-  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+  - data: {fileID: 11400000, guid: a727a4c92afe3894b80b026831f74ad5, type: 2}
+    lank: 3
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 2520ab5229203ac41b2661bfde96a0db, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -22,7 +31,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+  - data: {fileID: 11400000, guid: 2520ab5229203ac41b2661bfde96a0db, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -38,7 +47,7 @@ MonoBehaviour:
     isEphemeral: 0
     isRantan: 0
     effect: {fileID: 0}
-    stack: 1
+    stack: 0
     memory: 
   - data: {fileID: 11400000, guid: 27c47e29b5580064e9c6c73e911af3b3, type: 2}
     lank: 2
@@ -49,7 +58,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ae4b7bf95c4530c47bdc63b18f848080, type: 2}
+  - data: {fileID: 11400000, guid: 7943822a6fb66ce47b9b6d19a7a7da42, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -58,7 +67,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ae4b7bf95c4530c47bdc63b18f848080, type: 2}
+  - data: {fileID: 11400000, guid: 1cf5cca06da27364faef1c630c9ef93f, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -67,7 +76,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ae4b7bf95c4530c47bdc63b18f848080, type: 2}
+  - data: {fileID: 11400000, guid: 1cf5cca06da27364faef1c630c9ef93f, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -76,16 +85,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 464efdcfe011fb641b191ac8eede07de, type: 2}
-    lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
-  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
+  - data: {fileID: 11400000, guid: 6d01961b19a2e9b4e8094a95075efdfd, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -94,7 +94,16 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 7268c1156eca61d4a9e924302147e26c, type: 2}
+  - data: {fileID: 11400000, guid: 21c21a3e9edfc0648848bf7b51508abf, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 70
+    memory: 
+  - data: {fileID: 11400000, guid: e887b92156e89c54799cf906212de59a, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -103,7 +112,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ce0c6039bbdc4784d843302f29674305, type: 2}
+  - data: {fileID: 11400000, guid: e887b92156e89c54799cf906212de59a, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -112,7 +121,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: ce0c6039bbdc4784d843302f29674305, type: 2}
+  - data: {fileID: 11400000, guid: 6a00277a2983a7b4cbd95d476991df25, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -121,16 +130,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 4cdce278864abdc459045ecc561a3501, type: 2}
-    lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: "\u306B\u3093\u3058\u3093"
-  - data: {fileID: 11400000, guid: 464efdcfe011fb641b191ac8eede07de, type: 2}
+  - data: {fileID: 11400000, guid: 08ff69162d788c24187764cd8efc13df, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 20d82cbd7a4c40f409bcfd8ab8856440, type: 2}
+  - data: {fileID: 11400000, guid: e9fbf3267122e7f48883c23a9f84d7a5, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 20d82cbd7a4c40f409bcfd8ab8856440, type: 2}
+  - data: {fileID: 11400000, guid: d5ec3eb5711d81e4cba19103646179f5, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 4a95dc6d1dbf6054186123bcb1138f86, type: 2}
+  - data: {fileID: 11400000, guid: d5ec3eb5711d81e4cba19103646179f5, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -166,25 +166,25 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 958c2d236121d4646a237ad7cc5af93b, type: 2}
+  - data: {fileID: 11400000, guid: c6ce4345869a8904a9df5c17bb26f25b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
     isRantan: 0
     effect: {fileID: 0}
-    stack: 4
+    stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 958c2d236121d4646a237ad7cc5af93b, type: 2}
+  - data: {fileID: 11400000, guid: c6ce4345869a8904a9df5c17bb26f25b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
     isRantan: 0
     effect: {fileID: 0}
-    stack: 2
+    stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 0327ec68f907d0e48bc5a78fa1a7c417, type: 2}
+  - data: {fileID: 11400000, guid: 93b5cbc9a5a43e34d96f3b12773fa84f, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0

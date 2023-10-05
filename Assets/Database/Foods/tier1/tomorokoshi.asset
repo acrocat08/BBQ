@@ -20,10 +20,11 @@ MonoBehaviour:
   color: {r: 0.9058824, g: 0.7686275, b: 0.30980393, a: 1}
   isToken: 0
   useStack: 0
+  tag: 
   action:
     summaries:
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+10\n\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u30B3\u30A4\u30F3+30"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20"
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20"
     sequences:
     - trigger: 0

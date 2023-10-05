@@ -108,7 +108,7 @@ namespace BBQ.Cooking {
 
         private void LoadStatus() {
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
-            if(targetDeck == null) deck.Init(testDeck.foods);
+            if(targetDeck == null) deck.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
             else deck.Init(targetDeck);
             handCount.Init(PlayerStatus.GetHand());
             coin.Init(PlayerStatus.GetCoin());

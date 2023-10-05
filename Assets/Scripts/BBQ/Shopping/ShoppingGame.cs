@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BBQ.Action;
 using BBQ.Common;
 using BBQ.Cooking;
@@ -69,7 +70,7 @@ namespace BBQ.Shopping {
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
             firstFoods.ForEach(x => Debug.Log(x.lank));
             if(targetDeck != null) deckInventory.Init(targetDeck);
-            else if(param.isDebugMode) deckInventory.Init(new List<DeckFood>(testDeck.foods));
+            else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
             else deckInventory.Init(firstFoods);
             int shopLevel = param.isDebugMode ?  5 : PlayerStatus.GetShopLevel();
             int nowIncome = Mathf.Max(0, GetDayIncome()); 
