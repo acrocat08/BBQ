@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class TutorialAction : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace BBQ.Tutorial {
+    public class TutorialAction : ScriptableObject {
+        public bool requireClick;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public virtual async UniTask Exec(Transform container, string text, string emotion, float value) {
+        }
+
+        protected Transform Tako(Transform container) {
+            return container.Find("TakoImage");
+        }
+        protected Transform Message(Transform container) {
+            return container.Find("Fukidashi");
+        }
         
     }
 }
