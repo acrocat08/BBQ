@@ -7,6 +7,7 @@ using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using JetBrains.Annotations;
 using SoundMgr;
 using Unity.VisualScripting;
@@ -24,12 +25,15 @@ namespace BBQ.Cooking {
 
         [SerializeField] private DesignParam param;
 
-        public void Init(List<DeckFood> deckFoods) {
-            SortFoods(deckFoods);
+        public void Init(List<DeckFood> deckFoods, bool doShuffle) {
+            if (doShuffle) SortFoods(deckFoods);
+            else _foods = new LinkedList<DeckFood>(deckFoods);
             _allFoods = deckFoods.Select(x => (x, x.CopyWithEffect())).ToList();
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.Releasable = this;
             }
+
+            TriggerObserver.I.Reset();
             foreach (DeckFood food in _foods) {
                 TriggerObserver.I.RegisterFood(food);
             }

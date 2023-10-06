@@ -11,9 +11,9 @@ namespace BBQ.Tutorial.Action {
         [SerializeField] private float hideDuration;
         [SerializeField] private Vector3 toPos;
         
-        public override async UniTask Exec(Transform container, string text, string takoEmotion, float value) {
+        public override async UniTask Exec(Transform container, string text, string takoEmotion, float value, IReceiver receiver) {
             Message(container).gameObject.SetActive(false);
-            container.DOLocalMove(toPos, hideDuration);
+            TakoContainer(container).DOLocalMove(toPos, hideDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(hideDuration));
         }
 

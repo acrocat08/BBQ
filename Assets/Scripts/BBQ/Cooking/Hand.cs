@@ -4,6 +4,7 @@ using System.Linq;
 using BBQ.Action;
 using BBQ.Common;
 using BBQ.PlayData;
+using BBQ.Tutorial;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace BBQ.Cooking {
         private CookTime _time;
         private MissionSheet _missionSheet;
         private ActionEnvironment _env;
+        private TutorialCooking _tutorial;
         
 
         private bool _afterShot;
@@ -34,7 +36,8 @@ namespace BBQ.Cooking {
             _isGolden = true;
         }
 
-        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env, bool isGolden, bool isDouble) {
+        public void Init(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env,
+            bool isGolden, bool isDouble, TutorialCooking tutorial) {
             _board = board;
             _dump = dump;
             _time = time;
@@ -42,6 +45,7 @@ namespace BBQ.Cooking {
             _env = env;
             _isGolden = isGolden;
             _isDouble = isDouble;
+            _tutorial = tutorial;
             shot.Init(lanes);
             view.Double(this, isDouble);
             view.Golden(this, isGolden, isDouble);
@@ -92,11 +96,16 @@ namespace BBQ.Cooking {
             }
             _time.Resume();
             
-            if (deckFoods.Count > 0) {
+            if (deckFoods.Count > 0 && _missionSheet != null) {
                 _missionSheet.AddCount("hand", _isDouble ? 2 : 1);
+            }
+
+            if (_tutorial != null) {
+                _tutorial.SendHittingFoods(deckFoods);
             }
             
             await view.AfterHit(this);
+            //if(_tutorial != null) _tutorial
             Destroy(gameObject);
         }
 

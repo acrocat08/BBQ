@@ -49,6 +49,10 @@ namespace BBQ.Action {
             if(prev != null) register.Remove(deckFood, prev.action.sequences);
             if(after != null) register.Add(deckFood, after.action.sequences);
         }
+
+        public void Reset() {
+            register.Reset();
+        }
     }
 
     

@@ -6,6 +6,7 @@ using BBQ.Action;
 using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
+using BBQ.Tutorial;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using SoundMgr;
@@ -31,8 +32,9 @@ namespace BBQ.Cooking {
         private ActionEnvironment _env;
         private bool _nextGold;
         private bool _nextDouble;
+        private TutorialCooking _tutorial;
 
-        public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet, ActionEnvironment env) {
+        public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet, ActionEnvironment env, TutorialCooking tutorial) {
             _foods = new List<DeckFood>();
             _lanes = lanes;
             _dump = dump;
@@ -42,7 +44,8 @@ namespace BBQ.Cooking {
             _missionSheet = missionSheet;
             _env = env;
             _nextGold = false;
-            
+            _tutorial = tutorial;
+
             StoreHand();
             Pause();
         }
@@ -62,13 +65,13 @@ namespace BBQ.Cooking {
         //-- TODO: 別クラスに移行　HandManager
         
         public void StoreHand() {
-            if (_handCount.GetHandCount() > 0 && _hand == null) {
+            if (_handCount != null && _handCount.GetHandCount() > 0 && _hand == null) {
                 CreateHand();
             }
         }
 
         private void CreateHand() {
-            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold, _nextDouble);
+            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold, _nextDouble, _tutorial);
             if (_nextGold) {
                 _nextGold = false;
                 SoundPlayer.I.Play("se_goldenHand");                
@@ -162,6 +165,22 @@ namespace BBQ.Cooking {
 
         public bool HasResetEgg() {
             return _foods.Any(x => x.data == param.resetFood);
+        }
+
+        public void Reset() {
+            foreach (Lane lane in _lanes) {
+                lane.Reset();
+            }
+            _foods = new List<DeckFood>();
+        }
+
+        public bool HasNoHand() {
+            return _handCount.GetHandCount() <= 0 && _hand == null;
+        }
+
+        public void DiscardHand() {
+            if(_hand != null) Destroy(_hand.gameObject);
+            _hand = null;
         }
     }
 }

@@ -9,20 +9,39 @@ namespace BBQ.Tutorial {
     [CreateAssetMenu(menuName = "Tutorial/Player")]
     public class TutorialPlayer : ScriptableObject {
 
-        public async UniTask Play(List<TutorialParts> parts, Transform tako) {
-            int index = 0;
-            while (index < parts.Count()) {
-                TutorialParts tutorialParts = parts[index];
+        private int _index;
+        private TutorialParts _nowAction;
+        [SerializeField] private TutorialAction ifAction;
+        [SerializeField] private TutorialAction retryAction;
+
+        public async UniTask Play(List<TutorialParts> parts, Transform tako, IReceiver receiver) {
+            _index = 0;
+            TutorialAction.Signal = "";
+            while (_index < parts.Count()) {
+                _nowAction = parts[_index];
+                if (_nowAction.action == ifAction) {
+                    if (TutorialAction.Signal == "success") {
+                        _index += (int)_nowAction.value;
+                        _nowAction = parts[_index];
+                    }
+                }
+                if (_nowAction.action == retryAction) {
+                    _index -= (int)_nowAction.value;
+                    _nowAction = parts[_index];
+                }
                 InputGuard.Lock();
-                await tutorialParts.action.Exec(tako, tutorialParts.message, tutorialParts.emotion, tutorialParts.value);
+                await _nowAction.action.Exec(tako, _nowAction.message, _nowAction.emotion, _nowAction.value, receiver);
                 InputGuard.UnLock();
-                while (tutorialParts.action.requireClick && !Input.GetMouseButtonDown(0)) {
+                while (_nowAction.action.requireClick && !Input.GetMouseButtonDown(0)) {
                     await UniTask.DelayFrame(1);
                 }
-                index++;
+                _index++;
             }
         }
 
+        public void Send(string signal) {
+            _nowAction.action.Receive(signal);
+        }
     }
 
     [Serializable]

@@ -5,6 +5,7 @@ using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 
 namespace BBQ.Cooking {
@@ -66,6 +67,16 @@ namespace BBQ.Cooking {
         public int GetFoodsNum() {
             return _foods.Count(x => x != null);
         }
-        
+
+        public void Reset() {
+            foreach (FoodObject foodObject in _foods) {
+                if(foodObject != null) Destroy(foodObject.gameObject);
+            }
+
+            _foods = new List<FoodObject>();
+            for (int i = 0; i < param.foodMaxNumInLane; i++) {
+                _foods.Add(null);
+            }
+        }
     }
 }

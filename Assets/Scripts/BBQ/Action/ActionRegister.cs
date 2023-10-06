@@ -58,6 +58,10 @@ namespace BBQ.Action {
             ActionVariable result = await assembly.Run(invokeSet.sequence.condition, env, invokeSet.invoker, target);
             return result.x1 > 0;
         }
+
+        public void Reset() {
+            _dict =  new Dictionary<ActionTrigger, List<InvokeSet>>();
+        }
     }
 
     [Serializable]

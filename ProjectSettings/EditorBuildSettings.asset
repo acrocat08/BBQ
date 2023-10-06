@@ -13,6 +13,12 @@ EditorBuildSettings:
     guid: 4db54dda362a5b34ca1933d1a3881c9c
   - enabled: 1
     path: Assets/Scenes/Cooking.unity
+    guid: d6693e3c762f4e149b7be0039dc0c578
+  - enabled: 1
+    path: Assets/Scenes/TutorialIntro.unity
+    guid: 8f236aa189282b14f974891657540533
+  - enabled: 1
+    path: Assets/Scenes/TutorialCooking.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Result.unity

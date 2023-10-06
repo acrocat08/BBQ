@@ -12,6 +12,7 @@ namespace BBQ.Cooking {
         [SerializeField] CookTimeView view;
         [SerializeField] private CookingGame game;
         [SerializeField] private Board board;
+        [SerializeField] private bool doCountDown;
         
         
         private int _nowTime;
@@ -22,7 +23,7 @@ namespace BBQ.Cooking {
             _nowTime = maxTime;
             _bonusTime = 0;
             _bonusMode = false;
-            view.UpdateText(this, _bonusMode);
+            if(doCountDown) view.UpdateText(this, _bonusMode);
             CountDown();
         }
 
@@ -33,7 +34,7 @@ namespace BBQ.Cooking {
                     continue;
                 }
                 await UniTask.Delay(TimeSpan.FromSeconds(1f));
-                _nowTime -= 1;
+                if(doCountDown) _nowTime -= 1;
                 if (_nowTime <= 0 && !_bonusMode) {
                     _nowTime += _bonusTime;
                     _bonusMode = true;
@@ -41,7 +42,7 @@ namespace BBQ.Cooking {
                     await TriggerObserver.I.Invoke(ActionTrigger.BonusTime, new List<DeckFood>(), false);
                     Resume();
                 }
-                if(_nowTime >= 0) view.UpdateText(this, _bonusMode);
+                if(doCountDown && _nowTime >= 0) view.UpdateText(this, _bonusMode);
             }
 
             while (InputGuard.Guard()) {
@@ -71,13 +72,13 @@ namespace BBQ.Cooking {
         public void UseTime(int val) {
             _bonusTime = Mathf.Min(_bonusTime, Mathf.Max(_bonusTime - val + _nowTime, 0));
             _nowTime = Mathf.Max(_nowTime - val, 0);
-            view.UpdateTime(this, _bonusMode);
+            if(doCountDown) view.UpdateTime(this, _bonusMode);
         }
 
         public void AddTime(int val) {
             if (_bonusMode) return;
             _bonusTime += val;
-            view.UpdateTime(this, _bonusMode);
+            if(doCountDown) view.UpdateTime(this, _bonusMode);
         }
 
         public bool IsBonusMode() {

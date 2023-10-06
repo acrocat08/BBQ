@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cc9d1b443901e42aeafb6b51dcfb01, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
+  ifAction: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
+  retryAction: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}

@@ -108,8 +108,8 @@ namespace BBQ.Cooking {
 
         private void LoadStatus() {
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
-            if(targetDeck == null) deck.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
-            else deck.Init(targetDeck);
+            if(targetDeck == null) deck.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList(), true);
+            else deck.Init(targetDeck, true);
             handCount.Init(PlayerStatus.GetHand());
             coin.Init(PlayerStatus.GetCoin());
             carbon.Init(0);
@@ -125,7 +125,7 @@ namespace BBQ.Cooking {
             copyArea.Init();
             loopManager.Init();
             help.Init(PlayerStatus.GetHelpPenaltyReduce());
-            board.Init(lanes, dump, handCount, cookTime, missionSheet, env);
+            board.Init(lanes, dump, handCount, cookTime, missionSheet, env, null);
             env.Init(board, loopManager, deck, dump, copyArea, handCount, cookTime, coin, carbon, 0);
         }
 

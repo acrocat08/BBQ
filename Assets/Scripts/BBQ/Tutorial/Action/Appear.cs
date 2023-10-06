@@ -11,9 +11,9 @@ namespace BBQ.Tutorial.Action {
         [SerializeField] private float appearDuration;
         [SerializeField] private Vector3 toPos;
         
-        public override async UniTask Exec(Transform container, string text, string takoEmotion, float value) {
+        public override async UniTask Exec(Transform container, string text, string takoEmotion, float value, IReceiver receiver) {
             Message(container).gameObject.SetActive(false);
-            container.DOLocalMove(toPos, appearDuration);
+            TakoContainer(container).DOLocalMove(toPos, appearDuration);
             Tako(container).GetComponent<Image>().DOColor(Color.white, appearDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(appearDuration));
         }

@@ -1,18 +1,31 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BBQ.Tutorial {
-    public class TutorialAction : ScriptableObject {
+    public class TutorialAction : ScriptableObject, IReceiver {
         public bool requireClick;
 
-        public virtual async UniTask Exec(Transform container, string text, string emotion, float value) {
+        public static string Signal;
+        
+        public virtual async UniTask Exec(Transform container, string text, string emotion, float value, IReceiver receiver) {
         }
 
+        public void Receive(string signal) {
+            Signal = signal;
+        }
+
+        protected Transform TakoContainer(Transform container) {
+            return container.Find("Tako");
+        }
+        protected Transform BG(Transform container) {
+            return container.Find("BG");
+        }
         protected Transform Tako(Transform container) {
-            return container.Find("TakoImage");
+            return TakoContainer(container).Find("TakoImage");
         }
         protected Transform Message(Transform container) {
-            return container.Find("Fukidashi");
+            return TakoContainer(container).Find("Fukidashi");
         }
         
     }

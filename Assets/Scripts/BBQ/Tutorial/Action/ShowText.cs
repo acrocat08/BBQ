@@ -14,7 +14,7 @@ namespace BBQ.Tutorial.Action {
         [SerializeField] private List<Sprite> emotionImages;
         [SerializeField] private float delay;
         
-        public override async UniTask Exec(Transform container, string text, string takoEmotion, float value) {
+        public override async UniTask Exec(Transform container, string text, string takoEmotion, float value, IReceiver receiver) {
             await UniTask.Delay(TimeSpan.FromSeconds(delay));
             Message(container).gameObject.SetActive(true);
             Tako(container).GetComponent<Image>().sprite = emotionImages[emotionKeys.IndexOf(takoEmotion)];

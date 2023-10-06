@@ -16,7 +16,8 @@ namespace BBQ.Cooking {
         }
 
         public void AddCount(string missionName, int num) {
-            MissionStatus missionStatus = _missions.First(x => x.mission.missionName == missionName);
+            MissionStatus missionStatus = _missions.FirstOrDefault(x => x.mission.missionName == missionName);
+            if (missionStatus == null) return;
             missionStatus.now += num;
             view.UpdateView(this, _missions);
         }
