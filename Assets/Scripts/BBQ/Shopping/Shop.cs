@@ -7,6 +7,7 @@ using BBQ.Action;
 using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
+using BBQ.Tutorial;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using SoundMgr;
@@ -32,13 +33,17 @@ namespace BBQ.Shopping {
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private ItemDetail detail;
 
-        public void Init(int level, int levelupDiscount, Coin coin, Carbon carbon, int rerollTicket) {
+        private TutorialShopping _tutorial;
+        
+        public void Init(int level, int levelupDiscount, Coin coin, Carbon carbon, int rerollTicket, 
+            TutorialShopping tutorial) {
             _foods = new ShopFood[] { null, null, null, null, null };
             _level = level;
             _levelUpDiscount = levelupDiscount;
             _coin = coin;
             _carbon = carbon;
-            reroller.Init(this, _coin, rerollTicket);
+            _tutorial = tutorial;
+            reroller.Init(this, _coin, rerollTicket, tutorial == null);
             reroller.Reroll(true);
             view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
         }
@@ -56,6 +61,7 @@ namespace BBQ.Shopping {
             await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();
             InputGuard.UnLock();
+            if (_tutorial != null && _foods.Count(x => x != null) == 0) _tutorial.BuyFoods();
         }
 
         bool CheckCanBuyFood(ShopFood shopFood, Coin coin, DeckInventory inventory) {
@@ -100,12 +106,13 @@ namespace BBQ.Shopping {
                 cnt++;
             }
             await UniTask.DelayFrame(1);
+            if(refresh && _tutorial != null) _tutorial.Reroll();
             pointSensor.UpdateArea();
         }
 
         public async UniTask AddTool(ToolData tool) {
             if (_tool != null) {
-                _tool.Drop();
+                //_tool.Drop();
                 DeleteTool();
             }
             _tool = itemFactory.CreateTool(tool, this, detail);
@@ -156,6 +163,7 @@ namespace BBQ.Shopping {
         }
 
         public void OnLevelUpButtonClicked() {
+            if (_tutorial != null) return;
             if (InputGuard.Guard()) return;
             int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
             if (_coin.GetCoin() < cost) return;
@@ -188,6 +196,10 @@ namespace BBQ.Shopping {
 
         public void GainRerollTicket(int num) {
             reroller.GainRerollTicket(num);
+        }
+
+        public void SetRerollerMode(bool mode) {
+            reroller.SetMode(mode);
         }
     }
 }

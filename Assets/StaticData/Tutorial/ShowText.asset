@@ -19,7 +19,7 @@ MonoBehaviour:
   - laugh
   - sad
   emotionImages:
-  - {fileID: 21300000, guid: e2bb007adb251dc4aa59e7c869d03be5, type: 3}
-  - {fileID: 21300000, guid: 3b5ce43540a85ec449a0edca822425e8, type: 3}
-  - {fileID: 21300000, guid: 3c33b57961f47a64a8ddbb8b4c79c75d, type: 3}
+  - {fileID: 21300000, guid: d8c7cc7fc2c3397468bcf18b878ff603, type: 3}
+  - {fileID: 21300000, guid: 8e893f5243643f94eb2002e40429086a, type: 3}
+  - {fileID: 21300000, guid: 92a8d3b093f2c5e4db5f03891b8e0dd7, type: 3}
   delay: 0.5

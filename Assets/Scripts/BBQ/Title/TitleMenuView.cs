@@ -21,6 +21,8 @@ namespace BBQ.Title {
         [SerializeField] private Vector3 smogMaxPos;
         private List<Transform> _smogs;
         private bool _isMoving;
+        private List<string> _baseMenuText;
+        
         public async void FloatLogo(TitleMenu titleMenu) {
             Transform logo = titleMenu.transform.Find("Logo");
             Vector3 centerPos = logo.localPosition;
@@ -76,6 +78,15 @@ namespace BBQ.Title {
                 Destroy(smog.gameObject);
             }
         }
-        
+
+        public void UpdateText(List<Text> menuText, int index) {
+            if (_baseMenuText.Count == 0) {
+                _baseMenuText = menuText.Select(x => x.text).ToList();
+            }
+            for (int i = 0; i < menuText.Count; i++) {
+                if (i == index) menuText[i].text = "→  " + _baseMenuText[i];
+                else menuText[i].text = _baseMenuText[i];
+            }
+        }
     }
 }

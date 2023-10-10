@@ -19,7 +19,7 @@ MonoBehaviour:
   toolImage: {fileID: 21300000, guid: 3be5bfdeeaef4a1489f802f0b6aee06a, type: 3}
   action:
     summaries:
-    - "\u30C7\u30C3\u30AD\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u30AB\u30D0\u30F3\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
     sequences:
     - trigger: 0
       condition: []

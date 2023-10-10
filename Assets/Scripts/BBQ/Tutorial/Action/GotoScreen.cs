@@ -10,9 +10,11 @@ namespace BBQ.Tutorial.Action {
     public class GotoScreen : TutorialAction {
         [SerializeField] private float duration;
         [SerializeField] private Vector3 toPos;
+        [SerializeField] private Sprite takoImage;
         
         public override async UniTask Exec(Transform container, string text, string takoEmotion, float value, IReceiver receiver) {
             Message(container).gameObject.SetActive(false);
+            Tako(container).GetComponent<Image>().sprite = takoImage;
             BG(container).GetComponent<Image>().enabled = true;
             TakoContainer(container).DOLocalMove(toPos, duration);
             await UniTask.Delay(TimeSpan.FromSeconds(duration));

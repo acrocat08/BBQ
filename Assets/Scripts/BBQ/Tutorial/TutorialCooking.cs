@@ -10,11 +10,11 @@ using BBQ.Test;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BBQ.Tutorial {
     public class TutorialCooking : MonoBehaviour, IReceiver {
-        [SerializeField] private TutorialPlayer player;
-        [SerializeField] private List<TutorialParts> parts;
+
         
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private Board board;
@@ -33,8 +33,10 @@ namespace BBQ.Tutorial {
         [SerializeField] private ActionAssembly assembly;
 
 
+        [SerializeField] private TutorialPlayer player;
+        [SerializeField] private List<TutorialParts> parts;
         [SerializeField] private Transform tako;
-
+        
         [SerializeField] private List<TestDeck> decks;
         [SerializeField] private List<int> hands;
         [SerializeField] private List<int> draws;
@@ -55,6 +57,8 @@ namespace BBQ.Tutorial {
             Init();
             SoundPlayer.I.Play("bgm_tutorial");
             await player.Play(parts, tako, this);
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            SceneManager.LoadScene("Scenes/TutorialShopping");
         }
 
         void Init() {

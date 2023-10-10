@@ -173,7 +173,7 @@ MonoBehaviour:
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
-    isDouble: 0
+    isRantan: 0
     effect: {fileID: 0}
     stack: 0
     memory: 
@@ -182,6 +182,7 @@ MonoBehaviour:
   merger: {fileID: 0}
   index: 0
   shop: {fileID: 0}
+  tutorial: {fileID: 0}
 --- !u!1 &1362047538285272146
 GameObject:
   m_ObjectHideFlags: 0

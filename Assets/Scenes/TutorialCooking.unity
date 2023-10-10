@@ -834,6 +834,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cc04e3c18a70447bb3bfa44abe542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  env: {fileID: 888007270}
+  board: {fileID: 294057202}
+  lanes:
+  - {fileID: 96110379}
+  - {fileID: 2090925920}
+  - {fileID: 667268907}
+  loopManager: {fileID: 294057201}
+  cookTime: {fileID: 471945920}
+  handCount: {fileID: 522653968}
+  missionSheet: {fileID: 248663948}
+  coin: {fileID: 21751425}
+  carbon: {fileID: 794693098}
+  deck: {fileID: 264778010}
+  dump: {fileID: 1198209006}
+  copyArea: {fileID: 1594150140}
+  help: {fileID: 888007266}
+  testMission: []
+  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
   player: {fileID: 11400000, guid: 8eb428605fa877b4dad4fa983f9d2db6, type: 2}
   parts:
   - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
@@ -1120,6 +1138,30 @@ MonoBehaviour:
     message: "\u30D1\u30FC\u30D5\u30A7\u30AF\u30C8\uFF01\u4E32\u523A\u3057\u306B\u95A2\u3057\u3066\u306F\u3082\u3046\u3059\u3063\u304B\u308A\u4E00\u4EBA\u524D\u3060\u306D\u3002"
     emotion: laugh
     value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3042\u3063\u305D\u3046\u305D\u3046\u3001\u6700\u5F8C\u306B\u4E00\u3064\u5927\u4E8B\u306A\u3053\u3068\u3092\u8A00\u3044\u5FD8\u308C\u3066\u305F\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u4ECA\u5F8C\u4E32\u523A\u3057\u3057\u3066\u3044\u304F\u4E2D\u3067\u3001\u753B\u9762\u4E0A\u306E\u98DF\u6750\u304C\u7121\u304F\u306A\u3063\u305F\u308A\u3001\u624B\u6301\u3061\u306E\u4E32\u304C\u7121\u304F\u306A\u3063\u3066\u3057\u307E\u3046\u5834\u9762\u3063\u3066\u3042\u308B\u3068\u304A\u3082\u3046\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305D\u3093\u306A\u6642\u306F\u3001\u30DC\u30AF\u306E\u53F3\u96A3\u306B\u3042\u308B\u304A\u52A9\u3051\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u3044\u3044\u3088\u3002\n\u3053\u308C\u3089\u306E\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u30CF\u30F3\u30C9\u3084\u98DF\u6750\u3092\u5897\u3084\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305F\u3060\u3001\u305D\u306E\u5206\u5236\u9650\u6642\u9593\u304C\u6E1B\u3063\u3061\u3083\u3046\u304B\u3089\u3001\u62BC\u3057\u904E\u304E\u306B\u306F\u6CE8\u610F\u3057\u3066\u306D\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
     message: "\u4EE5\u4E0A\u3067\u671D\u306E\u4E32\u523A\u3057\u30BF\u30A4\u30E0\u306E\u8AAC\u660E\u306F\u7D42\u308F\u308A\u3060\u3088\u3002\u6B21\u306B\u591C\u306E\u304A\u8CB7\u3044\u7269\u30BF\u30A4\u30E0\u306B\u3064\u3044\u3066\u8AAC\u660E\u3057\u3066\u3044\u304F\u306D\u3002"
     emotion: normal
@@ -1128,24 +1170,10 @@ MonoBehaviour:
     message: "\u3058\u3083\u3042\u3001\u591C\u306B\u306A\u3063\u305F\u3089\u307E\u305F\u4F1A\u304A\u3046\u3002"
     emotion: normal
     value: 0
-  env: {fileID: 888007270}
-  board: {fileID: 294057202}
-  lanes:
-  - {fileID: 96110379}
-  - {fileID: 2090925920}
-  - {fileID: 667268907}
-  loopManager: {fileID: 294057201}
-  cookTime: {fileID: 471945920}
-  handCount: {fileID: 522653968}
-  missionSheet: {fileID: 248663948}
-  coin: {fileID: 21751425}
-  carbon: {fileID: 794693098}
-  deck: {fileID: 264778010}
-  dump: {fileID: 1198209006}
-  copyArea: {fileID: 1594150140}
-  help: {fileID: 888007266}
-  testMission: []
-  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
   tako: {fileID: 35712480}
   decks:
   - {fileID: 11400000, guid: d66648a111f2a5b4fb54b36626ffcadf, type: 2}

@@ -11,7 +11,7 @@ namespace BBQ.Action.Play {
     public class AddLife : PlayAction {
         [SerializeField] private float duration;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            env.shoppingGame.AddLife();
+            env.life.Add(1);
             SoundMgr.SoundPlayer.I.Play("se_addLife");
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

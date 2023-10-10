@@ -30,7 +30,7 @@ namespace BBQ.Shopping {
         }
         
         public ToolData ChoiceTool(int level) {
-            return itemSet.GetRandomTool(level);
+            return itemSet.GetRandomTool(1, level);
         }
 
         [Serializable]

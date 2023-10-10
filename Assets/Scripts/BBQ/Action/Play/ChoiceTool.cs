@@ -13,7 +13,8 @@ namespace BBQ.Action.Play {
         [SerializeField] private ItemSet itemSet;
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            ToolData tool = itemSet.GetRandomTool(env.shop.GetShopLevel());
+            int level = Mathf.Min(v.GetNum(v.n1), 5);
+            ToolData tool = itemSet.GetRandomTool(level, level);
             v.s1 = tool.toolName;
         }
     }

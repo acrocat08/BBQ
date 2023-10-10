@@ -22,6 +22,7 @@ namespace BBQ.Shopping {
         [SerializeField] private Shop shop;
         [SerializeField] private Coin coin;
         [SerializeField] private Carbon carbon;
+        [SerializeField] private Life life;
         [SerializeField] private HandCount handCount;
         [SerializeField] private int income;
         [SerializeField] private MissionMaker missionMaker;
@@ -30,7 +31,6 @@ namespace BBQ.Shopping {
         [SerializeField] private TestDeck testDeck;
         
         private int _day;
-        private int _life;
         private List<MissionStatus> _nowMission;
         private bool _isEnd;
         void Start() {
@@ -40,9 +40,9 @@ namespace BBQ.Shopping {
         
         void Init() {
             LoadStatus();
-            env.Init(this, shop, handCount, coin, carbon, deckInventory, copyArea);
+            env.Init(shop, handCount, coin, carbon, life, deckInventory, copyArea);
             view.Init(this);
-            _nowMission = missionMaker.Create(_day);
+            _nowMission = missionMaker.Create(_day, PlayerStatus.GetFailed());
             view.UpdateMission(this, _nowMission);
             GameStart();
         }
@@ -68,27 +68,26 @@ namespace BBQ.Shopping {
         private void LoadStatus() {
             _day = PlayerStatus.GetDay();
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
-            firstFoods.ForEach(x => Debug.Log(x.lank));
             if(targetDeck != null) deckInventory.Init(targetDeck);
             else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
             else deckInventory.Init(firstFoods);
-            int shopLevel = param.isDebugMode ?  5 : PlayerStatus.GetShopLevel();
+            int shopLevel = param.isDebugMode ?  1 : PlayerStatus.GetShopLevel();
             int nowIncome = Mathf.Max(0, GetDayIncome()); 
             coin.Init(param.isDebugMode ?  10000 : PlayerStatus.GetCoin() + nowIncome);
             carbon.Init(param.isDebugMode ?  100 : PlayerStatus.GetCarbon() + (_day - 1) / 5 + 1);
             handCount.Init(5);
-            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket());
+            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket(), null);
             copyArea.Init();
             int star = PlayerStatus.GetStar();
-            _life = PlayerStatus.GetLife();
-            view.SetStatus(this, star, _life);
+            life.Init(PlayerStatus.GetLife());
+            view.SetStatus(this, star);
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
             PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
-                deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), _life, _nowMission, 0);
+                deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), life.GetLife(), _nowMission, PlayerStatus.GetFailed(), 0);
         }
 
         public int GetDay() {
@@ -99,11 +98,6 @@ namespace BBQ.Shopping {
             int dayIncome = income;
             //if (_day > 1) dayIncome /= 2;
             return dayIncome;
-        }
-
-        public void AddLife() {
-            _life++;
-            view.AddLife(this, _life);
         }
 
     }

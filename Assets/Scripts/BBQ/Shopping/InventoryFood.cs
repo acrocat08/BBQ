@@ -4,6 +4,7 @@ using System.Linq;
 using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
+using BBQ.Tutorial;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace BBQ.Shopping {
         [SerializeField] private Merger merger;
         [SerializeField] private int index;
         [SerializeField] private Shop shop;
+        [SerializeField] private TutorialShopping tutorial;
 
         public void SetFood(DeckFood food) {
             deckFood = food;
@@ -38,6 +40,7 @@ namespace BBQ.Shopping {
             target.Add(this);
             await merger.Merge(target, shop);
             inventory.SortItem();
+            if (tutorial != null) tutorial.Merge();
         }
 
         public int GetIndex() {

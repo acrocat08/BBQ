@@ -43,6 +43,7 @@ namespace BBQ.Cooking {
         private int _life;
         private List<MissionStatus> _missions;
         private int _gameStatus;
+        private bool _isFailed;
 
         [SerializeField] private List<MissionStatus> testMission;
         
@@ -75,6 +76,7 @@ namespace BBQ.Cooking {
             await view.CloseBG(this);
 
             bool isClear = missionSheet.CheckMissionCleared();
+            _isFailed = !isClear;
             int gainStar = isClear ? 1 : 0;
             //int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
             int lostLife = isClear ? 0 : 1;
@@ -132,8 +134,10 @@ namespace BBQ.Cooking {
         private void SaveStatus() {
             List<DeckFood> deckFoods = deck.GetUsableFoods();
             int coinNum = coin.GetCoin();
+            int failed = PlayerStatus.GetFailed();
+            if (_isFailed) failed++;
             PlayerStatus.Create(deckFoods, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
-                env.rerollTicket, 0, 0, _star, _life, new List<MissionStatus>(), _gameStatus);
+                env.rerollTicket, 0, 0, _star, _life, new List<MissionStatus>(), failed, _gameStatus);
         }
 
         public int GetDay() {

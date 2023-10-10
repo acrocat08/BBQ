@@ -18,10 +18,11 @@ namespace BBQ.PlayData {
         private int _star;
         private int _life;
         private List<MissionStatus> _nowMission;
+        private int _failed;
         private int _gameStatus;
         
         public static void Create(List<DeckFood> deckFoods, int coin, int hand, int carbon, int day, int shopLevel, 
-            int levelUpDiscount, int rerollTicket, int additionalTime, int helpPenaltyReduce, int star, int life, List<MissionStatus> nowMission, int gameStatus) {
+            int levelUpDiscount, int rerollTicket, int additionalTime, int helpPenaltyReduce, int star, int life, List<MissionStatus> nowMission, int failed, int gameStatus) {
             _saveData = new PlayerStatus();
             _saveData._deckFoods = deckFoods;
             _saveData._coin = coin;
@@ -36,6 +37,7 @@ namespace BBQ.PlayData {
             _saveData._star = star;
             _saveData._life = life;
             _saveData._nowMission = nowMission;
+            _saveData._failed = failed;
             _saveData._gameStatus = gameStatus;
         }
 
@@ -114,5 +116,9 @@ namespace BBQ.PlayData {
             return _saveData._nowMission;
         }
 
+        public static int GetFailed() {
+            if (_saveData == null) return 0;
+            return _saveData._failed;
+        }
     }
 }

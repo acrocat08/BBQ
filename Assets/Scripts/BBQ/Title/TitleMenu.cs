@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace BBQ.Title {
     public class TitleMenu : MonoBehaviour {
@@ -10,6 +12,8 @@ namespace BBQ.Title {
         [SerializeField] private TitleMenuView view;
         [SerializeField] private Transform wave;
         
+        [SerializeField] private List<Text> menuText;
+
 
         private bool _isMoving;
         
@@ -19,11 +23,18 @@ namespace BBQ.Title {
         }
 
         private void Update() {
+            int index = (int)(menuText.Count * (Input.mousePosition.y / Screen.height));
+            index = Mathf.Clamp(index, 0, menuText.Count - 1);
+            index = menuText.Count - 1 - index;
+            Debug.Log(index);
+            view.UpdateText(menuText, index);
             if (Input.GetMouseButtonDown(0) && !_isMoving) {
                 _isMoving = true;
-                GotoMainGame();
+                if (index == 0) GotoTutorial();
+                if (index == 1) GotoMainGame();
             }
         }
+
 
 
 
@@ -40,6 +51,14 @@ namespace BBQ.Title {
             view.GotoNext();
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
             SceneManager.LoadScene("Scenes/Shopping");
+        }
+        
+        private async void GotoTutorial() {
+            SoundPlayer.I.Play("se_select1");
+            await SoundPlayer.I.FadeOutSound("bgm_title");
+            view.GotoNext();
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            SceneManager.LoadScene("Scenes/TutorialIntro");
         }
         
     }

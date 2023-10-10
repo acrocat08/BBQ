@@ -253,6 +253,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parts:
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 2
   - action: {fileID: 11400000, guid: 418b8334ffa4deb47bf6afa51ee8a738, type: 2}
     message: 
     emotion: 
@@ -710,7 +714,6 @@ GameObject:
   - component: {fileID: 2030422302}
   - component: {fileID: 2030422301}
   - component: {fileID: 2030422304}
-  - component: {fileID: 2030422305}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -836,20 +839,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &2030422305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030422300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cc9d1b443901e42aeafb6b51dcfb01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifAction: {fileID: 0}
-  retryAction: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
