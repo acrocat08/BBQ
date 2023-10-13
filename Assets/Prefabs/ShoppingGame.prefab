@@ -2041,6 +2041,10 @@ MonoBehaviour:
   textColor:
   - {r: 0, g: 0.08235294, b: 0.16470589, a: 1}
   - {r: 0, g: 0.08235294, b: 0.16470589, a: 1}
+  isTutorial: 0
+  tutorialFirstFoods: []
+  tutorialSecondFoods: []
+  tutorialTool: {fileID: 0}
 --- !u!1 &3329757426364345300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,6 +4314,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choice: {fileID: 11400000, guid: 8f98c52d22df2724387f6804aa442197, type: 2}
   textColor: []
+  isTutorial: 0
+  tutorialFirstFoods: []
+  tutorialSecondFoods: []
+  tutorialTool: {fileID: 0}
 --- !u!1 &6791896571373539162
 GameObject:
   m_ObjectHideFlags: 0
