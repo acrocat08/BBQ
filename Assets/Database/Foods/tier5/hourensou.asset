@@ -17,7 +17,7 @@ MonoBehaviour:
   tier: 5
   cost: 50
   foodImage: {fileID: 21300000, guid: 60639cb48445bd54e9bcc3a1441d56cc, type: 3}
-  color: {r: 0.12941177, g: 0.22352943, b: 0.10588236, a: 1}
+  color: {r: 0.12941177, g: 0.22352941, b: 0.105882354, a: 1}
   isToken: 0
   useStack: 0
   tag: 
@@ -43,7 +43,7 @@ MonoBehaviour:
         n1: x1
         n2: -1
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 3
+        n1: 3/4/5
         n2: x1
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: x1
@@ -58,7 +58,7 @@ MonoBehaviour:
         n1: x1
         n2: -1
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 3
+        n1: 3/4/5
         n2: x1
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: x1
@@ -73,7 +73,7 @@ MonoBehaviour:
         n1: x1
         n2: -1
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 3
+        n1: 3/4/5
         n2: x1
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: x1

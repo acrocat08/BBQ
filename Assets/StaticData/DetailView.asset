@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: DetailView
   m_EditorClassIdentifier: 
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
+  materials:
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 60403982f9c424eddbb8f692ffb70b91, type: 2}
+  - {fileID: -876546973899608171, guid: bd6993fd32aa24f628023d006bf102b1, type: 3}

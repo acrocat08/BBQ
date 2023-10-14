@@ -27,7 +27,7 @@ namespace BBQ.Action.Play {
             }
             
             foreach (DeckFood deckFood in deckFoods) {
-                if(effectName == "none*") env.deck.RemoveEffect(deckFood);
+                if(effectName == "none*" && !env.isShopping) env.deck.RemoveEffect(deckFood);
                 if (deckFood.effect == null && effect == null) continue;
                 TriggerObserver.I.UpdateEffect(deckFood, deckFood.effect, effect);
                 if (deckFood.effect != null) await assembly.Run(deckFood.effect.onReleased, env, deckFood, v.target);

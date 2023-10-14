@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,10 +25,9 @@ namespace BBQ.Title {
         }
 
         private void Update() {
-            int index = (int)(menuText.Count * (Input.mousePosition.y / Screen.height));
+            int index = menuText.IndexOf(menuText.OrderBy(x => Mathf.Abs(x.transform.position.y - Input.mousePosition.y)).First());
+            
             index = Mathf.Clamp(index, 0, menuText.Count - 1);
-            index = menuText.Count - 1 - index;
-            Debug.Log(index);
             view.UpdateText(menuText, index);
             if (Input.GetMouseButtonDown(0) && !_isMoving) {
                 _isMoving = true;

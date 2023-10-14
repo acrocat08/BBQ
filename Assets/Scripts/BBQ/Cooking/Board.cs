@@ -119,6 +119,10 @@ namespace BBQ.Cooking {
             return ret;
         }
 
+        public List<FoodObject> GetFoodObjects() {
+            return _lanes.SelectMany(x => x.GetFoods()).ToList();
+        }
+
         public FoodObject GetObject(DeckFood food) {
             return _lanes
                 .SelectMany(x => x.GetFoods())
