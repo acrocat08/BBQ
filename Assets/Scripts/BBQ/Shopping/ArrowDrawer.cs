@@ -8,6 +8,8 @@ namespace BBQ.Shopping {
         [SerializeField] float triangleWidth;
         [SerializeField] float triangleHeight;
         [SerializeField] private float weight;
+        [SerializeField] private Transform BasePosX;
+        [SerializeField] private Transform BasePosY;
 
         protected override void OnPopulateMesh(VertexHelper vh) {
             vh.Clear();
@@ -29,14 +31,17 @@ namespace BBQ.Shopping {
         private void AddVert(VertexHelper vh, Vector2 pos)
         {
             var vert = UIVertex.simpleVert;
+            
             vert.position = pos;
+           // vert.position = pos + new Vector2(BasePosX.position.x, BasePosY.position.y);
             vert.color = color;
             vh.AddVert(vert);
         }
 
         public void SetPos(Vector2 from, Vector2 to, Color color) {
-            _topPoint = to * (1920f / Screen.width);
-            _bottomPoint = from * (1920f / Screen.width);;
+            float ratio = Mathf.Max((1920f / Screen.width), (1080f / Screen.height));
+            _topPoint = to * ratio;
+            _bottomPoint = from * ratio;
             this.color = color;
             SetVerticesDirty();
         }

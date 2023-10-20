@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tako-balloon_0: 5288121457458880474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
