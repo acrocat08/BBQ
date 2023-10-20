@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,6 +8,7 @@ namespace BBQ.Tutorial {
         public bool requireClick;
 
         public static string Signal;
+        public static Tween nowTween;
         
         public virtual async UniTask Exec(Transform container, string text, string emotion, float value, IReceiver receiver) {
         }

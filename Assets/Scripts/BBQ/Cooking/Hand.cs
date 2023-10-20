@@ -90,6 +90,11 @@ namespace BBQ.Cooking {
             }
             await TriggerObserver.I.Invoke(ActionTrigger.AfterHit, deckFoods.Where(x => !x.isFired && !x.isFrozen).ToList(), true);
             
+            if (!_env.isShopping && _env.deck.SelectAll().Count == 0 
+                                && _env.board.SelectAll().Count < 15 && !_env.board.HasResetEgg()) {
+                await _env.board.ResetEgg();
+            }
+            
             foreach (var food in hitFoods) {
                 if(food == null) continue;
                 food.transform.SetParent(transform);

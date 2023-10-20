@@ -97,7 +97,11 @@ namespace BBQ.Cooking {
         }
 
         async void GotoNextScene() {
-            if (_gameStatus > 0) {
+            if (_gameStatus == 1) {
+                await SoundPlayer.I.FadeOutSound("bgm_cooking");
+                SceneManager.LoadScene("Scenes/Ending");
+            }
+            else if (_gameStatus == 2) {
                 await SoundPlayer.I.FadeOutSound("bgm_cooking");
                 SceneManager.LoadScene("Scenes/Result");
             }

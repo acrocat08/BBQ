@@ -50,8 +50,14 @@ namespace BBQ.Shopping {
         public void UpdateText(Shop shop, int cost) {
             Text levelText = shop.transform.Find("Level").Find("Text").GetComponent<Text>();
             levelText.text = "Level " + shop.GetShopLevel();
-            Text buttonText = shop.transform.Find("LevelUp").Find("Cost").GetComponent<Text>();
-            buttonText.text = cost.ToString();
+            if (shop.GetShopLevel() == 5) {
+                shop.transform.Find("LevelUp").gameObject.SetActive(false);
+            }
+            else {
+                Text buttonText = shop.transform.Find("LevelUp").Find("Cost").GetComponent<Text>();
+                buttonText.text = cost.ToString(); 
+            }
+
         }
 
         public async UniTask LevelUp(int level) {

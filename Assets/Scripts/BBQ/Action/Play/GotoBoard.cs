@@ -27,7 +27,7 @@ namespace BBQ.Action.Play {
 
             int num = Mathf.Min(deckFoods.Count, 15 - env.board.SelectAll().Count);
             
-            if (deckFoods.Count == 0) {
+            if (deckFoods.Count == 0 || num == 0) {
                 return;
             }
             SoundMgr.SoundPlayer.I.Play("se_draw");
@@ -35,6 +35,11 @@ namespace BBQ.Action.Play {
             await env.board.AddFoodsRandomly(target[0].Releasable.ReleaseFoods(deckFoods));
             await TriggerObserver.I.Invoke(ActionTrigger.Placed, deckFoods, true);
             await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, deckFoods, false);
+            
+            if (!env.isShopping && env.deck.SelectAll().Count == 0 
+                                && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg()) {
+                await env.board.ResetEgg();
+            }
         }
     }
 }

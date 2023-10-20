@@ -28,6 +28,7 @@ namespace BBQ.Shopping {
             Transform baseInfo = container.Find("BaseInfo");
             baseInfo.gameObject.SetActive(true);
             baseInfo.Find("Food").GetComponent<Image>().sprite = toolData.toolImage;
+            baseInfo.Find("Food").GetComponent<Image>().material = materials[0];
             baseInfo.Find("Lank").GetComponent<Text>().text = "道具";
             baseInfo.Find("Line").GetComponent<Image>().color = param.toolColor;
             baseInfo.Find("Name").GetComponent<Text>().text = toolData.toolName;
@@ -38,6 +39,7 @@ namespace BBQ.Shopping {
             Transform baseInfo = container.Find("BaseInfo");
             baseInfo.gameObject.SetActive(true);
             baseInfo.Find("Food").GetComponent<Image>().sprite = effectData.effectImage;
+            baseInfo.Find("Food").GetComponent<Image>().material = materials[0];
             baseInfo.Find("Lank").GetComponent<Text>().text = "エフェクト";
             baseInfo.Find("Line").GetComponent<Image>().color = param.effectColor;
             baseInfo.Find("Name").GetComponent<Text>().text = effectData.effectName;

@@ -31,7 +31,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
+  - data: {fileID: 11400000, guid: ff2223eb6fd5eba41ac1a46a7733c001, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 18a625005ad34c844bfbff23b5f60742, type: 2}
+  - data: {fileID: 11400000, guid: 020e5440cf7082e45834d66a43ae1c8b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0

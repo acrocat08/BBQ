@@ -24,9 +24,11 @@ namespace BBQ.Action {
         }
 
         public async UniTask Invoke(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
-            List<InvokeSet> invokeSets = await register.GetInvokers(trigger, target, isMyself);
-            foreach (InvokeSet invokeSet in invokeSets) {
-                //if (invokeSet.invoker.isFrozen) continue;
+            List<InvokeSet> invokeSets = register.GetInvokers(trigger);
+            List<InvokeSet> tmp = new List<InvokeSet>(invokeSets);
+            foreach (InvokeSet invokeSet in tmp) {
+                bool isOk = await register.CheckCondition(invokeSet, target, isMyself);
+                if(!isOk) continue;
                 FoodObject food = invokeSet.invoker.GetObject();
                 if(food != null) food.OnInvoke();
                 await assembly.Run(invokeSet.sequence.commands, env, invokeSet.invoker, target);

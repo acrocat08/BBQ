@@ -58,6 +58,7 @@ namespace BBQ.Shopping {
             if(foodObject.transform.Find("Object").Find("FireEffect(Clone)")) 
                 Destroy(foodObject.transform.Find("Object").Find("FireEffect(Clone)").gameObject);
             if(foodObject.deckFood.data && foodObject.deckFood.data.useStack) foodObject.transform.Find("Object").Find("Stack").gameObject.SetActive(true);
+            else foodObject.transform.Find("Object").Find("Stack").gameObject.SetActive(false);
             DrawEffect(foodObject);
             UpdateStack(foodObject);
         }

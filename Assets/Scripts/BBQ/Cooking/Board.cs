@@ -93,8 +93,8 @@ namespace BBQ.Cooking {
         
         //---
 
-        public List<DeckFood> SelectAll() {
-            return new List<DeckFood>(_foods.Where(x => x.data != param.resetFood));
+        public List<DeckFood> SelectAll(bool resetEgg=false) {
+            return new List<DeckFood>(_foods.Where(x => resetEgg || x.data != param.resetFood));
         }
 
         public List<DeckFood> SelectLane(int index) {
@@ -136,7 +136,7 @@ namespace BBQ.Cooking {
             foreach (FoodObject food in foods) {
                 food.deckFood.Releasable = this;
                 Lane target = _lanes.Where(x => x.GetFoodsNum() < 5)
-                    .OrderBy(x => Guid.NewGuid()).First();
+                    .OrderBy(x => Guid.NewGuid()).FirstOrDefault();
                 tasks.Add(target.AddFoodRandomly(food));
             }
             await tasks;
@@ -185,6 +185,13 @@ namespace BBQ.Cooking {
         public void DiscardHand() {
             if(_hand != null) Destroy(_hand.gameObject);
             _hand = null;
+        }
+        
+        public async UniTask ResetEgg() {
+            List<FoodObject> egg = _env.deck.ReleaseFoods(new List<DeckFood> { new DeckFood(param.resetFood) });
+            TriggerObserver.I.RegisterFood(egg[0].deckFood);
+            SoundPlayer.I.Play("se_resetEgg");
+            await AddFoodsRandomly(egg);
         }
     }
 }

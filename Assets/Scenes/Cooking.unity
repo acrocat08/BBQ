@@ -1196,7 +1196,7 @@ PrefabInstance:
     - target: {fileID: 5546075017281032687, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: testDeck
       value: 
-      objectReference: {fileID: 11400000, guid: b56df0a097b94074081a6ac08b8d6d84, type: 2}
+      objectReference: {fileID: 11400000, guid: 63b90c0fa0cfcd149ba71202c5c6b9e4, type: 2}
     - target: {fileID: 8001323004009388219, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_Sprite
       value: 

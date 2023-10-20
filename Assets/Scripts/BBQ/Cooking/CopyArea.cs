@@ -3,6 +3,7 @@ using BBQ.Action;
 using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace BBQ.Cooking {
@@ -18,6 +19,7 @@ namespace BBQ.Cooking {
         }
 
         public void SetPosition(FoodObject laneFood) {
+            if (laneFood == null) return;
             transform.position = laneFood.transform.position;
         }
 

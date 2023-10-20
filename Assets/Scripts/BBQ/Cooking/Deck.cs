@@ -64,7 +64,7 @@ namespace BBQ.Cooking {
         }
 
         public async UniTask AddFoods(List<FoodObject> foods) {
-            _foods.AddRange(foods.Select(x => x.deckFood));
+            _foods.AddRange(foods.Where(x => x.deckFood.data != param.resetFood).Select(x => x.deckFood));
             SortFoods(_foods.ToList());
             List<UniTask> tasks = new List<UniTask>();
             foreach (FoodObject food in foods) {
@@ -117,12 +117,7 @@ namespace BBQ.Cooking {
             return !deckFood.isFired && !deckFood.isEphemeral;
         }
 
-        public async UniTask ResetEgg(Board board) {
-            List<FoodObject> egg = ReleaseFoods(new List<DeckFood> { new DeckFood(param.resetFood) });
-            TriggerObserver.I.RegisterFood(egg[0].deckFood);
-            SoundPlayer.I.Play("se_resetEgg");
-            await board.AddFoodsRandomly(egg);
-        }
+
 
         void SortFoods(List<DeckFood> target) {
             List<DeckFood> rantanFoods = target.Where(x => x.isRantan).OrderBy(_ => Guid.NewGuid()).ToList();

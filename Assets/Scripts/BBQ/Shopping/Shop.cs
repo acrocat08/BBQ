@@ -165,6 +165,7 @@ namespace BBQ.Shopping {
         public void OnLevelUpButtonClicked() {
             if (_tutorial != null) return;
             if (InputGuard.Guard()) return;
+            if (_level == 5) return;
             int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
             if (_coin.GetCoin() < cost) return;
             SoundPlayer.I.Play("se_levelup");

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad672e241b2cf4a49aeff808c636d42c, type: 3}
+  m_Name: Balloon
+  m_EditorClassIdentifier: 
+  requireClick: 0
+  transformSpeed: 2
+  transformLength: 2
+  transformDuration: 0.5
+  whiteDuration: 0.5
+  waitDuration: 2
+  floatSpeed: 2
+  floatLength: 100
+  balloonImage: {fileID: 5288121457458880474, guid: 5965333129eb27c48bd0f0c940d77435, type: 3}
+  balloonPosition: {x: 0, y: 200, z: 0}
+  fukidashiPosition: {x: -600, y: 450, z: 0}

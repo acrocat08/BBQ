@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Freeze
   m_EditorClassIdentifier: 
   foods:
-  - data: {fileID: 11400000, guid: 3cec5be465ef8cd4e8dcc21d694aae09, type: 2}
+  - data: {fileID: 11400000, guid: 27c47e29b5580064e9c6c73e911af3b3, type: 2}
     lank: 2
     isFrozen: 0
     isFired: 0
@@ -50,16 +50,7 @@ MonoBehaviour:
     stack: 0
     memory: 
   - data: {fileID: 11400000, guid: 2520ab5229203ac41b2661bfde96a0db, type: 2}
-    lank: 2
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
-  - data: {fileID: 11400000, guid: 2520ab5229203ac41b2661bfde96a0db, type: 2}
-    lank: 2
+    lank: 3
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
@@ -150,7 +141,7 @@ MonoBehaviour:
     memory: 
   - data: {fileID: 11400000, guid: fa5dfafd0651e7b489088334b86af753, type: 2}
     lank: 1
-    isFrozen: 1
+    isFrozen: 0
     isFired: 0
     isEphemeral: 0
     isRantan: 0
@@ -166,9 +157,9 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 0327ec68f907d0e48bc5a78fa1a7c417, type: 2}
+  - data: {fileID: 11400000, guid: 958c2d236121d4646a237ad7cc5af93b, type: 2}
     lank: 1
-    isFrozen: 1
+    isFrozen: 0
     isFired: 0
     isEphemeral: 0
     isRantan: 0
@@ -187,6 +178,15 @@ MonoBehaviour:
   - data: {fileID: 11400000, guid: 781f890684c3738499918d2aed622930, type: 2}
     lank: 1
     isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 0327ec68f907d0e48bc5a78fa1a7c417, type: 2}
+    lank: 1
+    isFrozen: 1
     isFired: 0
     isEphemeral: 0
     isRantan: 0

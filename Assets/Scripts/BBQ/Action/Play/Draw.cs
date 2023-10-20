@@ -35,8 +35,9 @@ namespace BBQ.Action.Play {
             await TriggerObserver.I.Invoke(ActionTrigger.Placed, deckFoods, true);
             await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, deckFoods, false);
 
-            if (env.deck.SelectAll().Count == 0 && !env.board.HasResetEgg()) {
-                await env.deck.ResetEgg(env.board);
+            if (!env.isShopping && env.deck.SelectAll().Count == 0 
+                                 && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg()) {
+                await env.board.ResetEgg();
             }
             
         }

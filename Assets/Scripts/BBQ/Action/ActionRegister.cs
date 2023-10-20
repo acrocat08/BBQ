@@ -31,26 +31,19 @@ namespace BBQ.Action {
             }
         }
 
-        public async UniTask<List<InvokeSet>> GetInvokers(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
+        public List<InvokeSet> GetInvokers(ActionTrigger trigger) {
             if (!_dict.ContainsKey(trigger)) return new List<InvokeSet>();
-            List<InvokeSet> candidates = _dict[trigger];
-            List<InvokeSet> ret = new List<InvokeSet>();
-            if (isMyself) {
-                foreach (DeckFood food in target) {
-                    foreach (InvokeSet c in candidates.Where(x => x.invoker == food)) {
-                        bool isOk = await CheckInvokable(c, target);
-                        if(isOk) ret.Add(c);
-                    }
-                }
+            return _dict[trigger];
+        }
+        
+        public async UniTask<bool> CheckCondition(InvokeSet set, List<DeckFood> target, bool isMyself) {
+            if (isMyself && target.Contains(set.invoker)) {
+                return await CheckInvokable(set, target);
             }
-            else {
-                foreach (InvokeSet invokeSet in candidates.OrderBy(x => x.sequence.priority)) {
-                    if (target.Contains(invokeSet.invoker)) continue;
-                    bool isOk = await CheckInvokable(invokeSet, target);
-                    if(isOk) ret.Add(invokeSet);
-                }
+            if (!isMyself && !target.Contains(set.invoker)) {
+                return await CheckInvokable(set, target);
             }
-            return ret;
+            return false;
         }
 
         async UniTask<bool> CheckInvokable(InvokeSet invokeSet, List<DeckFood> target) {

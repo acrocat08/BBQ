@@ -52,9 +52,9 @@ namespace BBQ.Cooking {
         }
 
         public void HitFoods(List<FoodObject> foods) {
+            _hittingFoods = foods.ToArray();
             foods = foods.Where(x => x != null && x.deckFood.data != param.resetFood).ToList();
             _foods.AddRange(foods.Select(x => x.deckFood));
-            _hittingFoods = foods.ToArray();
             foreach (FoodObject laneFood in foods) {
                 if(laneFood == null) continue;
                 laneFood.deckFood.Releasable = this;

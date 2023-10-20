@@ -64,7 +64,7 @@ namespace SoundMgr {
             if(targetSource == null) return;
             targetSource.DOFade(0f, fadeDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(fadeDuration));
-
+            targetSource.Stop();
         }
     }
     
