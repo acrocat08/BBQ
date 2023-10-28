@@ -8,7 +8,7 @@ namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/SelectInvoker")]
     public class SelectInvoker : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            if (v.invoker != null && (v.invoker.isFrozen || v.invoker.isFired)) return;
+            if (v.invoker == null) return;
             v.f1 = new List<DeckFood> { v.invoker };
         }
     }

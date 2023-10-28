@@ -14,6 +14,9 @@ namespace BBQ.Action.Play {
             string y = v.GetString(v.n2);
             v.SetString(v.n1, y);
             v.SetString(v.n2, x);
+            if (v.invoker.GetObject()) {
+                v.invoker.GetObject().UpdateMemory();
+            }
         }
     }
 }

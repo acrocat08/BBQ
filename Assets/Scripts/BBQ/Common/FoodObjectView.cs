@@ -68,7 +68,7 @@ namespace BBQ.Common {
         public void Hit(FoodObject foodObject) {
             float rotateDelta = Random.Range(5f, 15f);
             if (Random.value >= 0.5f) rotateDelta *= -1;
-            foodObject.transform.Find("Image").DOLocalRotate(new Vector3(0, 0, rotateDelta),
+            foodObject.transform.Find("FoodImage").DOLocalRotate(new Vector3(0, 0, rotateDelta),
                 0.2f).SetEase(Ease.OutExpo);
             for (int i = 0; i < 6; i++) {
                 ShotEffect effect = Instantiate(hitEffectPrefab, Vector3.zero, Quaternion.identity, foodObject.transform).GetComponent<ShotEffect>();
@@ -90,7 +90,7 @@ namespace BBQ.Common {
         }
 
         public virtual void Freeze(FoodObject foodObject) {
-            Image image = foodObject.transform.Find("Image").GetComponent<Image>();
+            Image image = foodObject.transform.Find("FoodImage").GetComponent<Image>();
             image.color = freezeColor;
             FreezeEffect effect = Instantiate(freezeEffectPrefab, foodObject.transform)
                 .GetComponent<FreezeEffect>();
@@ -105,7 +105,7 @@ namespace BBQ.Common {
         }
         
         public virtual void Fire(FoodObject foodObject) {
-            Image image = foodObject.transform.Find("Image").GetComponent<Image>();
+            Image image = foodObject.transform.Find("FoodImage").GetComponent<Image>();
             image.color = fireColor;
             Transform effect = Instantiate(fireEffectPrefab).transform;
             effect.SetParent(foodObject.transform, false);
@@ -116,8 +116,8 @@ namespace BBQ.Common {
 
 
         public virtual void Invoke(FoodObject foodObject) {
-            foodObject.transform.Find("Image").localScale = Vector3.one * shakeStrength;
-            foodObject.transform.Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
+            foodObject.transform.Find("FoodImage").localScale = Vector3.one * shakeStrength;
+            foodObject.transform.Find("FoodImage").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
         }
 
         public virtual UniTask LankUp(FoodObject foodObject) {
@@ -125,6 +125,9 @@ namespace BBQ.Common {
         }
 
         public virtual void UpdateStack(FoodObject foodObject) {
+        }
+        
+        public virtual void UpdateMemory(FoodObject foodObject) {
         }
     }
 }

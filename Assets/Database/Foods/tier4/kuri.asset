@@ -23,12 +23,40 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309220\u500B\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+50\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309215\u500B\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+50\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u4ED6\u98DF\u6750\u309210\u500B\u4EE5\u4E0A\u30D2\u30C3\u30C8\u3057\u3066\u3044\u305F\u5834\u5408\u3001\u30B3\u30A4\u30F3+50\u3001\u6700\u3082\u8FD1\u3044\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1(\u5358\u4E00\u767A\u52D5)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+(\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u98DF\u6750\u306E\u6570\xD75)"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1(\u5358\u4E00\u767A\u52D5)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+(\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u98DF\u6750\u306E\u6570\xD710)"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1(\u5358\u4E00\u767A\u52D5)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+(\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u98DF\u6750\u306E\u6570\xD715)"
     sequences:
-    - trigger: 1
-      condition: []
+    - trigger: 7
+      condition:
+      - action: {fileID: 11400000, guid: f22463c5821022243bcabbde91f1e1d9, type: 2}
+        n1: 
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: x1
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: x1
+        n2: stack
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+    - trigger: 7
+      condition:
+      - action: {fileID: 11400000, guid: f22463c5821022243bcabbde91f1e1d9, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: a2990d37de22f8748b4bc563f80c7c4a, type: 2}
+        n1: x1
+        n2: 
       commands:
       - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
         n1: 
@@ -37,33 +65,24 @@ MonoBehaviour:
         n1: f1
         n2: 
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: stack
-        n2: x1
+        n1: x1
+        n2: stack
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
         n1: x1
         n2: stack
       priority: 0
     - trigger: 0
-      condition:
-      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
-        n1: stack
-        n2: 20/15/10
+      condition: []
       commands:
+      - action: {fileID: 11400000, guid: ecdbe5ae23220f741a2c4ecc29256acc, type: 2}
+        n1: stack
+        n2: 5/10/15
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
-        n1: 50
+        n1: x1
         n2: 
-      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
-        n1: 
-        n2: 
-      - action: {fileID: 11400000, guid: 3624d9af79193e24fa94a8c3d49aaf9d, type: 2}
-        n1: f1
-        n2: 
-      - action: {fileID: 11400000, guid: f6b3698beab0c9a46aeae02682399b01, type: 2}
-        n1: f1
-        n2: 1
-      - action: {fileID: 11400000, guid: d581082b16499b24caf8aac01ce967ea, type: 2}
-        n1: f1
-        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
         n1: x1
         n2: stack

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2701b4716884724a8d04196099741b0, type: 3}
-  m_Name: T_final
+  m_Name: Debug
   m_EditorClassIdentifier: 
   foods:
-  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+  - data: {fileID: 11400000, guid: b98fcf579ba2544cdbfee070abb5d473, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0
@@ -31,7 +31,34 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 28da27a106a0f4d47a89494dfb0accdc, type: 2}
+  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 4cdce278864abdc459045ecc561a3501, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 4cdce278864abdc459045ecc561a3501, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0

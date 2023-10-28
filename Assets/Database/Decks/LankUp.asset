@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2701b4716884724a8d04196099741b0, type: 3}
+  m_Name: LankUp
+  m_EditorClassIdentifier: 
+  foods:
+  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 682860b4e450baf4a9769c21d8e13c48, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 4091da658df326b449571c305e99ba1e, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 4091da658df326b449571c305e99ba1e, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: d5ec3eb5711d81e4cba19103646179f5, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: d5ec3eb5711d81e4cba19103646179f5, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: e16c627d2b755184b936866a6e5a1f92, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: e16c627d2b755184b936866a6e5a1f92, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: c198482f6138d5949a18618425ae80d2, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 6f5609eded7a2b24882e3245d3a99f4f, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: fa4ffd02c8ac80640aecb82cf0eacde5, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 6f5609eded7a2b24882e3245d3a99f4f, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 0047c2d20d1891e4bbad6861ac2eab26, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 0047c2d20d1891e4bbad6861ac2eab26, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: fa4ffd02c8ac80640aecb82cf0eacde5, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: f257faee5b8f13445bad955ef28d61e5, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 

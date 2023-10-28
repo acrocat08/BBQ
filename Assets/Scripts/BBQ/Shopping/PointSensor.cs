@@ -28,7 +28,6 @@ namespace BBQ.Shopping {
 
         void Update() {
             Vector2 pointed = Input.mousePosition;
-            Debug.Log(pointed);
             if (!_isDragging) {
                 if (InputGuard.Guard()) return;
                 if (Input.GetMouseButtonDown(0)) {

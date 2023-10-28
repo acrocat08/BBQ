@@ -15,6 +15,8 @@ namespace BBQ.Title {
         [SerializeField] private Transform wave;
         
         [SerializeField] private List<Text> menuText;
+        [SerializeField] private Transform smogContainer;
+        [SerializeField] private ItemDictionary dictionary;
 
 
         private bool _isMoving;
@@ -33,6 +35,7 @@ namespace BBQ.Title {
                 _isMoving = true;
                 if (index == 0) GotoTutorial();
                 if (index == 1) GotoMainGame();
+                if (index == 2) OpenDictionary();
             }
         }
 
@@ -43,7 +46,7 @@ namespace BBQ.Title {
             SoundPlayer.I.Play("bgm_title");
             view.FloatLogo(this);
             view.Wave(wave);
-            view.Smog(transform);
+            view.Smog(transform, smogContainer);
         }
         
         private async void GotoMainGame() {
@@ -60,6 +63,17 @@ namespace BBQ.Title {
             view.GotoNext();
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
             SceneManager.LoadScene("Scenes/TutorialIntro");
+        }
+        
+        private void OpenDictionary() {
+            _isMoving = true;
+            dictionary.Open();
+        }
+        
+        public void CloseDictionary() {
+            _isMoving = false;
+            dictionary.Close();
+
         }
         
     }

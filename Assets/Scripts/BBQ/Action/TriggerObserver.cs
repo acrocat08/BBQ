@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
@@ -25,7 +26,7 @@ namespace BBQ.Action {
 
         public async UniTask Invoke(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
             List<InvokeSet> invokeSets = register.GetInvokers(trigger);
-            List<InvokeSet> tmp = new List<InvokeSet>(invokeSets);
+            List<InvokeSet> tmp =  invokeSets.OrderBy(x => target.IndexOf(x.invoker)).ToList();
             foreach (InvokeSet invokeSet in tmp) {
                 bool isOk = await register.CheckCondition(invokeSet, target, isMyself);
                 if(!isOk) continue;

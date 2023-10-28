@@ -1,5 +1,6 @@
 using BBQ.Cooking;
 using BBQ.PlayData;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace BBQ.Common {
@@ -39,11 +40,16 @@ namespace BBQ.Common {
             view.Invoke(this);
         }
 
-        public virtual void LankUp() {
+        public virtual UniTask LankUp() {
+            return default;
         }
 
         public void UpdateStack() {
             view.UpdateStack(this);
+        }
+        
+        public void UpdateMemory() {
+            view.UpdateMemory(this);
         }
 
         public void UnFreeze() {

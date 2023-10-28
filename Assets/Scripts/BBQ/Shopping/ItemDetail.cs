@@ -23,7 +23,10 @@ namespace BBQ.Shopping {
 
         public void DrawDetail(DeckFood deckFood) {
             view.DrawFoodInfo(transform, deckFood.data, deckFood.lank);
-            SetTab(new List<ExplainableItem>{ deckFood.data }.Concat(deckFood.data.subItem).ToList());
+            List<ExplainableItem> tabItems =
+                new List<ExplainableItem> { deckFood.data }.Concat(deckFood.data.subItem).ToList();
+            if(deckFood.effect != null) tabItems.Add(deckFood.effect);
+            SetTab(tabItems);
             _nowItem = null;
             _nowFood = deckFood;
         }
@@ -72,7 +75,11 @@ namespace BBQ.Shopping {
             }
             else {
                 if(_nowItem != null) DrawDetail(_nowItem.subItem[index - 1]);
-                if(_nowFood != null) DrawDetail(_nowFood.data.subItem[index - 1]);
+                if (_nowFood != null) {
+                    if (_nowFood.effect != null && index == _nowFood.data.subItem.Count + 1) 
+                        DrawDetail(_nowFood.effect);
+                    else DrawDetail(_nowFood.data.subItem[index - 1]);
+                }
             }
         }
 

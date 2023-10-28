@@ -39,7 +39,7 @@ namespace BBQ.Title {
             }
         }
 
-        public async void Smog(Transform bg) {
+        public async void Smog(Transform bg, Transform smogContainer) {
             if (_smogs == null) _smogs = new List<Transform>();
             while (bg != null) {
                 if (_isMoving) return;
@@ -48,18 +48,18 @@ namespace BBQ.Title {
                 for (int i = 0; i < num; i++) {
                     Vector3 center = new Vector3(Random.Range(smogMinPos.x, smogMaxPos.x),
                         Random.Range(smogMinPos.y, smogMaxPos.y));
-                    MakeSmog(center + Vector3.right * Random.Range(10, 30) + Vector3.up * Random.Range(10, 30));
+                    MakeSmog(center + Vector3.right * Random.Range(10, 30) + Vector3.up * Random.Range(10, 30), smogContainer);
                 }
             }
         }
 
-        async void MakeSmog(Vector3 pos) {
+        async void MakeSmog(Vector3 pos, Transform smogContainer) {
             Transform smog = Instantiate(smogPrefab).transform;
             float life = Random.Range(7, 12);
             smog.localScale = Vector3.one * Random.Range(0.5f, 2f);
             smog.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             smog.GetComponent<Image>().color = new Color(1, 1, 1) * Random.Range(1, 0.75f);
-            smog.SetParent(GameObject.Find("Canvas").transform);
+            smog.SetParent(smogContainer);
             smog.localPosition = pos;
             smog.DOLocalMoveY(smog.localPosition.y + 200f * Random.Range(1f, 1.5f) * (Screen.width / 1920f), life).SetEase(Ease.OutQuad);
             smog.DOScale(smog.transform.localScale * Random.Range(1.5f, 3f), life);

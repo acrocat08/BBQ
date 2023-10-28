@@ -71,17 +71,20 @@ namespace BBQ.Cooking {
         }
 
         private void CreateHand() {
-            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold, _nextDouble, _tutorial);
             if (_nextGold) {
-                _nextGold = false;
                 SoundPlayer.I.Play("se_goldenHand");                
             }
             if (_nextDouble && _handCount.GetHandCount() >= 2) {
                 _handCount.Use(2);
-                _nextDouble = false;
                 SoundPlayer.I.Play("se_doubleHand");                
             }
-            else _handCount.Use(1);
+            else {
+                _handCount.Use(1);
+                _nextDouble = false;
+            }
+            Hand hand = handFactory.Create(this, _dump, _lanes, _time, _missionSheet, _env, _nextGold, _nextDouble, _tutorial);
+            _nextGold = false;
+            _nextDouble = false;
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"));
             _hand.transform.localPosition = handInitialPos;

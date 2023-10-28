@@ -47,7 +47,7 @@ namespace BBQ.Shopping {
             return index;
         }
 
-        public override async void LankUp() {
+        public override async UniTask LankUp() {
             await view.LankUp(this);
             view.Draw(this);
         }

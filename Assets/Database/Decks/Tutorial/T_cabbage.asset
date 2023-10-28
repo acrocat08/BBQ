@@ -49,12 +49,3 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: d124919c8ec761e40a0a23c5fc1d725d, type: 2}
-    lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 

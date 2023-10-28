@@ -17,6 +17,7 @@ namespace BBQ.Action.Play {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             int dir = v.GetNum(v.n2);
             List<DeckFood> lankupFoods = deckFoods.Where(x => x.lank + dir >= 1 && x.lank + dir <= 3).ToList();
+            if (lankupFoods.Count == 0) return;
             foreach (DeckFood deckFood in lankupFoods) {
                 deckFood.lank += dir;
                 FoodObject foodObject = null;
@@ -24,10 +25,9 @@ namespace BBQ.Action.Play {
                     foodObject = env.dump.GetObject(deckFood);
                 }
                 else foodObject = deckFood.GetObject();
-                foodObject.LankUp();
+                SoundMgr.SoundPlayer.I.Play("se_merge");
+                await foodObject.LankUp();
             }
-            SoundMgr.SoundPlayer.I.Play("se_merge");
-            await UniTask.Delay(TimeSpan.FromSeconds(duration));
             await TriggerObserver.I.Invoke(ActionTrigger.LankUp, lankupFoods, true);
             await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, lankupFoods, false);
         }

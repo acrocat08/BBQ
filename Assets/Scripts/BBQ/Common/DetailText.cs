@@ -15,6 +15,7 @@ namespace BBQ.Common {
         [SerializeField] private List<Keyword> keywords;
         [SerializeField] private Vector2 centerPos;
         [SerializeField] private GameObject wordDetailPrefab;
+        [SerializeField] private Transform basePos;
 
         private Dictionary<Rect, Keyword> _wordAreas;
 
@@ -50,7 +51,6 @@ namespace BBQ.Common {
             text.text = msg;
             await UniTask.Delay(TimeSpan.FromSeconds(0.1));
             IList<UIVertex> vertexs = text.cachedTextGenerator.verts;
-            Debug.Log(vertexs.Count);
             foreach (Keyword keyword in keywords) {
                 MatchCollection mc = Regex.Matches(msg, keyword.word);
                 foreach (Match match in mc) {
@@ -73,9 +73,11 @@ namespace BBQ.Common {
 
 
         Keyword GetWord() {
-            Vector2 pos = Input.mousePosition / (Screen.width / 1920f);
+            float ratio = Mathf.Max((1920f / Screen.width), (1080f / Screen.height));
+            Vector2 pos = Input.mousePosition * ratio;
             pos -= new Vector2(1920, 1080) / 2;
             pos -= centerPos;
+            //pos += (Vector2)basePos.position;
 
             foreach (KeyValuePair<Rect,Keyword> pair in _wordAreas) {
                 

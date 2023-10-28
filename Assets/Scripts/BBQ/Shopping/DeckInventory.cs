@@ -20,7 +20,7 @@ namespace BBQ.Shopping {
         private int _helpPenaltyReduce;
         
         public void Init(List<DeckFood> deckFoods) {
-            deckFoods = deckFoods.OrderBy(x => itemSet.GetFoodIndex(x.data)).Take(deckItems.Count).ToList();
+            deckFoods = deckFoods.Take(deckItems.Count).OrderBy(x => itemSet.GetFoodIndex(x.data)).ToList();
             for (int i = 0; i < deckFoods.Count; i++) {
                 deckItems[i].SetFood(deckFoods[i]);
                 deckFoods[i].Releasable = this;

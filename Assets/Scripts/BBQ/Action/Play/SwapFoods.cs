@@ -14,6 +14,7 @@ namespace BBQ.Action.Play {
             List<DeckFood> y = v.GetFoods(v.n2);
             v.SetFoods(v.n1, y);
             v.SetFoods(v.n2, x);
+
         }
     }
 }

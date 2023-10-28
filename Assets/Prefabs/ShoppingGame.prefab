@@ -520,6 +520,8 @@ MonoBehaviour:
   triangleWidth: 50
   triangleHeight: 150
   weight: 20
+  BasePosX: {fileID: 0}
+  BasePosY: {fileID: 0}
 --- !u!222 &1506357293495559367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7494,11 +7496,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5970447884304403831, guid: 40535a1c2f8fb294bb5ea34fe773b49c, type: 3}
       propertyPath: keywords.Array.size
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5970447884304403831, guid: 40535a1c2f8fb294bb5ea34fe773b49c, type: 3}
       propertyPath: keywords.Array.data[22].word
       value: "\u4FA1\u5024"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970447884304403831, guid: 40535a1c2f8fb294bb5ea34fe773b49c, type: 3}
+      propertyPath: keywords.Array.data[23].word
+      value: "\u5358\u4E00\u767A\u52D5"
       objectReference: {fileID: 0}
     - target: {fileID: 5970447884304403831, guid: 40535a1c2f8fb294bb5ea34fe773b49c, type: 3}
       propertyPath: keywords.Array.data[10].describe
@@ -7507,6 +7513,10 @@ PrefabInstance:
     - target: {fileID: 5970447884304403831, guid: 40535a1c2f8fb294bb5ea34fe773b49c, type: 3}
       propertyPath: keywords.Array.data[22].describe
       value: "\u305D\u306E\u98DF\u6750\u3092\u8CB7\u3046\u306E\u306B\u5FC5\u8981\u306A\u30B3\u30A4\u30F3\u306E\u7DCF\u8CBB\u7528\u3002\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970447884304403831, guid: 40535a1c2f8fb294bb5ea34fe773b49c, type: 3}
+      propertyPath: keywords.Array.data[23].describe
+      value: "\u540C\u3058\u98DF\u6750\u304C\u540C\u6642\u306B\u767A\u52D5\u6761\u4EF6\u3092\u6E80\u305F\u3057\u305F\u5834\u5408\u3067\u3082\u30011\u56DE\u3057\u304B\u767A\u52D5\u3057\u306A\u3044\u3002"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
