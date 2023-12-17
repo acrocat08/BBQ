@@ -24,6 +24,7 @@ namespace BBQ.Action {
         [HideInInspector] public Life life;
         [HideInInspector] public Shop shop;
         [HideInInspector] public int rerollTicket;
+        [HideInInspector] public bool resetFlag;
         public void Init(Board board, LoopManager loop, Deck deck, Dump dump, CopyArea copyArea, HandCount handCount, CookTime time, Coin coin, Carbon carbon, int rerollTicket) {
             this.board = board;
             this.loop = loop;
@@ -35,6 +36,7 @@ namespace BBQ.Action {
             this.coin = coin;
             this.carbon = carbon;
             this.rerollTicket = rerollTicket;
+            this.resetFlag = false;
         }
 
         public void Init(Shop shop, HandCount handCount, Coin coin, Carbon carbon, Life life, DeckInventory inventory, CopyArea copyArea) {

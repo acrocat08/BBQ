@@ -1968,6 +1968,7 @@ MonoBehaviour:
   view: {fileID: 11400000, guid: 022e0512d361b084b83cb7f86c207390, type: 2}
   game: {fileID: 5546075017281032687}
   board: {fileID: 6700143056480108973}
+  doCountDown: 0
 --- !u!1 &3513038574820365175
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,6 +3594,7 @@ GameObject:
   - component: {fileID: 2740770477683307453}
   - component: {fileID: 4390029249486086268}
   - component: {fileID: 4741112375943778661}
+  - component: {fileID: 4505813090673019150}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -3668,7 +3670,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6938200139312466261}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -3717,6 +3719,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4505813090673019150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6938200139312466261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645858464017238321}
+          m_TargetAssemblyTypeName: BBQ.Cooking.HelpAction, Assembly-CSharp
+          m_MethodName: OnAddHand
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7077083143976556838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4126,7 @@ GameObject:
   - component: {fileID: 5776168899082899404}
   - component: {fileID: 1339946644499255910}
   - component: {fileID: 6205302806554981945}
+  - component: {fileID: 1627018268918903351}
   m_Layer: 5
   m_Name: Draw
   m_TagString: Untagged
@@ -4170,7 +4202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7975881453498305424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -4219,6 +4251,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1627018268918903351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975881453498305424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645858464017238321}
+          m_TargetAssemblyTypeName: BBQ.Cooking.HelpAction, Assembly-CSharp
+          m_MethodName: OnDraw
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8140169262923403222
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,9 +4367,10 @@ MonoBehaviour:
   time: {fileID: 0}
   coin: {fileID: 0}
   carbon: {fileID: 0}
-  shoppingGame: {fileID: 0}
+  life: {fileID: 0}
   shop: {fileID: 0}
   rerollTicket: 0
+  resetFlag: 0
 --- !u!114 &4645858464017238321
 MonoBehaviour:
   m_ObjectHideFlags: 0

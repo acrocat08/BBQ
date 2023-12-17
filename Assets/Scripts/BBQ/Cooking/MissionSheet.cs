@@ -25,5 +25,11 @@ namespace BBQ.Cooking {
         public bool CheckMissionCleared() {
             return _missions.All(x => x.now >= x.goal);
         }
+
+        public int GetScore() {
+            int x = _missions.Sum(x => x.now - x.goal);
+            int diff = x * (x > 0 ? 15 : 10);
+            return Mathf.Clamp(100 + diff, 50, 300);
+        }
     }
 }

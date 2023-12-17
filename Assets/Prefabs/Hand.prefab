@@ -118,6 +118,10 @@ MonoBehaviour:
       n1: 1
       n2: 
     priority: 0
+  reset:
+  - action: {fileID: 11400000, guid: d423360087293874089b00b0d63b7ea8, type: 2}
+    n1: 
+    n2: 
 --- !u!114 &2915044202753604723
 MonoBehaviour:
   m_ObjectHideFlags: 0

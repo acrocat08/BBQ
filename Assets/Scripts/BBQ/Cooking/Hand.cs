@@ -18,6 +18,7 @@ namespace BBQ.Cooking {
         [SerializeField] private HandMovement movement;
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private List<ActionSequence> bonus;
+        [SerializeField] private List<ActionCommand> reset;
         private Board _board;
         private Dump _dump;
         private CookTime _time;
@@ -89,6 +90,12 @@ namespace BBQ.Cooking {
                 }
             }
             await TriggerObserver.I.Invoke(ActionTrigger.AfterHit, deckFoods.Where(x => !x.isFired && !x.isFrozen).ToList(), true);
+
+            if (_env.resetFlag) {
+                _env.resetFlag = false;
+                await assembly.Run(reset, _env, null, new List<DeckFood>());
+            }
+            
             
             if (!_env.isShopping && _env.deck.SelectAll().Count == 0 
                                 && _env.board.SelectAll().Count < 15 && !_env.board.HasResetEgg()) {

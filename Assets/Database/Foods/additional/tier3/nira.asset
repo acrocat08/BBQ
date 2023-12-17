@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: nira
+  m_EditorClassIdentifier: 
+  subItem: []
+  foodName: "\u30CB\u30E9"
+  tier: 3
+  cost: 30
+  foodImage: {fileID: 21300000, guid: 41b30afb4773f794e82b67629e5ade8e, type: 3}
+  color: {r: 0.20784315, g: 0.5254902, b: 0.06666667, a: 1}
+  isToken: 0
+  useStack: 0
+  tag: 
+  action:
+    summaries:
+    - 
+    - 
+    - 
+    sequences: []

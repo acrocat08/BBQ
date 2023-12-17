@@ -31,15 +31,6 @@ MonoBehaviour:
     effect: {fileID: 0}
     stack: 0
     memory: 
-  - data: {fileID: 11400000, guid: 103f75173b3f08e4ba3ecc56d47a056f, type: 2}
-    lank: 2
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
   - data: {fileID: 11400000, guid: 3cec5be465ef8cd4e8dcc21d694aae09, type: 2}
     lank: 2
     isFrozen: 0
@@ -51,15 +42,6 @@ MonoBehaviour:
     memory: 
   - data: {fileID: 11400000, guid: bbc34892c3b83204dbe65493cc240398, type: 2}
     lank: 2
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
-  - data: {fileID: 11400000, guid: 3b8b181bce0034a4ca670a4f46a3c712, type: 2}
-    lank: 1
     isFrozen: 0
     isFired: 0
     isEphemeral: 0
@@ -104,15 +86,6 @@ MonoBehaviour:
     stack: 0
     memory: 
   - data: {fileID: 11400000, guid: c198482f6138d5949a18618425ae80d2, type: 2}
-    lank: 1
-    isFrozen: 0
-    isFired: 0
-    isEphemeral: 0
-    isRantan: 0
-    effect: {fileID: 0}
-    stack: 0
-    memory: 
-  - data: {fileID: 11400000, guid: f5233e158a118fb46b82b1f1a19f403b, type: 2}
     lank: 1
     isFrozen: 0
     isFired: 0

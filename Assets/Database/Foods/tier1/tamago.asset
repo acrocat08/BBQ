@@ -42,7 +42,7 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 045d824891c82ec4fbc229cc6422b036, type: 2}
         n1: f1
         n2: 
-      - action: {fileID: 11400000, guid: d423360087293874089b00b0d63b7ea8, type: 2}
+      - action: {fileID: 11400000, guid: 7c0a39656096fda44b33099e5eca4190, type: 2}
         n1: 
         n2: 
       priority: 0

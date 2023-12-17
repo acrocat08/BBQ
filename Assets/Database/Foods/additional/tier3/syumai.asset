@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: syumai
+  m_EditorClassIdentifier: 
+  subItem: []
+  foodName: "\u30B7\u30E5\u30A6\u30DE\u30A4"
+  tier: 3
+  cost: 30
+  foodImage: {fileID: 21300000, guid: 5c0a8b994b2348b4ca8594354199f1f2, type: 3}
+  color: {r: 0.882353, g: 0.83921576, b: 0.64705884, a: 1}
+  isToken: 0
+  useStack: 0
+  tag: 
+  action:
+    summaries:
+    - 
+    - 
+    - 
+    sequences: []
