@@ -22,3 +22,4 @@ MonoBehaviour:
   dropXLength: 0
   dropDuration: 1
   param: {fileID: 11400000, guid: 2e92b45e3d743446b8f34b6ddcb2e3c9, type: 2}
+  discountColor: {r: 0.07054697, g: 0.38911104, b: 0.7735849, a: 1}

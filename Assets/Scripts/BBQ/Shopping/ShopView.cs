@@ -79,7 +79,7 @@ namespace BBQ.Shopping {
 
             Transform container = levelup.Find("Container").transform;
             
-            List<Sprite> images = itemSet.foods.Where(x => x.tier == level).Select(x => x.foodImage)
+            List<Sprite> images = itemSet.chosenFoods.Where(x => x.tier == level).Select(x => x.foodImage)
                 .Concat(itemSet.tools.Where(x => x.tier == level).Select(x => x.toolImage))
                 .OrderBy(x => Guid.NewGuid())
                 .ToList();

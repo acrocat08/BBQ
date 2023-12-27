@@ -23,7 +23,41 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - 
-    - 
-    - 
-    sequences: []
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u3067\u6700\u3082\u4FA1\u5024\u304C\u4F4E\u3044\u98DF\u67502\u3064\u3092\u843D\u4E0B\u3057\u3001\u30C7\u30C3\u30AD\u5185\u3067\u6700\u3082\u4FA1\u5024\u304C\u9AD8\u3044\u98DF\u67502\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u3067\u6700\u3082\u4FA1\u5024\u304C\u4F4E\u3044\u98DF\u67503\u3064\u3092\u843D\u4E0B\u3057\u3001\u30C7\u30C3\u30AD\u5185\u3067\u6700\u3082\u4FA1\u5024\u304C\u9AD8\u3044\u98DF\u67503\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u3067\u6700\u3082\u4FA1\u5024\u304C\u4F4E\u3044\u98DF\u67504\u3064\u3092\u843D\u4E0B\u3057\u3001\u30C7\u30C3\u30AD\u5185\u3067\u6700\u3082\u4FA1\u5024\u304C\u9AD8\u3044\u98DF\u67504\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 60652031d8e09b74a9b567451cae89d8, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: f6b3698beab0c9a46aeae02682399b01, type: 2}
+        n1: f1
+        n2: 2/3/4
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 60652031d8e09b74a9b567451cae89d8, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: c1d0c85a6826fd54195fcedb5f8ff2ad, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: f6b3698beab0c9a46aeae02682399b01, type: 2}
+        n1: f1
+        n2: x1
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0

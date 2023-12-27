@@ -21,11 +21,14 @@ namespace BBQ.Shopping {
         [SerializeField] private float dropXLength;
         [SerializeField] private float dropDuration;
         [SerializeField] private ViewParam param;
+        [SerializeField] private Color discountColor;
         
         public void DrawFood(ShopFood shopFood) {
             FoodData data = shopFood.GetFoodData();
             shopFood.transform.Find("Image").GetComponent<Image>().sprite = data.foodImage;
             shopFood.transform.Find("Cost").GetComponent<Text>().text = shopFood.GetCost().ToString();
+            if (shopFood.GetCost() < shopFood.GetFoodData().cost)
+                shopFood.transform.Find("Cost").GetComponent<Text>().color = discountColor;
             shopFood.transform.Find("Name").GetComponent<Text>().text = data.foodName;
             shopFood.transform.Find("Line").GetComponent<Image>().color = param.tierColors[data.tier];
             shopFood.transform.Find("Shadow").GetComponent<Image>().color = param.tierColors[data.tier];

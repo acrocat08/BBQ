@@ -25,7 +25,8 @@ namespace BBQ.Action.Play {
                 await UniTask.Delay(TimeSpan.FromSeconds(duration));
                 return;
             }
-            
+
+            List<DeckFood> triggerTargets = new List<DeckFood>();
             foreach (DeckFood deckFood in deckFoods) {
                 if(effectName == "none*" && !env.isShopping) env.deck.RemoveEffect(deckFood);
                 if (deckFood.effect == null && effect == null) continue;
@@ -35,14 +36,18 @@ namespace BBQ.Action.Play {
                 deckFood.effect = effect;
                 FoodObject foodObject = deckFood.GetObject();
                 if(foodObject != null) foodObject.SetEffect();
+                triggerTargets.Add(deckFood);
             }
-
             if (effect != null) {
                 SoundMgr.SoundPlayer.I.Play("se_foodEffect");
             }
             else SoundMgr.SoundPlayer.I.Play("se_removeEffect");
-
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
+            await TriggerObserver.I.Invoke(ActionTrigger.GainEffect, triggerTargets, true);
+
+
+
+
         }
         
     }

@@ -636,6 +636,10 @@ PrefabInstance:
       value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: itemSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: testDeck
       value: 
       objectReference: {fileID: 11400000, guid: 50374b3c55d087b4ebefb9432b6cf649, type: 2}

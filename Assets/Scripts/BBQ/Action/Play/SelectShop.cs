@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using BBQ.PlayData;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class SelectShop : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+namespace BBQ.Action.Play {
+    [CreateAssetMenu(menuName = "Action/SelectShop")]
+    public class SelectShop : PlayAction {
+        public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if(env.isShopping) v.f1 = new List<DeckFood>(env.shop.GetShopFoods().Select(x => x.deckFood));
+        }
     }
 }

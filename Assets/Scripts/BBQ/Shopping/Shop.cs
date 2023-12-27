@@ -177,7 +177,7 @@ namespace BBQ.Shopping {
         }
 
         public FoodObject GetObject(DeckFood food) {
-            return _foods.FirstOrDefault(x => x.deckFood == food);
+            return _foods.FirstOrDefault(x => x != null && x.deckFood == food);
         }
 
         public async void UseTool(ShopTool shopTool, List<DeckFood> target) {
@@ -189,9 +189,9 @@ namespace BBQ.Shopping {
             InputGuard.UnLock();
         }
 
-        public void DiscountFood(int val) {
+        public void DiscountFood(List<DeckFood> target, int val) {
             foreach (ShopFood food in _foods) {
-                if(food != null) food.SetCost((int)(food.GetCost() / val));
+                if(food != null && target.Any(x => x == food.deckFood)) food.SetCost(Mathf.Max(0, food.GetCost() - val));
             }
         }
 

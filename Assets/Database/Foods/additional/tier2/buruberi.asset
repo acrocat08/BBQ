@@ -17,13 +17,69 @@ MonoBehaviour:
   tier: 2
   cost: 20
   foodImage: {fileID: 21300000, guid: ea873cf0e835df44fa2a285b65e80c23, type: 3}
-  color: {r: 0.18039216, g: 0.3019608, b: 0.6784314, a: 1}
+  color: {r: 0.20392159, g: 0.2901961, b: 0.5803922, a: 1}
   isToken: 0
-  useStack: 0
+  useStack: 1
   tag: 
   action:
     summaries:
-    - 
-    - 
-    - 
-    sequences: []
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u30002\u56DE\u30EB\u30FC\u30D7\u3059\u308B\u3054\u3068\u306B\u3001\u30D5\u30EA\u30FC\u30BA\u3057\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u89E3\u51CD\u3057\u3066\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u7F6E\u304D\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u30002\u56DE\u30EB\u30FC\u30D7\u3059\u308B\u3054\u3068\u306B\u3001\u30D5\u30EA\u30FC\u30BA\u3057\u3066\u3044\u308B\u98DF\u67502\u3064\u3092\u89E3\u51CD\u3057\u3066\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u7F6E\u304D\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u30002\u56DE\u30EB\u30FC\u30D7\u3059\u308B\u3054\u3068\u306B\u3001\u30D5\u30EA\u30FC\u30BA\u3057\u3066\u3044\u308B\u98DF\u67503\u3064\u3092\u89E3\u51CD\u3057\u3066\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u7F6E\u304D\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B"
+    sequences:
+    - trigger: 2
+      condition:
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: 1
+        n2: stack
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: stack
+        n2: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+    - trigger: 2
+      condition:
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: stack
+        n2: 2
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x2
+        n2: x1
+      - action: {fileID: 11400000, guid: fd0b09465f183e24db9835795e71b2d2, type: 2}
+        n1: 1/2/3
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 2
+      commands:
+      - action: {fileID: 11400000, guid: 8572e72798cc0b14598ada3acd4e382c, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
+        n1: f1
+        n2: 1/2/3
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: d03d7d19066b1f34cb62fbca8a5cb892, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}
+        n1: f1
+        n2: 
+      priority: 1

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b6230fcc2c37049ba479f9cb8d6639, type: 3}
+  m_Name: Kokuuma
+  m_EditorClassIdentifier: 
+  subItem: []
+  effectName: "\u3053\u304F\u3046\u307E"
+  effectImage: {fileID: 21300000, guid: 292cd24e7cbf9c744932d81720e30d2d, type: 3}
+  action:
+    summaries:
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30EA\u30FC\u30BA\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u300C\u3053\u304F\u3046\u307E\u300D\u6301\u3061\u306E\u98DF\u6750\u304C\u306A\u3044\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u30AB\u30D0\u30F3\u304B\u3089\u30C9\u30ED\u30FC\u3059\u308B"
+    sequences:
+    - trigger: 5
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 42d4388fe3c1113489780519f5d7fe6c, type: 2}
+        n1: f1
+        n2: "\u3053\u304F\u3046\u307E"
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: 0
+        n2: x1
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 2
+      commands:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+  onAttached: []
+  onReleased: []

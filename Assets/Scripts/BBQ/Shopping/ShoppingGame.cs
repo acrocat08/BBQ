@@ -9,6 +9,7 @@ using BBQ.PlayData;
 using BBQ.Test;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,6 +30,9 @@ namespace BBQ.Shopping {
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private DesignParam param;
         [SerializeField] private TestDeck testDeck;
+        
+        [SerializeField] private ItemSet itemSet;   //Debug
+
         
         private int _day;
         private List<MissionStatus> _nowMission;
@@ -67,6 +71,8 @@ namespace BBQ.Shopping {
 
         private void LoadStatus() {
             _day = PlayerStatus.GetDay();
+            if (_day == 1 && !param.isDebugMode) itemSet.ChooseFoods(); //TODO: Fix
+            else itemSet.ChooseAll();
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
             if(targetDeck != null) deckInventory.Init(targetDeck);
             else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());

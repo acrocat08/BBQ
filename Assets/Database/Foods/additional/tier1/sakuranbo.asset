@@ -12,18 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: sakuranbo
   m_EditorClassIdentifier: 
-  subItem: []
+  subItem:
+  - {fileID: 11400000, guid: 8ff037250c44e8b438630565cf81ee51, type: 2}
+  - {fileID: 11400000, guid: 42ff457d6df4c8c4bbb0b653c10ee87f, type: 2}
   foodName: "\u3055\u304F\u3089\u3093\u307C"
   tier: 1
   cost: 10
   foodImage: {fileID: 21300000, guid: cc64c2c63d9b4f040847274d34c58004, type: 3}
-  color: {r: 0.6901961, g: 0.10980393, b: 0.2784314, a: 1}
+  color: {r: 0.6901961, g: 0.10980392, b: 0.2784314, a: 1}
   isToken: 0
   useStack: 0
   tag: 
   action:
     summaries:
-    - 
-    - 
-    - 
-    sequences: []
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u9285\u30E9\u30F3\u30AF\u300C\u3055\u304F\u3089\u3093\u307C\u306E\u5B9F\u300D2\u3064\u3092\u751F\u6210\u3057\u3001\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u7F6E\u304F"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u9285\u30E9\u30F3\u30AF\u300C\u3055\u304F\u3089\u3093\u307C\u306E\u5B9F\u300D3\u3064\u3092\u751F\u6210\u3057\u3001\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u7F6E\u304F"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u63EE\u767A\u6027\u300D\u6301\u3061\u306E\u9285\u30E9\u30F3\u30AF\u300C\u3055\u304F\u3089\u3093\u307C\u306E\u5B9F\u300D4\u3064\u3092\u751F\u6210\u3057\u3001\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u7F6E\u304F"
+    sequences:
+    - trigger: 0
+      condition:
+      - action: {fileID: 11400000, guid: fd0b09465f183e24db9835795e71b2d2, type: 2}
+        n1: 2/3/4
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: "\u3055\u304F\u3089\u3093\u307C\u306E\u5B9F"
+        n2: 2/3/4
+      - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
+        n1: 1
+        n2: "\u63EE\u767A\u6027"
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0

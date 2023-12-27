@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: raichi
   m_EditorClassIdentifier: 
-  subItem: []
+  subItem:
+  - {fileID: 11400000, guid: 6ebe2a3ad6176d349ac9972eec0b79d9, type: 2}
+  - {fileID: 11400000, guid: b1b7c1858b1f58048a772ce82dda2051, type: 2}
   foodName: "\u30E9\u30A4\u30C1"
   tier: 5
   cost: 50
@@ -23,7 +25,58 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - 
-    - 
-    - 
-    sequences: []
+    - "\u4ED6\u98DF\u6750\u306E\u8CFC\u5165\uFF1A\n-\u3000\u300C\u5869\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B(\u5358\u4E00\u767A\u52D5)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30A8\u30D5\u30A7\u30AF\u30C8\u6301\u3061\u306E\u98DF\u67502\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u8CFC\u5165\uFF1A\n-\u3000\u300C\u5869\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B(\u5358\u4E00\u767A\u52D5)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30A8\u30D5\u30A7\u30AF\u30C8\u6301\u3061\u306E\u98DF\u67503\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u8CFC\u5165\uFF1A\n-\u3000\u300C\u5869\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B(\u5358\u4E00\u767A\u52D5)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30A8\u30D5\u30A7\u30AF\u30C8\u6301\u3061\u306E\u98DF\u67504\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    sequences:
+    - trigger: 13
+      condition:
+      - action: {fileID: 11400000, guid: f22463c5821022243bcabbde91f1e1d9, type: 2}
+        n1: 
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 1f7cfea1db0a4384da2ed763d57499c4, type: 2}
+        n1: "\u5869"
+        n2: 
+      priority: 0
+    - trigger: 13
+      condition:
+      - action: {fileID: 11400000, guid: f22463c5821022243bcabbde91f1e1d9, type: 2}
+        n1: 
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 1f7cfea1db0a4384da2ed763d57499c4, type: 2}
+        n1: "\u5869"
+        n2: 
+      priority: 0
+    - trigger: 0
+      condition:
+      - action: {fileID: 11400000, guid: fd0b09465f183e24db9835795e71b2d2, type: 2}
+        n1: 2/3/4
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 42d4388fe3c1113489780519f5d7fe6c, type: 2}
+        n1: f1
+        n2: none
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: f47b926735af8304f8fe726f4fc157ef, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
+        n1: f1
+        n2: 2/3/4
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
