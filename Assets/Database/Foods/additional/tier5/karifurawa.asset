@@ -23,7 +23,72 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - 
-    - 
-    - 
-    sequences: []
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u30E9\u30F3\u30C0\u30E0\u306A\u30C6\u30A3\u30A25\u98DF\u67504\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30BF\u30A4\u30E0-5"
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u30E9\u30F3\u30C0\u30E0\u306A\u30C6\u30A3\u30A25\u98DF\u67504\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30BF\u30A4\u30E0-3"
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u30E9\u30F3\u30C0\u30E0\u306A\u30C6\u30A3\u30A25\u98DF\u67504\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30BF\u30A4\u30E0-1"
+    sequences:
+    - trigger: 12
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: a8b4e552292f12a468a7971fed0955a2, type: 2}
+        n1: 5
+        n2: 5
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: s1
+        n2: 1
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 7885274b7ef9f8f49928833749d20484, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: a8b4e552292f12a468a7971fed0955a2, type: 2}
+        n1: 5
+        n2: 5
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: s1
+        n2: 1
+      - action: {fileID: 11400000, guid: f701618f67623ac4a8360a9e3abe2a9d, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 7885274b7ef9f8f49928833749d20484, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: a8b4e552292f12a468a7971fed0955a2, type: 2}
+        n1: 5
+        n2: 5
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: s1
+        n2: 1
+      - action: {fileID: 11400000, guid: f701618f67623ac4a8360a9e3abe2a9d, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 7885274b7ef9f8f49928833749d20484, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: a8b4e552292f12a468a7971fed0955a2, type: 2}
+        n1: 5
+        n2: 5
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: s1
+        n2: 1
+      - action: {fileID: 11400000, guid: f701618f67623ac4a8360a9e3abe2a9d, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 5a00c2693d49d814ba3a4517e402bd23, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+    - trigger: 8
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
+        n1: -5/-3/-1
+        n2: 
+      priority: 0
