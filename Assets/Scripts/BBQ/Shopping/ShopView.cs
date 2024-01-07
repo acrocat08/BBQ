@@ -51,10 +51,10 @@ namespace BBQ.Shopping {
             Text levelText = shop.transform.Find("Level").Find("Text").GetComponent<Text>();
             levelText.text = "Level " + shop.GetShopLevel();
             if (shop.GetShopLevel() == 5) {
-                shop.transform.Find("LevelUp").gameObject.SetActive(false);
+                GameObject.Find("Canvas").transform.Find("LevelUp").gameObject.SetActive(false);
             }
             else {
-                Text buttonText = shop.transform.Find("LevelUp").Find("Cost").GetComponent<Text>();
+                Text buttonText = GameObject.Find("Canvas").transform.Find("LevelUp").Find("Cost").GetComponent<Text>();
                 buttonText.text = cost.ToString(); 
             }
 

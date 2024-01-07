@@ -52,9 +52,10 @@ namespace BBQ.Common {
         }
 
         Vector2 SetPos(FoodObject foodObject) {
-            Vector3 pos = foodObject == null ? defaultPos : foodObject.transform.position;
-            pos += offset * (Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.up);
             float rate = Screen.width / 1920f;
+            Vector3 _default = defaultPos * rate;
+            Vector3 pos = foodObject == null ? _default : foodObject.transform.position;
+            pos += offset * (Quaternion.Euler(0, 0, Random.Range(0, 360)) * Vector3.up);
             pos.x = Mathf.Clamp(pos.x, posXMin * rate, posXMax * rate);
             pos.y = Mathf.Clamp(pos.y, posYMin * rate, posYMax * rate);
             return pos;

@@ -695,6 +695,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2759799962395216134, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 814.99994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759799962395216134, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 220
+      objectReference: {fileID: 0}
     - target: {fileID: 2929013099635651649, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -830,6 +838,10 @@ PrefabInstance:
     - target: {fileID: 6989273348384171054, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: m_Name
       value: Amount
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260414163292195222, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7509288974343273096, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: itemSet
@@ -969,12 +981,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 927006748}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2087064684498633980, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 785206102}
     - targetCorrespondingSourceObject: {fileID: 6744230090921510189, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1740156859}
+    - targetCorrespondingSourceObject: {fileID: 2087064684498633980, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 785206102}
   m_SourcePrefab: {fileID: 100100000, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
 --- !u!224 &5429392023428242294 stripped
 RectTransform:
