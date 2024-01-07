@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using BBQ.Action.Play;
+using BBQ.PlayData;
 using UnityEngine.Serialization;
 
 namespace BBQ.Database {
@@ -13,8 +14,9 @@ namespace BBQ.Database {
         public List<FoodEffect> effects;
         public List<ToolData> tools;
 
-        public List<FoodData> chosenFoods;
+        //public List<FoodData> chosenFoods;
 
+        /*
         public void ChooseFoods() {   //Debug
             hideFlags = HideFlags.DontSave;
             chosenFoods = new List<FoodData>();
@@ -26,15 +28,16 @@ namespace BBQ.Database {
                 chosenFoods.AddRange(chosen);
             }
         }
+        */
         
         public FoodData GetRandomFood(int minTier, int maxTier, string tag = "") {
-            return chosenFoods.Where(x => x.tier >= minTier && x.tier <= maxTier)
+            return GetFoodPool().Where(x => x.tier >= minTier && x.tier <= maxTier)
                 .Where(x => tag == "" || x.tag == tag)
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
 
         public FoodData SearchFood(string foodName) {
-            return chosenFoods.Concat(supportFoods).FirstOrDefault(x => x.foodName == foodName);
+            return GetFoodPool().Concat(supportFoods).FirstOrDefault(x => x.foodName == foodName);
         }
 
         public ToolData GetRandomTool(int min, int max) {
@@ -49,11 +52,18 @@ namespace BBQ.Database {
 
         public int GetFoodIndex(FoodData data) {
             if (data.foodName == "タコ足") return 0;
-            return chosenFoods.Concat(supportFoods).ToList().IndexOf(data) + 1;
+            return GetFoodPool().Concat(supportFoods).ToList().IndexOf(data) + 1;
         }
 
+        /*
         public void ChooseAll() {
             chosenFoods = new List<FoodData>(foods);
+        }
+        */
+
+        public List<FoodData> GetFoodPool() {
+            ShopPool pool = PlayerConfig.GetShopPool();
+            return pool.foodsIndex.Select(x => foods[x]).ToList();
         }
     }
     
