@@ -17,5 +17,5 @@ MonoBehaviour:
   mergeDuration: 0.25
   mergeEasing: 15
   discoverDuration: 0.5
-  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+  itemSet: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
   assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}

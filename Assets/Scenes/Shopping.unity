@@ -638,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: itemSet
       value: 
-      objectReference: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+      objectReference: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
     - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: assembly
       value: 
@@ -831,6 +831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Amount
       objectReference: {fileID: 0}
+    - target: {fileID: 7509288974343273096, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: itemSet
+      value: 
+      objectReference: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
     - target: {fileID: 7726964070705534058, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: m_Enabled
       value: 0

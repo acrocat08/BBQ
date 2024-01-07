@@ -25,10 +25,10 @@ namespace BBQ.Title {
 
         public void Start() {
             items = new List<GameObject>();
-            Draw(1);
         }
 
         public async void Open() {
+            Draw(1);
             isMoving = true;
             CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
             DOTween.To(

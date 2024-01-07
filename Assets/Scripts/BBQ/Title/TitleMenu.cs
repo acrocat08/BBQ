@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
 using Unity.VisualScripting;
@@ -17,6 +18,7 @@ namespace BBQ.Title {
         [SerializeField] private List<Text> menuText;
         [SerializeField] private Transform smogContainer;
         [SerializeField] private ItemDictionary dictionary;
+        [SerializeField] private ShopPoolList lineup;
 
 
         private bool _isMoving;
@@ -36,6 +38,7 @@ namespace BBQ.Title {
                 if (index == 0) GotoTutorial();
                 if (index == 1) GotoMainGame();
                 if (index == 2) OpenDictionary();
+                if (index == 3) OpenLineup();
             }
         }
 
@@ -73,8 +76,19 @@ namespace BBQ.Title {
         public void CloseDictionary() {
             _isMoving = false;
             dictionary.Close();
-
         }
+        
+        private void OpenLineup() {
+            _isMoving = true;
+            lineup.Open();
+        }
+        
+        public void CloseLineup() {
+            _isMoving = false;
+            lineup.Close();
+        }
+        
+        
         
     }
 }

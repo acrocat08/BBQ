@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed471cfb28b36fc4bb29f635c1c83595, type: 3}
   m_Name: ChoiceFood
   m_EditorClassIdentifier: 
-  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+  itemSet: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
