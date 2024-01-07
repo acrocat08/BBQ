@@ -33,6 +33,9 @@ namespace BBQ.Shopping {
         
         [SerializeField] private ItemSet itemSet;   //Debug
 
+        [SerializeField] private List<ActionCommand> initialAction;
+        [SerializeField] private ActionAssembly assembly;
+
         
         private int _day;
         private List<MissionStatus> _nowMission;
@@ -55,6 +58,8 @@ namespace BBQ.Shopping {
             await view.OpenBG(this);
             await TriggerObserver.I.Invoke(ActionTrigger.StartShopping, new List<DeckFood>(), false);
             SoundPlayer.I.Play("bgm_cooking");
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            await assembly.Run(initialAction, env, null, null);
         }
 
         public async void GameEnd() {
@@ -78,15 +83,18 @@ namespace BBQ.Shopping {
             else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
             else deckInventory.Init(firstFoods);
             int shopLevel = param.isDebugMode ?  1 : PlayerStatus.GetShopLevel();
-            int nowIncome = Mathf.Max(0, GetDayIncome()); 
-            coin.Init(param.isDebugMode ?  10000 : PlayerStatus.GetCoin() + nowIncome);
-            carbon.Init(param.isDebugMode ?  100 : PlayerStatus.GetCarbon() + (_day - 1) / 5 + 1);
+            coin.Init(param.isDebugMode ?  10000 : PlayerStatus.GetCoin());
+            carbon.Init(param.isDebugMode ?  100 : PlayerStatus.GetCarbon());
             handCount.Init(5);
             shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket(), null);
             copyArea.Init();
             int star = PlayerStatus.GetStar();
             life.Init(PlayerStatus.GetLife());
             view.SetStatus(this, star);
+            int nowIncome = Mathf.Max(0, GetDayIncome());
+            int nowCarbon = (_day - 1) / 5 + 1;
+            initialAction[0].n1 = nowIncome.ToString();
+            initialAction[1].n1 = nowCarbon.ToString();
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();

@@ -57,7 +57,7 @@ namespace BBQ.Cooking {
             if (!CheckUsable()) return;
             movement.MoveDelta();
             
-            if (Input.GetMouseButtonDown(0) && movement.CheckIsInnerBorder()) {
+            if (Input.GetMouseButtonUp(0) && movement.CheckIsInnerBorder()) {
                 OnShot();
                 _afterShot = true;
             }

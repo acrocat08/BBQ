@@ -24,11 +24,12 @@ namespace BBQ.Action.Play {
             tasks.Add(env.deck.AddFoods(dumpFoods));
             SoundMgr.SoundPlayer.I.Play("se_reset");
             await tasks;
-            await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new List<DeckFood>(), false);
 
             int num = Mathf.Min(drawNum, env.deck.SelectAll().Count);
             v.n1 = num.ToString();
             await draw.Execute(env, v);
+            await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new List<DeckFood>(), false);
+
         }
     }
 }

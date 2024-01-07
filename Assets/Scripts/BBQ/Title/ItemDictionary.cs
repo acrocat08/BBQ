@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using BBQ.Database;
 using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
@@ -15,11 +17,15 @@ namespace BBQ.Title {
         [SerializeField] private Transform container;
         [SerializeField] private ItemDetail detail;
         [SerializeField] private EventTrigger backButton;
-
+        [SerializeField] private List<CanvasGroup> tabs;
+        
         private bool isMoving;
+        private List<GameObject> items;
+        
 
         public void Start() {
-            Init();
+            items = new List<GameObject>();
+            Draw(1);
         }
 
         public async void Open() {
@@ -48,16 +54,31 @@ namespace BBQ.Title {
             backButton.enabled = false;
         }
         
-        public void Init() {
-            foreach (FoodData food in itemSet.foods) {
-                GameObject obj = Instantiate(itemPrefab, container, false);
-                obj.GetComponent<Image>().sprite = food.foodImage;
-                EventTrigger ev = obj.GetComponent<EventTrigger>();
-                EventTrigger.Entry entry = new EventTrigger.Entry();
-                entry.eventID = EventTriggerType.PointerClick;
-                entry.callback.AddListener(x => ShowDetail(food));
-                ev.triggers.Add(entry);
+        public void Draw(int tier) {
+            foreach (GameObject item in items) {
+                Destroy(item);
             }
+
+            for (int i = 0; i < tabs.Count; i++) {
+                if (i == tier) tabs[i].alpha = 1f;
+                else tabs[i].alpha = 0.3f;
+            }
+            
+            items = new List<GameObject>();
+            if (tier > 0) {
+                foreach (FoodData food in itemSet.foods.Where(x => x.tier == tier)) {
+                    GameObject obj = Instantiate(itemPrefab, container, false);
+                    obj.GetComponent<Image>().sprite = food.foodImage;
+                    EventTrigger ev = obj.GetComponent<EventTrigger>();
+                    EventTrigger.Entry entry = new EventTrigger.Entry();
+                    entry.eventID = EventTriggerType.PointerClick;
+                    entry.callback.AddListener(x => ShowDetail(food));
+                    ev.triggers.Add(entry);
+                    items.Add(obj);
+                }
+                return;
+            }
+            
             foreach (ToolData tool in itemSet.tools) {
                 GameObject obj = Instantiate(itemPrefab, container, false);
                 obj.GetComponent<Image>().sprite = tool.toolImage;
@@ -66,6 +87,7 @@ namespace BBQ.Title {
                 entry.eventID = EventTriggerType.PointerClick;
                 entry.callback.AddListener(x => ShowDetail(tool));
                 ev.triggers.Add(entry);
+                items.Add(obj);
             }
         }
 

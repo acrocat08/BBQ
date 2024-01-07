@@ -8,7 +8,7 @@ namespace BBQ.Action.Play {
     public class DiscountShop : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            env.shop.DiscountFood(deckFoods, v.GetNum(v.n2));
+            env.shop.DiscountFood(deckFoods);
         }
     }
 }

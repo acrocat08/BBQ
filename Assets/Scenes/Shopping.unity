@@ -640,9 +640,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
     - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: assembly
+      value: 
+      objectReference: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: testDeck
       value: 
       objectReference: {fileID: 11400000, guid: 50374b3c55d087b4ebefb9432b6cf649, type: 2}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: initialAction.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: initialAction.Array.data[0].action
+      value: 
+      objectReference: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: initialAction.Array.data[1].action
+      value: 
+      objectReference: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
     - target: {fileID: 2097468085096601600, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5

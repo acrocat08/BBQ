@@ -21,7 +21,7 @@ namespace BBQ.Database {
             for (int i = 1; i <= 5; i++) {
                 List<FoodData> chosen = foods.Where(x => x.tier == i)
                     .OrderBy(_ => Guid.NewGuid())
-                    .Take(12)
+                    .Take(10)
                     .ToList();
                 chosenFoods.AddRange(chosen);
             }

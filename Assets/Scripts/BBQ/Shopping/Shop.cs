@@ -189,9 +189,9 @@ namespace BBQ.Shopping {
             InputGuard.UnLock();
         }
 
-        public void DiscountFood(List<DeckFood> target, int val) {
+        public void DiscountFood(List<DeckFood> target) {
             foreach (ShopFood food in _foods) {
-                if(food != null && target.Any(x => x == food.deckFood)) food.SetCost(Mathf.Max(0, food.GetCost() - val));
+                if(food != null && target.Any(x => x == food.deckFood)) food.SetCost(Mathf.Max(0, food.GetCost() / 2));
             }
         }
 
