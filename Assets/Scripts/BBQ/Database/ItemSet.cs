@@ -19,7 +19,7 @@ namespace BBQ.Database {
         }
 
         public FoodData SearchFood(string foodName) {
-            return GetFoodPool().Concat(supportFoods).FirstOrDefault(x => x.foodName == foodName);
+            return foods.Concat(supportFoods).FirstOrDefault(x => x.foodName == foodName);
         }
 
         public ToolData GetRandomTool(int min, int max) {

@@ -775,6 +775,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 4569541887775164921, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: itemSet
+      value: 
+      objectReference: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
     - target: {fileID: 5693031734892151887, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: BasePos
       value: 

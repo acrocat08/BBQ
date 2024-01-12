@@ -23,9 +23,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u30C9\u30ED\u30FC+3"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u30C9\u30ED\u30FC+4"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u30C9\u30ED\u30FC+5"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u30CB\u30E9\u300D\u4EE5\u5916\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u30C9\u30ED\u30FC+3"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u30CB\u30E9\u300D\u4EE5\u5916\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u30C9\u30ED\u30FC+4"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u30CB\u30E9\u300D\u4EE5\u5916\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u30C9\u30ED\u30FC+5"
     sequences:
     - trigger: 0
       condition: []
@@ -33,6 +33,21 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
         n1: 
         n2: 
+      - action: {fileID: 11400000, guid: f91336be3e89266458c2344db1b1edf9, type: 2}
+        n1: f1
+        n2: "\u30CB\u30E9"
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: f47b926735af8304f8fe726f4fc157ef, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
       - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
         n1: f1
         n2: 

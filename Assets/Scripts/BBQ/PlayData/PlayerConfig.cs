@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BBQ.PlayData {
@@ -21,9 +23,11 @@ namespace BBQ.PlayData {
         private static ShopPool GetDefaultShopPool() {
             List<int> index = new List<int>();
             for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 10; j++) {
-                    index.Add(j + i * 20);
+                List<int> index2 = new List<int>();
+                for (int j = 0; j < 20; j++) {
+                    index2.Add(j + i * 20);
                 }
+                index.AddRange(index2.OrderBy(x => Guid.NewGuid()).Take(10));
             }
             return new ShopPool(index, "defaultPool");
         }

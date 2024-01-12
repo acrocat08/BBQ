@@ -20,12 +20,15 @@ MonoBehaviour:
   color: {r: 0.73333335, g: 0.47450984, b: 0.20392159, a: 1}
   isToken: 0
   useStack: 0
-  tag: 
+  tag: "\u30AD\u30CE\u30B3\u7CFB"
   action:
     summaries:
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1"
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750
+      >>"
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750
+      >>"
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750
+      >>"
     sequences:
     - trigger: 8
       condition: []

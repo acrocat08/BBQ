@@ -19,7 +19,7 @@ namespace BBQ.Cooking {
 
 
         private List<(DeckFood, DeckFood)> _allFoods;
-        private LinkedList<DeckFood> _foods;
+        private LinkedList<DeckFood> _foods = new LinkedList<DeckFood>();
         [SerializeField] private FoodObjectFactory foodFactory;
         [SerializeField] DeckView view;
 
