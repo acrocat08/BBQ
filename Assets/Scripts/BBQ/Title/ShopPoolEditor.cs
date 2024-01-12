@@ -117,7 +117,7 @@ namespace BBQ.Title {
             _selected.Sort();
             ShopPool newLineup = new ShopPool(_selected, "pool");
             
-            PlayerConfig.Create(newLineup);
+            PlayerConfig.Create(newLineup, PlayerConfig.GetGameMode());
             listWindow.CloseEditor();
             Close();
         }

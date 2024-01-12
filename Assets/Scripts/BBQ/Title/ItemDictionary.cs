@@ -30,6 +30,7 @@ namespace BBQ.Title {
         public async void Open() {
             Draw(1);
             isMoving = true;
+            transform.localScale = Vector3.one;
             CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
             DOTween.To(
                 () => canvasGroup.alpha,
@@ -50,6 +51,7 @@ namespace BBQ.Title {
                 0f,
                 0.2f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
+            transform.localScale = Vector3.zero;
             isMoving = false;
             backButton.enabled = false;
         }

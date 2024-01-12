@@ -9,10 +9,12 @@ namespace BBQ.PlayData {
         private static PlayerConfig _saveData;
 
         private ShopPool _shopPool;
+        private GameMode _mode;
 
-        public static void Create(ShopPool shopPool) {
+        public static void Create(ShopPool shopPool, GameMode mode) {
             _saveData = new PlayerConfig();
             _saveData._shopPool = shopPool;
+            _saveData._mode = mode;
         }
         
         public static ShopPool GetShopPool() {
@@ -31,5 +33,15 @@ namespace BBQ.PlayData {
             }
             return new ShopPool(index, "defaultPool");
         }
+
+        public static GameMode GetGameMode() {
+            if (_saveData == null) return GameMode.easy;
+            return _saveData._mode;
+        }
+    }
+
+    public enum GameMode {
+        easy,
+        hard,
     }
 }

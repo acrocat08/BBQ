@@ -19,9 +19,12 @@ namespace BBQ.Title {
         [SerializeField] private Transform smogContainer;
         [SerializeField] private ItemDictionary dictionary;
         [SerializeField] private ShopPoolList lineup;
-
+        [SerializeField] private List<string> modeList;
+        [SerializeField] private Text modeText;
 
         private bool _isMoving;
+        private int _modeIndex;
+        
         
         private void Start() {
             _isMoving = false;
@@ -33,13 +36,13 @@ namespace BBQ.Title {
             
             index = Mathf.Clamp(index, 0, menuText.Count - 1);
             view.UpdateText(menuText, index);
-            if (Input.GetMouseButtonDown(0) && !_isMoving) {
-                _isMoving = true;
-                if (index == 0) GotoTutorial();
-                if (index == 1) GotoMainGame();
-                if (index == 2) OpenDictionary();
-                if (index == 3) OpenLineup();
-            }
+            //if (Input.GetMouseButtonDown(0)) {
+                //_isMoving = true;
+                // if (index == 0) GotoTutorial();
+                // if (index == 1) GotoMainGame();
+                // if (index == 2) OpenDictionary();
+                // if (index == 3) OpenLineup();
+            //}
         }
 
 
@@ -50,9 +53,12 @@ namespace BBQ.Title {
             view.FloatLogo(this);
             view.Wave(wave);
             view.Smog(transform, smogContainer);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(), PlayerConfig.GetGameMode());
         }
         
-        private async void GotoMainGame() {
+        public async void GotoMainGame() {
+            if (_isMoving) return;
+            _isMoving = true;
             SoundPlayer.I.Play("se_select1");
             await SoundPlayer.I.FadeOutSound("bgm_title");
             view.GotoNext();
@@ -60,7 +66,9 @@ namespace BBQ.Title {
             SceneManager.LoadScene("Scenes/Shopping");
         }
         
-        private async void GotoTutorial() {
+        public async void GotoTutorial() {
+            if (_isMoving) return;
+            _isMoving = true;
             SoundPlayer.I.Play("se_select1");
             await SoundPlayer.I.FadeOutSound("bgm_title");
             view.GotoNext();
@@ -68,24 +76,30 @@ namespace BBQ.Title {
             SceneManager.LoadScene("Scenes/TutorialIntro");
         }
         
-        private void OpenDictionary() {
-            _isMoving = true;
+        public void OpenDictionary() {
+            //_isMoving = true;
             dictionary.Open();
         }
         
         public void CloseDictionary() {
-            _isMoving = false;
+            //_isMoving = false;
             dictionary.Close();
         }
         
-        private void OpenLineup() {
-            _isMoving = true;
+        public void OpenLineup() {
+            //_isMoving = true;
             lineup.Open();
         }
         
         public void CloseLineup() {
-            _isMoving = false;
+            //_isMoving = false;
             lineup.Close();
+        }
+
+        public void ChangeMode() {
+            _modeIndex = (_modeIndex + 1) % modeList.Count;
+            modeText.text = modeList[_modeIndex];
+            PlayerConfig.Create(PlayerConfig.GetShopPool(), (GameMode)_modeIndex);
         }
         
         
