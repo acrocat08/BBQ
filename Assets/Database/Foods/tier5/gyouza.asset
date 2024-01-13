@@ -69,7 +69,7 @@ MonoBehaviour:
         n2: 
       commands:
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 1
+        n1: 0
         n2: 1
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
         n1: x1
@@ -85,7 +85,7 @@ MonoBehaviour:
         n2: 
       commands:
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 1
+        n1: 0
         n2: 1
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
         n1: x1
