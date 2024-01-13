@@ -23,16 +23,16 @@ namespace BBQ.Title {
         
         private bool isMoving;
         private List<GameObject> items;
-        private List<int> _selected;
+        private ShopPool _selected;
         
 
         public void Start() {
             items = new List<GameObject>();
-            _selected = new List<int>();
+            _selected = PlayerConfig.GetShopPool(0);
         }
 
         public async void Open(int index) {
-            _selected = PlayerConfig.GetShopPool().foodsIndex;            
+            _selected = PlayerConfig.GetShopPool(index);   
             Draw(1);
             isMoving = true;
             transform.localScale = Vector3.one;
@@ -83,7 +83,7 @@ namespace BBQ.Title {
                     ev.triggers.Add(entry);
                     items.Add(obj);
                     int index = itemSet.foods.IndexOf(food);
-                    bool isSelected = _selected.Contains(index);
+                    bool isSelected = _selected.foodsIndex.Contains(index);
                     SetIconView(obj, isSelected);
                 }
             }
@@ -92,12 +92,12 @@ namespace BBQ.Title {
 
         public void Select(FoodData food) {
             int index = itemSet.foods.IndexOf(food);
-            bool isSelected = _selected.Contains(index);
+            bool isSelected = _selected.foodsIndex.Contains(index);
             if (!isSelected) {
-                _selected.Add(index);
+                _selected.foodsIndex.Add(index);
             }
             else {
-                _selected.Remove(index);
+                _selected.foodsIndex.Remove(index);
             }
             detail.DrawDetail(food);
             SetIconView(items[index % 20], !isSelected);
@@ -109,15 +109,14 @@ namespace BBQ.Title {
         }
 
         public void Save() {
-            List<FoodData> foods = _selected.Select(x => itemSet.foods[x]).ToList();
+            List<FoodData> foods = _selected.foodsIndex.Select(x => itemSet.foods[x]).ToList();
             for (int i = 1; i <= 5; i++) {
                 if (foods.Count(x => x.tier == i) != 10) return;
             }
 
-            _selected.Sort();
-            ShopPool newLineup = new ShopPool(_selected, "pool");
+            _selected.foodsIndex.Sort();
             
-            PlayerConfig.Create(newLineup, PlayerConfig.GetGameMode());
+            PlayerConfig.Create(_selected, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
             listWindow.CloseEditor();
             Close();
         }

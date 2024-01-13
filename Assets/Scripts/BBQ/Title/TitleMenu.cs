@@ -53,7 +53,7 @@ namespace BBQ.Title {
             view.FloatLogo(this);
             view.Wave(wave);
             view.Smog(transform, smogContainer);
-            PlayerConfig.Create(PlayerConfig.GetShopPool(), PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(0), PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
         }
         
         public async void GotoMainGame() {
@@ -99,7 +99,8 @@ namespace BBQ.Title {
         public void ChangeMode() {
             _modeIndex = (_modeIndex + 1) % modeList.Count;
             modeText.text = modeList[_modeIndex];
-            PlayerConfig.Create(PlayerConfig.GetShopPool(), (GameMode)_modeIndex);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(0), PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+
         }
         
         

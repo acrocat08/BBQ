@@ -38,7 +38,7 @@ namespace BBQ.Database {
         }
 
         public List<FoodData> GetFoodPool() {
-            ShopPool pool = PlayerConfig.GetShopPool();
+            ShopPool pool = PlayerConfig.GetShopPool(PlayerConfig.GetPoolIndex());
             return pool.foodsIndex.Select(x => foods[x]).ToList();
         }
     }

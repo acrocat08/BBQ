@@ -18,9 +18,13 @@ namespace BBQ.Title {
         [SerializeField] private ShopPoolEditor editorWindow;
         [SerializeField] private GameObject itemPrefab;
         [SerializeField] private Transform container;
+        [SerializeField] private List<Image> tabs;
+        [SerializeField] private List<Color> selectColor;
+        [SerializeField] private Text poolName;
         
         private bool isMoving;
         private List<GameObject> items;
+        private int _nowIndex;
 
         
 
@@ -29,7 +33,12 @@ namespace BBQ.Title {
         }
 
         public async void Open() {
-            Draw(0);
+            _nowIndex = PlayerConfig.GetPoolIndex();
+            for (int i = 0; i < tabs.Count; i++) {
+                if (i == _nowIndex) tabs[i].color = selectColor[0];
+                else tabs[i].color = selectColor[1];
+            }
+            Draw(_nowIndex);
             isMoving = true;
             transform.localScale = Vector3.one;
             CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
@@ -41,6 +50,7 @@ namespace BBQ.Title {
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             isMoving = false;
             backButton.enabled = true;
+
         }
         
         public async void Close() {
@@ -63,17 +73,31 @@ namespace BBQ.Title {
             }
             
             items = new List<GameObject>();
-            foreach (int foodIndex in PlayerConfig.GetShopPool().foodsIndex) {
+            foreach (int foodIndex in PlayerConfig.GetShopPool(index).foodsIndex) {
                 FoodData food = itemSet.foods[foodIndex];
                 GameObject obj = Instantiate(itemPrefab, container, false);
                 obj.GetComponent<Image>().sprite = food.foodImage;
                 items.Add(obj);
             }
+
+            poolName.text = "Lineup " + (index + 1);
         }
 
+        public void ChangeTab(int index) {
+            _nowIndex = index;
+            Draw(index);
+        }
 
-        public void Select(int index) {
-            editorWindow.Open(index);
+        public void Edit() {
+            editorWindow.Open(_nowIndex);
+        }
+
+        public void Select() {
+            PlayerConfig.Create(PlayerConfig.GetShopPool(0), _nowIndex, PlayerConfig.GetGameMode());
+            for (int i = 0; i < tabs.Count; i++) {
+                if (i == _nowIndex) tabs[i].color = selectColor[0];
+                else tabs[i].color = selectColor[1];
+            }
         }
 
         public void CloseEditor() {

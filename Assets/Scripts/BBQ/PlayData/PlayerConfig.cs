@@ -8,35 +8,55 @@ namespace BBQ.PlayData {
 
         private static PlayerConfig _saveData;
 
-        private ShopPool _shopPool;
+        private List<ShopPool> _shopPools;
+        private int _poolIndex;
         private GameMode _mode;
 
-        public static void Create(ShopPool shopPool, GameMode mode) {
-            _saveData = new PlayerConfig();
-            _saveData._shopPool = shopPool;
-            _saveData._mode = mode;
+        public static void Create(ShopPool shopPool, int poolIndex, GameMode mode) {
+            PlayerPrefs.SetString(shopPool.poolName, shopPool.Encode());
+            PlayerPrefs.SetInt("poolIndex", poolIndex);
+            PlayerPrefs.SetInt("mode", (int)mode);
+            _saveData = LoadData();
         }
         
-        public static ShopPool GetShopPool() {
-            if (_saveData == null) return GetDefaultShopPool();
-            return _saveData._shopPool;
+        public static ShopPool GetShopPool(int index) {
+            if (_saveData == null) _saveData = LoadData();
+            return _saveData._shopPools[index];
+        }
+        public static int GetPoolIndex() {
+            if (_saveData == null) _saveData = LoadData();
+            return _saveData._poolIndex;
         }
 
-        private static ShopPool GetDefaultShopPool() {
+        private static ShopPool GetDefaultShopPool(string poolName) {
             List<int> index = new List<int>();
             for (int i = 0; i < 5; i++) {
-                List<int> index2 = new List<int>();
-                for (int j = 0; j < 20; j++) {
-                    index2.Add(j + i * 20);
+                for (int j = 0; j < 10; j++) {
+                    index.Add(j + i * 20);
                 }
-                index.AddRange(index2.OrderBy(x => Guid.NewGuid()).Take(10));
             }
-            return new ShopPool(index, "defaultPool");
+            return new ShopPool(index, poolName);
         }
 
         public static GameMode GetGameMode() {
-            if (_saveData == null) return GameMode.easy;
+            if (_saveData == null) _saveData = LoadData();
             return _saveData._mode;
+        }
+
+        private static PlayerConfig LoadData() {
+            List<ShopPool> pools = new List<ShopPool>();
+            for (int i = 0; i < 6; i++) {
+                string poolName = "pool_" + (i + 1);
+                string hashCode = PlayerPrefs.GetString(poolName, GetDefaultShopPool(poolName).Encode());
+                pools.Add(ShopPool.Decode(hashCode, poolName));
+            }
+            int poolIndex = PlayerPrefs.GetInt("poolIndex", 0);
+            GameMode mode = (GameMode)PlayerPrefs.GetInt("mode", (int)GameMode.easy);
+            PlayerConfig config = new PlayerConfig();
+            config._shopPools = pools;
+            config._poolIndex = poolIndex;
+            config._mode = mode;
+            return config;
         }
     }
 
