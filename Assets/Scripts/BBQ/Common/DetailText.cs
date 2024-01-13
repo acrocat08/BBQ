@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 namespace BBQ.Common {
     public class DetailText : MonoBehaviour {
@@ -49,6 +49,8 @@ namespace BBQ.Common {
         public async void SetDetail(string msg) {
             _wordAreas = new Dictionary<Rect, Keyword>();
             text.text = msg;
+            var wordList = msg.Replace("\r\n","\n").Split(new[]{'\n','\r'});
+            msg = string.Join("", wordList);
             await UniTask.Delay(TimeSpan.FromSeconds(0.1));
             IList<UIVertex> vertexs = text.cachedTextGenerator.verts;
             foreach (Keyword keyword in keywords) {
@@ -61,8 +63,9 @@ namespace BBQ.Common {
                     topLeft.position /= text.pixelsPerUnit;
                     bottomRight.position /= text.pixelsPerUnit;
 
+
                     Rect rect = new Rect(topLeft.position.x, topLeft.position.y,
-                        bottomRight.position.x - topLeft.position.x, bottomRight.position.y - topLeft.position.y);
+                        (bottomRight.position.x - topLeft.position.x) * match.Length, bottomRight.position.y - topLeft.position.y);
 
                     _wordAreas[rect] = keyword;
 

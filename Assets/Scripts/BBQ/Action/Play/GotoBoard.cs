@@ -34,9 +34,14 @@ namespace BBQ.Action.Play {
             }
             SoundMgr.SoundPlayer.I.Play("se_draw");
             List<DeckFood> target = deckFoods.Take(num).ToList();
+            List<DeckFood> drawFoods = target.Where(x => x.Releasable == env.deck).ToList();
             await env.board.AddFoodsRandomly(target[0].Releasable.ReleaseFoods(deckFoods));
-            await TriggerObserver.I.Invoke(ActionTrigger.Placed, deckFoods, true);
-            await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, deckFoods, false);
+
+            
+            await TriggerObserver.I.Invoke(ActionTrigger.Draw, drawFoods, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.DrawOthers, drawFoods, false);
+            await TriggerObserver.I.Invoke(ActionTrigger.Placed, target, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.PlacedOthers, target, false);
             
             if (!env.isShopping && env.deck.SelectAll().Count == 0 
                                 && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg()) {
