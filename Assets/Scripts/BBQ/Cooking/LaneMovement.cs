@@ -25,20 +25,20 @@ namespace BBQ.Cooking {
 
         public async UniTask AddFood(FoodObject food, int index) {
             Transform tr = food.transform;
-            tr.SetParent(GameObject.Find("Canvas").transform);
+            tr.SetParent(GameObject.Find("Canvas").transform, true);
             Vector3 prevPos = tr.localPosition;
             
             tr.SetParent(transform);
             Vector3 targetPos = GetFoodPos(food, index);
             tr.localPosition = targetPos;
-            tr.SetParent(GameObject.Find("Canvas").transform);
+            tr.SetParent(GameObject.Find("Canvas").transform, true);
             targetPos = tr.localPosition;
             
             tr.localPosition = prevPos;
             tr.DOLocalMove(targetPos, addFoodDuration).SetEase(addFoodEasing);
             await UniTask.Delay(TimeSpan.FromSeconds(addFoodDuration));
 
-            tr.SetParent(transform);
+            tr.SetParent(transform, true);
         }
         
         public void Move() {

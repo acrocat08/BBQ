@@ -68,6 +68,7 @@ namespace BBQ.Shopping {
             _isEnd = true;
             SaveStatus();
             await view.CloseBG(this);
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             SoundPlayer.I.Play("se_morning");
             await view.ChangeColor(this);
             await UniTask.Delay(TimeSpan.FromSeconds(2));

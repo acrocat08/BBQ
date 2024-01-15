@@ -86,7 +86,7 @@ namespace BBQ.Cooking {
             _nextGold = false;
             _nextDouble = false;
             _hand = hand;
-            _hand.transform.SetParent(transform.Find("HandContainer"));
+            _hand.transform.SetParent(transform.Find("HandContainer"), true);
             _hand.transform.localPosition = handInitialPos;
         }
 

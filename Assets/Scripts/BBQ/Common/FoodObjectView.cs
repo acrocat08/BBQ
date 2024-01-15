@@ -79,7 +79,7 @@ namespace BBQ.Common {
         
         public virtual async void Drop(FoodObject foodObject) {
             int dir = foodObject.transform.localPosition.x > 0 ? 1 : -1;
-            foodObject.transform.SetParent(GameObject.Find("Canvas").transform);
+            foodObject.transform.SetParent(GameObject.Find("Canvas").transform, true);
             foodObject.transform.DOLocalJump(foodObject.transform.localPosition + fallLength * Vector3.down,
                 jumpLength, 1, fallDuration);
             foodObject.transform.DOLocalMoveX(foodObject.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), fallDuration)

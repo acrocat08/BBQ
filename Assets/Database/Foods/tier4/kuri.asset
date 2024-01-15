@@ -73,4 +73,10 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}
         n1: f1
         n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: stack
+        n2: x1
       priority: 1

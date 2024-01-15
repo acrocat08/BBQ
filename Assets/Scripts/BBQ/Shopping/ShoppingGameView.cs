@@ -19,8 +19,11 @@ namespace BBQ.Shopping {
         [SerializeField] private Ease openEasing;
         [SerializeField] private Color cookingBGColor;
         [SerializeField] private float colorDuration;
-        [SerializeField] private float lifeShakeDuration;
-        [SerializeField] private float lifeShakeStrength;
+        [SerializeField] private Sprite sunSprite; 
+        [SerializeField] private float sunShakeDuration;
+        [SerializeField] private float sunShakeStrength;
+
+        
 
         public void Init(ShoppingGame shoppingGame) {
             RectTransform topBG = shoppingGame.transform.Find("BG").Find("BG_T")
@@ -40,11 +43,11 @@ namespace BBQ.Shopping {
                 .GetComponent<RectTransform>();
             RectTransform bottomBG = shoppingGame.transform.Find("BG").Find("BG_B")
                 .GetComponent<RectTransform>();
-
             List<UniTask> tasks = new List<UniTask> {
                 MoveBG(topBG, 0, openDuration, openEasing),
                 MoveBG(bottomBG, 0, openDuration, openEasing)
             };
+            
             await tasks;
         }
         public async UniTask CloseBG(ShoppingGame shoppingGame) {
@@ -53,10 +56,12 @@ namespace BBQ.Shopping {
                 .GetComponent<RectTransform>();
             RectTransform bottomBG = shoppingGame.transform.Find("BG").Find("BG_B")
                 .GetComponent<RectTransform>();
+            RectTransform dayText = shoppingGame.transform.Find("Header").Find("Day").Find("Text").GetComponent<RectTransform>();
 
             List<UniTask> tasks = new List<UniTask> {
                 MoveBG(topBG, topBGMax, closeDuration, closeEasing),
-                MoveBG(bottomBG, bottomBGMax, closeDuration, closeEasing)
+                MoveBG(bottomBG, bottomBGMax, closeDuration, closeEasing),
+                MoveDayText(shoppingGame, dayText, closeDuration)
             };
             await tasks;
         }
@@ -66,6 +71,13 @@ namespace BBQ.Shopping {
                 .GetComponent<Image>();
             Image bottomBG = shoppingGame.transform.Find("BG").Find("BG_B")
                 .GetComponent<Image>();
+            RectTransform dayText = shoppingGame.transform.Find("BG").Find("Text").GetComponent<RectTransform>();
+            RectTransform sunImage = shoppingGame.transform.Find("BG").Find("Text").Find("Moon").GetComponent<RectTransform>();
+            dayText.GetComponent<Text>().text = "Day " + shoppingGame.GetDay();
+            sunImage.GetComponent<Image>().sprite = sunSprite;
+            sunImage.transform.localScale = Vector3.one * sunShakeStrength;
+            sunImage.transform.DOScale(Vector3.one, sunShakeDuration).SetEase(Ease.InBack);
+            
             topBG.DOColor(cookingBGColor, colorDuration).SetEase(Ease.Linear);
             bottomBG.DOColor(cookingBGColor, colorDuration).SetEase(Ease.Linear);
             await UniTask.Delay(TimeSpan.FromSeconds(closeDuration));
@@ -95,6 +107,12 @@ namespace BBQ.Shopping {
                 string[] split = baseDetail.Split("#");
                 missionText.text = "-　" + split[0] + status.goal + split[1] + "\n";
             }
+        }
+        
+        private async UniTask MoveDayText(ShoppingGame shoppingGame, RectTransform dayText, float duration) {
+            dayText.SetParent(shoppingGame.transform.Find("BG"));
+            dayText.DOLocalMove(Vector3.zero, duration).SetEase(Ease.Linear);
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
     }
 }

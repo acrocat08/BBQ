@@ -36,15 +36,21 @@ namespace BBQ.Cooking {
             rightBG.sizeDelta = new Vector2(rightBGMax, height);
             Text dayText = cookingGame.transform.Find("Information").Find("BG_L").Find("UI").Find("Day").Find("Text").GetComponent<Text>();
             dayText.text = "Day " + cookingGame.GetDay();
+            dayText.transform.SetParent(cookingGame.transform.Find("Information").Find("DayText"));
+            dayText.transform.localPosition = Vector3.zero;
         }
         
-        public async UniTask OpenBG(CookingGame cookingGame) {
+        public async UniTask OpenBG(CookingGame cookingGame, Vector3 dayTextPos) {
 
             RectTransform leftBG = cookingGame.transform.Find("Information").Find("BG_L").Find("BG")
                 .GetComponent<RectTransform>();
             RectTransform rightBG = cookingGame.transform.Find("Information").Find("BG_R").Find("BG")
                 .GetComponent<RectTransform>();
-
+            RectTransform dayText = cookingGame.transform.Find("Information").Find("DayText").Find("Text").GetComponent<RectTransform>();
+            
+            dayText.transform.SetParent(cookingGame.transform.Find("Information").Find("BG_L").Find("UI").Find("Day"));
+            dayText.DOLocalMove(dayTextPos, openDuration).SetEase(Ease.Linear);
+            
             List<UniTask> tasks = new List<UniTask> {
                 MoveBG(leftBG, leftBGMin, openDuration, openEasing),
                 MoveBG(rightBG, rightBGMin, openDuration, openEasing)

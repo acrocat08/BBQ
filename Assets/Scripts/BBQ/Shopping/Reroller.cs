@@ -85,8 +85,6 @@ namespace BBQ.Shopping {
             transform.Find("Text").GetComponent<Text>().color = textColor[_rerollTicket > 0 ? 1 : 0];
             transform.Find("CoinImage").GetComponent<Image>().enabled = _rerollTicket == 0;
             transform.Find("Onion").GetComponent<Image>().enabled = _rerollTicket > 0;
-            transform.Find("Avocado").GetComponent<Image>().enabled = _rerollTicket > 0 && _shop.GetShopLevel() >= 4;
-            transform.Find("Asparagus").GetComponent<Image>().enabled = _rerollTicket > 0 && _shop.GetShopLevel() >= 5;
         }
 
         public void SetMode(bool mode) {

@@ -104,7 +104,7 @@ namespace BBQ.Cooking {
             
             foreach (var food in hitFoods) {
                 if(food == null) continue;
-                food.transform.SetParent(transform);
+                food.transform.SetParent(transform, true);
             }
             _time.Resume();
             

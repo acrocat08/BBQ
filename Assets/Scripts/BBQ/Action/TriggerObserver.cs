@@ -9,19 +9,23 @@ using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 namespace BBQ.Action {
     public class TriggerObserver : MonoBehaviour {
         [SerializeField] private ActionAssembly assembly;
         [SerializeField] private ActionRegister register;
         [SerializeField] private ActionEnvironment env;
+        [SerializeField] private Image invokerImage;
 
         public static TriggerObserver I;
-
+        private Stack<FoodData> _invokerStack;
+        
         private void Awake() {
             if (I == null) {
                 I = this;
             }
+            _invokerStack = new Stack<FoodData>();
         }
 
         public async UniTask Invoke(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
@@ -32,7 +36,25 @@ namespace BBQ.Action {
                 if(!isOk) continue;
                 FoodObject food = invokeSet.invoker.GetObject();
                 if(food != null) food.OnInvoke();
+                _invokerStack.Push(invokeSet.invoker.data);
+                UpdateInvokerImage();
                 await assembly.Run(invokeSet.sequence.commands, env, invokeSet.invoker, target);
+                _invokerStack.Pop();
+                UpdateInvokerImage();
+            }
+
+        }
+
+        private void UpdateInvokerImage() {
+            if (invokerImage == null) return;
+            if (_invokerStack.Count == 0) {
+                invokerImage.enabled = false;
+            }
+            else {
+                invokerImage.enabled = true;
+                FoodData top = _invokerStack.Pop();
+                invokerImage.sprite = top.foodImage;
+                _invokerStack.Push(top);
             }
         }
 

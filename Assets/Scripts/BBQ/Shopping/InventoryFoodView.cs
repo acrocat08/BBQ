@@ -90,7 +90,7 @@ namespace BBQ.Shopping {
             Transform effect = Instantiate(fireEffectPrefab).transform;
             effect.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); 
             effect.Find("Effect").GetComponent<RectTransform>().sizeDelta = new Vector2(150, 150); 
-            effect.SetParent(foodObject.transform.Find("Object"), false);
+            effect.SetParent(foodObject.transform.Find("Object"), true);
             effect.localPosition = Vector3.zero;
             effect.Find("Effect").localPosition = Vector3.zero + Vector3.up * 30;
             effect.localScale = Vector3.one;

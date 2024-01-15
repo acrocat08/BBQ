@@ -23,12 +23,27 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306B\u30C9\u30ED\u30FC+1\n-\u3000\u30BF\u30A4\u30E0+1"
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306B\u30C9\u30ED\u30FC+1\n-\u3000\u30BF\u30A4\u30E0+2"
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306B\u30C9\u30ED\u30FC+1\n-\u3000\u30BF\u30A4\u30E0+3"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306E\u98DF\u6750\u6570\u304C2\u3064\u4EE5\u4E0B\u306E\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306B\u30C9\u30ED\u30FC+1"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306E\u98DF\u6750\u6570\u304C3\u3064\u4EE5\u4E0B\u306E\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306B\u30C9\u30ED\u30FC+1"
+    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u306E\u30EC\u30FC\u30F3\u306B\u30C9\u30ED\u30FC+1"
     sequences:
     - trigger: 2
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 184128fefee6d5f43832b17ab5b5b78c, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: a748851e1b631bf41834a19ded23dd8b, type: 2}
+        n1: x1
+        n2: 
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: 2/3/4
+        n2: x1
       commands:
       - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
         n1: 
@@ -39,7 +54,4 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: 1
         n2: x1
-      - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-        n1: 1/2/3
-        n2: 
       priority: 0

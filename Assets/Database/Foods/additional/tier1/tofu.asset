@@ -23,9 +23,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u8CFC\u5165\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n\u843D\u4E0B\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+5"
-    - "\u8CFC\u5165\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n\u843D\u4E0B\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+10"
-    - "\u8CFC\u5165\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n\u843D\u4E0B\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+15"
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n\u843D\u4E0B\uFF1A\n-\u3000\u30B3\u30A4\u30F3+10"
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n\u843D\u4E0B\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15"
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1\n\u843D\u4E0B\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20"
     sequences:
     - trigger: 12
       condition: []
@@ -37,10 +37,7 @@ MonoBehaviour:
     - trigger: 20
       condition: []
       commands:
-      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
-        n1: 1
-        n2: 
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
-        n1: 5/10/15
+        n1: 10/15/20
         n2: 
       priority: 0

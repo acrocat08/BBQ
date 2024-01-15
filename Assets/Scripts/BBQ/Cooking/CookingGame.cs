@@ -45,6 +45,7 @@ namespace BBQ.Cooking {
         private int _gameStatus;
         private bool _isFailed;
         private int _score;
+        private Vector3 _dayTextPos;
 
         [SerializeField] private List<MissionStatus> testMission;
         
@@ -54,6 +55,7 @@ namespace BBQ.Cooking {
 
         public void Init() {
             _isRunning = false;
+            _dayTextPos = transform.Find("Information").Find("BG_L").Find("UI").Find("Day").Find("Text").transform.localPosition;
             LoadStatus();
 
             cookTime.Pause();
@@ -61,7 +63,7 @@ namespace BBQ.Cooking {
         }
 
         private async void GameStart() {
-            await view.OpenBG(this);
+            await view.OpenBG(this, _dayTextPos);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             _isRunning = true;
             SoundPlayer.I.Play("bgm_cooking");

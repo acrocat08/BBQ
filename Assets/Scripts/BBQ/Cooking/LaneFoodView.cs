@@ -59,7 +59,7 @@ namespace BBQ.Cooking {
         public override async UniTask LankUp(FoodObject foodObject) {
             Draw(foodObject);
             Transform foodImage = foodObject.transform.Find("FoodImage");
-            foodImage.SetParent(GameObject.Find("Canvas").transform);
+            foodImage.SetParent(GameObject.Find("Canvas").transform, true);
             foodImage.localScale = Vector3.one * lankUpStrength;
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
             await UniTask.Delay(TimeSpan.FromSeconds(lankUpDuration));
