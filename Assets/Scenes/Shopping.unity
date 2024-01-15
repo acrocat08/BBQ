@@ -648,9 +648,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 50374b3c55d087b4ebefb9432b6cf649, type: 2}
     - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: initialAction.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[1].n1
+      value: x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[1].n2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[2].n1
+      value: x1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[2].n2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[0].action
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ef5f1f1df38cbb41a1ce4884aa91315, type: 2}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[1].action
+      value: 
+      objectReference: {fileID: 11400000, guid: ecdbe5ae23220f741a2c4ecc29256acc, type: 2}
+    - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: endAction.Array.data[2].action
+      value: 
+      objectReference: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
     - target: {fileID: 1628457791883851884, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: initialAction.Array.data[0].action
       value: 

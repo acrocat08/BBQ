@@ -34,6 +34,7 @@ namespace BBQ.Shopping {
         [SerializeField] private ItemSet itemSet;   //Debug
 
         [SerializeField] private List<ActionCommand> initialAction;
+        [SerializeField] private List<ActionCommand> endAction;
         [SerializeField] private ActionAssembly assembly;
 
         
@@ -67,6 +68,10 @@ namespace BBQ.Shopping {
             _day += 1;
             _isEnd = true;
             SaveStatus();
+            if (carbon.GetCarbon() > 0) {
+                await assembly.Run(endAction, env, null, null);
+                await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            }
             await view.CloseBG(this);
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             SoundPlayer.I.Play("se_morning");
