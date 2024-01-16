@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2701b4716884724a8d04196099741b0, type: 3}
+  m_Name: Draw
+  m_EditorClassIdentifier: 
+  foods:
+  - data: {fileID: 11400000, guid: 7c31b9f2b45add24496756e8f1183691, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 7c31b9f2b45add24496756e8f1183691, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: dbfd0b5cf1f5889468153e4dbe256b69, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: dbfd0b5cf1f5889468153e4dbe256b69, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 2d8ece93029f39141a437310d8a18b40, type: 2}
+    lank: 2
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: b98fcf579ba2544cdbfee070abb5d473, type: 2}
+    lank: 2
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: ff2223eb6fd5eba41ac1a46a7733c001, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: ff2223eb6fd5eba41ac1a46a7733c001, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 6f7c376eb7f3be64f982ceb4b3f3b3ae, type: 2}
+    lank: 2
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
+  - data: {fileID: 11400000, guid: 64d72c8c38974184ebeea2a9365c58b2, type: 2}
+    lank: 1
+    isFrozen: 0
+    isFired: 0
+    isEphemeral: 0
+    isRantan: 0
+    effect: {fileID: 0}
+    stack: 0
+    memory: 
