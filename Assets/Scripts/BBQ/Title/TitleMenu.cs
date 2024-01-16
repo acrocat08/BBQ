@@ -99,7 +99,7 @@ namespace BBQ.Title {
         public void ChangeMode() {
             _modeIndex = (_modeIndex + 1) % modeList.Count;
             modeText.text = modeList[_modeIndex];
-            PlayerConfig.Create(PlayerConfig.GetShopPool(0), PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(0), PlayerConfig.GetPoolIndex(), (GameMode)_modeIndex);
 
         }
         

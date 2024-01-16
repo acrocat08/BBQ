@@ -57,4 +57,4 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 5ce416f4792fbdc45b0d1c643800d719, type: 2}
         n1: f1
         n2: 
-      priority: 1
+      priority: 0

@@ -50,6 +50,7 @@ namespace BBQ.Shopping {
         public override async UniTask LankUp() {
             await view.LankUp(this);
             view.Draw(this);
+            inventory.SortItem();
         }
         
         public override void Drop() {
