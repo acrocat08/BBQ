@@ -50,7 +50,7 @@ namespace BBQ.Shopping {
         }
 
         public void OnPointDown() {
-            itemDetail.DrawDetail(GetFoodData());
+            itemDetail.DrawDetail(GetFoodData(), 1);
         }
 
         public void OnPointCancel() {

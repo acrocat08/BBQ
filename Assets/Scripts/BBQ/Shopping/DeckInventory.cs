@@ -16,6 +16,7 @@ namespace BBQ.Shopping {
         [SerializeField] List<InventoryFood> deckItems;
         [SerializeField] private Merger merger;
         [SerializeField] private ItemSet itemSet;
+        [SerializeField] private GameObject buyEffectPrefab;
         private int _additionalTime;
         private int _helpPenaltyReduce;
         
@@ -29,7 +30,7 @@ namespace BBQ.Shopping {
             SetPointableArea();
         }
         
-        public void AddFood(DeckFood food) {
+        public void AddFood(DeckFood food, bool buyFlag) {
             DeckFood deckFood = food;
             InventoryFood target = deckItems.FirstOrDefault(x => x.GetFoodData() == null);
             if (target == null) return;
@@ -37,6 +38,12 @@ namespace BBQ.Shopping {
             SetPointableArea();
             deckFood.Releasable = this;
             TriggerObserver.I.RegisterFood(food);
+            if (buyFlag) {
+                BuyEffect effect = Instantiate(buyEffectPrefab, target.transform)
+                    .GetComponent<BuyEffect>();
+                effect.transform.localPosition = Vector3.zero;
+                effect.Buy(1f);
+            }
         }
 
         public void SortItem() {

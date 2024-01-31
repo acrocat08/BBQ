@@ -16,7 +16,7 @@ namespace BBQ.Shopping {
         [SerializeField] private List<Color> lankColor;
         [SerializeField] private float lankUpStrength;
         [SerializeField] private float lankUpDuration;
-        
+        [SerializeField] private GameObject lankUpPrefab;
         
         public override void DrawEffect(FoodObject foodObject) {
             FoodEffect effect = foodObject.deckFood.effect;
@@ -112,6 +112,12 @@ namespace BBQ.Shopping {
             foodImage.SetParent(GameObject.Find("Canvas").transform);
             foodImage.localScale = Vector3.one * lankUpStrength;
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
+            GameObject star = Instantiate(lankUpPrefab, foodObject.transform, true);
+            star.transform.localPosition = Vector3.zero;
+            star.GetComponent<Image>().color = foodObject.deckFood.data.color;
+            star.transform.DOScale(Vector3.one * 5, lankUpDuration * 2f).SetEase(Ease.OutQuart);
+            star.GetComponent<Image>().DOFade(0f, lankUpDuration * 2f).SetEase(Ease.InQuart)
+                .OnComplete(() => Destroy(star));
             await UniTask.Delay(TimeSpan.FromSeconds(lankUpDuration));
             foodImage.SetParent(foodObject.transform.Find("Object"));
             foodImage.transform.SetSiblingIndex(0);

@@ -22,7 +22,7 @@ namespace BBQ.Action.Play {
                 List<DeckFood> newItems = deckFoods.Where(x => !env.inventory.GetDeckFoods().Contains(x)).ToList();
                 if (newItems.Count == 0) return;
                 foreach (DeckFood deckFood in newItems) {
-                    env.inventory.AddFood(deckFood);
+                    env.inventory.AddFood(deckFood, false);
                 }
                 SoundMgr.SoundPlayer.I.Play("se_draw");
                 await UniTask.Delay(TimeSpan.FromSeconds(duration));

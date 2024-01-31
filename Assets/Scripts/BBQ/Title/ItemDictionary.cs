@@ -95,7 +95,7 @@ namespace BBQ.Title {
 
 
         public void ShowDetail(FoodData food) {
-            detail.DrawDetail(food);
+            detail.DrawDetail(food, 1);
         }
         
         public void ShowDetail(ToolData tool) {

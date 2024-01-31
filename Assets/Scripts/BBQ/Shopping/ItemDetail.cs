@@ -10,15 +10,17 @@ namespace BBQ.Shopping {
     public class ItemDetail : MonoBehaviour {
         [SerializeField] ItemDetailView view;
         [SerializeField] private List<Transform> tabs;
+        [SerializeField] private List<GameObject> lankTabs;
 
         private ExplainableItem _nowItem;
         private DeckFood _nowFood;
 
-        public void DrawDetail(FoodData foodData) {
-            view.DrawFoodInfo(transform, foodData, 1);
+        public void DrawDetail(FoodData foodData, int lank) {
+            view.DrawFoodInfo(transform, foodData, lank);
             SetTab(new List<ExplainableItem>{ foodData }.Concat(foodData.subItem).ToList());
             _nowItem = foodData;
             _nowFood = null;
+            SetLankTab(lank);
         }
 
         public void DrawDetail(DeckFood deckFood) {
@@ -29,6 +31,27 @@ namespace BBQ.Shopping {
             SetTab(tabItems);
             _nowItem = null;
             _nowFood = deckFood;
+            SetLankTab(deckFood.lank);
+        }
+
+        public void SelectLankTab(int lank) {
+            if(_nowItem != null && _nowItem is FoodData food) DrawDetail(food, lank);
+            else if(_nowFood != null) DrawDetail(_nowFood.data, lank);
+        }
+
+        void SetLankTab(int lank) {
+            for (int i = 0; i < 3; i++) {
+                Color tabColor = lankTabs[i].GetComponent<Image>().color;
+                if (i + 1 == lank) {
+                    tabColor.a = 1f;
+                    lankTabs[i].transform.Find("Star").GetComponent<Image>().enabled = true;
+                }
+                else {
+                    tabColor.a = 0.2f;
+                    lankTabs[i].transform.Find("Star").GetComponent<Image>().enabled = false;
+                }
+                lankTabs[i].GetComponent<Image>().color = tabColor;
+            }
         }
         
         public void DrawDetail(ToolData toolData) {

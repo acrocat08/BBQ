@@ -22,7 +22,7 @@ namespace BBQ.Action.Play {
             List<DeckFood> target = deckFoods.Where(x => x.effect != effect).ToList();
 
             if (target.Count == 0) {
-                await UniTask.Delay(TimeSpan.FromSeconds(duration));
+                //await UniTask.Delay(TimeSpan.FromSeconds(duration));
                 return;
             }
 
@@ -43,9 +43,7 @@ namespace BBQ.Action.Play {
             }
             else SoundMgr.SoundPlayer.I.Play("se_removeEffect");
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
-            await TriggerObserver.I.Invoke(ActionTrigger.GainEffect, triggerTargets, true);
-
-
+            if(effect != null) await TriggerObserver.I.Invoke(ActionTrigger.GainEffect, triggerTargets, true);
 
 
         }

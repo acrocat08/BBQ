@@ -1896,6 +1896,7 @@ MonoBehaviour:
   testDeck: {fileID: 11400000, guid: b3fadd08f5ace784097fab38ae29943c, type: 2}
   itemSet: {fileID: 0}
   initialAction: []
+  endAction: []
   assembly: {fileID: 0}
 --- !u!114 &216951609186264032
 MonoBehaviour:
@@ -2524,6 +2525,7 @@ MonoBehaviour:
   - {fileID: 1386186129843216278}
   merger: {fileID: 11400000, guid: 2817044d3440b344098bdcc0003b4c5c, type: 2}
   itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+  buyEffectPrefab: {fileID: 7314147251586612805, guid: 75c9c56710f2c224fb55d273f6151cc5, type: 3}
 --- !u!1 &4964181738561199720
 GameObject:
   m_ObjectHideFlags: 0

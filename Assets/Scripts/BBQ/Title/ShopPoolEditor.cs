@@ -99,7 +99,7 @@ namespace BBQ.Title {
             else {
                 _selected.foodsIndex.Remove(index);
             }
-            detail.DrawDetail(food);
+            detail.DrawDetail(food, 1);
             SetIconView(items[index % 20], !isSelected);
         }
 

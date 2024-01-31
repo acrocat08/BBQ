@@ -32,3 +32,4 @@ MonoBehaviour:
   - {r: 0.8018868, g: 0.5499671, b: 0.035303116, a: 1}
   lankUpStrength: 3
   lankUpDuration: 0.5
+  lankUpPrefab: {fileID: 3974491477482913341, guid: 71ca7331611ac0f45b6d81dbb080764e, type: 3}
