@@ -82,6 +82,9 @@ namespace BBQ.Shopping {
 
         private void LoadStatus() {
             _day = PlayerStatus.GetDay();
+            if (_day == 1 && PlayerConfig.GetGameMode() == GameMode.random) {
+                itemSet.MakeRandomPool();
+            }
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
             if(targetDeck != null) deckInventory.Init(targetDeck);
             else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
@@ -104,7 +107,7 @@ namespace BBQ.Shopping {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
-            PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 10, 0,
+            PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 20, 0,
                 deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), life.GetLife(), _nowMission, PlayerStatus.GetFailed(), 0, PlayerStatus.GetScore());
         }
 

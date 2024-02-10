@@ -98,6 +98,7 @@ namespace BBQ.Action {
             if (index == "x2") return x2;
             if (index == "x3") return x3;
             if (index == "stack") return invoker.stack;
+            if (index == "") return 0;
             if (index.Contains("/")) {
                 return int.Parse(index.Split("/")[invoker.lank - 1]);
             }

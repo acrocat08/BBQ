@@ -30,7 +30,7 @@ namespace BBQ.Action {
 
         public async UniTask Invoke(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
             List<InvokeSet> invokeSets = register.GetInvokers(trigger);
-            List<InvokeSet> tmp = invokeSets.OrderBy(x => target.IndexOf(x.invoker)).ToList();
+            List<InvokeSet> tmp = invokeSets.OrderBy(x => isMyself ? target.IndexOf(x.invoker) : x.sequence.priority).ToList();
             foreach (InvokeSet invokeSet in tmp) {
                 bool isOk = await register.CheckCondition(invokeSet, target, isMyself);
                 if(!isOk) continue;

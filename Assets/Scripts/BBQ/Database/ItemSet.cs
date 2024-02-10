@@ -11,6 +11,8 @@ namespace BBQ.Database {
         public List<FoodData> supportFoods;
         public List<FoodEffect> effects;
         public List<ToolData> tools;
+
+        private List<FoodData> _randomPool;
         
         public FoodData GetRandomFood(int minTier, int maxTier, string tag = "") {
             return GetFoodPool().Where(x => x.tier >= minTier && x.tier <= maxTier)
@@ -38,8 +40,22 @@ namespace BBQ.Database {
         }
 
         public List<FoodData> GetFoodPool() {
+            if (PlayerConfig.GetGameMode() == GameMode.random) {
+                return _randomPool;
+            }
             ShopPool pool = PlayerConfig.GetShopPool(PlayerConfig.GetPoolIndex());
             return pool.foodsIndex.Select(x => foods[x]).ToList();
+        }
+
+        public void MakeRandomPool() {
+            _randomPool = new List<FoodData>();
+            for (int i = 1; i <= 5; i++) {
+                _randomPool.AddRange(foods
+                    .Where(x => x.tier == i)
+                    .OrderBy(x => Guid.NewGuid())
+                    .Take(10));
+            }
+            _randomPool = _randomPool.OrderBy(x => foods.IndexOf(x)).ToList();
         }
     }
     

@@ -23,9 +23,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n(\u5358\u4E00\u767A\u52D5)\n-\u30004\u56DE\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B\n"
-    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n(\u5358\u4E00\u767A\u52D5)\n-\u30006\u56DE\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B\n"
-    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n(\u5358\u4E00\u767A\u52D5)\n-\u30008\u56DE\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B\n"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+10\n-\u30003\u56DE\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B\n(\u5358\u4E00\u767A\u52D5)\n"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+10\n-\u30005\u56DE\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B\n(\u5358\u4E00\u767A\u52D5)\n"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+10\n-\u30007\u56DE\u30D5\u30A1\u30A4\u30A2\u3057\u305F\u5834\u5408\u3001\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B\n(\u5358\u4E00\u767A\u52D5)\n"
     sequences:
     - trigger: 7
       condition:
@@ -41,6 +41,9 @@ MonoBehaviour:
         n2: 
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: x1
+        n2: 
+      - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
+        n1: 10
         n2: 
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: x1
@@ -59,7 +62,7 @@ MonoBehaviour:
         n2: x2
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
         n1: stack
-        n2: 4/6/8
+        n2: 3/5/7
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: x1
         n2: x2

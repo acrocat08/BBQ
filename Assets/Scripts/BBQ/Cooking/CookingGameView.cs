@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -103,8 +104,9 @@ namespace BBQ.Cooking {
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
 
-        public async UniTask GameEnd(Transform container, List<MissionStatus> missions, int star, int gainStar, int life, int lostLife, bool isClear) {
-            await resultView.ShowResult(container, missions, star, gainStar, life, lostLife, isClear);
+        public async UniTask GameEnd(Transform container, List<MissionStatus> missions, int star, int gainStar,
+            int life, int lostLife, bool isClear, List<Tuple<FoodData, FoodData, FoodData>> kushi) {
+            await resultView.ShowResult(container, missions, star, gainStar, life, lostLife, isClear, kushi);
             while (true) {
                 await UniTask.DelayFrame(1);
                 if (Input.GetMouseButtonDown(0)) break;

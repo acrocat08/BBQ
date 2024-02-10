@@ -98,7 +98,7 @@ namespace BBQ.Cooking {
             
             
             if (!_env.isShopping && _env.deck.SelectAll().Count == 0 
-                                && _env.board.SelectAll().Count < 15 && !_env.board.HasResetEgg()) {
+                                && _env.board.SelectAll().Count < 15 && !_env.board.HasResetEgg() && !_env.dump.HasResetEgg()) {
                 await _env.board.ResetEgg();
             }
             
@@ -110,6 +110,7 @@ namespace BBQ.Cooking {
             
             if (deckFoods.Count > 0 && _missionSheet != null) {
                 _missionSheet.AddCount("hand", _isDouble ? 2 : 1);
+                _missionSheet.AddKushi(hitFoods[0]?.deckFood.data, hitFoods[1]?.deckFood.data, hitFoods[2]?.deckFood.data);
             }
 
             if (_tutorial != null) {

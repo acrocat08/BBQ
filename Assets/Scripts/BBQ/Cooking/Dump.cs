@@ -73,6 +73,10 @@ namespace BBQ.Cooking {
             }
             return 0;
         }
+
+        public bool HasResetEgg() {
+            return _hittingFoods.Any(x => x != null && x.deckFood.data == param.resetFood);
+        }
         
     }
 }

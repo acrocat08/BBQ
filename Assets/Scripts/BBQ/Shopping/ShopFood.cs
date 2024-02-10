@@ -62,5 +62,9 @@ namespace BBQ.Shopping {
             DeckInventory inventory = areas[0].transform.parent.parent.GetComponent<DeckInventory>();
             _shop.BuyFood(this, inventory);
         }
+
+        public void Discount() {
+            shopView.Discount(this);
+        }
     }
 }

@@ -94,6 +94,12 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(dropDuration));
             Destroy(shopTool.gameObject);
         }
-        
+
+        public void Discount(ShopFood shopFood) {
+            Transform tag = shopFood.transform.Find("Image").Find("Tag");
+            tag.GetComponent<Image>().enabled = true;
+            tag.localScale = Vector3.zero;
+            tag.DOScale(Vector3.one, 0.1f).SetEase(Ease.OutQuad);
+        }
     }
 }

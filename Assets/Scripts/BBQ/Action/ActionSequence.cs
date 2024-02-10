@@ -41,6 +41,7 @@ namespace BBQ.Action {
         BonusTime,
         GainCoin,
         GainEffect,
+        UseCarbon,
     }
     
     [Serializable]

@@ -21,13 +21,15 @@ namespace BBQ.Title {
         
         private bool isMoving;
         private List<GameObject> items;
+        private bool _showPool;
         
 
         public void Start() {
             items = new List<GameObject>();
         }
 
-        public async void Open() {
+        public async void Open(bool showPool) {
+            _showPool = showPool;
             Draw(1);
             isMoving = true;
             transform.localScale = Vector3.one;
@@ -68,7 +70,10 @@ namespace BBQ.Title {
             
             items = new List<GameObject>();
             if (tier > 0) {
-                foreach (FoodData food in itemSet.foods.Where(x => x.tier == tier)) {
+                List<FoodData> targetFoods;
+                if (_showPool) targetFoods = itemSet.GetFoodPool();
+                else targetFoods = itemSet.foods;
+                foreach (FoodData food in targetFoods.Where(x => x.tier == tier)) {
                     GameObject obj = Instantiate(itemPrefab, container, false);
                     obj.GetComponent<Image>().sprite = food.foodImage;
                     EventTrigger ev = obj.GetComponent<EventTrigger>();

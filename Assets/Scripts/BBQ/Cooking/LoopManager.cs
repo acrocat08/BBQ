@@ -25,7 +25,7 @@ namespace BBQ.Cooking {
             speedLevel = new [] { 0, 0, 0 };
             for (int i = 0; i < 3; i++) {
                 float speed = i == 1 ? -speedPerSecond[0] : speedPerSecond[0];
-                movements[i].SetSpeed(speed);
+                movements[i].SetSpeed(speed / (PlayerConfig.GetGameMode() == GameMode.easy ? 1.25f : 1f));
             }
         }
         
@@ -65,12 +65,12 @@ namespace BBQ.Cooking {
             speedLevel[index] = Mathf.Min(speedPerSecond.Length - 1, speedLevel[index] + offset);
             float speed = speedPerSecond[speedLevel[index]];
             if (index == 1) speed *= -1;
-            movements[index].SetSpeed(speed);
+            movements[index].SetSpeed(speed / (PlayerConfig.GetGameMode() == GameMode.easy ? 1.25f : 1f));
             await UniTask.Delay(TimeSpan.FromSeconds(limit));
             speedLevel[index] = Mathf.Max(0, speedLevel[index] - offset);
             speed = speedPerSecond[speedLevel[index]];
             if (index == 1) speed *= -1;
-            movements[index].SetSpeed(speed);
+            movements[index].SetSpeed(speed / (PlayerConfig.GetGameMode() == GameMode.easy ? 1.25f : 1f));
         }
         
     }

@@ -39,16 +39,6 @@ MonoBehaviour:
         n1: "\u5869"
         n2: 
       priority: 0
-    - trigger: 13
-      condition:
-      - action: {fileID: 11400000, guid: f22463c5821022243bcabbde91f1e1d9, type: 2}
-        n1: 
-        n2: 
-      commands:
-      - action: {fileID: 11400000, guid: 1f7cfea1db0a4384da2ed763d57499c4, type: 2}
-        n1: "\u5869"
-        n2: 
-      priority: 0
     - trigger: 0
       condition:
       - action: {fileID: 11400000, guid: fd0b09465f183e24db9835795e71b2d2, type: 2}

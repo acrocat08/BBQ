@@ -20,7 +20,9 @@ namespace BBQ.Title {
         [SerializeField] private ItemDictionary dictionary;
         [SerializeField] private ShopPoolList lineup;
         [SerializeField] private List<string> modeList;
+        [Multiline][SerializeField] private List<string> modeExplainList;
         [SerializeField] private Text modeText;
+        [SerializeField] private Text modeExplain;
 
         private bool _isMoving;
         private int _modeIndex;
@@ -54,6 +56,9 @@ namespace BBQ.Title {
             view.Wave(wave);
             view.Smog(transform, smogContainer);
             PlayerConfig.Create(PlayerConfig.GetShopPool(0), PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+            _modeIndex = (int)PlayerConfig.GetGameMode();
+            modeText.text = modeList[_modeIndex];
+            modeExplain.text = modeExplainList[_modeIndex];
         }
         
         public async void GotoMainGame() {
@@ -78,7 +83,7 @@ namespace BBQ.Title {
         
         public void OpenDictionary() {
             //_isMoving = true;
-            dictionary.Open();
+            dictionary.Open(false);
         }
         
         public void CloseDictionary() {
@@ -99,6 +104,7 @@ namespace BBQ.Title {
         public void ChangeMode() {
             _modeIndex = (_modeIndex + 1) % modeList.Count;
             modeText.text = modeList[_modeIndex];
+            modeExplain.text = modeExplainList[_modeIndex];
             PlayerConfig.Create(PlayerConfig.GetShopPool(0), PlayerConfig.GetPoolIndex(), (GameMode)_modeIndex);
 
         }

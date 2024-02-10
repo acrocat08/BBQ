@@ -23,11 +23,14 @@ MonoBehaviour:
   tag: "\u6D77\u9BAE\u7CFB"
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+(\u98DF\u6750\u304C\u843D\u4E0B\u3057\u305F\u56DE\u6570)\n(\u6700\u59274)"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+(\u98DF\u6750\u304C\u843D\u4E0B\u3057\u305F\u56DE\u6570)\n(\u6700\u59275)"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+(\u98DF\u6750\u304C\u843D\u4E0B\u3057\u305F\u56DE\u6570)\n(\u6700\u59276)"
+    - "\u30AB\u30FC\u30DC\u30F3\u6D88\u8CBB\u6642\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u7372\u5F97\u3059\u308B\n(\u6700\u59274)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+(\u30B9\u30BF\u30C3\u30AF\u6570)\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u6E1B\u3089\u3059\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
+    - "\u30AB\u30FC\u30DC\u30F3\u6D88\u8CBB\u6642\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u7372\u5F97\u3059\u308B\n(\u6700\u59275)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+(\u30B9\u30BF\u30C3\u30AF\u6570)\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u6E1B\u3089\u3059\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
+    - "\u30AB\u30FC\u30DC\u30F3\u6D88\u8CBB\u6642\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u7372\u5F97\u3059\u308B\n(\u6700\u59276)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+(\u30B9\u30BF\u30C3\u30AF\u6570)\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u6E1B\u3089\u3059\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
     sequences:
-    - trigger: 21
+    - trigger: 29
       condition:
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
         n1: 3/4/5
@@ -41,15 +44,18 @@ MonoBehaviour:
         n2: x1
       priority: 0
     - trigger: 0
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: stack
+        n2: 1
       commands:
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: stack
         n2: 
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
-        n1: 0
-        n2: 0
+        n1: stack
+        n2: -1
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
-        n1: x1
-        n2: stack
+        n1: stack
+        n2: x1
       priority: 0

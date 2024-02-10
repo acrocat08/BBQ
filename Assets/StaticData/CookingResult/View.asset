@@ -24,3 +24,4 @@ MonoBehaviour:
   shakeDuration: 0.5
   takoSpriteInClear: {fileID: 21300000, guid: bcddc4de0651c9b46940e510effdb23f, type: 3}
   takoSpriteInFailed: {fileID: 21300000, guid: fdf7f9d266543b24bb5bec631b03eb21, type: 3}
+  kushiPrefab: {fileID: 2202327636165010998, guid: 7d7b68d08cd55d44eab7fa2a2110cdc9, type: 3}

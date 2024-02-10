@@ -79,12 +79,13 @@ namespace BBQ.Cooking {
             await view.CloseBG(this);
 
             bool isClear = missionSheet.CheckMissionCleared();
+            var kushi = missionSheet.GetKushi();
             _score += missionSheet.GetScore();
             _isFailed = !isClear;
             int gainStar = isClear ? 1 : 0;
             //int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
             int lostLife = isClear ? 0 : 1;
-            await view.GameEnd(transform.Find("Result"), _missions, _star, gainStar, _life, lostLife, isClear);
+            await view.GameEnd(transform.Find("Result"), _missions, _star, gainStar, _life, lostLife, isClear, kushi);
             _star += gainStar;
             _life -= lostLife;
             _gameStatus = CheckResult();
@@ -130,7 +131,7 @@ namespace BBQ.Cooking {
             _star = PlayerStatus.GetStar();
             _life = PlayerStatus.GetLife();
             view.Init(this);
-            cookTime.Init(60 + PlayerStatus.GetadditionalTime());      
+            cookTime.Init((int)(60 * (PlayerConfig.GetGameMode() == GameMode.easy ? 1.25f : 1f)) + PlayerStatus.GetadditionalTime());      
             dump.Init();
             copyArea.Init();
             loopManager.Init();

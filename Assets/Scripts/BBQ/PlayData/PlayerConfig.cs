@@ -63,5 +63,6 @@ namespace BBQ.PlayData {
     public enum GameMode {
         easy,
         hard,
+        random,
     }
 }

@@ -1184,6 +1184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474237546195692552, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 873540523112471846, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1303,7 +1307,7 @@ PrefabInstance:
     - target: {fileID: 5546075017281032687, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: testDeck
       value: 
-      objectReference: {fileID: 11400000, guid: 50374b3c55d087b4ebefb9432b6cf649, type: 2}
+      objectReference: {fileID: 11400000, guid: b56df0a097b94074081a6ac08b8d6d84, type: 2}
     - target: {fileID: 5948392838193488937, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: itemSet
       value: 
