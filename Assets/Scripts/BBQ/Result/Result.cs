@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
@@ -24,11 +25,13 @@ namespace BBQ.Result {
         [SerializeField] private List<Color> lankColor;
         [SerializeField] private Text scoreText;
         [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private SceneTransition transition;
 
 
         private bool _isMoving;
 
         public async void Start() {
+            await transition.SceneStart();
             DrawInventory();
             int score = PlayerStatus.GetScore() / PlayerStatus.GetDay();
             UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
@@ -66,7 +69,8 @@ namespace BBQ.Result {
             else {
                 await badend.GotoTitle();
             }
-            await UniTask.Delay(TimeSpan.FromSeconds(1f));
+            await transition.SceneEnd();
+            await UniTask.Delay(TimeSpan.FromSeconds(2f));
             SceneManager.LoadScene("Scenes/Title");
         }
 

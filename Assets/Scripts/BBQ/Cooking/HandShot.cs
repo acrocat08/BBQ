@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 
 namespace BBQ.Cooking {
     public class HandShot : MonoBehaviour {
-        [SerializeField] private float maxHeight;
+        [SerializeField] private float maxPos;
         [SerializeField] private float moveDuration;
         [SerializeField] private float firstDuration;
         [SerializeField] private float hitDuration;
@@ -28,33 +28,11 @@ namespace BBQ.Cooking {
 
             RectTransform tr = GetComponent<RectTransform>();
             Vector2 toSize = tr.sizeDelta;
-            toSize.y = maxHeight;
 
-            if (!isDouble) {
-                DOTween.To(
-                    () => tr.sizeDelta,
-                    x => tr.sizeDelta = x,
-                    toSize,
-                    moveDuration
-                ).SetEase(Ease.Linear);
-            }
-            else {
-                RectTransform tr1 = transform.Find("Double").Find("Hand (1)").GetComponent<RectTransform>();
-                RectTransform tr2 = transform.Find("Double").Find("Hand (2)").GetComponent<RectTransform>();
-                DOTween.To(
-                    () => tr1.sizeDelta,
-                    x => tr1.sizeDelta = x,
-                    toSize,
-                    moveDuration
-                ).SetEase(Ease.Linear);
-                DOTween.To(
-                    () => tr2.sizeDelta,
-                    x => tr2.sizeDelta = x,
-                    toSize,
-                    moveDuration
-                ).SetEase(Ease.Linear);
-            }
-            
+                tr.DOLocalMoveY(maxPos, moveDuration).SetEase(Ease.Linear);
+
+                
+                
             await UniTask.Delay(TimeSpan.FromSeconds(firstDuration));
             FoodObject bottom = hitFoods[2];
             if (bottom != null) {

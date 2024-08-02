@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.Tutorial;
 using Cysharp.Threading.Tasks;
 using SoundMgr;
@@ -12,8 +13,10 @@ namespace BBQ.Result {
         [SerializeField] private TutorialPlayer player;
         [SerializeField] private List<TutorialParts> parts;
         [SerializeField] private Transform tako;
+        [SerializeField] private SceneTransition transition;
 
         async void Start() {
+            await transition.SceneStart();
             SoundPlayer.I.Play("se_island");
             await player.Play(parts, tako, this);
             Next();
@@ -24,8 +27,8 @@ namespace BBQ.Result {
         }
 
         public async void Next() {
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
             await SoundPlayer.I.FadeOutSound("se_island");
+            await transition.SceneEnd();
             SceneManager.LoadScene("Scenes/Result");
         }
     }

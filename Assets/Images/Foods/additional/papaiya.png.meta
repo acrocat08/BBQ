@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      papaiya_0: -4159075258639099636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

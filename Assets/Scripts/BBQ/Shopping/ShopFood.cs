@@ -19,7 +19,7 @@ namespace BBQ.Shopping {
             deckFood = new DeckFood(data);
             _shop = shop;
             _cost = data.cost;
-            PointableArea area = transform.Find("Image").Find("Pointable").GetComponent<PointableArea>();
+            PointableArea area = transform.Find("FoodImage").Find("Pointable").GetComponent<PointableArea>();
             area.areaTag = areaTag;
             area.targetTag = targetTag;
             area.onPointDown.AddListener(OnPointDown);
@@ -29,7 +29,7 @@ namespace BBQ.Shopping {
         }
 
         public void Fall() {
-            shopView.Fall(transform.Find("Image").transform);
+            shopView.Fall(transform.Find("FoodImage").transform);
         }
 
         public override void Drop() {
@@ -65,6 +65,10 @@ namespace BBQ.Shopping {
 
         public void Discount() {
             shopView.Discount(this);
+        }
+
+        public void Freeze() {
+            
         }
     }
 }

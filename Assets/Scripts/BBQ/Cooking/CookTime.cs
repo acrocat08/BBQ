@@ -15,7 +15,7 @@ namespace BBQ.Cooking {
         [SerializeField] private bool doCountDown;
         
         
-        private int _nowTime;
+        private float _nowTime;
         private int _bonusTime;
         private bool _bonusMode;
         
@@ -33,8 +33,8 @@ namespace BBQ.Cooking {
                     await UniTask.DelayFrame(1);
                     continue;
                 }
-                await UniTask.Delay(TimeSpan.FromSeconds(1f));
-                if(doCountDown) _nowTime -= 1;
+                await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
+                if(doCountDown) _nowTime -= 0.1f;
                 if (_nowTime <= 0 && !_bonusMode) {
                     _nowTime += _bonusTime;
                     _bonusMode = true;
@@ -62,7 +62,7 @@ namespace BBQ.Cooking {
         }
 
         public int GetNowTime() {
-            return _nowTime;
+            return Mathf.FloorToInt(_nowTime);;
         }
 
         public int GetBonusTime() {
@@ -70,7 +70,7 @@ namespace BBQ.Cooking {
         }
 
         public void UseTime(int val) {
-            _bonusTime = Mathf.Min(_bonusTime, Mathf.Max(_bonusTime - val + _nowTime, 0));
+            _bonusTime = Mathf.Min(_bonusTime, Mathf.Max(_bonusTime - val + GetNowTime(), 0));
             _nowTime = Mathf.Max(_nowTime - val, 0);
             if(doCountDown) view.UpdateTime(this, _bonusMode);
         }

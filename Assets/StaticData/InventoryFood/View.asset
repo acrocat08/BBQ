@@ -33,3 +33,7 @@ MonoBehaviour:
   lankUpStrength: 3
   lankUpDuration: 0.5
   lankUpPrefab: {fileID: 3974491477482913341, guid: 71ca7331611ac0f45b6d81dbb080764e, type: 3}
+  lankMaterial:
+  - {fileID: 2100000, guid: ff89b0313e8e81247b800dbfab43c688, type: 2}
+  - {fileID: 2100000, guid: 60403982f9c424eddbb8f692ffb70b91, type: 2}
+  - {fileID: 2100000, guid: 95e5df6b2fb9b4a7b9e930ccc8dc6db0, type: 2}

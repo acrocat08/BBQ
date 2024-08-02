@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mango_0: 8617278338890539712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

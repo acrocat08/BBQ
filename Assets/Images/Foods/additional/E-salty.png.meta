@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      E-salty_0: -5881423400074045235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

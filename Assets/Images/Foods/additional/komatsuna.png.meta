@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      komatsuna_0: -4958189268807434187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

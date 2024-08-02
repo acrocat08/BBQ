@@ -19,7 +19,7 @@ public class FoodDataEditor : Editor
     )
     {
         var obj = target as FoodData;
-        var icon = obj.foodImage;
+        var icon = obj?.foodImage;
 
         if ( icon == null )
         {

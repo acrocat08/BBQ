@@ -42,6 +42,7 @@ namespace BBQ.Tutorial {
         [SerializeField] private List<int> draws;
         [SerializeField] private List<string> deckKeys;
         [SerializeField] private List<ActionCommand> startCommands;
+        [SerializeField] private SceneTransition transition;
 
 
         private bool _isRunning;
@@ -55,9 +56,10 @@ namespace BBQ.Tutorial {
 
         async void Start() {
             Init();
+            await transition.SceneStart();
             SoundPlayer.I.Play("bgm_tutorial");
             await player.Play(parts, tako, this);
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
+            await transition.SceneEnd();
             SceneManager.LoadScene("Scenes/TutorialShopping");
         }
 

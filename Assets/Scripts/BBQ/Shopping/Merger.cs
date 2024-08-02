@@ -21,6 +21,7 @@ namespace BBQ.Shopping {
         [SerializeField] private float discoverDuration;
         [SerializeField] private ItemSet itemSet;
         [SerializeField] private ActionAssembly assembly;
+        [SerializeField] private FoodData tutorialFood;
         public bool CheckCanMerge(FoodData food, int lank, int count) {
             if (food == null) return false;
             if (food.isToken) return false;
@@ -29,7 +30,7 @@ namespace BBQ.Shopping {
             return false;
         }
 
-        public async UniTask Merge(List<InventoryFood> items, Shop shop) {
+        public async UniTask Merge(List<InventoryFood> items, Shop shop, bool isTutorial) {
             InputGuard.Lock();
             int lank = items[0].deckFood.lank;
             List<InventoryFood> target = items.OrderBy(x => x.GetIndex()).Take(lank == 1 ? 3 : 2).ToList();
@@ -43,7 +44,6 @@ namespace BBQ.Shopping {
             await UniTask.Delay(TimeSpan.FromSeconds(mergeDuration));
             SoundPlayer.I.Play("se_merge");
             target[0].deckFood.lank += 1;
-            target[0].LankUp();
             FoodEffect effect = target.Select(x => x.deckFood.effect).Where(x => x != null).OrderBy(x => Guid.NewGuid())
                 .FirstOrDefault();
             if (target[0].deckFood.effect != null) await assembly.Run(target[0].deckFood.effect.onReleased, null, target[0].deckFood, null);
@@ -55,11 +55,12 @@ namespace BBQ.Shopping {
                 DeckFood emptyFood = new DeckFood(null);
                 target[i].SetFood(emptyFood);
             }
-            await UniTask.Delay(TimeSpan.FromSeconds(discoverDuration));
+            await target[0].LankUp();
+            //await UniTask.Delay(TimeSpan.FromSeconds(discoverDuration));
             await TriggerObserver.I.Invoke(ActionTrigger.LankUp, new List<DeckFood> { target[0].deckFood }, true);
             await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new List<DeckFood> { target[0].deckFood }, false);
             int discoverTier = Mathf.Min(5, shop.GetShopLevel() + 1);
-            FoodData discovered = itemSet.GetRandomFood(discoverTier, discoverTier);
+            FoodData discovered = isTutorial ? tutorialFood : itemSet.GetRandomFood(discoverTier, discoverTier);
             await shop.AddFoods(new List<FoodData> { discovered }, false);
             InputGuard.UnLock();            
         }

@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      syoga_0: -7719216185302237099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

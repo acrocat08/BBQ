@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -19,6 +21,7 @@ namespace BBQ.Title {
         [SerializeField] private GameObject smogPrefab;
         [SerializeField] private Vector3 smogMinPos;
         [SerializeField] private Vector3 smogMaxPos;
+        
         private List<Transform> _smogs;
         private bool _isMoving;
         
@@ -39,10 +42,9 @@ namespace BBQ.Title {
             }
         }
 
-        public async void Smog(Transform bg, Transform smogContainer) {
+        public async void Smog(Transform bg, Transform smogContainer, CancellationToken token) {
             if (_smogs == null) _smogs = new List<Transform>();
-            while (bg != null) {
-                if (_isMoving) return;
+            while (SceneManager.GetActiveScene().name == "Title") {
                 await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(0.2f, 1f)));
                 int num = Random.Range(1, 3);
                 for (int i = 0; i < num; i++) {
@@ -59,7 +61,7 @@ namespace BBQ.Title {
             smog.localScale = Vector3.one * Random.Range(0.5f, 2f);
             smog.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             smog.GetComponent<Image>().color = new Color(1, 1, 1) * Random.Range(1, 0.75f);
-            smog.SetParent(smogContainer);
+            smog.SetParent(smogContainer, false);
             smog.localPosition = pos;
             smog.DOLocalMoveY(smog.localPosition.y + 200f * Random.Range(1f, 1.5f) * (Screen.width / 1920f), life).SetEase(Ease.OutQuad);
             smog.DOScale(smog.transform.localScale * Random.Range(1.5f, 3f), life);
@@ -78,10 +80,10 @@ namespace BBQ.Title {
             }
         }
 
-        public void UpdateText(List<Text> menuText, int index) {
+        public void UpdateText(List<Transform> menuText, int index) {
             for (int i = 0; i < menuText.Count; i++) {
-                if (i == index) menuText[i].transform.Find("Select").GetComponent<Image>().enabled = true;
-                else menuText[i].transform.Find("Select").GetComponent<Image>().enabled = false;
+                if (i == index) menuText[i].Find("Container").GetComponent<RectTransform>().anchoredPosition = Vector3.right * 50f;
+                else menuText[i].Find("Container").GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
             }
         }
     }

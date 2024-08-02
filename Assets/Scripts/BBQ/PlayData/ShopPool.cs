@@ -14,7 +14,7 @@ namespace BBQ.PlayData {
 
         public string Encode() {
             foodsIndex.Sort();
-            string listText = string.Join(",", foodsIndex);
+            string listText = poolName + ":" + string.Join(",", foodsIndex);
             string encoded = AesCipher.Encrypt(listText);
             return encoded;
         }
@@ -25,9 +25,10 @@ namespace BBQ.PlayData {
         }
 
 
-        public static ShopPool Decode(string code, string poolName) {
-            string decoded = AesCipher.Decrypt(code);
-            List<int> index = decoded.Split(",").Select(int.Parse).ToList();
+        public static ShopPool Decode(string code) {
+            string[] decoded = AesCipher.Decrypt(code).Split(":");
+            string poolName = decoded[0];
+            List<int> index = decoded[1].Split(",").Select(int.Parse).ToList();
             index.Sort();
             return new ShopPool(index, poolName);
         }

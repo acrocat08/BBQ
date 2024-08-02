@@ -19,7 +19,7 @@ namespace BBQ.Shopping {
             this.data = data;
             _shop = shop;
             itemDetail = detail;
-            PointableArea area = transform.Find("Image").Find("Pointable").GetComponent<PointableArea>();
+            PointableArea area = transform.Find("ToolImage").Find("Pointable").GetComponent<PointableArea>();
             area.areaTag = areaTag;
             area.targetTag = data.targetArea;
             area.onPointDown.AddListener(OnPointDown);
@@ -42,6 +42,9 @@ namespace BBQ.Shopping {
             if (data.targetArea == "deckItem") {
                 target = areas.Select(x => x.transform.parent.GetComponent<InventoryFood>().deckFood).ToList();
             }
+            if (data.targetArea == "food") {
+                target = areas.Select(x => x.transform.parent.parent.GetComponent<ShopFood>().deckFood).ToList();
+            }
             _shop.UseTool(this, target);
         }
 
@@ -50,7 +53,7 @@ namespace BBQ.Shopping {
         }
 
         public void Fall() {
-            shopView.Fall(transform.Find("Image").transform);
+            shopView.Fall(transform.Find("ToolImage").transform);
         }
     }
 }

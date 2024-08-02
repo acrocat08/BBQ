@@ -30,7 +30,9 @@ namespace BBQ.Shopping {
         public void PlaceFood(ShopFood item, int index, Transform container) {
             item.transform.SetParent(container, false);
             item.GetComponent<RectTransform>().anchoredPosition
-                = (itemWidth + margin) * index * Vector3.right;
+                = (itemWidth + margin) * index * Vector3.right 
+                  + Vector3.right * (item.transform.GetComponent<RectTransform>().sizeDelta.x * 0.5f) 
+                  + Vector3.down * (item.transform.GetComponent<RectTransform>().sizeDelta.y * 0.5f);
             item.Fall();
         }
         
@@ -43,7 +45,9 @@ namespace BBQ.Shopping {
         
         public void MoveFood(ShopFood item, int index, Transform container) {
             item.transform.SetParent(container, false);
-            Vector3 toPos = (itemWidth + margin) * index * Vector3.right;
+            Vector3 toPos = (itemWidth + margin) * index * Vector3.right
+                            + Vector3.right * (item.transform.GetComponent<RectTransform>().sizeDelta.x * 0.5f) 
+                            + Vector3.down * (item.transform.GetComponent<RectTransform>().sizeDelta.y * 0.5f);
             item.GetComponent<RectTransform>().DOLocalMove(toPos, moveDuration);
         }
 

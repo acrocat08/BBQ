@@ -29,25 +29,28 @@ namespace BBQ.Tutorial {
         [SerializeField] private TutorialPlayer player;
         [SerializeField] private List<TutorialParts> parts;
         [SerializeField] private Transform tako;
+        [SerializeField] private SceneTransition transition;
+
         
         private int _day;
 
         private string _nowAction;
         async void Start() {
             Init();
+            await transition.SceneStart();
             SoundPlayer.I.Play("bgm_tutorial");
             await player.Play(parts, tako, this);
-            await UniTask.Delay(TimeSpan.FromSeconds(1));
             await SoundPlayer.I.FadeOutSound("bgm_tutorial");
+            await transition.SceneEnd();
             SceneManager.LoadScene("Scenes/Shopping");
         }
         
         void Init() {
-            deckInventory.Init(firstFoods);
+            deckInventory.Init(firstFoods, false);
             coin.Init(100);
             carbon.Init(1);
             handCount.Init(5);
-            shop.Init(1, 0, coin, carbon, 0, this);
+            shop.Init(1, 0, coin, carbon, 0, this, new List<FoodData>());
             copyArea.Init();
             life.Init(6);
             env.Init(shop, handCount, coin, carbon, life, deckInventory, copyArea);

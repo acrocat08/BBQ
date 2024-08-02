@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7f7bd5c852acd45910e9146ccef706, type: 3}
   m_Name: dryice
   m_EditorClassIdentifier: 
-  subItem:
-  - {fileID: 11400000, guid: 6f9080c1d3a1df34e96489a4a7c9fb79, type: 2}
-  toolName: "\u30C9\u30E9\u30A4\u30A2\u30A4\u30B9"
-  tier: 3
+  subItem: []
+  toolName: "\u51B7\u51CD\u5EAB"
+  tier: 2
   cost: 1
   toolImage: {fileID: 21300000, guid: e01e3fc33e55a8e49b6abb2ed7928b17, type: 3}
   action:
     summaries:
-    - "\u30AB\u30D0\u30F3\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u306B\u300C\u904E\u51B7\u5374\u300D\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4ED8\u4E0E\u3059\u308B"
+    - "\u30B7\u30E7\u30C3\u30D7\u5185\u306E\u98DF\u67501\u3064\u3092\u6307\u5B9A\u3057\u3001\u305D\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n\uFF08\u30D5\u30EA\u30FC\u30BA\u3055\u308C\u305F\u98DF\u6750\u306F\u30EA\u30ED\u30FC\u30EB\u3057\u305F\u5F8C\u3082\u30B7\u30E7\u30C3\u30D7\u306B\u6B8B\u308A\u3001\u6B21\u306E\u591C\u306E\u30BF\u30FC\u30F3\u306B\u534A\u984D\u306E\u72B6\u614B\u3067\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3076\uFF09"
     sequences:
     - trigger: 0
       condition: []
@@ -28,8 +27,8 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
         n1: 
         n2: 
-      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+      - action: {fileID: 11400000, guid: 045d824891c82ec4fbc229cc6422b036, type: 2}
         n1: f1
-        n2: "\u904E\u51B7\u5374"
+        n2: 
       priority: 0
-  targetArea: deckItem
+  targetArea: food

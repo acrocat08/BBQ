@@ -19,8 +19,14 @@ namespace BBQ.Shopping {
         [SerializeField] private GameObject buyEffectPrefab;
         private int _additionalTime;
         private int _helpPenaltyReduce;
+        private bool _pigFlag;
+        private bool _rantanFlag;
         
-        public void Init(List<DeckFood> deckFoods) {
+        public void Init(List<DeckFood> deckFoods, bool rantanFlag) {
+            if (rantanFlag) {
+                _rantanFlag = true;
+                view.SetItem(this, "rantan");
+            }
             deckFoods = deckFoods.Take(deckItems.Count).OrderBy(x => itemSet.GetFoodIndex(x.data)).ToList();
             for (int i = 0; i < deckFoods.Count; i++) {
                 deckItems[i].SetFood(deckFoods[i]);
@@ -107,6 +113,32 @@ namespace BBQ.Shopping {
             return _helpPenaltyReduce;
         }
 
+        public void SetPigFlag() {
+            if (_pigFlag) return;
+            _pigFlag = true;
+            view.SetItem(this, "pig");
+            SoundPlayer.I.Play("se_pig");
+            SoundPlayer.I.Play("se_addCoin");
+        }
+
+        public bool GetPigFlag() {
+            return _pigFlag;
+        }
+        
+        public void SetFork() {
+            view.SetItem(this, "fork");
+        }
+        
+        public void SetRantan() {
+            if (_rantanFlag) return;
+            _rantanFlag = true;
+            view.SetItem(this, "rantan");
+        }
+        
+        public bool GetRantanFlag() {
+            return _rantanFlag;
+        }
+        
 
         
     }

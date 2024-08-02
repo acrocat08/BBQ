@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mochi_0: 6027614852246648341
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShowText
   m_EditorClassIdentifier: 
   requireClick: 1
-  showSpeed: 0.05
+  showSpeed: 0.04
   emotionKeys:
   - normal
   - laugh

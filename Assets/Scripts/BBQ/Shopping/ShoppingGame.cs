@@ -86,29 +86,31 @@ namespace BBQ.Shopping {
                 itemSet.MakeRandomPool();
             }
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
-            if(targetDeck != null) deckInventory.Init(targetDeck);
-            else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList());
-            else deckInventory.Init(firstFoods);
+            if(targetDeck != null) deckInventory.Init(targetDeck, PlayerStatus.GetRantanFlag());
+            else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList(), PlayerStatus.GetRantanFlag());
+            else deckInventory.Init(firstFoods, PlayerStatus.GetRantanFlag());
             int shopLevel = param.isDebugMode ?  1 : PlayerStatus.GetShopLevel();
             coin.Init(param.isDebugMode ?  10000 : PlayerStatus.GetCoin());
             carbon.Init(param.isDebugMode ?  100 : PlayerStatus.GetCarbon());
             handCount.Init(5);
-            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket(), null);
+            shop.Init(shopLevel,PlayerStatus.GetLevelUpDiscount(), coin, carbon, PlayerStatus.GetRerollTicket(), null, PlayerStatus.GetFrozen());
             copyArea.Init();
             int star = PlayerStatus.GetStar();
             life.Init(PlayerStatus.GetLife());
             view.SetStatus(this, star);
             int nowIncome = Mathf.Max(0, GetDayIncome());
             int nowCarbon = (_day - 1) / 5 + 1;
-            initialAction[0].n1 = nowIncome.ToString();
-            initialAction[1].n1 = nowCarbon.ToString();
+            initialAction[0].n1 = (nowIncome + (PlayerStatus.GetPigFlag() ? 30 : 0)).ToString();
+            initialAction[1].n1 = (nowCarbon + (PlayerStatus.GetPigFlag() ? 1 : 0)).ToString();
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
+            Debug.Log(deckInventory.GetPigFlag());
             PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 20, 0,
-                deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), PlayerStatus.GetStar(), life.GetLife(), _nowMission, PlayerStatus.GetFailed(), 0, PlayerStatus.GetScore());
+                deckInventory.GetPigFlag(), deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), deckInventory.GetRantanFlag(),
+                PlayerStatus.GetStar(), life.GetLife(), _nowMission, PlayerStatus.GetFailed(), 0, PlayerStatus.GetScore(), shop.GetShopFoods().Where(x => x.deckFood.isFrozen).Select(x => x.deckFood.data).ToList());
         }
 
         public int GetDay() {

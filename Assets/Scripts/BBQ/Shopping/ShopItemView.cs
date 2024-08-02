@@ -25,7 +25,7 @@ namespace BBQ.Shopping {
         
         public void DrawFood(ShopFood shopFood) {
             FoodData data = shopFood.GetFoodData();
-            shopFood.transform.Find("Image").GetComponent<Image>().sprite = data.foodImage;
+            shopFood.transform.Find("FoodImage").GetComponent<Image>().sprite = data.foodImage;
             shopFood.transform.Find("Cost").GetComponent<Text>().text = shopFood.GetCost().ToString();
             if (shopFood.GetCost() < shopFood.GetFoodData().cost)
                 shopFood.transform.Find("Cost").GetComponent<Text>().color = discountColor;
@@ -36,7 +36,7 @@ namespace BBQ.Shopping {
         
         public void DrawTool(ShopTool shopTool) {
             ToolData data = shopTool.data;
-            shopTool.transform.Find("Image").GetComponent<Image>().sprite = data.toolImage;
+            shopTool.transform.Find("ToolImage").GetComponent<Image>().sprite = data.toolImage;
             shopTool.transform.Find("Cost").GetComponent<Text>().text = data.cost.ToString();
             shopTool.transform.Find("Name").GetComponent<Text>().text = data.toolName;
             shopTool.transform.Find("Line").GetComponent<Image>().color = param.toolColor;
@@ -96,7 +96,7 @@ namespace BBQ.Shopping {
         }
 
         public void Discount(ShopFood shopFood) {
-            Transform tag = shopFood.transform.Find("Image").Find("Tag");
+            Transform tag = shopFood.transform.Find("FoodImage").Find("Tag");
             tag.GetComponent<Image>().enabled = true;
             tag.localScale = Vector3.zero;
             tag.DOScale(Vector3.one, 0.1f).SetEase(Ease.OutQuad);

@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      raichi_0: 8102474266313556030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

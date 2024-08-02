@@ -38,20 +38,27 @@ namespace BBQ.Shopping {
             Draw();
         }
         
-        public async void Reroll(bool isFirst) {
+        public async void Reroll(bool isFirst, List<FoodData> frozen) {
             InputGuard.Lock();
             if(!isFirst) await TriggerObserver.I.Invoke(ActionTrigger.BeforeReroll, new List<DeckFood>(), false);
-            List<FoodData> foods = choice.ChoiceFoods(_shop.GetShopLevel());
-            ToolData tool = choice.ChoiceTool(_shop.GetShopLevel());
+            List<FoodData> foods;
+            ToolData tool;
+            if (isTutorial) {
+                foods = isFirst ? tutorialFirstFoods : tutorialSecondFoods;
+                tool = tutorialTool;
+            }
+            else {
+                foods = frozen.Concat(choice.ChoiceFoods(_shop.GetShopLevel())).Take(4).ToList();
+                tool = choice.ChoiceTool(_shop.GetShopLevel());
+            }
+            
             List<UniTask> tasks = new List<UniTask>();
-
-            if (isTutorial) foods = isFirst ? tutorialFirstFoods : tutorialSecondFoods;
-            if (isTutorial) tool = tutorialTool;
             
             tasks.Add(_shop.AddFoods(foods, true));
             tasks.Add(_shop.AddTool(tool));
             await tasks;
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            _shop.DiscountFood(_shop.GetShopFoods().Take(frozen.Count).Select(x => x.deckFood).ToList());
             if(!isFirst) await TriggerObserver.I.Invoke(ActionTrigger.AfterReroll, new List<DeckFood>(), false);
             InputGuard.UnLock();
         }
@@ -70,7 +77,7 @@ namespace BBQ.Shopping {
                 _coin.Use(_cost);
                 _cost += 5;    
             }
-            Reroll(false);
+            Reroll(false, new List<FoodData>());
             Draw();
         }
 

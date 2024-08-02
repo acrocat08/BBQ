@@ -14,6 +14,8 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             int min = v.GetNum(v.n1);
             int max = v.GetNum(v.n2);
+            min = Mathf.Clamp(min, 1, 5);
+            max = Mathf.Clamp(max, 1, 5);
             v.s1 = itemSet.GetRandomFood(min, max).foodName;
         }
     }

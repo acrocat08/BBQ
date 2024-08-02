@@ -17,6 +17,10 @@ namespace BBQ.Shopping {
         [SerializeField] private float lankUpStrength;
         [SerializeField] private float lankUpDuration;
         [SerializeField] private GameObject lankUpPrefab;
+        [SerializeField] private List<Material> lankMaterial;
+        
+        private static readonly int Seed = Shader.PropertyToID("_seed");
+
         
         public override void DrawEffect(FoodObject foodObject) {
             FoodEffect effect = foodObject.deckFood.effect;
@@ -53,6 +57,7 @@ namespace BBQ.Shopping {
             foodImage.sprite = deckFood.data ? deckFood.data.foodImage : null;
             foodImage.enabled = deckFood.data != null;
             foodImage.color = Color.white;
+            SetMaterial(foodImage, foodObject.deckFood.lank);
             Image lankImage = foodObject.transform.Find("Object").Find("Lank").GetComponent<Image>();
             lankImage.color = deckFood.data != null ? lankColor[deckFood.lank - 1] : Color.clear;
             if(foodObject.transform.Find("Object").Find("FireEffect(Clone)")) 
@@ -71,30 +76,24 @@ namespace BBQ.Shopping {
         
         public override async void Drop(FoodObject foodObject) {
             int dir = foodObject.transform.localPosition.x > 0 ? 1 : -1;
-            Vector2 prevPos = foodObject.transform.Find("Object").localPosition;
-            Transform image = foodObject.transform.Find("Object");
+            Vector2 prevPos = foodObject.transform.Find("Object").Find("Fired").localPosition;
+            Transform image = foodObject.transform.Find("Object").Find("Fired");
             image.transform.DOLocalJump(image.transform.localPosition + fallLength * Vector3.down,
                 jumpLength, 1, fallDuration);
             image.transform.DOLocalMoveX(image.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), fallDuration)
                 .SetEase(Ease.Linear);
             image.transform.DOLocalRotate(new Vector3(0, 0, 180), fallDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(fallDuration));
+            image.gameObject.SetActive(false);
             image.transform.localPosition = prevPos;
             image.transform.localRotation = Quaternion.Euler(0, 0, 0);
             Draw(foodObject);
         }
         
         public override void Fire(FoodObject foodObject) {
-            Image image = foodObject.transform.Find("Object").Find("Image").GetComponent<Image>();
-            image.color = fireColor;
-            Transform effect = Instantiate(fireEffectPrefab).transform;
-            effect.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); 
-            effect.Find("Effect").GetComponent<RectTransform>().sizeDelta = new Vector2(150, 150); 
-            effect.SetParent(foodObject.transform.Find("Object"), true);
-            effect.localPosition = Vector3.zero;
-            effect.Find("Effect").localPosition = Vector3.zero + Vector3.up * 30;
-            effect.localScale = Vector3.one;
-            effect.SetSiblingIndex(0);
+            foodObject.transform.Find("Object").Find("Fired").gameObject.SetActive(true);
+            Image image = foodObject.transform.Find("Object").Find("Fired").Find("Image").GetComponent<Image>();
+            image.sprite = foodObject.deckFood.data.foodImage;
         }
         
         public override void Freeze(FoodObject foodObject) {
@@ -109,11 +108,13 @@ namespace BBQ.Shopping {
 
         public override async UniTask LankUp(FoodObject foodObject) {
             Transform foodImage = foodObject.transform.Find("Object").Find("Image");
+            SetMaterial(foodImage.GetComponent<Image>(), foodObject.deckFood.lank);
             foodImage.SetParent(GameObject.Find("Canvas").transform);
             foodImage.localScale = Vector3.one * lankUpStrength;
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
             GameObject star = Instantiate(lankUpPrefab, foodObject.transform, true);
             star.transform.localPosition = Vector3.zero;
+            star.transform.SetParent(foodObject.transform.parent.Find("Star"));
             star.GetComponent<Image>().color = foodObject.deckFood.data.color;
             star.transform.DOScale(Vector3.one * 5, lankUpDuration * 2f).SetEase(Ease.OutQuart);
             star.GetComponent<Image>().DOFade(0f, lankUpDuration * 2f).SetEase(Ease.InQuart)
@@ -124,8 +125,15 @@ namespace BBQ.Shopping {
         }
         
         public override void Invoke(FoodObject foodObject) {
+            Debug.Log(foodObject.gameObject.name);
             foodObject.transform.Find("Object").Find("Image").localScale = Vector3.one * shakeStrength;
             foodObject.transform.Find("Object").Find("Image").DOScale(Vector3.one, shakeDuration).SetEase(Ease.OutElastic);
+        }
+
+        void SetMaterial(Image foodImage, int lank) {
+            Material mat = lankMaterial[lank - 1];
+            if(mat != null) foodImage.material = new Material(mat);
+            if(foodImage.material != null) foodImage.material.SetFloat(Seed, Random.value);
         }
     }
 }

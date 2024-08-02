@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      waresuika_0: -8909866687606267169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

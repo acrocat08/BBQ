@@ -96,6 +96,7 @@ namespace BBQ.Common {
                 .GetComponent<FreezeEffect>();
             effect.transform.localPosition = Vector3.zero;
             effect.Freeze(1f);
+            effect.transform.SetParent(image.transform);
         }
         
         public void UnFreeze(FoodObject foodObject) {

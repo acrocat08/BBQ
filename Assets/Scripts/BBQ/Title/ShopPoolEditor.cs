@@ -20,11 +20,12 @@ namespace BBQ.Title {
         [SerializeField] private EventTrigger saveButton;
         [SerializeField] private List<CanvasGroup> tabs;
         [SerializeField] private ShopPoolList listWindow;
+        [SerializeField] private InputField inputField;
         
         private bool isMoving;
         private List<GameObject> items;
         private ShopPool _selected;
-        
+        private int poolIndex;
 
         public void Start() {
             items = new List<GameObject>();
@@ -32,8 +33,10 @@ namespace BBQ.Title {
         }
 
         public async void Open(int index) {
+            poolIndex = index;
             _selected = PlayerConfig.GetShopPool(index);   
             Draw(1);
+            inputField.text = PlayerConfig.GetShopPool(index).poolName;
             isMoving = true;
             transform.localScale = Vector3.one;
             CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
@@ -115,8 +118,9 @@ namespace BBQ.Title {
             }
 
             _selected.foodsIndex.Sort();
+            _selected.poolName = inputField.text;
             
-            PlayerConfig.Create(_selected, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+            PlayerConfig.Create(_selected, poolIndex, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
             listWindow.CloseEditor();
             Close();
         }

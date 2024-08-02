@@ -131,7 +131,7 @@ namespace BBQ.Cooking {
             _star = PlayerStatus.GetStar();
             _life = PlayerStatus.GetLife();
             view.Init(this);
-            cookTime.Init((int)(60 * (PlayerConfig.GetGameMode() == GameMode.easy ? 1.25f : 1f)) + PlayerStatus.GetadditionalTime());      
+            cookTime.Init((int)(60 * (PlayerConfig.GetGameMode() == GameMode.easy ? 1.25f : 1f)) + PlayerStatus.GetAdditionalTime());      
             dump.Init();
             copyArea.Init();
             loopManager.Init();
@@ -147,7 +147,7 @@ namespace BBQ.Cooking {
             int failed = PlayerStatus.GetFailed();
             if (_isFailed) failed++;
             PlayerStatus.Create(deckFoods, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
-                env.rerollTicket, 0, 0, _star, _life, new List<MissionStatus>(), failed, _gameStatus, _score);
+                env.rerollTicket, PlayerStatus.GetPigFlag(), 0, 0, PlayerStatus.GetRantanFlag(), _star, _life, new List<MissionStatus>(), failed, _gameStatus, _score, PlayerStatus.GetFrozen());
         }
 
         public int GetDay() {

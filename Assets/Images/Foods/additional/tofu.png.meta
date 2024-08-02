@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tofu_0: 8370601321967228845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

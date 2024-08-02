@@ -21,6 +21,7 @@ namespace BBQ.Title {
         [SerializeField] private List<Image> tabs;
         [SerializeField] private List<Color> selectColor;
         [SerializeField] private Text poolName;
+        [SerializeField] private InputField inputField;
         
         private bool isMoving;
         private List<GameObject> items;
@@ -80,7 +81,7 @@ namespace BBQ.Title {
                 items.Add(obj);
             }
 
-            poolName.text = "Lineup " + (index + 1);
+            poolName.text = (index + 1) + " : " + PlayerConfig.GetShopPool(index).poolName; 
         }
 
         public void ChangeTab(int index) {
@@ -93,7 +94,7 @@ namespace BBQ.Title {
         }
 
         public void Select() {
-            PlayerConfig.Create(PlayerConfig.GetShopPool(0), _nowIndex, PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(0), 0, _nowIndex, PlayerConfig.GetGameMode());
             for (int i = 0; i < tabs.Count; i++) {
                 if (i == _nowIndex) tabs[i].color = selectColor[0];
                 else tabs[i].color = selectColor[1];
@@ -102,6 +103,22 @@ namespace BBQ.Title {
 
         public void CloseEditor() {
             Draw(0);
+        }
+
+        public void CopyPoolCode() {
+            GUIUtility.systemCopyBuffer = PlayerConfig.GetShopPool(_nowIndex).Encode();
+        }
+
+        public void LoadPoolCode() {
+            string code = inputField.text;
+            try {
+                ShopPool pool = ShopPool.Decode(code);
+                PlayerConfig.Create(pool, _nowIndex, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+                Draw(_nowIndex);
+            }
+            catch {
+                
+            }
         }
         
         

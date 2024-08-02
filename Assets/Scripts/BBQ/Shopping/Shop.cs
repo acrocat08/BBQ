@@ -36,7 +36,7 @@ namespace BBQ.Shopping {
         private TutorialShopping _tutorial;
         
         public void Init(int level, int levelupDiscount, Coin coin, Carbon carbon, int rerollTicket, 
-            TutorialShopping tutorial) {
+            TutorialShopping tutorial, List<FoodData> frozen) {
             _foods = new ShopFood[] { null, null, null, null, null };
             _level = level;
             _levelUpDiscount = levelupDiscount;
@@ -44,7 +44,7 @@ namespace BBQ.Shopping {
             _carbon = carbon;
             _tutorial = tutorial;
             reroller.Init(this, _coin, rerollTicket, tutorial == null);
-            reroller.Reroll(true);
+            reroller.Reroll(true, frozen);
             view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
         }
         
@@ -93,7 +93,8 @@ namespace BBQ.Shopping {
         }
 
         public async UniTask AddFoods(List<FoodData> data, bool refresh) {
-            if(refresh && GetShopFoods() != null) DeleteFoods(new List<ShopFood>(GetShopFoods()));
+            data = data.Take(5 - GetShopFoods().Count(x => x.deckFood.isFrozen)).ToList();
+            if(refresh && GetShopFoods() != null) DeleteFoods(new List<ShopFood>(GetShopFoods().Where(x => !x.deckFood.isFrozen)));
             await MoveFoods();
             int cnt = 0;
             for (int i = 0; i < 5; i++) {

@@ -1312,6 +1312,10 @@ PrefabInstance:
       propertyPath: itemSet
       value: 
       objectReference: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
+    - target: {fileID: 6700143056480108973, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: handInitialPos.y
+      value: -1400
+      objectReference: {fileID: 0}
     - target: {fileID: 8001323004009388219, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_Sprite
       value: 

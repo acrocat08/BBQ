@@ -38,7 +38,7 @@ namespace BBQ.Shopping {
             if (InputGuard.Guard()) return;
             List<InventoryFood> target = areas.Select(x => x.transform.parent.GetComponent<InventoryFood>()).ToList();
             target.Add(this);
-            await merger.Merge(target, shop);
+            await merger.Merge(target, shop, tutorial != null);
             inventory.SortItem();
             if (tutorial != null) tutorial.Merge();
         }
@@ -56,6 +56,8 @@ namespace BBQ.Shopping {
         public override void Drop() {
             deckFood.data = null;
             deckFood.effect = null;
+            DeckFood emptyFood = new DeckFood(null);
+            SetFood(emptyFood);
             view.Drop(this);
         }
 

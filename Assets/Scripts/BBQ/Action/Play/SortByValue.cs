@@ -11,9 +11,13 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             v.f1 = deckFoods
-                .OrderBy(x => x.data.cost * (x.lank == 1 ? 1 : x.lank * 3 - 3))
+                .OrderBy(Value)
                 .Select(x => x)
                 .ToList();
+        }
+
+        int Value(DeckFood food) {
+            return food.data.cost * (food.lank == 1 ? 1 : food.lank * 3 - 3);
         }
     }
 }
