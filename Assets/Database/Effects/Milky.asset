@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b6230fcc2c37049ba479f9cb8d6639, type: 3}
+  m_Name: Milky
+  m_EditorClassIdentifier: 
+  subItem: []
+  effectName: "\u30DF\u30EB\u30AD\u30A3"
+  effectImage: {fileID: 21300000, guid: b2d42f1ba5a134d40870f60c6ad23019, type: 3}
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+1"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 1
+        n2: 
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 045d824891c82ec4fbc229cc6422b036, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+    - trigger: 6
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: 1
+        n2: 
+      priority: 0
+  onAttached: []
+  onReleased: []

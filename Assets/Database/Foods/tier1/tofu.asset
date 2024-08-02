@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: tofu
+  m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: 6464c47fed12b1f479257399c980bcce, type: 2}
+  - {fileID: 11400000, guid: 29024cc3c21547e4c9e1d11e11546050, type: 2}
+  foodName: "\u8C46\u8150"
+  tier: 1
+  cost: 10
+  foodImage: {fileID: 21300000, guid: d4e99bbed7ba95a4da98f5a611847e8d, type: 3}
+  color: {r: 0.9921569, g: 0.98823535, b: 0.92549026, a: 1}
+  isToken: 0
+  useStack: 0
+  tag: 
+  action:
+    summaries:
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u300C\u91A4\u6CB9\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30B3\u30A4\u30F3+10\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u843D\u4E0B\u3059\u308B"
+    sequences:
+    - trigger: 12
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 1f7cfea1db0a4384da2ed763d57499c4, type: 2}
+        n1: "\u91A4\u6CB9"
+        n2: 
+      priority: 0
+    - trigger: 7
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 1d19b76314948324fb36f0dfe28cbf9c, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
+        n1: 10/15/20
+        n2: 
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: ab9ba88d3544c974f89c62000c9f130f, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
