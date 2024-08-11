@@ -123,7 +123,7 @@ namespace BBQ.PlayData {
         }
         
         public static int GetLife() {
-            if (_saveData == null) return 6; //TODO:fix
+            if (_saveData == null) return 5; //TODO:fix
             return _saveData._life;
         }
 

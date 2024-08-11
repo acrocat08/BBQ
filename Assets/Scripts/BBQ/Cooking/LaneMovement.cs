@@ -37,7 +37,7 @@ namespace BBQ.Cooking {
             tr.localPosition = prevPos;
             tr.DOLocalMove(targetPos, addFoodDuration).SetEase(addFoodEasing);
             await UniTask.Delay(TimeSpan.FromSeconds(addFoodDuration));
-
+            await UniTask.Yield();
             tr.SetParent(transform, true);
         }
         

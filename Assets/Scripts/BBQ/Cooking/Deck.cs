@@ -28,6 +28,7 @@ namespace BBQ.Cooking {
         public void Init(List<DeckFood> deckFoods, bool doShuffle) {
             if (doShuffle) SortFoods(deckFoods);
             else _foods = new LinkedList<DeckFood>(deckFoods);
+            _foods = new LinkedList<DeckFood>(_foods.Where(x => !x.isFrozen).ToList());
             _allFoods = deckFoods.Select(x => (x, x.CopyWithEffect())).ToList();
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.Releasable = this;
@@ -53,8 +54,9 @@ namespace BBQ.Cooking {
         public List<FoodObject> TakeFood(int num) {
             List<FoodObject> taken = new List<FoodObject>();
             for (int i = 0; i < num; i++) {
+                //if (_foods.All(x => x.isFrozen)) break;
                 DeckFood target = _foods.First(x => !x.isFrozen);
-                _foods.RemoveFirst();
+                _foods.Remove(target);
                 FoodObject laneFood = foodFactory.Create(target, transform);
                 taken.Add(laneFood);
             }
@@ -64,8 +66,9 @@ namespace BBQ.Cooking {
         }
 
         public async UniTask AddFoods(List<FoodObject> foods) {
+            
             _foods.AddRange(foods.Where(x => x.deckFood.data != param.resetFood).Select(x => x.deckFood));
-            SortFoods(_foods.ToList());
+            SortFoods(_foods.Distinct().ToList());
             List<UniTask> tasks = new List<UniTask>();
             foreach (FoodObject food in foods) {
                 tasks.Add(view.AddFood(this, food));

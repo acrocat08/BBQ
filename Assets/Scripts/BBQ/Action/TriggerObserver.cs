@@ -17,6 +17,7 @@ namespace BBQ.Action {
         [SerializeField] private ActionRegister register;
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private Image invokerImage;
+        [SerializeField] private PlayAction unique;
 
         public static TriggerObserver I;
         private Stack<FoodData> _invokerStack;
@@ -31,11 +32,15 @@ namespace BBQ.Action {
         public async UniTask Invoke(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
             List<InvokeSet> invokeSets = register.GetInvokers(trigger);
             List<InvokeSet> tmp = invokeSets.OrderBy(x => isMyself ? target.IndexOf(x.invoker) : x.sequence.priority).ToList();
+            List<DeckFood> used = new List<DeckFood>();
             foreach (InvokeSet invokeSet in tmp) {
                 bool isOk = await register.CheckCondition(invokeSet, target, isMyself);
                 if(!isOk) continue;
+                if (invokeSet.sequence.condition.Select(x => x.action).Contains(unique) &&
+                    used.Any(x => x.data == invokeSet.invoker.data && x != invokeSet.invoker)) continue;
                 FoodObject food = invokeSet.invoker.GetObject();
                 if(food != null) food.OnInvoke();
+                used.Add(invokeSet.invoker);
                 _invokerStack.Push(invokeSet.invoker.data);
                 UpdateInvokerImage();
                 await assembly.Run(invokeSet.sequence.commands, env, invokeSet.invoker, target);
@@ -43,6 +48,11 @@ namespace BBQ.Action {
                 UpdateInvokerImage();
             }
 
+            if (!env.isShopping && env.deck.SelectAll().Count == 0 
+                                && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg() 
+                                && (!env.dump.HasResetEgg())) {
+                await env.board.ResetEgg();
+            }
         }
 
         private void UpdateInvokerImage() {

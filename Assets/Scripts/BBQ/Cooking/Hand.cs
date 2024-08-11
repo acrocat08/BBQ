@@ -96,11 +96,12 @@ namespace BBQ.Cooking {
                 await assembly.Run(reset, _env, null, new List<DeckFood>());
             }
             
-            
+            /*
             if (!_env.isShopping && _env.deck.SelectAll().Count == 0 
                                 && _env.board.SelectAll().Count < 15 && !_env.board.HasResetEgg() && !_env.dump.HasResetEgg()) {
                 await _env.board.ResetEgg();
             }
+            */
             
             foreach (var food in hitFoods) {
                 if(food == null) continue;

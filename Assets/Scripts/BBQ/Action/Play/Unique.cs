@@ -10,6 +10,7 @@ namespace BBQ.Action.Play {
     public class Unique : PlayAction {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            /*
             List<DeckFood> foods;
             if (env.isShopping) {
                 foods = env.inventory.GetDeckFoods();
@@ -24,6 +25,15 @@ namespace BBQ.Action.Play {
 
             List<DeckFood> sameFoods = foods.Where(x => x.data == v.invoker.data).ToList();
             v.x1 = sameFoods.IndexOf(v.invoker) == 0 ? 1 : 0;
+            */
+            List<DeckFood> foods;
+            if (env.isShopping) {
+                foods = env.inventory.GetDeckFoods();
+            }
+            else {
+                foods = env.board.SelectAll();
+            }
+            v.x1 = foods.Contains(v.invoker) ? 1 : 0;
         }
     }
 }

@@ -14,6 +14,8 @@ namespace BBQ.Cooking {
         [SerializeField] private DesignParam param;
         [SerializeField] private Text handText;
         [SerializeField] private Text drawText;
+        [SerializeField] private ButtonEffect handEffect;
+        [SerializeField] private ButtonEffect drawEffect;
 
         private bool _isRunning;
         
@@ -30,6 +32,7 @@ namespace BBQ.Cooking {
         public async void OnAddHand() {
             if (env.time.GetNowTime() == 0) return;
             if (InputGuard.Guard()) return;
+            handEffect.OnClicked();
             _isRunning = true;
             env.time.Pause();
             await assembly.Run(addHand, env, null, null);
@@ -40,6 +43,7 @@ namespace BBQ.Cooking {
         public async void OnDraw() {
             if (env.time.GetNowTime() == 0) return;
             if (InputGuard.Guard()) return;
+            drawEffect.OnClicked();
             _isRunning = true;
             env.time.Pause();
             await assembly.Run(draw, env, null, null);

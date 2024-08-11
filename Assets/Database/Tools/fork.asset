@@ -38,3 +38,4 @@ MonoBehaviour:
         n2: f1
       priority: 0
   targetArea: deckItem
+  toolTag: fork

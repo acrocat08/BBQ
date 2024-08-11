@@ -29,3 +29,4 @@ MonoBehaviour:
         n2: 
       priority: 0
   targetArea: deck
+  toolTag: tokei

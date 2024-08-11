@@ -69,6 +69,7 @@ namespace BBQ.Shopping {
             if (!_canClick) return;
             SoundPlayer.I.Play("se_reroll1");
             SoundPlayer.I.Play("se_reroll2");
+            GetComponent<ButtonEffect>().OnClicked();
             if (_rerollTicket > 0) {
                 _rerollTicket--;
                 SoundPlayer.I.Play("se_reroll3");

@@ -23,15 +23,18 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u5408\u6210\u4E0D\u53EF
-      >>"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u5408\u6210\u4E0D\u53EF
-      >>"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<< \u5408\u6210\u4E0D\u53EF
-      >>"
+    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<
+      \u5408\u6210\u4E0D\u53EF >>"
+    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<
+      \u5408\u6210\u4E0D\u53EF >>"
+    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<
+      \u5408\u6210\u4E0D\u53EF >>"
     sequences:
     - trigger: 0
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: 62de85ba41df23147b01662fff092427, type: 2}
+        n1: 
+        n2: 
       commands:
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: 1

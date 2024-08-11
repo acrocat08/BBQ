@@ -29,6 +29,12 @@ namespace BBQ.Action.Play {
             v.n1 = num.ToString();
             await draw.Execute(env, v);
             await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new List<DeckFood>(), false);
+            
+            if (!env.isShopping && env.deck.SelectAll().Count == 0 
+                                && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg() 
+                                ) {
+                await env.board.ResetEgg();
+            }
 
         }
     }

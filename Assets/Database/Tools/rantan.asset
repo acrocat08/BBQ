@@ -31,4 +31,5 @@ MonoBehaviour:
         n1: 1
         n2: 
       priority: 0
-  targetArea: life
+  targetArea: deck
+  toolTag: rantan

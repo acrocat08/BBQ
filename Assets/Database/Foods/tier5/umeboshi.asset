@@ -57,7 +57,7 @@ MonoBehaviour:
         n2: 1/2/3
       - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
         n1: f1
-        n2: 1/2/3
+        n2: 1
       - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
         n1: f1
         n2: "\u3059\u3063\u3071\u5473"

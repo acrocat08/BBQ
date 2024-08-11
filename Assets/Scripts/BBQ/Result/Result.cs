@@ -31,7 +31,6 @@ namespace BBQ.Result {
         private bool _isMoving;
 
         public async void Start() {
-            await transition.SceneStart();
             DrawInventory();
             int score = PlayerStatus.GetScore() / PlayerStatus.GetDay();
             UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
@@ -43,6 +42,7 @@ namespace BBQ.Result {
             else {
                 badend.Init(transform);
             }
+            await transition.SceneStart();
             _isMoving = true;
             await UniTask.Delay(TimeSpan.FromSeconds(2f));
             DOTween.To(

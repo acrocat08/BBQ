@@ -21,11 +21,14 @@ namespace BBQ.Shopping {
         private int _helpPenaltyReduce;
         private bool _pigFlag;
         private bool _rantanFlag;
+        public static List<string> usedItems;
         
         public void Init(List<DeckFood> deckFoods, bool rantanFlag) {
+            usedItems = new List<string>();
             if (rantanFlag) {
                 _rantanFlag = true;
                 view.SetItem(this, "rantan");
+                usedItems.Add("rantan");
             }
             deckFoods = deckFoods.Take(deckItems.Count).OrderBy(x => itemSet.GetFoodIndex(x.data)).ToList();
             for (int i = 0; i < deckFoods.Count; i++) {
@@ -94,6 +97,7 @@ namespace BBQ.Shopping {
             if (_additionalTime > 0) return;
             _additionalTime = time;
             view.SetItem(this, "tokei");
+            usedItems.Add("tokei");
             SoundPlayer.I.Play("se_addBaseTime");
         }
 
@@ -105,6 +109,7 @@ namespace BBQ.Shopping {
             if (_helpPenaltyReduce > 0) return;
             _helpPenaltyReduce = reduce;
             view.SetItem(this, "skiret");
+            usedItems.Add("skiret");
             SoundPlayer.I.Play("se_penaltyReduce");
 
         }
@@ -117,6 +122,7 @@ namespace BBQ.Shopping {
             if (_pigFlag) return;
             _pigFlag = true;
             view.SetItem(this, "pig");
+            usedItems.Add("pig");
             SoundPlayer.I.Play("se_pig");
             SoundPlayer.I.Play("se_addCoin");
         }
@@ -127,12 +133,14 @@ namespace BBQ.Shopping {
         
         public void SetFork() {
             view.SetItem(this, "fork");
+            usedItems.Add("fork");
         }
         
         public void SetRantan() {
             if (_rantanFlag) return;
             _rantanFlag = true;
             view.SetItem(this, "rantan");
+            usedItems.Add("rantan");
         }
         
         public bool GetRantanFlag() {

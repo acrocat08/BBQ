@@ -28,11 +28,14 @@ namespace BBQ.Shopping {
             ret += Mathf.Max(0, x - secondPoint);
             return ret;
             */
+            int count = day - failed;
+            
             if (PlayerConfig.GetGameMode() == GameMode.easy) {
-                if (day <= 5) return 5 + (day - failed);
-                return 10 - failed + (day - 5) * 2;
+                return 4 + count * 2;
             }
-            return 6 + (day - failed) * 2 + failed;
+            if (count <= 3) return 6 + count * 2;
+            if (count <= 7) return 3 + count * 3;
+            return -4 + count * 4;
         }
 
     }

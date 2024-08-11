@@ -46,6 +46,7 @@ namespace BBQ.Database {
         public Sprite toolImage;
         public FoodAction action;
         public string targetArea;
+        public string toolTag;
         public override Sprite GetImage() {
             return toolImage;
         }

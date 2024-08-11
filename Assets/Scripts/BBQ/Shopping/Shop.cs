@@ -185,7 +185,7 @@ namespace BBQ.Shopping {
             if (_carbon.GetCarbon() < shopTool.data.cost) return;
             InputGuard.Lock();
             _carbon.Use(shopTool.data.cost);
-            await TriggerObserver.I.Invoke(ActionTrigger.UseCarbon, new List<DeckFood>(), false);
+            if(shopTool.data.cost > 0) await TriggerObserver.I.Invoke(ActionTrigger.UseCarbon, new List<DeckFood>(), false);
             DeleteTool();
             await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, target);
             InputGuard.UnLock();

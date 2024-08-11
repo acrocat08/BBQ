@@ -63,7 +63,7 @@ namespace BBQ.Cooking {
             foodImage.localScale = Vector3.one * lankUpStrength;
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
             await UniTask.Delay(TimeSpan.FromSeconds(lankUpDuration));
-
+            await UniTask.Yield();
             foodImage.SetParent(foodObject.transform);
         }
     }

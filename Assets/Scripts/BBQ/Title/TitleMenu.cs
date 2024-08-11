@@ -122,6 +122,7 @@ namespace BBQ.Title {
             await SoundPlayer.I.FadeOutSound("bgm_title");
             view.GotoNext();
             await transition.SceneEnd();
+            await UniTask.Delay(TimeSpan.FromSeconds(1f));            
             SceneManager.LoadScene("Scenes/TutorialIntro");
         }
         
