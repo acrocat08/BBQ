@@ -289,7 +289,7 @@ MonoBehaviour:
     emotion: 
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u898B\u3066\u306E\u901A\u308A\u3001\u30DC\u30AF\u306F\u305F\u3060\u306E\u30BF\u30B3\u3060\u3088\u3002\n\u3053\u306E\u5CF6\u306B\u4F55\u767E\u5E74\u3082\u4F4F\u307F\u3064\u3044\u3066\u3044\u308B\u3093\u3060\u3002"
+    message: "\u898B\u3066\u306E\u901A\u308A\u3001\u30DC\u30AF\u306F\u30BF\u30B3\u3060\u3088\u3002\n\u3053\u306E\u5CF6\u306B\u4F55\u767E\u5E74\u3082\u4F4F\u307F\u3064\u3044\u3066\u3044\u308B\u3093\u3060\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -301,7 +301,11 @@ MonoBehaviour:
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u2026\u3048\uFF1F\u98DF\u3079\u7269\u3092\u5206\u3051\u3066\u307B\u3057\u3044\u3063\u3066\uFF1F\n\u2026\u3046\u30FC\u3093\u3001\u30BF\u30C0\u3067\u3042\u3052\u308B\u306E\u306F\u3061\u3087\u3063\u3068\u306D\u3048\u3002"
+    message: "\u2026\u3048\uFF1F\u304A\u8179\u304C\u3059\u3044\u3066\u5927\u5909\u3060\u3063\u3066\uFF1F\n\u98DF\u3079\u7269\u3092\u5206\u3051\u3066\u307B\u3057\u3044\u3063\u3066\uFF1F"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u2026\u3046\u30FC\u3093\u3001\u56F0\u3063\u3066\u3044\u308B\u306E\u306F\u5206\u304B\u308B\u3051\u3069\u3001\u30BF\u30C0\u3067\u3042\u3052\u308B\u306E\u306F\u3061\u3087\u3063\u3068\u306D\u3048\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -313,7 +317,7 @@ MonoBehaviour:
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30AD\u30DF\u3001\u300C\u3070\u30FC\u3079\u304D\u3085\u30FC\u300D\u3063\u3066\u3044\u3046\u3084\u3064\u3001\u77E5\u3063\u3066\u308B\u3088\u306D\uFF1F\u98DF\u3079\u7269\u3092\u4E32\u3067\u523A\u3057\u3066\u713C\u304F\u3084\u3064\u3060\u3088\u3002"
+    message: "\u30AD\u30DF\u3001\u300C\u3070\u30FC\u3079\u304D\u3085\u30FC\u300D\u3063\u3066\u3044\u3046\u3084\u3064\u3001\u77E5\u3063\u3066\u308B\u3088\u306D\uFF1F\u98DF\u3079\u7269\u3092\u4E32\u3067\u523A\u3057\u3066\u713C\u304F\u904A\u3073\u3060\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}

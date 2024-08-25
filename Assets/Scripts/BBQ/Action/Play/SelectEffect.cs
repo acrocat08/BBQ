@@ -11,7 +11,8 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
 
             DeckFood deckFood = v.GetFoods(v.n1).FirstOrDefault();
-            if (deckFood == null || deckFood.effect == null) v.s1 = "none";
+            if (deckFood == null || deckFood.effect == null
+                || deckFood.effect.effectName == "インスタント" || deckFood.effect.effectName == "オイリー") v.s1 = "none";
             else v.s1 = deckFood.effect.effectName;
         }
     }

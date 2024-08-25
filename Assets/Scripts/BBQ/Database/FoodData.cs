@@ -48,6 +48,8 @@ namespace BBQ.Database {
         public bool useStack;
         public string tag;
         public FoodAction action;
+        [Multiline] public string hint;
+
         public override Sprite GetImage() {
             return foodImage;
         }

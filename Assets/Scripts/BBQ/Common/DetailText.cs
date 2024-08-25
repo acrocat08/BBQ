@@ -16,6 +16,8 @@ namespace BBQ.Common {
         [SerializeField] private Vector2 centerPos;
         [SerializeField] private GameObject wordDetailPrefab;
         [SerializeField] private Transform basePos;
+        [SerializeField] private GameObject underBar;
+        [SerializeField] private Transform underBarPos;
 
         private Dictionary<Rect, Keyword> _wordAreas;
 
@@ -48,6 +50,11 @@ namespace BBQ.Common {
 
         public async void SetDetail(string msg) {
             _wordAreas = new Dictionary<Rect, Keyword>();
+            /*
+            foreach (Transform under in underBarPos) {
+                Destroy(under.gameObject);
+            }
+            */
             text.text = msg;
             var wordList = msg.Replace("\r\n","\n").Split(new[]{'\n','\r'});
             msg = string.Join("", wordList);
@@ -66,7 +73,17 @@ namespace BBQ.Common {
 
                     Rect rect = new Rect(topLeft.position.x, topLeft.position.y,
                         (bottomRight.position.x - topLeft.position.x) * match.Length, bottomRight.position.y - topLeft.position.y);
-
+                    /*
+                    GameObject under = Instantiate(underBar, underBarPos);
+                    RectTransform rt = under.GetComponent<RectTransform>();
+                    rt.anchorMin = new Vector2(0.5f, 0.5f);
+                    rt.anchorMax = new Vector2(0.5f, 0.5f);
+                    rt.offsetMin = rect.min;
+                    rt.offsetMax = rect.max;
+                    var sizeDelta = rt.sizeDelta;
+                    sizeDelta = new Vector2(sizeDelta.x, -sizeDelta.y);
+                    rt.sizeDelta = sizeDelta;
+                    */
                     _wordAreas[rect] = keyword;
 
                 }
@@ -76,11 +93,13 @@ namespace BBQ.Common {
 
 
         Keyword GetWord() {
-            float ratio = Mathf.Max((1920f / Screen.width), (1080f / Screen.height));
-            Vector2 pos = Input.mousePosition * ratio;
+            Vector2 _basePos = basePos.GetComponent<RectTransform>().position;
+            Vector2 windowSize = new Vector2(Screen.width, Screen.height) -
+                                  _basePos * 2;
+            float ratio = 1920f / windowSize.x;
+            Vector2 pos = ((Vector2)Input.mousePosition - _basePos) * ratio;
             pos -= new Vector2(1920, 1080) / 2;
             pos -= centerPos;
-            //pos += (Vector2)basePos.position;
 
             foreach (KeyValuePair<Rect,Keyword> pair in _wordAreas) {
                 

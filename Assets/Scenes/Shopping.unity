@@ -1400,6 +1400,10 @@ PrefabInstance:
       propertyPath: keywords.Array.data[22].describe
       value: "\u305D\u306E\u98DF\u6750\u3092\u8CB7\u3046\u306E\u306B\u5FC5\u8981\u306A\u30B3\u30A4\u30F3\u306E\u7DCF\u8CBB\u7528\u3002"
       objectReference: {fileID: 0}
+    - target: {fileID: 3415888832184693173, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3643717844411595624, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: m_Name
       value: Canvas

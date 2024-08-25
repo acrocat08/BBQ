@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: maguro
+  m_EditorClassIdentifier: 
+  subItem: []
+  foodName: "\u30DE\u30B0\u30ED"
+  tier: 5
+  cost: 50
+  foodImage: {fileID: 21300000, guid: 856f8f0a094b5af4cbfcaac24dc988ea, type: 3}
+  color: {r: 0.92549026, g: 0.39607847, b: 0.3529412, a: 1}
+  isToken: 0
+  useStack: 0
+  tag: "\u6D77\u9BAE\u7CFB"
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+2\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u623B\u3057\u305F\u98DF\u6750\u306E\u6570\u3060\u3051\u3001\u4FA1\u5024\u306E\u9AD8\u3044\u9806\u306B\u30C9\u30ED\u30FC\u3059\u308B\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+3\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u623B\u3057\u305F\u98DF\u6750\u306E\u6570\u3060\u3051\u3001\u4FA1\u5024\u306E\u9AD8\u3044\u9806\u306B\u30C9\u30ED\u30FC\u3059\u308B\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+4\n-\u3000\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306E\u98DF\u6750\u5168\u3066\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u623B\u3057\u305F\u98DF\u6750\u306E\u6570\u3060\u3051\u3001\u4FA1\u5024\u306E\u9AD8\u3044\u9806\u306B\u30C9\u30ED\u30FC\u3059\u308B\n<<
+      \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
+        n1: 2/3/4
+        n2: 
+      - action: {fileID: 11400000, guid: 4a991efc922725b4cad42c9953c8ef4a, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 60652031d8e09b74a9b567451cae89d8, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: c1d0c85a6826fd54195fcedb5f8ff2ad, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: f6b3698beab0c9a46aeae02682399b01, type: 2}
+        n1: f1
+        n2: x1
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+  hint: 

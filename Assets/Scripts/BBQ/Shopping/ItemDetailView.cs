@@ -22,6 +22,8 @@ namespace BBQ.Shopping {
             baseInfo.Find("Line").GetComponent<Image>().color = param.tierColors[foodData.tier];
             baseInfo.Find("Name").GetComponent<Text>().text = foodData.foodName;
             baseInfo.Find("Detail").GetComponent<DetailText>().SetDetail(foodData.action.summaries[lank - 1]);
+            baseInfo.Find("Hint").Find("Text").GetComponent<Text>().text = foodData.hint;
+
         }
         
         public void DrawToolInfo(Transform container, ToolData toolData) {
@@ -33,6 +35,7 @@ namespace BBQ.Shopping {
             baseInfo.Find("Line").GetComponent<Image>().color = param.toolColor;
             baseInfo.Find("Name").GetComponent<Text>().text = toolData.toolName;
             baseInfo.Find("Detail").GetComponent<DetailText>().SetDetail(toolData.action.summaries[0]);
+            //baseInfo.Find("Hint").GetComponent<Text>().text = foodData.hint;
         }
         
         public void DrawEffectInfo(Transform container, FoodEffect effectData) {

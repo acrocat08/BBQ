@@ -1062,7 +1062,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1800, y: 850}
+  m_SizeDelta: {x: 1800, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6835730879160456147
 CanvasRenderer:
@@ -1114,12 +1114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cfa4289214eb54e931342113a2242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSet: {fileID: 11400000, guid: 128a5b075e1909846abe8f9656733e35, type: 2}
+  itemSet: {fileID: 0}
   itemPrefab: {fileID: 6231521771240649396, guid: 7cde2a673b39aad42ad47b2c0fb0159f, type: 3}
   container: {fileID: 8250122455743819315}
   detail: {fileID: 2766478147677026785}
   saveButton: {fileID: 3151392106151280853}
   tabs: []
+  listWindow: {fileID: 0}
+  inputField: {fileID: 0}
 --- !u!1 &7604731809252202205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,8 +1157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: -75}
-  m_SizeDelta: {x: 750, y: 600}
+  m_AnchoredPosition: {x: 475, y: -75}
+  m_SizeDelta: {x: 750, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4234695779260375396
 CanvasRenderer:

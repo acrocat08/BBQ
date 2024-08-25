@@ -185,15 +185,15 @@ namespace BBQ.Shopping {
             if (_carbon.GetCarbon() < shopTool.data.cost) return;
             InputGuard.Lock();
             _carbon.Use(shopTool.data.cost);
-            if(shopTool.data.cost > 0) await TriggerObserver.I.Invoke(ActionTrigger.UseCarbon, new List<DeckFood>(), false);
             DeleteTool();
             await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, target);
+            if(shopTool.data.cost > 0) await TriggerObserver.I.Invoke(ActionTrigger.UseCarbon, new List<DeckFood>(), false);
             InputGuard.UnLock();
         }
 
         public void DiscountFood(List<DeckFood> target) {
             foreach (ShopFood food in _foods) {
-                if (food != null && target.Any(x => x == food.deckFood)) {
+                if (food != null && target.Any(x => x == food.deckFood) && !food.CheckIsDiscounted()) {
                     food.SetCost(Mathf.Max(0, food.GetCost() / 2));
                     food.Discount();
                 }

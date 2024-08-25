@@ -20,7 +20,13 @@ MonoBehaviour:
     - "\u30D2\u30C3\u30C8\u307E\u305F\u306F\u843D\u4E0B\uFF1A\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u623B\u3059\n-\u3000\u3053\u306E\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4E00\u6642\u7684\u306B\u9664\u5916\u3059\u308B"
     sequences:
     - trigger: 19
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: bb262b545beea5344b678d09fcf8d5cf, type: 2}
+        n1: f1
+        n2: 
       commands:
       - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
         n1: 

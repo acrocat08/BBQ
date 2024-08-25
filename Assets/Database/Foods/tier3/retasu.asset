@@ -61,7 +61,3 @@ MonoBehaviour:
         n1: f1
         n2: 
       priority: 0
-    - trigger: 0
-      condition: []
-      commands: []
-      priority: 0

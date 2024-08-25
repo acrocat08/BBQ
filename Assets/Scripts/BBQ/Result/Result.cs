@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using unityroom.Api;
+using Random = UnityEngine.Random;
 
 namespace BBQ.Result {
     
@@ -26,6 +27,11 @@ namespace BBQ.Result {
         [SerializeField] private Text scoreText;
         [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private SceneTransition transition;
+        [SerializeField] private List<Material> lankMaterial;
+        
+        
+
+        private static readonly int Seed = Shader.PropertyToID("_seed");
 
 
         private bool _isMoving;
@@ -101,6 +107,13 @@ namespace BBQ.Result {
                 Image icon = container.Find("Effect").Find("Icon").GetComponent<Image>();
                 icon.sprite = deckFood.effect.effectImage;
             }
+            SetMaterial(foodImage, deckFood.lank);
+        }
+        
+        void SetMaterial(Image foodImage, int lank) {
+            Material mat = lankMaterial[lank - 1];
+            if(mat != null) foodImage.material = new Material(mat);
+            if(foodImage.material != null) foodImage.material.SetFloat(Seed, Random.value);
         }
     }
 }

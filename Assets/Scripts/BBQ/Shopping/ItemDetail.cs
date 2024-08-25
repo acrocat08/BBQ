@@ -11,9 +11,11 @@ namespace BBQ.Shopping {
         [SerializeField] ItemDetailView view;
         [SerializeField] private List<Transform> tabs;
         [SerializeField] private List<GameObject> lankTabs;
+        [SerializeField] private List<GameObject> textTabs;
 
         private ExplainableItem _nowItem;
         private DeckFood _nowFood;
+        private bool _showHint;
 
         public void DrawDetail(FoodData foodData, int lank) {
             view.DrawFoodInfo(transform, foodData, lank);
@@ -21,6 +23,7 @@ namespace BBQ.Shopping {
             _nowItem = foodData;
             _nowFood = null;
             SetLankTab(lank);
+            //SetHint();
         }
 
         public void DrawDetail(DeckFood deckFood) {
@@ -32,9 +35,11 @@ namespace BBQ.Shopping {
             _nowItem = null;
             _nowFood = deckFood;
             SetLankTab(deckFood.lank);
+            //SetHint();
         }
 
         public void SelectLankTab(int lank) {
+            if (_showHint) return;
             if(_nowItem != null && _nowItem is FoodData food) DrawDetail(food, lank);
             else if(_nowFood != null) DrawDetail(_nowFood.data, lank);
         }
@@ -52,6 +57,28 @@ namespace BBQ.Shopping {
                 }
                 lankTabs[i].GetComponent<Image>().color = tabColor;
             }
+        }
+
+        void SetHint() {
+            for (int i = 0; i < 2; i++) {
+                Color tabColor = textTabs[i].GetComponent<Image>().color;
+                bool isActive = i == 0 && !_showHint || i == 1 && _showHint;
+                if (isActive) {
+                    tabColor.a = 1f;
+                    //textTabs[i].transform.Find("Star").GetComponent<Image>().enabled = true;
+                }
+                else {
+                    tabColor.a = 0.2f;
+                    //textTabs[i].transform.Find("Star").GetComponent<Image>().enabled = false;
+                }
+                textTabs[i].GetComponent<Image>().color = tabColor;
+            }
+            transform.Find("BaseInfo").Find("Hint").GetComponent<CanvasGroup>().alpha = _showHint ? 1 : 0;
+        }
+
+        public void SelectHint(bool showHint) {
+            _showHint = showHint;
+            SetHint();
         }
         
         public void DrawDetail(ToolData toolData) {

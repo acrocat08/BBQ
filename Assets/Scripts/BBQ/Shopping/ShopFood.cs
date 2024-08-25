@@ -13,12 +13,14 @@ namespace BBQ.Shopping {
 
         private Shop _shop;
         private int _cost;
+        private bool _isDiscounted;
 
         public void Init(FoodData data, Shop shop, string areaTag, string targetTag, ItemDetail detail) {
             itemDetail = detail;
             deckFood = new DeckFood(data);
             _shop = shop;
             _cost = data.cost;
+            _isDiscounted = false;
             PointableArea area = transform.Find("FoodImage").Find("Pointable").GetComponent<PointableArea>();
             area.areaTag = areaTag;
             area.targetTag = targetTag;
@@ -64,7 +66,12 @@ namespace BBQ.Shopping {
         }
 
         public void Discount() {
+            _isDiscounted = true;
             shopView.Discount(this);
+        }
+
+        public bool CheckIsDiscounted() {
+            return _isDiscounted;
         }
 
         public void Freeze() {

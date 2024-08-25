@@ -50,6 +50,7 @@ namespace BBQ.Shopping {
             if (effect != null) await assembly.Run(effect.onAttached, null, target[0].deckFood, null);
             target[0].deckFood.effect = effect;
             target[0].SetEffect();
+            target[0].deckFood.stack = target.Max(x => x.deckFood.stack);
             for (int i = 1; i < target.Count; i++) {
                 TriggerObserver.I.RemoveFood(target[i].deckFood);
                 DeckFood emptyFood = new DeckFood(null);
@@ -57,11 +58,12 @@ namespace BBQ.Shopping {
             }
             await target[0].LankUp();
             //await UniTask.Delay(TimeSpan.FromSeconds(discoverDuration));
-            await TriggerObserver.I.Invoke(ActionTrigger.LankUp, new List<DeckFood> { target[0].deckFood }, true);
-            await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new List<DeckFood> { target[0].deckFood }, false);
+
             int discoverTier = Mathf.Min(5, shop.GetShopLevel() + 1);
             FoodData discovered = isTutorial ? tutorialFood : itemSet.GetRandomFood(discoverTier, discoverTier);
             await shop.AddFoods(new List<FoodData> { discovered }, false);
+            await TriggerObserver.I.Invoke(ActionTrigger.LankUp, new List<DeckFood> { target[0].deckFood }, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new List<DeckFood> { target[0].deckFood }, false);
             InputGuard.UnLock();            
         }
 

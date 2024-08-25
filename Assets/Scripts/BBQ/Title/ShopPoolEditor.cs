@@ -103,7 +103,7 @@ namespace BBQ.Title {
                 _selected.foodsIndex.Remove(index);
             }
             detail.DrawDetail(food, 1);
-            SetIconView(items[index % 20], !isSelected);
+            SetIconView(items[index % 25], !isSelected);
         }
 
         private void SetIconView(GameObject obj, bool isSelected) {
@@ -114,7 +114,7 @@ namespace BBQ.Title {
         public void Save() {
             List<FoodData> foods = _selected.foodsIndex.Select(x => itemSet.foods[x]).ToList();
             for (int i = 1; i <= 5; i++) {
-                if (foods.Count(x => x.tier == i) != 10) return;
+                //if (foods.Count(x => x.tier == i) != 10) return;
             }
 
             _selected.foodsIndex.Sort();

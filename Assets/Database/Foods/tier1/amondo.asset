@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: amondo
+  m_EditorClassIdentifier: 
+  subItem: []
+  foodName: "\u30A2\u30FC\u30E2\u30F3\u30C9"
+  tier: 1
+  cost: 10
+  foodImage: {fileID: 21300000, guid: 342db32bfc5ee1a4cb2d281f1b20dcdd, type: 3}
+  color: {r: 0.6431373, g: 0.3372549, b: 0.15294118, a: 1}
+  isToken: 0
+  useStack: 1
+  tag: 
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+0\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30D2\u30C3\u30C8\u52B9\u679C\u3067\u7372\u5F97\u3059\u308B\u30CF\u30F3\u30C9\u30921\u5897\u3084\u3059
+      (\u6700\u59272)"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+0\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30D2\u30C3\u30C8\u52B9\u679C\u3067\u7372\u5F97\u3059\u308B\u30CF\u30F3\u30C9\u30921\u5897\u3084\u3059
+      (\u6700\u59273)"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30CF\u30F3\u30C9+0\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30D2\u30C3\u30C8\u52B9\u679C\u3067\u7372\u5F97\u3059\u308B\u30CF\u30F3\u30C9\u30921\u5897\u3084\u3059
+      (\u6700\u59274)"
+    sequences:
+    - trigger: 25
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+    - trigger: 12
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
+        n1: stack
+        n2: 
+      priority: 0
+    - trigger: 10
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 1d19b76314948324fb36f0dfe28cbf9c, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: 1/2/3
+        n2: stack
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 2
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: stack
+        n2: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
