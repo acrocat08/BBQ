@@ -23,9 +23,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u7372\u5F97\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C8\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+150\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C16\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30AB\u30FC\u30DC\u30F3+3"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30922\u7372\u5F97\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C8\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+150\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C16\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30AB\u30FC\u30DC\u30F3+3"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30923\u7372\u5F97\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30CF\u30F3\u30C9+3\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C8\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+150\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C16\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30AB\u30FC\u30DC\u30F3+3"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30921\u7372\u5F97\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+2\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C5\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30CF\u30F3\u30C9+3\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C10\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+150"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30922\u7372\u5F97\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+2\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C5\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30CF\u30F3\u30C9+3\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C10\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+150"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u30923\u7372\u5F97\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u30AB\u30FC\u30DC\u30F3+2\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C5\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30CF\u30F3\u30C9+3\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C10\u4EE5\u4E0A\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+150"
     sequences:
     - trigger: 0
       condition: []
@@ -40,6 +40,16 @@ MonoBehaviour:
     - trigger: 6
       condition: []
       commands:
+      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
+        n1: 2
+        n2: 
+      priority: 0
+    - trigger: 6
+      condition:
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: stack
+        n2: 5
+      commands:
       - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
         n1: 3
         n2: 
@@ -48,20 +58,10 @@ MonoBehaviour:
       condition:
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
         n1: stack
-        n2: 8
+        n2: 10
       commands:
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
         n1: 150
-        n2: 
-      priority: 0
-    - trigger: 6
-      condition:
-      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
-        n1: stack
-        n2: 16
-      commands:
-      - action: {fileID: 11400000, guid: 25e04584d1d3dd144b21e43115e930f8, type: 2}
-        n1: 3
         n2: 
       priority: 0
   hint: 

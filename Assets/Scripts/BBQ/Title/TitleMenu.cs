@@ -31,6 +31,7 @@ namespace BBQ.Title {
         [SerializeField] private GameObject backButton;
         [SerializeField] private List<GameObject> modeButtons;
         [SerializeField] private SceneTransition transition;
+        [SerializeField] private Transform basePos;
 
         private bool _isMoving;
         private int _modeIndex;
@@ -81,7 +82,8 @@ namespace BBQ.Title {
             _isMoving = true;
             _isSelectingMode = true;
             SoundPlayer.I.Play("se_select1");
-            container.DOMoveX(0f, 1f).SetEase(Ease.OutQuint);
+            
+            container.DOMoveX(basePos.position.x, 1f).SetEase(Ease.OutQuint);
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
             backButton.SetActive(true);
             _isMoving = false;

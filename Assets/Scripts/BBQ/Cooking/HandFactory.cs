@@ -14,7 +14,7 @@ namespace BBQ.Cooking {
         public Hand Create(Board board, Dump dump, List<Lane> lanes, CookTime time, MissionSheet missionSheet, ActionEnvironment env, bool isGolden, bool isDouble, TutorialCooking tutorial) {
             Hand obj = Instantiate(prefab).GetComponent<Hand>();
             obj.Init(board, dump, lanes, time, missionSheet, env, isGolden, isDouble, tutorial);
-            obj.transform.localPosition = pos;
+            //obj.transform.localPosition = pos * (Screen.height / 1080f);
             obj.transform.localScale = Vector3.one;
             return obj;
         }

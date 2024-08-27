@@ -2110,6 +2110,7 @@ MonoBehaviour:
   - {fileID: 843050424}
   - {fileID: 1678508145}
   transition: {fileID: 313433008}
+  basePos: {fileID: 382570525}
 --- !u!114 &618305988
 MonoBehaviour:
   m_ObjectHideFlags: 0
