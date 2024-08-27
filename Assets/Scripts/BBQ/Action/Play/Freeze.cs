@@ -35,8 +35,10 @@ namespace BBQ.Action.Play {
             
             SoundMgr.SoundPlayer.I.Play("se_freeze");
             await tasks;
-            await TriggerObserver.I.Invoke(ActionTrigger.Freeze, deckFoods, true);
-            await TriggerObserver.I.Invoke(ActionTrigger.FreezeOthers, deckFoods, false);
+            if (!env.isShopping || !env.shop.GetShopFoods().Select(x => x.deckFood).Contains(deckFoods[0])) {
+                await TriggerObserver.I.Invoke(ActionTrigger.Freeze, deckFoods, true);
+                await TriggerObserver.I.Invoke(ActionTrigger.FreezeOthers, deckFoods, false);    
+            }
 
             ActionVariable v2 = v.Copy("f1", "");
             v2.f1 = dropped;

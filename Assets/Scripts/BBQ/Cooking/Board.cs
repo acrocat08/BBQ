@@ -70,7 +70,7 @@ namespace BBQ.Cooking {
             }
         }
 
-        private void CreateHand() {
+        private async void CreateHand() {
             if (_nextGold) {
                 SoundPlayer.I.Play("se_goldenHand");                
             }
@@ -88,6 +88,8 @@ namespace BBQ.Cooking {
             _hand = hand;
             _hand.transform.SetParent(transform.Find("HandContainer"), true);
             _hand.transform.localPosition = handInitialPos;
+            await UniTask.Delay(TimeSpan.FromSeconds(0.1f));
+            _hand.GetComponent<CanvasGroup>().alpha = 1f;
         }
 
         public void UseHand() {
