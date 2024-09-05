@@ -23,15 +23,15 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30C9\u30ED\u30FC\uFF1A\n- \u30C9\u30ED\u30FC+1\n\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+1\n-\u3000\u30B3\u30A4\u30F3+30\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
-    - "\u30C9\u30ED\u30FC\uFF1A\n- \u30C9\u30ED\u30FC+1\n\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+1\n-\u3000\u30B3\u30A4\u30F3+35\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
-    - "\u30C9\u30ED\u30FC\uFF1A\n- \u30C9\u30ED\u30FC+1\n\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+1\n-\u3000\u30B3\u30A4\u30F3+40\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
+    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+30\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
+    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+35\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
+    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+40\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
     sequences:
     - trigger: 28
       condition: []
       commands:
       - action: {fileID: 11400000, guid: dfcfbe99c6d9f8c4ea11ead4dbaf2565, type: 2}
-        n1: 1
+        n1: 2
         n2: 
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
         n1: 30/35/40
@@ -42,12 +42,5 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
         n1: f1
         n2: none
-      priority: 0
-    - trigger: 8
-      condition: []
-      commands:
-      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
-        n1: 1
-        n2: 
       priority: 0
   hint: 

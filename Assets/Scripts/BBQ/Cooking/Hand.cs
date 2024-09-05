@@ -65,6 +65,7 @@ namespace BBQ.Cooking {
         
         async void OnShot() {
             _time.Pause();
+            GetComponent<CanvasGroup>().alpha = 1f;
             List<FoodObject> hitFoods = await shot.Shot(_isDouble);
             List<DeckFood> deckFoods = hitFoods.Where(x => x).Select(x => x.deckFood).ToList();
             

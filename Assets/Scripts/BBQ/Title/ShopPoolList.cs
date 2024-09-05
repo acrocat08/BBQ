@@ -6,6 +6,7 @@ using BBQ.PlayData;
 using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using SoundMgr;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -34,7 +35,8 @@ namespace BBQ.Title {
         }
 
         public async void Open() {
-            _nowIndex = PlayerConfig.GetPoolIndex();
+            SoundPlayer.I.Play("se_select1");
+            _nowIndex = 0;
             for (int i = 0; i < tabs.Count; i++) {
                 if (i == _nowIndex) tabs[i].color = selectColor[0];
                 else tabs[i].color = selectColor[1];
@@ -72,20 +74,27 @@ namespace BBQ.Title {
             foreach (GameObject item in items) {
                 Destroy(item);
             }
+
+            ShopPool targetPool = PlayerConfig.GetShopPool(index + 9);
             
             items = new List<GameObject>();
-            foreach (int foodIndex in PlayerConfig.GetShopPool(index).foodsIndex) {
+            foreach (int foodIndex in targetPool.foodsIndex) {
                 FoodData food = itemSet.foods[foodIndex];
                 GameObject obj = Instantiate(itemPrefab, container, false);
                 obj.GetComponent<Image>().sprite = food.foodImage;
                 items.Add(obj);
             }
 
-            poolName.text = (index + 1) + " : " + PlayerConfig.GetShopPool(index).poolName; 
+            poolName.text = (index + 1) + " : " + targetPool.poolName; 
         }
 
         public void ChangeTab(int index) {
+            SoundPlayer.I.Play("se_select2");
             _nowIndex = index;
+            for (int i = 0; i < tabs.Count; i++) {
+                if (i == _nowIndex) tabs[i].color = selectColor[0];
+                else tabs[i].color = selectColor[1];
+            }
             Draw(index);
         }
 
@@ -94,7 +103,7 @@ namespace BBQ.Title {
         }
 
         public void Select() {
-            PlayerConfig.Create(PlayerConfig.GetShopPool(0), 0, _nowIndex, PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, _nowIndex, PlayerConfig.GetGameMode());
             for (int i = 0; i < tabs.Count; i++) {
                 if (i == _nowIndex) tabs[i].color = selectColor[0];
                 else tabs[i].color = selectColor[1];
@@ -106,7 +115,7 @@ namespace BBQ.Title {
         }
 
         public void CopyPoolCode() {
-            GUIUtility.systemCopyBuffer = PlayerConfig.GetShopPool(_nowIndex).Encode();
+            GUIUtility.systemCopyBuffer = PlayerConfig.GetShopPool(_nowIndex + 9).Encode();
         }
 
         public void LoadPoolCode() {

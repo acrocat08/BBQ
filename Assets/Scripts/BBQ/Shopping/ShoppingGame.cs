@@ -82,7 +82,7 @@ namespace BBQ.Shopping {
 
         private void LoadStatus() {
             _day = PlayerStatus.GetDay();
-            if (_day == 1 && PlayerConfig.GetGameMode() == GameMode.random) {
+            if (_day == 1 && PlayerConfig.GetPoolIndex() == 8) {
                 itemSet.MakeRandomPool();
             }
             List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();

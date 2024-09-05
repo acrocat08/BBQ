@@ -45,7 +45,10 @@ namespace BBQ.Shopping {
             _tutorial = tutorial;
             reroller.Init(this, _coin, rerollTicket, tutorial == null);
             reroller.Reroll(true, frozen);
-            view.UpdateText(this, levelUpCosts[_level - 1] - _levelUpDiscount);
+            int cost = levelUpCosts[_level - 1];
+            if (PlayerConfig.GetGameMode() == GameMode.easy) cost = (int)(cost * 0.8f);
+            cost -= _levelUpDiscount;
+            view.UpdateText(this, cost);
         }
         
         public async void BuyFood(ShopFood shopFood, DeckInventory inventory) {
@@ -153,11 +156,15 @@ namespace BBQ.Shopping {
         }
 
         async void LevelUp() {
-            int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
+            int cost = levelUpCosts[_level - 1];
+            if (PlayerConfig.GetGameMode() == GameMode.easy) cost = (int)(cost * 0.8f);
+            cost -= _levelUpDiscount;
             _coin.Use(cost);
             _level += 1;
             _levelUpDiscount = 0;
-            view.UpdateText(this, levelUpCosts[_level - 1]);
+            cost = levelUpCosts[_level - 1];
+            if (PlayerConfig.GetGameMode() == GameMode.easy) cost = (int)(cost * 0.8f);
+            view.UpdateText(this, cost);
             InputGuard.Lock();
             await view.LevelUp(_level);
             InputGuard.UnLock();
@@ -167,7 +174,9 @@ namespace BBQ.Shopping {
             if (_tutorial != null) return;
             if (InputGuard.Guard()) return;
             if (_level == 5) return;
-            int cost = levelUpCosts[_level - 1] - _levelUpDiscount;
+            int cost = levelUpCosts[_level - 1];
+            if (PlayerConfig.GetGameMode() == GameMode.easy) cost = (int)(cost * 0.8f);
+            cost -= _levelUpDiscount;
             if (_coin.GetCoin() < cost) return;
             SoundPlayer.I.Play("se_levelup");
             LevelUp();

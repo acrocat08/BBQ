@@ -16,7 +16,7 @@ namespace BBQ.Action.Play {
                 isOk = deckFoods.All(x => env.inventory.GetDeckFoods().Contains(x));
             }
             else {
-                isOk = deckFoods.All(x => env.deck.SelectAll().Contains(x));
+                isOk = deckFoods.All(x => env.deck.SelectAll().Contains(x) && !x.isFrozen);
             }
             v.x1 = isOk ? 1 : 0;
         }

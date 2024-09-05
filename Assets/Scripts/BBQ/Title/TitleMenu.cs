@@ -23,21 +23,24 @@ namespace BBQ.Title {
         [SerializeField] private Transform smogContainer;
         [SerializeField] private ItemDictionary dictionary;
         [SerializeField] private ShopPoolList lineup;
-        [SerializeField] private List<string> modeList;
-        [Multiline][SerializeField] private List<string> modeExplainList;
-        [SerializeField] private Text modeText;
-        [SerializeField] private Text modeExplain;
         [SerializeField] private Transform container;
         [SerializeField] private GameObject backButton;
         [SerializeField] private List<GameObject> modeButtons;
         [SerializeField] private SceneTransition transition;
         [SerializeField] private Transform basePos;
 
+        [SerializeField] private List<GameObject> lineupList;
+        [SerializeField] private List<GameObject> modeList;
+        [SerializeField] private Text highScore;
+        [SerializeField] private GameObject startButton;
+
         private bool _isMoving;
         private int _modeIndex;
         private int _prevIndex;
         private bool _isSelectingMode;
-        
+
+        private int _nowLineup;
+        private int _nowMode;
         
         private void Start() {
             _isMoving = false;
@@ -71,10 +74,19 @@ namespace BBQ.Title {
             var cts = new CancellationTokenSource();  
             CancellationToken token = cts.Token;  
             view.Smog(transform, smogContainer, token);
-            PlayerConfig.Create(PlayerConfig.GetShopPool(0), 0, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
             _modeIndex = (int)PlayerConfig.GetGameMode();
-            modeText.text = modeList[_modeIndex];
-            modeExplain.text = modeExplainList[_modeIndex];
+
+            _nowLineup = PlayerConfig.GetPoolIndex();
+            _nowMode = (int)PlayerConfig.GetGameMode();
+            for (int i = 0; i < lineupList.Count; i++) {
+                lineupList[i].SetActive(i == _nowLineup);
+            }
+            for (int i = 0; i < modeList.Count; i++) {
+                modeList[i].SetActive(i == _nowMode);
+            }
+
+            UpdateHighScore();
         }
         
         public async void GotoMainGame() {
@@ -86,12 +98,10 @@ namespace BBQ.Title {
             container.DOMoveX(basePos.position.x, 1f).SetEase(Ease.OutQuint);
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
             backButton.SetActive(true);
-            _isMoving = false;
+            //_isMoving = false;
 
         }
         public async void BackToMenu() {
-            if (_isMoving) return;
-            _isMoving = true;
             backButton.SetActive(false);
             container.DOMoveX(Screen.width / 2f, 1f).SetEase(Ease.OutQuint);
             await UniTask.Delay(TimeSpan.FromSeconds(1f));
@@ -99,19 +109,34 @@ namespace BBQ.Title {
             _isSelectingMode = false;
         }
 
-        public async void SelectMode(int modeIndex) {
-            if (_isMoving) return;
-            _isMoving = true;
-            PlayerConfig.Create(PlayerConfig.GetShopPool(0), 0, PlayerConfig.GetPoolIndex(), (GameMode)modeIndex);
-            for (int i = 0; i < modeButtons.Count; i++) {
-                if (i == modeIndex) continue;
-                modeButtons[i].SetActive(false);
-            }
+        public async void GotoGame() {
+            startButton.SetActive(false);
+            Debug.Log(_nowLineup);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, _nowLineup, (GameMode)_nowMode);
             SoundPlayer.I.Play("se_missionClear");
             await SoundPlayer.I.FadeOutSound("bgm_title");
             view.GotoNext();
             await transition.SceneEnd();
             SceneManager.LoadScene("Scenes/Shopping");
+        }
+
+        public void ChangeLineup(int dir) {
+            SoundPlayer.I.Play("se_changeMode");
+            _nowLineup = (_nowLineup + dir + lineupList.Count) % lineupList.Count;
+            for (int i = 0; i < lineupList.Count; i++) {
+                lineupList[i].SetActive(i == _nowLineup);
+            }
+            UpdateHighScore();
+
+        }
+        
+        public void ChangeMode(int dir) {
+            SoundPlayer.I.Play("se_changeMode");
+            _nowMode = (_nowMode + dir + modeList.Count) % modeList.Count;
+            for (int i = 0; i < modeList.Count; i++) {
+                modeList[i].SetActive(i == _nowMode);
+            }
+            UpdateHighScore();
         }
         
         public async void GotoTutorial() {
@@ -129,30 +154,33 @@ namespace BBQ.Title {
         }
         
         public void OpenDictionary() {
-            //_isMoving = true;
+            _isMoving = true;
             dictionary.Open(false);
         }
         
         public void CloseDictionary() {
-            //_isMoving = false;
+            _isMoving = false;
             dictionary.Close();
         }
         
         public void OpenLineup() {
-            //_isMoving = true;
+            _isMoving = true;
             lineup.Open();
         }
         
         public void CloseLineup() {
-            //_isMoving = false;
+            _isMoving = false;
             lineup.Close();
         }
 
         public void ChangeMode() {
             _modeIndex = (_modeIndex + 1) % modeList.Count;
-            modeText.text = modeList[_modeIndex];
-            modeExplain.text = modeExplainList[_modeIndex];
-            PlayerConfig.Create(PlayerConfig.GetShopPool(0), 0, PlayerConfig.GetPoolIndex(), (GameMode)_modeIndex);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), (GameMode)_modeIndex);
+        }
+
+        void UpdateHighScore() {
+            highScore.text =
+                "ハイスコア： " + PlayerPrefs.GetInt("score_" + _nowMode + "_" + _nowLineup, 0);
         }
         
         

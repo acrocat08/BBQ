@@ -33,9 +33,16 @@ namespace BBQ.Shopping {
             if (PlayerConfig.GetGameMode() == GameMode.easy) {
                 return 4 + count * 2;
             }
-            if (count <= 3) return 6 + count * 2;
-            if (count <= 7) return 3 + count * 3;
-            return -4 + count * 4;
+            if (PlayerConfig.GetGameMode() == GameMode.normal) {
+                if (count <= 5) return 5 + count * 2;
+                return count * 3;
+            }
+            if (PlayerConfig.GetGameMode() == GameMode.hard) {
+                if (count <= 3) return 6 + count * 2;
+                if (count <= 7) return 3 + count * 3;
+                return -4 + count * 4;
+            }
+            return 0;
         }
 
     }

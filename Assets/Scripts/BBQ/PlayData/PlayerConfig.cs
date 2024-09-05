@@ -14,13 +14,13 @@ namespace BBQ.PlayData {
 
         private static string[] defaultCodes = {
             "x65L+4BzqWTztj+bTFjiZ9tpXS8PVeNXY/y8SJ8TUpeAGw5oa2+bJvnKhcHGxRRy3L2WN/EaJTMPjCoAlEbAE7QBw6LOx+JjlU+Cco1xFiFlX36bJl/7NIi9I/y7kvk+GZ6BaggYQ0dtdTTP5qwzWCtVExG5WfbwUxdNc3SeQRZx0HCGDFhpY9ArmHis9l6oW+BIcaG0xOz6T5x4HfjDQbKb98W4fdCuNawcYFQ+VkA=",
-            "pF9QEPszyeSUk5TlYpbpwtgl9cj1QW/uQ0GznLciOsJ0zYM1tch9d0dvH/N2RUGZMWN46xecpNchqJXhIMF8pHqWSSLrRtL9S9t0KMEXkWPLGSeEzb3SAXM9a8oYTt2E0I6y/0DX/qzgVGS22KuARD81kk7DrNqvQMLX8us2lwxh9uNkv1YvNJqE6Bt+2X2DJBBQosLlZghNyy9p5LxU4wtZXk/FzIfr8HwcewKbpQsMtrvASvnNpDYeAWT+J+up",
-            "MjGnhoTh1fIwsAwXKmVkZ4ASyBEBzIrnkyxj7chDQwCD/qLv98qb218VTQwdogPRpQlemc2Hgp7vtdDFCA7V7UYgA/CsUOT2tDxkmM/xq6uCAjI5Aft/9jG7dBZdABcoHUoPV4wbemUAiAHpbskNsknx/FVQCzsKDcy4uyIBC+LsqY/0wcCpVkSplk+y4naOK027Y/lq0IbS3GI4aqD7iV6nW2pBccpqvG8WqcnUfCxNhoOyN6r3SJxiw2el7gpB",
-            "yFeofF6tNnbRjfx71bTUmVUHKKed0QyB2eX4DzUsnsnkSBa0rNQ2aAgB+uDQzLNwxt7wlmzYud5L79seG1ZbM0t5w8zOqQVLwV/LKHNWc71xUSOLSQ5sTcoH5KtuvzMyIkZVNx8fVpKpvNYSZ0i0lCdspwwe7q14J+FqQWSdqjvuDaVy2iabV5vDTdhFugpbWQiGAeU9CC7E/LRoWaV2zWKK1uco7IFSmOHZedfD3BlLRmi7fS1aUuQQbPwW6n7E",
-            "m64rg8aXedWkMYn+6It5P9lNUQjWiyI0g8wirGSH8MEjzMkL3X3TxBjIKKMaPiZuWiUuxEMZJpQUoNF4kIXEa+b/M6c9rYFwbdysLOLVhi8vbomnIu1H2//DO8Q21chosYXicKOAcwwJKziBRPjG8MG0gsXl8lSHSqiNTGePgR7ctvT79knQlzOWqqlejgFtTzTHa7otdfYovVxouwgcK9F3PWMYTvbbJ7gNvUmDZJiyqyARGWactFoRL+D6Je0+",
-            "qfDvurdJRVx5c3PBOeURKQahXb18zNsBC8rS+KftWlhcFbO8wV6iJv8L8Ckzo/P1plSVnxYB1FSBh0r/QqrfYShs/N5VDMn8HTylKi13rUH+eoCJSZ95sH01aDjAN4MXhZfcwQuL3fRzQSkxIRd3TX2ntjT4nPZTxRQ8GQGN+qegGqU3v1mY4ar1RD6SfpEqYEJ4679pV6n4Nab9F1ORwVzPpvS8roUo2rNe7OVhqKk=",
-            "AUQr8O0ut9WJiqGos5KATqED7PHUdusxzvvj2yc2NKAlk3KaF5dl2SRrTDiGyAoLgcAYOh3hITgVUjHmbSAEYyNOmqcNvcli0x/LDABxa+YQlDs5teKugb4Bpz32AKY6l6Jgwf89M6YNcLchFGGJWrpy9jgZ9ZFmJrEc9VG8HZELgG0apB1C29B5e8hO4VsZJICN78PaeMX/aJXqPimZd0f/VpGhtsJoC/DNTBfwLjs=",
-            "Xc5Z8Ic4ziS2hGAJoUlQAzpRNDvcbq6IZ7S9sET3nF7HpJOtLZR6IwMA0ZyqpOC7Cr7Be4xyt9NxOU74fRiINEVBqHf8NkNzMYC7t8cqNqU/7wVd9Cs45L6Mnz28za8V70CGps6dCyQ35NII26Hb036sPQeCEYrXUeH5bckXRTD6Oa/xlqtHRUDpjbnc7VRzrud6XTOCDhX5IjozZJzQlFyIPKwjlIGo5OgVNOUlINk=",
+            "x65L+4BzqWTztj+bTFjiZ0j4wkzvCTvg8YrBGd4bjLHbzAfjQkSkH3bO7bpj7KJMV99tfX7OxfX+Ky3ytloBpr/rL9+6NCqIHMxa/1+URnwzcvpCepUYfbqf2WQveHH94ViwPO5YQu0y1opluLmsWBwKIlsQZsm8roS5DM4CAuUq3PI3idzVu9xguCg94HXyVweUMPVGDWWZ0l1BgBOtREbHv/Jb+Hofc2WEMWGJ+TA=",
+            "yFeofF6tNnbRjfx71bTUmZUvAUcE0tjsEry/sRhFD1ocLdt4TXMCceGhDSd/eexTKiBbsHeGsNvrXFcvm7Cx/SHNbf58jAPq0sWL0bPXp1ByteXfwdgj7WpK+YLltOoEd889qcO7fdIzXWNRqqH34iDzR3NJH3HZwXE34K7veCiFkX2xTnyCsTutOYrJYmNy98zBUocxUhcwYmaE1//RJaH6ns6yQLbjDNiGMYXplBY/KzxGS6Iv4y5e8WgIbsMl",
+            "x65L+4BzqWTztj+bTFjiZ70qjycRKArcLRCNKxclBPIcIZCZQsMMinA7VtWvf3pUYCFNM2I6EZDrZAka+kbXTvkKAnTrDT9vb8Zkyr+VPBvN5aop9uvdcEmAJwHisJ19cHUsZHrBBCnuRzpKbwiko4T8Ik4E7oLlYnbQDWSznX83TJFQJmn15tFPTn+qsQOGrFSmlKQ0W8ctvKfOi+4AMHSGDN6Jcdi9mw3FvGValmU5kOvINL0Pn9/TSS/6lejz",
+            "m64rg8aXedWkMYn+6It5P9lNUQjWiyI0g8wirGSH8MGzFUKY31yRD2b5olUSWGEAK/jfnpJzQ3U7IzjAER7fGz7lpWfUeVLTA1YKeqp1jWaKUVvEesT14kDNJAWg3b5B+nmqAGC08kfZIXOIRsavzqyV8rrStj/LG+5+z6b44Vy7/uX5s0cIP/fra1f+BPTOl56N0IgNt8yiVyZaNfUBKOGaAD3taIxnh5CAOC1o48GVuxxQejJHWL/Rzyj3AZA6",
+            "qfDvurdJRVx5c3PBOeURKYCGmhR6fUHo3S8SP2lv4EFpsdKNclWcGkuayXggUrE7YEO5Jzhw+WivFqvsi6H5ZqUlBNQmNugmXFAvKL9f8ePeYvrOuBcXSm2U1z7lR2OAgjbBsQriesy2j3E5U2o1yzSVrWRb21qRv+eUjFqSOJgJOFXzPlKHMkBBZTuvFGCbdzXdPdN4yPrfcp4PD+dWNV2OjthtmL7Wl6u4v/vjgxg=",
+            "AUQr8O0ut9WJiqGos5KATlfbdtZxtSMKwRs2c54lYGOhLe7xgTG+rVTOiufX4Edp/m4bEdNhPC2f65c0Ro/TNiPAEmgDIWH9VtVJbRQvyt+B5n4ATwo2ulM95eXL9rrl1I8/K+ojXIWd2KVrRXNW5XHDl78emX5Zs04I9y0Z4/RgGFkCzCqaXUFt434YMrHrJB9WEXo9ND1UDglA40utpDbfKC5VUgrKLmutMCZ9xgE=",
+            "x65L+4BzqWTztj+bTFjiZ18Cy5p/ANawKCTqNuAIVSa2HYdcz7OprICEhho1rj4PL4NIbMad+ZZ4q4OogzfV8M9WZjgV8V6sXfH1CbXKE+MqtT10dYQIjYka0a0SjJT4UWoSzE2Sn6vukm8q25dQIMqlOkhDl9K665c7d9XetOiju8iPyuFJK9bZA5kCooeVvW5LuaPqug5TOcmYCLBZdN7G010hP0BgDbtOnSTSK78wazA1Z4KPzc/C4zp00x7H"
         };
 
         public static void Create(ShopPool shopPool, int poolIndex, int selectedIndex, GameMode mode) {
@@ -57,8 +57,13 @@ namespace BBQ.PlayData {
         private static PlayerConfig LoadData() {
             List<ShopPool> pools = new List<ShopPool>();
             for (int i = 0; i < 8; i++) {
+                pools.Add(ShopPool.Decode(defaultCodes[i]));
+            }
+            
+            pools.Add(ShopPool.Decode(defaultCodes[0]));
+            for (int i = 0; i < 8; i++) {
                 string poolName = "Pool_" + i;
-                string hashCode = PlayerPrefs.GetString(poolName, defaultCodes[i]);
+                string hashCode = PlayerPrefs.GetString(poolName, defaultCodes[0]);
                 pools.Add(ShopPool.Decode(hashCode));
             }
             int poolIndex = PlayerPrefs.GetInt("selectedIndex", 0);
@@ -73,7 +78,7 @@ namespace BBQ.PlayData {
 
     public enum GameMode {
         easy,
+        normal,
         hard,
-        random,
     }
 }

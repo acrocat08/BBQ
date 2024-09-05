@@ -41,6 +41,12 @@ namespace BBQ.Result {
             int score = PlayerStatus.GetScore() / PlayerStatus.GetDay();
             UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
             scoreText.text = "Score:    " + score;
+            if (PlayerConfig.GetPoolIndex() <= 8) {
+                string scoreName = "score_" + (int)PlayerConfig.GetGameMode() + "_" + PlayerConfig.GetPoolIndex();
+                int nowScore = PlayerPrefs.GetInt(scoreName, 0);
+                if(score > nowScore) PlayerPrefs.SetInt(scoreName, score);
+            }
+            
             isClear = PlayerStatus.GetGameStatus() == 1;
             if (isClear) {
                 trueend.Init(transform);

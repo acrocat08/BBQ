@@ -40,7 +40,7 @@ namespace BBQ.Database {
         }
 
         public List<FoodData> GetFoodPool() {
-            if (PlayerConfig.GetGameMode() == GameMode.random) {
+            if (PlayerConfig.GetPoolIndex() == 8) {
                 return _randomPool;
             }
             ShopPool pool = PlayerConfig.GetShopPool(PlayerConfig.GetPoolIndex());

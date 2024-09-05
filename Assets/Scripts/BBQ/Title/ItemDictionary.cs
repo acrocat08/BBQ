@@ -5,6 +5,7 @@ using BBQ.Database;
 using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using SoundMgr;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -29,6 +30,7 @@ namespace BBQ.Title {
         }
 
         public async void Open(bool showPool) {
+            SoundPlayer.I.Play("se_select1");
             _showPool = showPool;
             Draw(1);
             isMoving = true;
@@ -59,6 +61,7 @@ namespace BBQ.Title {
         }
         
         public void Draw(int tier) {
+            SoundPlayer.I.Play("se_select2");
             foreach (GameObject item in items) {
                 Destroy(item);
             }
@@ -100,10 +103,12 @@ namespace BBQ.Title {
 
 
         public void ShowDetail(FoodData food) {
+            SoundPlayer.I.Play("se_select3");
             detail.DrawDetail(food, 1);
         }
         
         public void ShowDetail(ToolData tool) {
+            SoundPlayer.I.Play("se_select3");
             detail.DrawDetail(tool);
         }
     }

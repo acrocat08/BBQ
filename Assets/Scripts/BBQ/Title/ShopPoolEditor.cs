@@ -6,6 +6,7 @@ using BBQ.PlayData;
 using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using SoundMgr;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -29,14 +30,14 @@ namespace BBQ.Title {
 
         public void Start() {
             items = new List<GameObject>();
-            _selected = PlayerConfig.GetShopPool(0);
+            _selected = PlayerConfig.GetShopPool(9);
         }
 
         public async void Open(int index) {
-            poolIndex = index;
-            _selected = PlayerConfig.GetShopPool(index);   
+            poolIndex = index + 9;
+            _selected = PlayerConfig.GetShopPool(poolIndex);   
             Draw(1);
-            inputField.text = PlayerConfig.GetShopPool(index).poolName;
+            inputField.text = PlayerConfig.GetShopPool(poolIndex).poolName;
             isMoving = true;
             transform.localScale = Vector3.one;
             CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
@@ -65,6 +66,7 @@ namespace BBQ.Title {
         }
         
         public void Draw(int tier) {
+            SoundPlayer.I.Play("se_select2");
             foreach (GameObject item in items) {
                 Destroy(item);
             }
@@ -94,6 +96,7 @@ namespace BBQ.Title {
 
 
         public void Select(FoodData food) {
+            SoundPlayer.I.Play("se_select3");
             int index = itemSet.foods.IndexOf(food);
             bool isSelected = _selected.foodsIndex.Contains(index);
             if (!isSelected) {
@@ -114,13 +117,13 @@ namespace BBQ.Title {
         public void Save() {
             List<FoodData> foods = _selected.foodsIndex.Select(x => itemSet.foods[x]).ToList();
             for (int i = 1; i <= 5; i++) {
-                //if (foods.Count(x => x.tier == i) != 10) return;
+                if (foods.Count(x => x.tier == i) != 10) return;
             }
 
             _selected.foodsIndex.Sort();
             _selected.poolName = inputField.text;
             
-            PlayerConfig.Create(_selected, poolIndex, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+            PlayerConfig.Create(_selected, poolIndex - 9, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
             listWindow.CloseEditor();
             Close();
         }

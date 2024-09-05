@@ -17,22 +17,22 @@ MonoBehaviour:
   tier: 1
   cost: 10
   foodImage: {fileID: 21300000, guid: 69e226218a8f54c4a8752f04bf039ee8, type: 3}
-  color: {r: 0.52156866, g: 0.15686275, b: 0.24705884, a: 1}
+  color: {r: 0.6117647, g: 0.17254902, b: 0.24705884, a: 1}
   isToken: 0
   useStack: 0
   tag: 
   action:
     summaries:
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u3044\u3061\u3058\u304F\u300D\u4EE5\u5916\u306E\u843D\u4E0B\u3057\u3066\u3044\u308B\u9285\u30E9\u30F3\u30AF\u306E\u98DF\u67501\u3064\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u3044\u3061\u3058\u304F\u300D\u4EE5\u5916\u306E\u843D\u4E0B\u3057\u3066\u3044\u308B\u9280\u30E9\u30F3\u30AF\u4EE5\u4E0B\u306E\u98DF\u67501\u3064\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n\u30B7\u30F3\u30B0\u30EB\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u3044\u3061\u3058\u304F\u300D\u4EE5\u5916\u306E\u843D\u4E0B\u3057\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u300C\u3044\u3061\u3058\u304F\u300D\u4EE5\u5916\u306E\u843D\u4E0B\u3057\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+2\n-\u3000\u300C\u3044\u3061\u3058\u304F\u300D\u4EE5\u5916\u306E\u843D\u4E0B\u3057\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+3\n-\u3000\u300C\u3044\u3061\u3058\u304F\u300D\u4EE5\u5916\u306E\u843D\u4E0B\u3057\u3066\u3044\u308B\u98DF\u67501\u3064\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059"
     sequences:
     - trigger: 0
-      condition:
-      - action: {fileID: 11400000, guid: 117e5efba38ebfd49ba23fb39ad06a99, type: 2}
-        n1: 
-        n2: 
+      condition: []
       commands:
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 1/2/3
+        n2: 
       - action: {fileID: 11400000, guid: 9c28101661284c8489af85300dd0428d, type: 2}
         n1: 
         n2: 
@@ -51,9 +51,6 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
         n1: f1
         n2: f2
-      - action: {fileID: 11400000, guid: 8941fa8adf1012f4b920861133ba6993, type: 2}
-        n1: 1
-        n2: 1/2/3
       - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
         n1: f1
         n2: 1
@@ -61,10 +58,4 @@ MonoBehaviour:
         n1: f1
         n2: 
       priority: 0
-    - trigger: 8
-      condition: []
-      commands:
-      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
-        n1: 1
-        n2: 
-      priority: 0
+  hint: 
