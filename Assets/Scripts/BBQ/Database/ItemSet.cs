@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using BBQ.PlayData;
+using BBQ.Shopping;
 
 namespace BBQ.Database {
     [CreateAssetMenu(menuName = "Database/ItemSet")]
@@ -19,13 +20,19 @@ namespace BBQ.Database {
                 .Where(x => tag == "" || x.tag == tag)
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
+        public FoodData GetRandomAllFood(int minTier, int maxTier, string tag = "") {
+            return foods.Where(x => x.tier >= minTier && x.tier <= maxTier)
+                .Where(x => tag == "" || x.tag == tag)
+                .OrderBy(_ => Guid.NewGuid()).First();
+        }
 
         public FoodData SearchFood(string foodName) {
             return foods.Concat(supportFoods).FirstOrDefault(x => x.foodName == foodName);
         }
 
-        public ToolData GetRandomTool(int min, int max) {
-            return tools.Where(x => x.tier >= min && x.tier <= max)
+        public ToolData GetRandomTool(int min, int max, ToolData prev = null) {
+            return tools.Where(x => x.tier >= min && x.tier <= max && x != prev)
+                .Where(x => !DeckInventory.usedItems.Contains(x.toolTag))
                 .OrderBy(_ => Guid.NewGuid()).First();
         }
         
@@ -48,7 +55,7 @@ namespace BBQ.Database {
         }
 
         public void MakeRandomPool() {
-            _randomPool = new List<FoodData>();
+            _randomPool = new();
             for (int i = 1; i <= 5; i++) {
                 _randomPool.AddRange(foods
                     .Where(x => x.tier == i)

@@ -70,7 +70,7 @@ namespace BBQ.Common {
         }
 
         void InitDict() {
-            _dict = new Dictionary<string, Sprite>();
+            _dict = new();
             foreach (ParamImageSet set in images) {
                 _dict[set.name] = set.sprite;
             }

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: natadekoko
+  m_EditorClassIdentifier: 
+  subItem: []
+  foodName: "\u30CA\u30BF\u30C7\u30B3\u30B3"
+  tier: 0
+  cost: 20
+  foodImage: {fileID: 21300000, guid: 919ac90d9e6a2df49b3e7d8395edfae6, type: 3}
+  color: {r: 0.7843138, g: 0.9215687, b: 0.92549026, a: 1}
+  isToken: 0
+  useStack: 0
+  tag: 
+  action:
+    summaries:
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+2"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+3"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+4"
+    sequences:
+    - trigger: 0
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 2/3/4
+        n2: 
+      priority: 0
+  hint: 
+  cosplayImage: {fileID: 0}
+  cosplayName: 

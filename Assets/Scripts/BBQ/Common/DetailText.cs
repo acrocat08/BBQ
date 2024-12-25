@@ -25,7 +25,7 @@ namespace BBQ.Common {
 
 
         void Update() {
-            if (_wordAreas == null) _wordAreas = new Dictionary<Rect, Keyword>();
+            if (_wordAreas == null) _wordAreas = new();
             
             Keyword word = GetWord();
             if (word != null && _nowDetail == null) {
@@ -49,7 +49,7 @@ namespace BBQ.Common {
         }
 
         public async void SetDetail(string msg) {
-            _wordAreas = new Dictionary<Rect, Keyword>();
+            _wordAreas = new();
             /*
             foreach (Transform under in underBarPos) {
                 Destroy(under.gameObject);
@@ -71,7 +71,7 @@ namespace BBQ.Common {
                     bottomRight.position /= text.pixelsPerUnit;
 
 
-                    Rect rect = new Rect(topLeft.position.x, topLeft.position.y,
+                    Rect rect = new(topLeft.position.x, topLeft.position.y,
                         (bottomRight.position.x - topLeft.position.x) * match.Length, bottomRight.position.y - topLeft.position.y);
                     /*
                     GameObject under = Instantiate(underBar, underBarPos);

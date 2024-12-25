@@ -43,12 +43,12 @@ namespace BBQ.Title {
         }
 
         public async void Smog(Transform bg, Transform smogContainer, CancellationToken token) {
-            if (_smogs == null) _smogs = new List<Transform>();
+            if (_smogs == null) _smogs = new();
             while (SceneManager.GetActiveScene().name == "Title") {
                 await UniTask.Delay(TimeSpan.FromSeconds(Random.Range(0.2f, 1f)));
                 int num = Random.Range(1, 3);
                 for (int i = 0; i < num; i++) {
-                    Vector3 center = new Vector3(Random.Range(smogMinPos.x, smogMaxPos.x),
+                    Vector3 center = new(Random.Range(smogMinPos.x, smogMaxPos.x),
                         Random.Range(smogMinPos.y, smogMaxPos.y));
                     MakeSmog(center + Vector3.right * Random.Range(10, 30) + Vector3.up * Random.Range(10, 30), smogContainer);
                 }

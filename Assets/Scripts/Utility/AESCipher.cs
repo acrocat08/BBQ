@@ -18,7 +18,7 @@ namespace Utility {
         /// <param name="key">対称アルゴリズムの共有鍵</param>
         /// <returns>暗号化された文字列</returns>
         public static string Encrypt(string text) {
-            RijndaelManaged myRijndael = new RijndaelManaged();
+            RijndaelManaged myRijndael = new();
             // ブロックサイズ（何文字単位で処理するか）
             myRijndael.BlockSize = 128;
             // 暗号化方式はAES-256を採用
@@ -35,9 +35,9 @@ namespace Utility {
             ICryptoTransform encryptor = myRijndael.CreateEncryptor(myRijndael.Key, myRijndael.IV);
 
             byte[] encrypted;
-            using (MemoryStream mStream = new MemoryStream()) {
-                using (CryptoStream ctStream = new CryptoStream(mStream, encryptor, CryptoStreamMode.Write)) {
-                    using (StreamWriter sw = new StreamWriter(ctStream)) {
+            using (MemoryStream mStream = new()) {
+                using (CryptoStream ctStream = new(mStream, encryptor, CryptoStreamMode.Write)) {
+                    using (StreamWriter sw = new(ctStream)) {
                         sw.Write(text);
                     }//using
                     encrypted = mStream.ToArray();
@@ -55,7 +55,7 @@ namespace Utility {
         /// <param name="key">対称アルゴリズムの共有鍵</param>
         /// <returns>復号された文字列</returns>
         public static string Decrypt(string cipher) {
-            RijndaelManaged rijndael = new RijndaelManaged();
+            RijndaelManaged rijndael = new();
             // ブロックサイズ（何文字単位で処理するか）
             rijndael.BlockSize = 128;
             // 暗号化方式はAES-256を採用
@@ -71,9 +71,9 @@ namespace Utility {
             ICryptoTransform decryptor = rijndael.CreateDecryptor(rijndael.Key, rijndael.IV);
 
             string plain = string.Empty;
-            using (MemoryStream mStream = new MemoryStream(System.Convert.FromBase64String(cipher))) {
-                using (CryptoStream ctStream = new CryptoStream(mStream, decryptor, CryptoStreamMode.Read)) {
-                    using (StreamReader sr = new StreamReader(ctStream)) {
+            using (MemoryStream mStream = new(System.Convert.FromBase64String(cipher))) {
+                using (CryptoStream ctStream = new(mStream, decryptor, CryptoStreamMode.Read)) {
+                    using (StreamReader sr = new(ctStream)) {
                         plain = sr.ReadLine();
                     }//using
                 }//using

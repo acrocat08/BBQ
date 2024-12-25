@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
+  m_Name: pancake
+  m_EditorClassIdentifier: 
+  subItem:
+  - {fileID: 11400000, guid: caea3c9f8b741444d9a38e025b345c5b, type: 2}
+  - {fileID: 11400000, guid: ae6fb76250a5ba54680ef995f7851d51, type: 2}
+  foodName: "\u30D1\u30F3\u30B1\u30FC\u30AD"
+  tier: 1
+  cost: 10
+  foodImage: {fileID: 21300000, guid: 934f2baee3d3798468796b6971ff595c, type: 3}
+  color: {r: 0.5294118, g: 0.20392159, b: 0.1137255, a: 1}
+  isToken: 0
+  useStack: 0
+  tag: 
+  action:
+    summaries:
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30921\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30922\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B"
+    - "\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30923\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B"
+    - "\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30924\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B"
+    sequences:
+    - trigger: 12
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: "\u30D0\u30BF\u30FC"
+        n2: 1
+      - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
+        n1: 1
+        n2: "\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8"
+      - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+    - trigger: 6
+      condition: []
+      commands:
+      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
+        n1: "\u30D0\u30BF\u30FC"
+        n2: 2/3/4
+      - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
+        n1: 1
+        n2: "\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8"
+      - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
+        n1: f1
+        n2: 
+      priority: 0
+  hint: 
+  cosplayImage: {fileID: 21300000, guid: d1f298e12e9afcb4c91856ffa1f471e2, type: 3}
+  cosplayName: "\u30B7\u30C6\u30A3"

@@ -104,4 +104,38 @@ MonoBehaviour:
         n1: f1
         n2: 
       priority: 1
-  hint: 
+    - trigger: 25
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+    - trigger: 12
+      condition:
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: 280ccc0f764eb394f97acd52f4f360d3, type: 2}
+        n1: f1
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: 0
+        n2: 0
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
+      priority: 0
+  hint: "\u4E00\u5EA6\u30D5\u30EA\u30FC\u30BA\u3057\u305F\u98DF\u6750\u3092\u5FA9\u6D3B\u3055\u305B\u308B\u52B9\u679C\u3092\u3082\u3063\u3066\u3044\u308B\u304B\u3089\u3001\u81EA\u8EAB\u3092\u30D5\u30EA\u30FC\u30BA\u3059\u308B\u98DF\u6750\u3092\u305F\u304F\u3055\u3093\u5165\u308C\u308B\u3053\u3068\u304C\u5927\u4E8B\u3002\u52B9\u679C\u306E\u767A\u52D5\u3092\u65E9\u3081\u308B\u305F\u3081\u306B\u30EC\u30FC\u30F3\u3092\u52A0\u901F\u3055\u305B\u3066\u3042\u3052\u3088\u3046\u3002"
+  cosplayImage: {fileID: 21300000, guid: 901b7f8d67f16d04381ca5fcaa03aab8, type: 3}
+  cosplayName: "\u30D5\u30ED\u30FC\u30BA\u30F3"

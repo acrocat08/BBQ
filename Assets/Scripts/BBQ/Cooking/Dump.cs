@@ -16,20 +16,20 @@ namespace BBQ.Cooking {
         private FoodObject[] _hittingFoods;
 
         public void Init() {
-            _foods = new List<DeckFood>();
+            _foods = new();
             _hittingFoods = new FoodObject[] { null, null, null };
         }
 
         public List<DeckFood> SelectAll() {
-            return new List<DeckFood>(_foods.Where(x => !x.isFrozen && !x.isFired));
+            return new(_foods.Where(x => !x.isFrozen && !x.isFired));
         }
         
         public List<DeckFood> SelectFrozen() {
-            return new List<DeckFood>(_foods.Where(x => x.isFrozen));
+            return new(_foods.Where(x => x.isFrozen));
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
-            List<FoodObject> ret = new List<FoodObject>();
+            List<FoodObject> ret = new();
             foreach (DeckFood food in foods) {
                 _foods.Remove(food);
                 FoodObject laneFood = foodFactory.Create(food, transform);

@@ -25,9 +25,9 @@ MonoBehaviour:
     summaries:
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+15\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+4\n<<
       \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750 >>\n\n"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+15\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+5\n<<
-      \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750 >>\n\n"
     - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+15\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+6\n<<
+      \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750 >>\n\n"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n-\u3000\u30B3\u30A4\u30F3+15\n\u30EA\u30BB\u30C3\u30C8\uFF1A\n-\u3000\u30BF\u30A4\u30E0+8\n<<
       \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750 >>\n\n"
     sequences:
     - trigger: 0
@@ -50,6 +50,9 @@ MonoBehaviour:
         n2: 
       commands:
       - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-        n1: 4/5/6
+        n1: 4/6/8
         n2: 
       priority: 0
+  hint: 
+  cosplayImage: {fileID: 21300000, guid: 096fad5787b095342a4ddf551d9d92b9, type: 3}
+  cosplayName: "\u6D77\u30D1\u30F3"

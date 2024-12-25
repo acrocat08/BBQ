@@ -18,7 +18,7 @@ namespace BBQ.Action.Play {
             if (!env.isShopping) return;
             FoodData food = itemSet.SearchFood(v.GetString(v.n1));
             SoundPlayer.I.Play("se_addShopFood");
-            await env.shop.AddFoods(new List<FoodData> { food }, false);
+            await env.shop.AddFoods(new() { food }, false);
         }
     }
 }

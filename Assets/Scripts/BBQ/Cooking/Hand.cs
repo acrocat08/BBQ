@@ -83,10 +83,10 @@ namespace BBQ.Cooking {
                     param.Create("Bonus!!", null);
                     await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
                     List<ActionCommand> _bonus = bonus[Random.Range(0, bonus.Count)].commands;
-                    await assembly.Run(_bonus, _env, null, new List<DeckFood>());
+                    await assembly.Run(_bonus, _env, null, new());
                     if (_isDouble) {
                         List<ActionCommand> _bonus2 = bonus[Random.Range(0, bonus.Count)].commands;
-                        await assembly.Run(_bonus2, _env, null, new List<DeckFood>());
+                        await assembly.Run(_bonus2, _env, null, new());
                     }
                 }
             }
@@ -94,7 +94,7 @@ namespace BBQ.Cooking {
 
             if (_env.resetFlag) {
                 _env.resetFlag = false;
-                await assembly.Run(reset, _env, null, new List<DeckFood>());
+                await assembly.Run(reset, _env, null, new());
             }
             
             /*

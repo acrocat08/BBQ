@@ -26,7 +26,7 @@ namespace BBQ.Action.Play {
                 return;
             }
 
-            List<DeckFood> triggerTargets = new List<DeckFood>();
+            List<DeckFood> triggerTargets = new();
             foreach (DeckFood deckFood in deckFoods) {
                 if(effectName == "none*" && !env.isShopping) env.deck.RemoveEffect(deckFood);
                 if (deckFood.effect == null && effect == null) continue;

@@ -6,7 +6,7 @@ namespace BBQ.Cooking {
     public class CircleOutline : BaseMeshEffect
     {
         [SerializeField]
-        private Color m_EffectColor = new Color(0f, 0f, 0f, 0.5f);
+        private Color m_EffectColor = new(0f, 0f, 0f, 0.5f);
 
         [SerializeField]
         private float m_EffectDistance = 1.0f;
@@ -24,7 +24,7 @@ namespace BBQ.Cooking {
             if (!IsActive())
                 return;
 
-            List<UIVertex> list = new List<UIVertex>();
+            List<UIVertex> list = new();
             vh.GetUIVertexStream(list);
 
             ModifyVertices(list);

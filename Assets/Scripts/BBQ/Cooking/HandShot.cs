@@ -59,7 +59,7 @@ namespace BBQ.Cooking {
             
             if (hitFoods.Count(x => x != null) == 0) {
                 SoundPlayer.I.Play("se_nohit");
-                return new List<FoodObject>();
+                return new();
             }
 
             await UniTask.Delay(TimeSpan.FromSeconds(waitDuration));

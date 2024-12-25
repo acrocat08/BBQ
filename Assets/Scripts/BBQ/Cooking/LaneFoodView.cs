@@ -24,9 +24,9 @@ namespace BBQ.Cooking {
         public override void Draw(FoodObject foodObject) {
             DeckFood deckFood = foodObject.deckFood;
             Image image = foodObject.transform.Find("FoodImage").GetComponent<Image>();
-            image.sprite = deckFood.data.foodImage;
+            image.sprite = PlayerConfig.CheckCosplay(foodObject.deckFood.data.foodName) ? deckFood.data.cosplayImage : deckFood.data.foodImage;
             Material mat = lankMaterial[foodObject.deckFood.lank - 1];
-            if(mat != null) image.material = new Material(mat);
+            if(mat != null) image.material = new(mat);
             if(image.material != null) image.material.SetFloat(Seed, Random.value);
             if(foodObject.deckFood.data.useStack) foodObject.transform.Find("Stack").gameObject.SetActive(true);
             if(foodObject.deckFood.memory != "") foodObject.transform.Find("Memory").gameObject.SetActive(true);

@@ -50,7 +50,7 @@ namespace BBQ.Tutorial {
             coin.Init(100);
             carbon.Init(1);
             handCount.Init(5);
-            shop.Init(1, 0, coin, carbon, 0, this, new List<FoodData>());
+            shop.Init(1, 0, coin, carbon, 0, this, new());
             copyArea.Init();
             life.Init(6);
             env.Init(shop, handCount, coin, carbon, life, deckInventory, copyArea);

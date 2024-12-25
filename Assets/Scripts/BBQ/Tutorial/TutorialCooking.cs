@@ -146,7 +146,7 @@ namespace BBQ.Tutorial {
         }
         
         private int CornPractice(List<DeckFood> deckFoods) {
-            if (board.SelectAll().Count == 0) return 1;
+            if (board.SelectAll(false).Count == 0) return 1;
             if (board.HasNoHand()) return 2;
             return 0;
         }

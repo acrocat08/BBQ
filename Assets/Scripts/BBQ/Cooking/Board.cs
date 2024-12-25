@@ -35,7 +35,7 @@ namespace BBQ.Cooking {
         private TutorialCooking _tutorial;
 
         public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet, ActionEnvironment env, TutorialCooking tutorial) {
-            _foods = new List<DeckFood>();
+            _foods = new();
             _lanes = lanes;
             _dump = dump;
             _handCount = handCount;
@@ -98,12 +98,12 @@ namespace BBQ.Cooking {
         
         //---
 
-        public List<DeckFood> SelectAll(bool resetEgg=false) {
-            return new List<DeckFood>(_foods.Where(x => resetEgg || x.data != param.resetFood));
+        public List<DeckFood> SelectAll(bool resetEgg) {
+            return new(_foods.Where(x => resetEgg || x.data != param.resetFood));
         }
 
         public List<DeckFood> SelectLane(int index) {
-            if (index == 0) return new List<DeckFood>();
+            if (index == 0) return new();
             return _lanes[index - 1].GetFoods().Where(x => x != null && x.deckFood.data != param.resetFood)
                 .Select(x => x.deckFood).ToList();
         }
@@ -114,7 +114,7 @@ namespace BBQ.Cooking {
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
-            List<FoodObject> ret = new List<FoodObject>();
+            List<FoodObject> ret = new();
             foreach (Lane lane in _lanes) {
                 ret.AddRange(lane.ReleaseFood(foods));
             }
@@ -137,7 +137,7 @@ namespace BBQ.Cooking {
 
         public async UniTask AddFoodsRandomly(List<FoodObject> foods) {
             _foods.AddRange(foods.Select(x => x.deckFood));
-            List<UniTask> tasks = new List<UniTask>();
+            List<UniTask> tasks = new();
             foreach (FoodObject food in foods) {
                 food.deckFood.Releasable = this;
                 Lane target = _lanes.Where(x => x.GetFoodsNum() < 5)
@@ -149,7 +149,7 @@ namespace BBQ.Cooking {
 
         public async UniTask AddFoodsRandomly(List<FoodObject> foods, int index) {
             _foods.AddRange(foods.Select(x => x.deckFood));
-            List<UniTask> tasks = new List<UniTask>();
+            List<UniTask> tasks = new();
             foreach (FoodObject food in foods) {
                 food.deckFood.Releasable = this;
                 tasks.Add(_lanes[index - 1].AddFoodRandomly(food));
@@ -180,7 +180,7 @@ namespace BBQ.Cooking {
             foreach (Lane lane in _lanes) {
                 lane.Reset();
             }
-            _foods = new List<DeckFood>();
+            _foods = new();
         }
 
         public bool HasNoHand() {
@@ -193,7 +193,7 @@ namespace BBQ.Cooking {
         }
         
         public async UniTask ResetEgg() {
-            List<FoodObject> egg = _env.deck.ReleaseFoods(new List<DeckFood> { new DeckFood(param.resetFood) });
+            List<FoodObject> egg = _env.deck.ReleaseFoods(new() { new(param.resetFood) });
             TriggerObserver.I.RegisterFood(egg[0].deckFood);
             SoundPlayer.I.Play("se_resetEgg");
             await AddFoodsRandomly(egg);

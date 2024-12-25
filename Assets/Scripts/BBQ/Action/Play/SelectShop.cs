@@ -9,7 +9,7 @@ namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/SelectShop")]
     public class SelectShop : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            if(env.isShopping) v.f1 = new List<DeckFood>(env.shop.GetShopFoods().Select(x => x.deckFood));
+            if(env.isShopping) v.f1 = new(env.shop.GetShopFoods().Select(x => x.deckFood));
         }
     }
 }

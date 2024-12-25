@@ -11,15 +11,15 @@ using UnityEngine;
 namespace BBQ.Action {
     public class ActionRegister : MonoBehaviour {
 
-        private Dictionary<ActionTrigger, List<InvokeSet>> _dict =  new Dictionary<ActionTrigger, List<InvokeSet>>();
+        private Dictionary<ActionTrigger, List<InvokeSet>> _dict =  new();
         [SerializeField] private ActionEnvironment env;
         [SerializeField] private ActionAssembly assembly;
         
         public void Add(DeckFood food, List<ActionSequence> sequences) {
             foreach (ActionSequence sequence in sequences) {
                 ActionTrigger trigger = sequence.trigger;
-                if (!_dict.ContainsKey(trigger)) _dict[trigger] = new List<InvokeSet>();
-                _dict[trigger].Add(new InvokeSet(food, sequence));
+                if (!_dict.ContainsKey(trigger)) _dict[trigger] = new();
+                _dict[trigger].Add(new(food, sequence));
             }
         }
         
@@ -32,7 +32,7 @@ namespace BBQ.Action {
         }
 
         public List<InvokeSet> GetInvokers(ActionTrigger trigger) {
-            if (!_dict.ContainsKey(trigger)) return new List<InvokeSet>();
+            if (!_dict.ContainsKey(trigger)) return new();
             return _dict[trigger];
         }
         
@@ -53,7 +53,7 @@ namespace BBQ.Action {
         }
 
         public void Reset() {
-            _dict =  new Dictionary<ActionTrigger, List<InvokeSet>>();
+            _dict =  new();
         }
     }
 

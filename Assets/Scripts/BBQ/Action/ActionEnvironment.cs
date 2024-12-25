@@ -66,9 +66,9 @@ namespace BBQ.Action {
             x1 = 0;
             x2 = 0;
             x3 = 0;
-            f1 = new List<DeckFood>();
-            f2 = new List<DeckFood>();
-            f3 = new List<DeckFood>();
+            f1 = new();
+            f2 = new();
+            f3 = new();
             s1 = "";
             s2 = "";
             s3 = "";
@@ -77,7 +77,7 @@ namespace BBQ.Action {
         }
 
         public ActionVariable Copy(string _n1, string _n2) {
-            return new ActionVariable(invoker, target) {
+            return new(invoker, target) {
                 n1 = _n1,
                 n2 = _n2,
                 x1 = x1,
@@ -110,7 +110,7 @@ namespace BBQ.Action {
             if (index == "f1") return f1;
             if (index == "f2") return f2;
             if (index == "f3") return f3;
-            return new List<DeckFood>();
+            return new();
         }
 
         public string GetString(string index) {

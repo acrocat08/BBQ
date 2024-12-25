@@ -10,7 +10,7 @@ namespace BBQ.Action.Play {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             if (env.isShopping) return;
             int num = v.GetNum(v.n1);
-            v.f1 = new List<DeckFood>(env.board.SelectLane(num));
+            v.f1 = new(env.board.SelectLane(num));
         }
     }
 }

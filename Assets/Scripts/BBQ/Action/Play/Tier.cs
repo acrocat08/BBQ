@@ -11,7 +11,7 @@ namespace BBQ.Action.Play {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            if (deckFoods.Count == 0) return;
+            if (deckFoods.Count == 0 || deckFoods[0].data == null) return;
             v.x1 = deckFoods[0].data.tier;
         }
     }

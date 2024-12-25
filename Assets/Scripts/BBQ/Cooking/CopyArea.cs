@@ -15,7 +15,7 @@ namespace BBQ.Cooking {
         private List<DeckFood> _deckFoods;
 
         public void Init() {
-            _deckFoods = new List<DeckFood>();
+            _deckFoods = new();
         }
 
         public void SetPosition(FoodObject laneFood) {
@@ -24,7 +24,7 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> CopyFoods(List<DeckFood> foods) {
-            List<DeckFood> ret = new List<DeckFood>();
+            List<DeckFood> ret = new();
             foreach (DeckFood deckFood in foods) {
                 DeckFood copied = deckFood.Copy();
                 copied.Releasable = this;
@@ -36,7 +36,7 @@ namespace BBQ.Cooking {
 
         public List<DeckFood> MakeFood(string foodName) {
             FoodData foodData = itemSet.SearchFood(foodName);
-            return new List<DeckFood>() { new DeckFood(foodData) };
+            return new() { new(foodData) };
         }
 
         public void RegisterFood(List<DeckFood> foods) {
@@ -47,7 +47,7 @@ namespace BBQ.Cooking {
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
-            List<FoodObject> ret = new List<FoodObject>();
+            List<FoodObject> ret = new();
             foreach (DeckFood food in foods) {
                 _deckFoods.Remove(food);
                 FoodObject laneFood = foodFactory.Create(food, transform);

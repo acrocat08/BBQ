@@ -29,7 +29,7 @@ namespace BBQ.Title {
         private int poolIndex;
 
         public void Start() {
-            items = new List<GameObject>();
+            items = new();
             _selected = PlayerConfig.GetShopPool(9);
         }
 
@@ -76,13 +76,13 @@ namespace BBQ.Title {
                 else tabs[i].alpha = 0.3f;
             }
             
-            items = new List<GameObject>();
+            items = new();
             if (tier > 0) {
                 foreach (FoodData food in itemSet.foods.Where(x => x.tier == tier)) {
                     GameObject obj = Instantiate(itemPrefab, container, false);
                     obj.GetComponent<Image>().sprite = food.foodImage;
                     EventTrigger ev = obj.GetComponent<EventTrigger>();
-                    EventTrigger.Entry entry = new EventTrigger.Entry();
+                    EventTrigger.Entry entry = new();
                     entry.eventID = EventTriggerType.PointerClick;
                     entry.callback.AddListener(x => Select(food));
                     ev.triggers.Add(entry);
@@ -106,16 +106,17 @@ namespace BBQ.Title {
                 _selected.foodsIndex.Remove(index);
             }
             detail.DrawDetail(food, 1);
-            SetIconView(items[index % 25], !isSelected);
+            SetIconView(items[index % 30], !isSelected);
         }
 
         private void SetIconView(GameObject obj, bool isSelected) {
-            if (isSelected) obj.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-            else obj.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+            if (isSelected) obj.GetComponent<Image>().color = new(1, 1, 1, 1);
+            else obj.GetComponent<Image>().color = new(0.5f, 0.5f, 0.5f, 0.5f);
         }
 
         public void Save() {
             List<FoodData> foods = _selected.foodsIndex.Select(x => itemSet.foods[x]).ToList();
+            
             for (int i = 1; i <= 5; i++) {
                 if (foods.Count(x => x.tier == i) != 10) return;
             }

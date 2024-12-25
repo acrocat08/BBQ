@@ -113,7 +113,7 @@ namespace BBQ.Shopping {
 
         void FocusTab(int index) {
             for (int i = 0; i < tabs.Count; i++) {
-                tabs[i].GetComponent<Image>().color = i == index ? Color.white : new Color(1, 1, 1, 0.1f);
+                tabs[i].GetComponent<Image>().color = i == index ? Color.white : new(1, 1, 1, 0.1f);
             }
         }
         

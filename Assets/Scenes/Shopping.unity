@@ -900,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 727801531856983780, guid: 4a651d7d0a0d7494785cd2b901117874, type: 3}
     - target: {fileID: 2924618926358845891, guid: 916a138a81b542d40b634385d372fe34, type: 3}
       propertyPath: keywords.Array.size
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 2924618926358845891, guid: 916a138a81b542d40b634385d372fe34, type: 3}
       propertyPath: keywords.Array.data[22].word
@@ -916,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2924618926358845891, guid: 916a138a81b542d40b634385d372fe34, type: 3}
       propertyPath: keywords.Array.data[10].describe
-      value: "\u98DF\u6750\u304C\u6A2A\u306B\u79FB\u52D5\u3057\u3066\u3044\u304F\u901A\u8DEF\u3002\n\u30D5\u30A3\u30FC\u30EB\u30C9\u306B\u306F\u4E0A\u30FB\u4E2D\u30FB\u4E0B\u306E3\u7B87\u6240\u5B58\u5728\u3059\u308B\u3002"
+      value: "\u98DF\u6750\u304C\u6A2A\u306B\u79FB\u52D5\u3057\u3066\u3044\u304F\u901A\u8DEF\u3002\n\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u4E0A\u30FB\u4E2D\u30FB\u4E0B\u306E3\u7B87\u6240\u5B58\u5728\u3059\u308B\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 2924618926358845891, guid: 916a138a81b542d40b634385d372fe34, type: 3}
       propertyPath: keywords.Array.data[17].describe
@@ -1393,12 +1393,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 727801531856983780, guid: 4a651d7d0a0d7494785cd2b901117874, type: 3}
     - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[24].word
+      value: "\u30C0\u30D6\u30EB\u4E32"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[25].word
+      value: "\u30B4\u30FC\u30EB\u30C7\u30F3\u4E32"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[26].word
+      value: "\u30AB\u30D0\u30F3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[27].word
+      value: "\u6368\u3066\u5834"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[10].describe
+      value: "\u98DF\u6750\u304C\u6A2A\u306B\u79FB\u52D5\u3057\u3066\u3044\u304F\u901A\u8DEF\u3002\n\u30D5\u30A3\u30FC\u30EB\u30C9\u5185\u306B\u4E0A\u30FB\u4E2D\u30FB\u4E0B\u306E3\u7B87\u6240\u5B58\u5728\u3059\u308B\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: keywords.Array.data[17].describe
-      value: "\u671D\u6642\u9593\u306B\u4E32\u523A\u3057\u3059\u308B\u5236\u9650\u6642\u9593\u3002\u98DF\u6750\u52B9\u679C\u306B\u3088\u3063\u3066\u6642\u9593\u3092\u5EF6\u9577\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3002"
+      value: "\u671D\u6642\u9593\u306B\u4E32\u523A\u3057\u3059\u308B\u5236\u9650\u6642\u9593\u3002\u98DF\u6750\u52B9\u679C\u306B\u3088\u3063\u3066\u6642\u9593\u3092\u5EF6\u9577\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3002\uFF08\u305F\u3060\u3057\u3001\u5EF6\u9577\u30BF\u30A4\u30E0\u4E2D\u306B\u306F\u5EF6\u9577\u3067\u304D\u306A\u3044\u3002\uFF09"
       objectReference: {fileID: 0}
     - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: keywords.Array.data[22].describe
-      value: "\u305D\u306E\u98DF\u6750\u3092\u8CB7\u3046\u306E\u306B\u5FC5\u8981\u306A\u30B3\u30A4\u30F3\u306E\u7DCF\u8CBB\u7528\u3002"
+      value: "\u305D\u306E\u98DF\u6750\u3092\u8CB7\u3046\u306E\u306B\u5FC5\u8981\u306A\u30B3\u30A4\u30F3\u306E\u7DCF\u8CBB\u7528\u3002\uFF08\u4F8B\uFF1A\u9280\u30E9\u30F3\u30AF\u306E\u3068\u3046\u3082\u308D\u3053\u3057\u306E\u4FA1\u5024=10\xD73=30\u30B3\u30A4\u30F3\uFF09"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[24].describe
+      value: "\u3053\u306E\u4E32\u306F\u30CF\u30F3\u30C9\u30922\u672C\u6D88\u8CBB\u3059\u308B\u4EE3\u308F\u308A\u306B\u3001\u30D2\u30C3\u30C8\u6642\u306B2\u672C\u5206\u306E\u4E32\u3068\u3057\u3066\u30DF\u30C3\u30B7\u30E7\u30F3\u306B\u30AB\u30A6\u30F3\u30C8\u3055\u308C\u308B\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[25].describe
+      value: "\u3053\u306E\u4E32\u3067\u540C\u6642\u306B3\u3064\u306E\u98DF\u6750\u3092\u30D2\u30C3\u30C8\u3059\u308B\u3068\u3001\u30E9\u30F3\u30C0\u30E0\u306A\u30DC\u30FC\u30CA\u30B9\u52B9\u679C\u3092\u7372\u5F97\u3059\u308B\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[26].describe
+      value: "\u8CFC\u5165\u3057\u305F\u98DF\u6750\u3092\u8A70\u3081\u8FBC\u3080\u30B9\u30DA\u30FC\u30B9\u3002\u6700\u592720\u500B\u307E\u3067\u5165\u308C\u3089\u308C\u308B\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221458727521962947, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
+      propertyPath: keywords.Array.data[27].describe
+      value: "\u30D2\u30C3\u30C8\u3057\u305F\u98DF\u6750\u3084\u843D\u4E0B\u3057\u305F\u98DF\u6750\u304C\u7F6E\u304B\u308C\u308B\u5834\u6240\u3002\u30EA\u30BB\u30C3\u30C8\u6642\u306B\u6368\u3066\u5834\u306E\u98DF\u6750\u306F\u30AB\u30D0\u30F3\u306B\u623B\u308B\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 3415888832184693173, guid: c8b75f1c792f32647a73bdeee7a53c55, type: 3}
       propertyPath: m_Enabled

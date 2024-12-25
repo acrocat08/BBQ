@@ -12,11 +12,11 @@ namespace BBQ.Shopping {
         [SerializeField] private int secondPoint;
 
         public List<MissionStatus> Create(int day, int failed) {
-            MissionStatus mission = new MissionStatus {
+            MissionStatus mission = new() {
                 mission = hand,
                 goal = MakeDifficulty(day, failed)
             };
-            return new List<MissionStatus> { mission };
+            return new() { mission };
         }
 
         int MakeDifficulty(int day, int failed) {

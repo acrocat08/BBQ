@@ -39,7 +39,7 @@ namespace BBQ.Shopping {
         public void OnPointUp(List<PointableArea> areas) {
             if (InputGuard.Guard()) return;
             if (DeckInventory.usedItems.Contains(data.toolTag)) return;
-            List<DeckFood> target = new List<DeckFood>();
+            List<DeckFood> target = new();
             if (data.targetArea == "deckItem") {
                 target = areas.Select(x => x.transform.parent.GetComponent<InventoryFood>().deckFood).ToList();
             }

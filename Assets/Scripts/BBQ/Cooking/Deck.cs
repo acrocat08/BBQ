@@ -19,7 +19,7 @@ namespace BBQ.Cooking {
 
 
         private List<(DeckFood, DeckFood)> _allFoods;
-        private LinkedList<DeckFood> _foods = new LinkedList<DeckFood>();
+        private LinkedList<DeckFood> _foods = new();
         [SerializeField] private FoodObjectFactory foodFactory;
         [SerializeField] DeckView view;
 
@@ -27,8 +27,8 @@ namespace BBQ.Cooking {
 
         public void Init(List<DeckFood> deckFoods, bool doShuffle) {
             if (doShuffle) SortFoods(deckFoods);
-            else _foods = new LinkedList<DeckFood>(deckFoods);
-            _foods = new LinkedList<DeckFood>(_foods.Where(x => !x.isFrozen).ToList());
+            else _foods = new(deckFoods);
+            _foods = new(_foods.Where(x => !x.isFrozen).ToList());
             _allFoods = deckFoods.Select(x => (x, x.CopyWithEffect())).ToList();
             foreach (DeckFood deckFood in deckFoods) {
                 deckFood.Releasable = this;
@@ -48,14 +48,15 @@ namespace BBQ.Cooking {
         }
 
         public List<DeckFood> SelectAll() {
-            return new List<DeckFood>(_foods);
+            return new(_foods);
         }
         
         public List<FoodObject> TakeFood(int num) {
-            List<FoodObject> taken = new List<FoodObject>();
+            List<FoodObject> taken = new();
             for (int i = 0; i < num; i++) {
                 //if (_foods.All(x => x.isFrozen)) break;
-                DeckFood target = _foods.First(x => !x.isFrozen);
+                DeckFood target = _foods.FirstOrDefault(x => !x.isFrozen);
+                if (target == null) break;
                 _foods.Remove(target);
                 FoodObject laneFood = foodFactory.Create(target, transform);
                 taken.Add(laneFood);
@@ -69,11 +70,12 @@ namespace BBQ.Cooking {
             
             _foods.AddRange(foods.Where(x => x.deckFood.data != param.resetFood).Select(x => x.deckFood));
             SortFoods(_foods.Distinct().ToList());
-            List<UniTask> tasks = new List<UniTask>();
+            List<UniTask> tasks = new();
             foreach (FoodObject food in foods) {
                 tasks.Add(view.AddFood(this, food));
                 food.deckFood.Releasable = this;
             }
+            view.Draw(this);
             await tasks;
             foreach (FoodObject food in foods) {
                 Destroy(food.gameObject);
@@ -82,12 +84,14 @@ namespace BBQ.Cooking {
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
-            List<FoodObject> ret = new List<FoodObject>();
+            List<FoodObject> ret = new();
             foreach (DeckFood food in foods) {
                 _foods.Remove(food);
                 FoodObject laneFood = foodFactory.Create(food, transform);
                 ret.Add(laneFood);
             }
+            view.Draw(this);
+            view.UpdateText(this);
             return ret;
         }
 
@@ -125,7 +129,7 @@ namespace BBQ.Cooking {
         void SortFoods(List<DeckFood> target) {
             List<DeckFood> rantanFoods = target.Where(x => x.isRantan).OrderBy(_ => Guid.NewGuid()).ToList();
             List<DeckFood> others = target.Where(x => !x.isRantan).OrderBy(_ => Guid.NewGuid()).ToList();
-            _foods = new LinkedList<DeckFood>(rantanFoods.Concat(others));
+            _foods = new(rantanFoods.Concat(others));
         }
     }
 }

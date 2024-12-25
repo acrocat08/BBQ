@@ -56,7 +56,7 @@ namespace BBQ.Shopping {
         public override void Drop() {
             deckFood.data = null;
             deckFood.effect = null;
-            DeckFood emptyFood = new DeckFood(null);
+            DeckFood emptyFood = new(null);
             SetFood(emptyFood);
             view.Drop(this);
         }

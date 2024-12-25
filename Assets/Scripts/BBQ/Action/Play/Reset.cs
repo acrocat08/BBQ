@@ -16,8 +16,8 @@ namespace BBQ.Action.Play {
         [SerializeField] private int drawNum;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             if(env.isShopping) return;
-            await TriggerObserver.I.Invoke(ActionTrigger.BeforeReset, new List<DeckFood>(), false);
-            List<UniTask> tasks = new List<UniTask>();
+            await TriggerObserver.I.Invoke(ActionTrigger.BeforeReset, new(), false);
+            List<UniTask> tasks = new();
             List<FoodObject> boardFoods = env.board.ReleaseFoods(env.board.SelectAll(true));
             tasks.Add(env.deck.AddFoods(boardFoods));
             List<FoodObject> dumpFoods = env.dump.ReleaseFoods(env.dump.SelectAll());
@@ -28,10 +28,10 @@ namespace BBQ.Action.Play {
             int num = Mathf.Min(drawNum, env.deck.SelectAll().Count);
             v.n1 = num.ToString();
             await draw.Execute(env, v);
-            await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new List<DeckFood>(), false);
+            await TriggerObserver.I.Invoke(ActionTrigger.AfterReset, new(), false);
             
             if (!env.isShopping && env.deck.SelectAll().Count == 0 
-                                && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg() 
+                                && env.board.SelectAll(true).Count < 15 && !env.board.HasResetEgg() 
                                 ) {
                 await env.board.ResetEgg();
             }

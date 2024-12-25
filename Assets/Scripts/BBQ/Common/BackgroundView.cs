@@ -20,7 +20,7 @@ namespace BBQ.Common {
         void Start()
         {
             // 他に影響を与えないためにマテリアルを複製
-            _cloudMaterial = new Material(cloudImage.material);
+            _cloudMaterial = new(cloudImage.material);
             cloudImage.material = _cloudMaterial;
             Wave(seaImage.transform);
         }

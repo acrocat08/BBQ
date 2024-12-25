@@ -9,7 +9,7 @@ namespace BBQ.Action.Play {
     public class SelectInvoker : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             if (v.invoker == null) return;
-            v.f1 = new List<DeckFood> { v.invoker };
+            v.f1 = new() { v.invoker };
         }
     }
 }

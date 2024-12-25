@@ -15,7 +15,7 @@ namespace BBQ.Cooking {
         [SerializeField] private LaneMovement movement;
         [SerializeField] private DesignParam designParam;
         void Awake() {
-            _foods = new List<FoodObject>();
+            _foods = new();
             for (int i = 0; i < param.foodMaxNumInLane; i++) {
                 _foods.Add(null);
             }
@@ -34,7 +34,7 @@ namespace BBQ.Cooking {
 
 
         public List<FoodObject> GetFoods() {
-            List<FoodObject> ret = new List<FoodObject>(_foods);
+            List<FoodObject> ret = new(_foods);
             return ret;
         }
 
@@ -74,7 +74,7 @@ namespace BBQ.Cooking {
                 if(foodObject != null) Destroy(foodObject.gameObject);
             }
 
-            _foods = new List<FoodObject>();
+            _foods = new();
             for (int i = 0; i < param.foodMaxNumInLane; i++) {
                 _foods.Add(null);
             }

@@ -19,7 +19,7 @@ namespace BBQ.Action.Play {
             if (v.n2 != "") laneIndex = v.GetNum(v.n2);
             
             drawNum = Mathf.Min(drawNum, env.deck.SelectAll().Count);
-            if(laneIndex == 0) drawNum = Mathf.Min(drawNum, 15 - env.board.SelectAll().Count);
+            if(laneIndex == 0) drawNum = Mathf.Min(drawNum, 15 - env.board.SelectAll(true).Count);
             else drawNum = Mathf.Min(drawNum, 5 - env.board.GetFoodNum(laneIndex));
             
             if (drawNum <= 0) {

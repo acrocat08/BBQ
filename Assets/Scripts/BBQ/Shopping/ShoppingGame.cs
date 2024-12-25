@@ -57,8 +57,10 @@ namespace BBQ.Shopping {
 
         async void GameStart() {
             await view.OpenBG(this);
-            await TriggerObserver.I.Invoke(ActionTrigger.StartShopping, new List<DeckFood>(), false);
-            SoundPlayer.I.Play("bgm_cooking");
+            await TriggerObserver.I.Invoke(ActionTrigger.StartShopping, new(), false);
+            if (PlayerStatus.GetStar() <= 6)
+                SoundPlayer.I.Play("bgm_cooking");
+            else SoundPlayer.I.Play("bgm_cooking2");
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             await assembly.Run(initialAction, env, null, null);
         }
@@ -85,7 +87,7 @@ namespace BBQ.Shopping {
             if (_day == 1 && PlayerConfig.GetPoolIndex() == 8) {
                 itemSet.MakeRandomPool();
             }
-            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
+            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods().LastOrDefault();
             if(targetDeck != null) deckInventory.Init(targetDeck, PlayerStatus.GetRantanFlag());
             else if(param.isDebugMode) deckInventory.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList(), PlayerStatus.GetRantanFlag());
             else deckInventory.Init(firstFoods, PlayerStatus.GetRantanFlag());
@@ -108,7 +110,9 @@ namespace BBQ.Shopping {
             int coinNum = coin.GetCoin();
             int hand = handCount.GetHandCount();
             Debug.Log(deckInventory.GetPigFlag());
-            PlayerStatus.Create(deck, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 20, 0,
+            List<List<DeckFood>> history = PlayerStatus.GetDeckFoods();
+            history.Add(deck);
+            PlayerStatus.Create(history, coinNum, hand, 0, _day, shop.GetShopLevel(), shop.GetLevelUpDiscount() + 20, 0,
                 deckInventory.GetPigFlag(), deckInventory.GetAdditionalTime(), deckInventory.GetHelpPenaltyReduce(), deckInventory.GetRantanFlag(),
                 PlayerStatus.GetStar(), life.GetLife(), _nowMission, PlayerStatus.GetFailed(), 0, PlayerStatus.GetScore(), shop.GetShopFoods().Where(x => x.deckFood.isFrozen).Select(x => x.deckFood.data).ToList());
         }

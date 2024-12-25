@@ -24,7 +24,7 @@ namespace BBQ.Shopping {
         public static List<string> usedItems;
         
         public void Init(List<DeckFood> deckFoods, bool rantanFlag) {
-            usedItems = new List<string>();
+            usedItems = new();
             if (rantanFlag) {
                 _rantanFlag = true;
                 view.SetItem(this, "rantan");
@@ -86,7 +86,7 @@ namespace BBQ.Shopping {
 
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
-            return new List<FoodObject>();
+            return new();
         }
 
         public FoodObject GetObject(DeckFood food) {

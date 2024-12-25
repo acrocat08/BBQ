@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b6230fcc2c37049ba479f9cb8d6639, type: 3}
+  m_Name: Amato
+  m_EditorClassIdentifier: 
+  subItem: []
+  effectName: "\u7518\u515A"
+  effectImage: {fileID: 21300000, guid: 9fde0022077262f46be37d0fd9a3c697, type: 3}
+  action:
+    summaries:
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u30C9\u30ED\u30FC+2\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30AB\u30D0\u30F3\u306B\u623B\u3059\n-\u3000\u3053\u306E\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u4E00\u6642\u7684\u306B\u9664\u5916\u3059\u308B"
+    sequences:
+    - trigger: 8
+      condition:
+      - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 2
+      commands:
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 2
+        n2: 
+      - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: 8d9df80954a3c5440a46e451cbac5c6b, type: 2}
+        n1: f1
+        n2: none
+      priority: 0
+  onAttached: []
+  onReleased: []

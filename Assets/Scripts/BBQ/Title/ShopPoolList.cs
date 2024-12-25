@@ -31,7 +31,7 @@ namespace BBQ.Title {
         
 
         public void Start() {
-            items = new List<GameObject>();
+            items = new();
         }
 
         public async void Open() {
@@ -77,7 +77,7 @@ namespace BBQ.Title {
 
             ShopPool targetPool = PlayerConfig.GetShopPool(index + 9);
             
-            items = new List<GameObject>();
+            items = new();
             foreach (int foodIndex in targetPool.foodsIndex) {
                 FoodData food = itemSet.foods[foodIndex];
                 GameObject obj = Instantiate(itemPrefab, container, false);

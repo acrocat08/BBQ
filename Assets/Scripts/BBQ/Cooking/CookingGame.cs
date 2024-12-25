@@ -44,7 +44,7 @@ namespace BBQ.Cooking {
         private List<MissionStatus> _missions;
         private int _gameStatus;
         private bool _isFailed;
-        private int _score;
+        private Score _score;
         private Vector3 _dayTextPos;
 
         [SerializeField] private List<MissionStatus> testMission;
@@ -66,7 +66,7 @@ namespace BBQ.Cooking {
             await view.OpenBG(this, _dayTextPos);
             await UniTask.Delay(TimeSpan.FromSeconds(1));
             _isRunning = true;
-            SoundPlayer.I.Play("bgm_cooking");
+            if(_star <= 6) SoundPlayer.I.Play("bgm_cooking");
             await assembly.Run(startCommands, env, null, null);
             cookTime.Resume();
         }
@@ -80,7 +80,8 @@ namespace BBQ.Cooking {
 
             bool isClear = missionSheet.CheckMissionCleared();
             var kushi = missionSheet.GetKushi();
-            _score += missionSheet.GetScore();
+            _score.great += missionSheet.GetGreat();
+            _score.help += help.GetCount();
             _isFailed = !isClear;
             int gainStar = isClear ? 1 : 0;
             //int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
@@ -92,6 +93,8 @@ namespace BBQ.Cooking {
             
             SaveStatus();
             await view.ChangeColor(this);
+            if(_star >= 7) 
+                await SoundPlayer.I.FadeOutSound("bgm_cooking");
             GotoNextScene();
         }
 
@@ -103,11 +106,12 @@ namespace BBQ.Cooking {
 
         async void GotoNextScene() {
             if (_gameStatus == 1) {
-                await SoundPlayer.I.FadeOutSound("bgm_cooking");
+                await SoundPlayer.I.FadeOutSound("bgm_cooking2");
                 SceneManager.LoadScene("Scenes/Ending");
             }
             else if (_gameStatus == 2) {
-                await SoundPlayer.I.FadeOutSound("bgm_cooking");
+                if(_star >= 7) await SoundPlayer.I.FadeOutSound("bgm_cooking2");
+                else await SoundPlayer.I.FadeOutSound("bgm_cooking");
                 SceneManager.LoadScene("Scenes/Result");
             }
             else {
@@ -118,7 +122,7 @@ namespace BBQ.Cooking {
 
 
         private void LoadStatus() {
-            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods();
+            List<DeckFood> targetDeck = PlayerStatus.GetDeckFoods().LastOrDefault();
             if(targetDeck == null) deck.Init(testDeck.foods.Select(x => x.CopyWithEffect()).ToList(), true);
             else deck.Init(targetDeck, true);
             handCount.Init(PlayerStatus.GetHand());
@@ -146,8 +150,10 @@ namespace BBQ.Cooking {
             int coinNum = coin.GetCoin();
             int failed = PlayerStatus.GetFailed();
             if (_isFailed) failed++;
-            PlayerStatus.Create(deckFoods, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
-                env.rerollTicket, PlayerStatus.GetPigFlag(), 0, 0, PlayerStatus.GetRantanFlag(), _star, _life, new List<MissionStatus>(), failed, _gameStatus, _score, PlayerStatus.GetFrozen());
+            List<List<DeckFood>> history = PlayerStatus.GetDeckFoods();
+            history.Add(deckFoods);
+            PlayerStatus.Create(history, coinNum, 5, carbon.GetCarbon(), _day, PlayerStatus.GetShopLevel(), PlayerStatus.GetLevelUpDiscount(),
+                env.rerollTicket, PlayerStatus.GetPigFlag(), 0, 0, PlayerStatus.GetRantanFlag(), _star, _life, new(), failed, _gameStatus, _score, PlayerStatus.GetFrozen());
         }
 
         public int GetDay() {

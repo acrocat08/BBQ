@@ -79,6 +79,81 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u30CF\u30A4\u30B9\u30B3\u30A2\uFF1A100"
+--- !u!1 &1405042569835266127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6891706250974762833}
+  - component: {fileID: 2852970152399450809}
+  - component: {fileID: 1532573147356974286}
+  m_Layer: 5
+  m_Name: Image1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6891706250974762833
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405042569835266127}
+  m_LocalRotation: {x: -0, y: -0, z: 0.012880302, w: -0.9999171}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1417423651999801074}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.476}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 8.100098, y: -53.400024}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2852970152399450809
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405042569835266127}
+  m_CullTransparentMesh: 1
+--- !u!114 &1532573147356974286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405042569835266127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ff46d692543404bbd97ac5f165196e5d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2180690038731053729
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5.854}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.7, y: -30.4}
+  m_AnchoredPosition: {x: -53.4, y: -19.2}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7185073822592963927
@@ -188,7 +263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.692}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.5, y: 30.8}
+  m_AnchoredPosition: {x: -3.4, y: 34.4}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &88363161674554416
@@ -455,6 +530,7 @@ RectTransform:
   - {fileID: 487844121065319642}
   - {fileID: 3652251615314533292}
   - {fileID: 212359668935240573}
+  - {fileID: 6891706250974762833}
   m_Father: {fileID: 8980791658979780913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -571,7 +647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.425}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.299805, y: -37.899902}
+  m_AnchoredPosition: {x: 44.7, y: -18.5}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2198317685908992526
@@ -690,4 +766,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B3\u30A4\u30F3\u3092\u7A3C\u3044\u3067\u30EA\u30ED\u30FC\u30EB\u3057\u7D9A\u3051\u308B\u3053\u3068\u3067\u5F37\u5316\u3057\u3066\u3044\u304F\u30E9\u30A4\u30F3\u30CA\u30C3\u30D7\u3067\u3059\u3002\u304F\u3057\u3056\u3057\u529B\u3060\u3051\u3067\u306A\u304F\u8CB7\u3044\u7269\u529B\u3082\u8A66\u3055\u308C\u307E\u3059\u3002\n\n\u30AD\u30FC\u30EF\u30FC\u30C9\uFF1A\n\u30EA\u30ED\u30FC\u30EB\u3001\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7"
+  m_Text: "\u30B3\u30A4\u30F3\u3092\u7A3C\u3044\u3067\u30EA\u30ED\u30FC\u30EB\u3057\u7D9A\u3051\u308B\u3053\u3068\u3067\u98DF\u6750\u3092\u5F37\u5316\u3057\u3066\u3044\u304F\u30E9\u30A4\u30F3\u30CA\u30C3\u30D7\u3067\u3059\u3002\u304F\u3057\u3056\u3057\u529B\u3060\u3051\u3067\u306A\u304F\u8CB7\u3044\u7269\u529B\u3082\u8A66\u3055\u308C\u307E\u3059\u3002\n\n\u30AD\u30FC\u30EF\u30FC\u30C9\uFF1A\n\u30EA\u30ED\u30FC\u30EB\u3001\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7"

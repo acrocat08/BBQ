@@ -17,7 +17,7 @@ namespace BBQ.Action.Play {
             SoundMgr.SoundPlayer.I.Play(num >= 0 ? "se_addCoin" : "se_consume");
             effect.Create("coin", num, v.invoker?.GetObject());
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
-            if(num > 0 && !env.isShopping) await TriggerObserver.I.Invoke(ActionTrigger.GainCoin, new List<DeckFood>(), false);
+            if(num > 0 && !env.isShopping) await TriggerObserver.I.Invoke(ActionTrigger.GainCoin, new(), false);
         }
     }
 }

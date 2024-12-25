@@ -22,7 +22,7 @@ namespace BBQ.Shopping {
         public void UpdateArea() {
             _isDragging = false;
             GameObject[] gameObjects = FindObjectsOfType(typeof(GameObject)) as GameObject[];
-            _areas = new List<PointableArea>(gameObjects.Select(x => x.GetComponent<PointableArea>())
+            _areas = new(gameObjects.Select(x => x.GetComponent<PointableArea>())
                 .Where(x => x != null));
         }
 
@@ -54,7 +54,7 @@ namespace BBQ.Shopping {
                         .Where(x => x != _fromArea)
                         .Where(x => x.areaTag == toArea.areaTag).ToList();
                 }
-                else if (toArea != null) toAreas = new List<PointableArea> { toArea };
+                else if (toArea != null) toAreas = new() { toArea };
                 
                 if (_toAreas == null || !_toAreas.Contains(toArea)) {
                     if(toAreas != null) toAreas.ForEach(x => x.Show());

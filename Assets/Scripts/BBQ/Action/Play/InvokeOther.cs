@@ -20,9 +20,9 @@ namespace BBQ.Action.Play {
             FoodData targetFood = itemSet.SearchFood(foodName);
             List<ActionSequence> seq = targetFood.action.sequences.Where(x => x.trigger == ActionTrigger.Hit).ToList();
             foreach (ActionSequence sequence in seq) {
-                ActionVariable result = await assembly.Run(sequence.condition, env, invoker, new List<DeckFood> { invoker });
+                ActionVariable result = await assembly.Run(sequence.condition, env, invoker, new() { invoker });
                 if (sequence.condition.Count == 0 || result.x1 > 0) {
-                    await assembly.Run(sequence.commands, env, invoker, new List<DeckFood> { invoker });
+                    await assembly.Run(sequence.commands, env, invoker, new() { invoker });
                 }    
             }
         }

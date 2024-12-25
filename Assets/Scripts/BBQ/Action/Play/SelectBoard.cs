@@ -9,8 +9,8 @@ namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/SelectBoard")]
     public class SelectBoard : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            if(env.isShopping) v.f1 = new List<DeckFood>(env.inventory.GetDeckFoods().Where(x => !x.isFrozen));
-            else v.f1 = new List<DeckFood>(env.board.SelectAll());
+            if(env.isShopping) v.f1 = new(env.inventory.GetDeckFoods().Where(x => !x.isFrozen));
+            else v.f1 = new(env.board.SelectAll(false));
         }
     }
 }

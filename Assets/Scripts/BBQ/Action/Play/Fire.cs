@@ -15,7 +15,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private Drop drop;
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
-            List<DeckFood> hittingFoods = env.isShopping ? new List<DeckFood>() : env.dump.GetHittingFoods();
+            List<DeckFood> hittingFoods = env.isShopping ? new() : env.dump.GetHittingFoods();
 
             deckFoods = deckFoods.Where(x => !x.isFired).ToList();
             
@@ -23,8 +23,8 @@ namespace BBQ.Action.Play {
                 return;
             }
             
-            List<UniTask> tasks = new List<UniTask>();
-            List<DeckFood> dropped = new List<DeckFood>();
+            List<UniTask> tasks = new();
+            List<DeckFood> dropped = new();
 
             foreach (DeckFood deckFood in deckFoods) {
                 tasks.Add(FireFood(env, v, deckFood));

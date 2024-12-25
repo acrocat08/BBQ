@@ -31,7 +31,31 @@ MonoBehaviour:
       \u30AD\u30CE\u30B3\u7CFB\u98DF\u6750 >>"
     sequences:
     - trigger: 1
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: f91336be3e89266458c2344db1b1edf9, type: 2}
+        n1: f1
+        n2: "\u3057\u3081\u3058"
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: f47b926735af8304f8fe726f4fc157ef, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: 405cb0230c17c944abb6eb6ac6afd5b4, type: 2}
+        n1: f1
+        n2: f2
+      - action: {fileID: 11400000, guid: abd6aa8cf3d6ee74bb23f82aa2225860, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 1
       commands:
       - action: {fileID: 11400000, guid: c6f0e017099f6f742808674e2b66c7ed, type: 2}
         n1: 
@@ -71,3 +95,6 @@ MonoBehaviour:
         n1: memory
         n2: f1
       priority: 0
+  hint: 
+  cosplayImage: {fileID: 21300000, guid: a6d1943ffd8536f48b607b16dc17a747, type: 3}
+  cosplayName: "\u86CD\u5149\u30E9\u30F3\u30D7"

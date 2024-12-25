@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 namespace BBQ.PlayData {
     public class PlayerStatus {
         private static PlayerStatus _saveData;
-        private List<DeckFood> _deckFoods;
+        private List<List<DeckFood>> _deckFoods;
         private int _coin;
         private int _hand;
         private int _carbon;
@@ -23,13 +24,13 @@ namespace BBQ.PlayData {
         private List<MissionStatus> _nowMission;
         private int _failed;
         private int _gameStatus;
-        private int _score;
+        private Score _score;
         private List<FoodData> _frozen;
         
-        public static void Create(List<DeckFood> deckFoods, int coin, int hand, int carbon, int day, int shopLevel, 
+        public static void Create(List<List<DeckFood>> deckFoods, int coin, int hand, int carbon, int day, int shopLevel, 
             int levelUpDiscount, int rerollTicket, bool pigFlag, int additionalTime, int helpPenaltyReduce, bool rantanFlag,
-            int star, int life, List<MissionStatus> nowMission, int failed, int gameStatus, int score, List<FoodData> frozen) {
-            _saveData = new PlayerStatus();
+            int star, int life, List<MissionStatus> nowMission, int failed, int gameStatus, Score score, List<FoodData> frozen) {
+            _saveData = new();
             _saveData._deckFoods = deckFoods;
             _saveData._coin = coin;
             _saveData._hand = hand;
@@ -55,8 +56,8 @@ namespace BBQ.PlayData {
             _saveData = null;
         }
 
-        public static List<DeckFood> GetDeckFoods() {
-            if (_saveData == null) return null;
+        public static List<List<DeckFood>> GetDeckFoods() {
+            if (_saveData == null) return new();
             return _saveData._deckFoods;
         }
 
@@ -133,7 +134,7 @@ namespace BBQ.PlayData {
         }
         
         public static List<MissionStatus> GetNowMission() {
-            if (_saveData == null) return new List<MissionStatus>(); //TODO:fix
+            if (_saveData == null) return new(); //TODO:fix
             return _saveData._nowMission;
         }
 
@@ -142,14 +143,15 @@ namespace BBQ.PlayData {
             return _saveData._failed;
         }
 
-        public static int GetScore() {
-            if (_saveData == null) return 0;
+        public static Score GetScore() {
+            if (_saveData == null) return new();
             return _saveData._score;
         }
         
         public static List<FoodData> GetFrozen() {
-            if (_saveData == null) return new List<FoodData>();
+            if (_saveData == null) return new();
             return _saveData._frozen;
         }
     }
+    
 }

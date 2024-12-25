@@ -62,3 +62,6 @@ MonoBehaviour:
         n1: f1
         n2: 
       priority: 0
+  hint: 
+  cosplayImage: {fileID: 21300000, guid: a50f763f043107b48b366b45774e0875, type: 3}
+  cosplayName: "\u30AB\u30E9\u30D5\u30EB\u30C1\u30E7\u30B3"

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subItem:
   - {fileID: 11400000, guid: 34475931514bc1d41a09e3d460ebd68f, type: 2}
-  toolName: "\u7261\u8823\u30BD\u30FC\u30B9"
+  toolName: "\u30AA\u30A4\u30B9\u30BF\u30FC\u30BD\u30FC\u30B9"
   tier: 0
   cost: 1
   toolImage: {fileID: 21300000, guid: 71c5da266d3d85442bdfbe80d292ce27, type: 3}
@@ -33,3 +33,4 @@ MonoBehaviour:
         n2: "\u3053\u304F\u3046\u307E"
       priority: 0
   targetArea: deckItem
+  toolTag: 

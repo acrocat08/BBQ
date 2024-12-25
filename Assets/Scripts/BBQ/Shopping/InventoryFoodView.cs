@@ -54,7 +54,9 @@ namespace BBQ.Shopping {
         public override void Draw(FoodObject foodObject) {
             DeckFood deckFood = foodObject.deckFood;
             Image foodImage = foodObject.transform.Find("Object").Find("Image").GetComponent<Image>();
-            foodImage.sprite = deckFood.data ? deckFood.data.foodImage : null;
+            foodImage.sprite = deckFood.data ? (PlayerConfig.CheckCosplay(deckFood.data.foodName)
+                ? deckFood.data.cosplayImage
+                : deckFood.data.foodImage) : null;
             foodImage.enabled = deckFood.data != null;
             foodImage.color = Color.white;
             SetMaterial(foodImage, foodObject.deckFood.lank);
@@ -82,7 +84,7 @@ namespace BBQ.Shopping {
                 jumpLength, 1, fallDuration);
             image.transform.DOLocalMoveX(image.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), fallDuration)
                 .SetEase(Ease.Linear);
-            image.transform.DOLocalRotate(new Vector3(0, 0, 180), fallDuration);
+            image.transform.DOLocalRotate(new(0, 0, 180), fallDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(fallDuration));
             image.gameObject.SetActive(false);
             image.transform.localPosition = prevPos;
@@ -93,7 +95,7 @@ namespace BBQ.Shopping {
         public override void Fire(FoodObject foodObject) {
             foodObject.transform.Find("Object").Find("Fired").gameObject.SetActive(true);
             Image image = foodObject.transform.Find("Object").Find("Fired").Find("Image").GetComponent<Image>();
-            image.sprite = foodObject.deckFood.data.foodImage;
+            image.sprite = PlayerConfig.CheckCosplay(foodObject.deckFood.data.foodName) ? foodObject.deckFood.data.cosplayImage :foodObject.deckFood.data.foodImage;
         }
         
         public override void Freeze(FoodObject foodObject) {
@@ -102,7 +104,7 @@ namespace BBQ.Shopping {
             FreezeEffect effect = Instantiate(freezeEffectPrefab, foodObject.transform)
                 .GetComponent<FreezeEffect>();
             effect.transform.localPosition = Vector3.zero;
-            effect.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100); 
+            effect.GetComponent<RectTransform>().sizeDelta = new(100, 100); 
             effect.Freeze(0.3f);
         }
 
@@ -132,7 +134,7 @@ namespace BBQ.Shopping {
 
         void SetMaterial(Image foodImage, int lank) {
             Material mat = lankMaterial[lank - 1];
-            if(mat != null) foodImage.material = new Material(mat);
+            if(mat != null) foodImage.material = new(mat);
             if(foodImage.material != null) foodImage.material.SetFloat(Seed, Random.value);
         }
     }

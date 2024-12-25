@@ -14,13 +14,13 @@ namespace BBQ.Action.Play {
             if (env.isShopping) return;
             List<DeckFood> deckFoods = v.GetFoods(v.n1);
             int dir = v.GetNum(v.n2);
-            List<UniTask> tasks = new List<UniTask>();
+            List<UniTask> tasks = new();
             foreach (DeckFood deckFood in deckFoods) {
                 int index = env.board.GetLaneIndex(deckFood);
                 int nextIndex = (index + 2 + dir) % 3 + 1;
                 if (env.board.GetFoodNum(nextIndex) == 5) continue;
                 FoodObject laneFood = deckFood.Release();
-                tasks.Add(env.board.AddFoodsRandomly(new List<FoodObject> { laneFood }, nextIndex));
+                tasks.Add(env.board.AddFoodsRandomly(new() { laneFood }, nextIndex));
             }
 
             if (tasks.Count == 0) {

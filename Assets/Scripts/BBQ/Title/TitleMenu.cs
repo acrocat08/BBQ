@@ -33,6 +33,7 @@ namespace BBQ.Title {
         [SerializeField] private List<GameObject> modeList;
         [SerializeField] private Text highScore;
         [SerializeField] private GameObject startButton;
+        [SerializeField] private ExpGage expGage;
 
         private bool _isMoving;
         private int _modeIndex;
@@ -85,7 +86,7 @@ namespace BBQ.Title {
             for (int i = 0; i < modeList.Count; i++) {
                 modeList[i].SetActive(i == _nowMode);
             }
-
+            expGage.Init(PlayerPrefs.GetInt("expLevel", 0), PlayerPrefs.GetInt("expPoint", 0));
             UpdateHighScore();
         }
         
@@ -179,8 +180,14 @@ namespace BBQ.Title {
         }
 
         void UpdateHighScore() {
-            highScore.text =
-                "ハイスコア： " + PlayerPrefs.GetInt("score_" + _nowMode + "_" + _nowLineup, 0);
+            if (_nowLineup <= 8) {
+                highScore.text =
+                    "Best Score： " + PlayerPrefs.GetInt("score_" + _nowMode + "_" + _nowLineup, 0); 
+            }
+            else {
+                highScore.text = "";
+            }
+            
         }
         
         

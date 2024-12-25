@@ -47,7 +47,9 @@ MonoBehaviour:
         n1: f1
         n2: "\u30B9\u30D1\u30A4\u30B7\u30FC"
       - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-        n1: -5/-3/-1
+        n1: -6/-4/-2
         n2: 
       priority: 0
   hint: 
+  cosplayImage: {fileID: 21300000, guid: a77107e83a4a1d147beb2fdfb537d997, type: 3}
+  cosplayName: "\u98A8\u90AA\u6C17\u5473"

@@ -28,7 +28,7 @@ namespace BBQ.Common {
                 Vector3 dir = Quaternion.Euler(0, 0, angle) * Vector3.up;
                 fractal.transform.DOLocalMove(fractalLength * dir * size, fractalDuration)
                     .OnComplete(() => { Destroy(fractal.gameObject);});
-                fractal.transform.DORotate(new Vector3(0, 0, 360), fractalDuration);
+                fractal.transform.DORotate(new(0, 0, 360), fractalDuration);
                 Image image = fractal.GetComponent<Image>();
                 DOTween.ToAlpha(
                     ()=> image.color,

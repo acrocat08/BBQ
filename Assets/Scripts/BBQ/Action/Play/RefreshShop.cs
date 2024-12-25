@@ -16,6 +16,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private ItemSet itemSet;
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (!env.isShopping) return;
             List<DeckFood> foods = v.GetFoods(v.n1);
             SoundPlayer.I.Play("se_refresh");
             SoundPlayer.I.Play("se_reroll2");

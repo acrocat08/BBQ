@@ -17,7 +17,7 @@ namespace BBQ.Shopping {
 
         public void Init(FoodData data, Shop shop, string areaTag, string targetTag, ItemDetail detail) {
             itemDetail = detail;
-            deckFood = new DeckFood(data);
+            deckFood = new(data);
             _shop = shop;
             _cost = data.cost;
             _isDiscounted = false;
@@ -74,8 +74,9 @@ namespace BBQ.Shopping {
             return _isDiscounted;
         }
 
-        public void Freeze() {
-            
+        public override void Freeze() {
+            deckFood.isFrozen = true;
+            shopView.Freeze(this);
         }
     }
 }

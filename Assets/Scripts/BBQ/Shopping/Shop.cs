@@ -56,11 +56,11 @@ namespace BBQ.Shopping {
             InputGuard.Lock();
             _coin.Use(shopFood.GetCost());
             inventory.AddFood(shopFood.deckFood, true);
-            DeleteFoods(new List<ShopFood>{shopFood});            
+            DeleteFoods(new() {shopFood});            
             SoundPlayer.I.Play("se_buy");
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-            await TriggerObserver.I.Invoke(ActionTrigger.Buy, new List<DeckFood>{shopFood.deckFood}, true);
-            await TriggerObserver.I.Invoke(ActionTrigger.BuyOthers, new List<DeckFood>{shopFood.deckFood}, false);
+            await TriggerObserver.I.Invoke(ActionTrigger.Buy, new() {shopFood.deckFood}, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.BuyOthers, new() {shopFood.deckFood}, false);
             await UniTask.DelayFrame(1);
             pointSensor.UpdateArea();
             InputGuard.UnLock();
@@ -94,10 +94,13 @@ namespace BBQ.Shopping {
         public List<ShopFood> GetShopFoods() {
             return _foods.Where(x => x != null).ToList();
         }
+        public ShopTool GetShopTool() {
+            return _tool;
+        }
 
         public async UniTask AddFoods(List<FoodData> data, bool refresh) {
             data = data.Take(5 - GetShopFoods().Count(x => x.deckFood.isFrozen)).ToList();
-            if(refresh && GetShopFoods() != null) DeleteFoods(new List<ShopFood>(GetShopFoods().Where(x => !x.deckFood.isFrozen)));
+            if(refresh && GetShopFoods() != null) DeleteFoods(new(GetShopFoods().Where(x => !x.deckFood.isFrozen)));
             await MoveFoods();
             int cnt = 0;
             for (int i = 0; i < 5; i++) {
@@ -183,7 +186,7 @@ namespace BBQ.Shopping {
         }
 
         public List<FoodObject> ReleaseFoods(List<DeckFood> foods) {
-            return new List<FoodObject>();
+            return new();
         }
 
         public FoodObject GetObject(DeckFood food) {
@@ -196,7 +199,7 @@ namespace BBQ.Shopping {
             _carbon.Use(shopTool.data.cost);
             DeleteTool();
             await assembly.Run(shopTool.data.action.sequences[0].commands, env, null, target);
-            if(shopTool.data.cost > 0) await TriggerObserver.I.Invoke(ActionTrigger.UseCarbon, new List<DeckFood>(), false);
+            if(shopTool.data.cost > 0) await TriggerObserver.I.Invoke(ActionTrigger.UseCarbon, new(), false);
             InputGuard.UnLock();
         }
 

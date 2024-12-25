@@ -26,13 +26,13 @@ namespace BBQ.Action {
             if (I == null) {
                 I = this;
             }
-            _invokerStack = new Stack<FoodData>();
+            _invokerStack = new();
         }
 
         public async UniTask Invoke(ActionTrigger trigger, List<DeckFood> target, bool isMyself) {
             List<InvokeSet> invokeSets = register.GetInvokers(trigger);
             List<InvokeSet> tmp = invokeSets.OrderBy(x => isMyself ? target.IndexOf(x.invoker) : x.sequence.priority).ToList();
-            List<DeckFood> used = new List<DeckFood>();
+            List<DeckFood> used = new();
             foreach (InvokeSet invokeSet in tmp) {
                 bool isOk = await register.CheckCondition(invokeSet, target, isMyself);
                 if(!isOk) continue;
@@ -49,8 +49,9 @@ namespace BBQ.Action {
             }
 
             if (!env.isShopping && env.deck.SelectAll().Count == 0 
-                                && env.board.SelectAll().Count < 15 && !env.board.HasResetEgg() 
-                                && (!env.dump.HasResetEgg())) {
+                                && env.board.SelectAll(true).Count < 15 && !env.board.HasResetEgg() 
+                                && (!env.dump.HasResetEgg())
+                                && _invokerStack.Count == 0) {
                 await env.board.ResetEgg();
             }
         }

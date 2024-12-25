@@ -16,7 +16,7 @@ namespace BBQ.Cooking {
 
         public void Init(List<MissionStatus> missions) {
             _missions = missions;
-            _handList = new List<Tuple<FoodData, FoodData, FoodData>>();
+            _handList = new();
             view.Init(this, _missions);
         }
 
@@ -28,7 +28,7 @@ namespace BBQ.Cooking {
         }
 
         public void AddKushi(FoodData food_A, FoodData food_B, FoodData food_C) {
-            _handList.Add(new Tuple<FoodData, FoodData, FoodData>(food_A, food_B, food_C));
+            _handList.Add(new(food_A, food_B, food_C));
         }
 
         public List<Tuple<FoodData, FoodData, FoodData>> GetKushi() {
@@ -39,10 +39,9 @@ namespace BBQ.Cooking {
             return _missions.All(x => x.now >= x.goal);
         }
 
-        public int GetScore() {
+        public int GetGreat() {
             int x = _missions.Sum(x => x.now - x.goal);
-            int diff = x * (x > 0 ? 15 : 10);
-            return Mathf.Clamp(100 + diff, 50, 300);
+            return Mathf.Max(0, x);
         }
     }
 }

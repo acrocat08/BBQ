@@ -31,8 +31,8 @@ namespace BBQ.Shopping {
             RectTransform bottomBG = shoppingGame.transform.Find("BG").Find("BG_B")
                 .GetComponent<RectTransform>();
             float width = topBG.sizeDelta.x;
-            topBG.sizeDelta = new Vector2(width, topBGMax);
-            bottomBG.sizeDelta = new Vector2(width, bottomBGMax);
+            topBG.sizeDelta = new(width, topBGMax);
+            bottomBG.sizeDelta = new(width, bottomBGMax);
             Text dayText = shoppingGame.transform.Find("Header").Find("Day").Find("Text").GetComponent<Text>();
             dayText.text = "Day " + shoppingGame.GetDay();
         }
@@ -43,7 +43,7 @@ namespace BBQ.Shopping {
                 .GetComponent<RectTransform>();
             RectTransform bottomBG = shoppingGame.transform.Find("BG").Find("BG_B")
                 .GetComponent<RectTransform>();
-            List<UniTask> tasks = new List<UniTask> {
+            List<UniTask> tasks = new() {
                 MoveBG(topBG, 0, openDuration, openEasing),
                 MoveBG(bottomBG, 0, openDuration, openEasing)
             };
@@ -58,7 +58,7 @@ namespace BBQ.Shopping {
                 .GetComponent<RectTransform>();
             RectTransform dayText = shoppingGame.transform.Find("Header").Find("Day").Find("Text").GetComponent<RectTransform>();
 
-            List<UniTask> tasks = new List<UniTask> {
+            List<UniTask> tasks = new() {
                 MoveBG(topBG, topBGMax, closeDuration, closeEasing),
                 MoveBG(bottomBG, bottomBGMax, closeDuration, closeEasing),
                 MoveDayText(shoppingGame, dayText, closeDuration)
@@ -88,7 +88,7 @@ namespace BBQ.Shopping {
             DOTween.To(
                 () => BG.sizeDelta,
                 x => BG.sizeDelta = x,
-                new Vector2(width, toHeight),
+                new(width, toHeight),
                 duration).SetEase(ease);
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
 

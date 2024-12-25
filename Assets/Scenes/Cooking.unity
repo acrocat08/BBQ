@@ -1315,7 +1315,7 @@ PrefabInstance:
     - target: {fileID: 5546075017281032687, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: testDeck
       value: 
-      objectReference: {fileID: 11400000, guid: 63b90c0fa0cfcd149ba71202c5c6b9e4, type: 2}
+      objectReference: {fileID: 11400000, guid: d4f8a0c941f0a8f4ea15d5e2eddaff26, type: 2}
     - target: {fileID: 5948392838193488937, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: itemSet
       value: 

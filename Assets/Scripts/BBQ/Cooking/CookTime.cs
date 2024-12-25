@@ -39,7 +39,7 @@ namespace BBQ.Cooking {
                     _nowTime += _bonusTime;
                     _bonusMode = true;
                     Pause();
-                    await TriggerObserver.I.Invoke(ActionTrigger.BonusTime, new List<DeckFood>(), false);
+                    await TriggerObserver.I.Invoke(ActionTrigger.BonusTime, new(), false);
                     Resume();
                 }
                 if(doCountDown && _nowTime >= 0) view.UpdateText(this, _bonusMode);

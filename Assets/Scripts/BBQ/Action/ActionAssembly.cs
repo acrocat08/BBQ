@@ -9,7 +9,7 @@ namespace BBQ.Action {
     public class ActionAssembly : ScriptableObject {
 
         public async UniTask<ActionVariable> Run(List<ActionCommand> commands, ActionEnvironment env, DeckFood invoker, List<DeckFood> target) {
-            ActionVariable v = new ActionVariable(invoker, target);
+            ActionVariable v = new(invoker, target);
             for (int i = 0; i < commands.Count; i++) {
                 v.n1 = commands[i].n1;
                 v.n2 = commands[i].n2;

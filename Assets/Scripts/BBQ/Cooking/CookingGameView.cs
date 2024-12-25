@@ -33,8 +33,8 @@ namespace BBQ.Cooking {
             RectTransform rightBG = cookingGame.transform.Find("Information").Find("BG_R").Find("BG")
                 .GetComponent<RectTransform>();
             float height = leftBG.sizeDelta.y;
-            leftBG.sizeDelta = new Vector2(leftBGMax, height);
-            rightBG.sizeDelta = new Vector2(rightBGMax, height);
+            leftBG.sizeDelta = new(leftBGMax, height);
+            rightBG.sizeDelta = new(rightBGMax, height);
             Text dayText = cookingGame.transform.Find("Information").Find("BG_L").Find("UI").Find("Day").Find("Text").GetComponent<Text>();
             dayText.text = "Day " + cookingGame.GetDay();
             dayText.transform.SetParent(cookingGame.transform.Find("Information").Find("DayText"));
@@ -52,7 +52,7 @@ namespace BBQ.Cooking {
             dayText.transform.SetParent(cookingGame.transform.Find("Information").Find("BG_L").Find("UI").Find("Day"));
             dayText.DOLocalMove(dayTextPos, openDuration).SetEase(Ease.Linear);
             
-            List<UniTask> tasks = new List<UniTask> {
+            List<UniTask> tasks = new() {
                 MoveBG(leftBG, leftBGMin, openDuration, openEasing),
                 MoveBG(rightBG, rightBGMin, openDuration, openEasing)
             };
@@ -65,7 +65,7 @@ namespace BBQ.Cooking {
             RectTransform rightBG = cookingGame.transform.Find("Information").Find("BG_R").Find("BG")
                 .GetComponent<RectTransform>();
 
-            List<UniTask> tasks = new List<UniTask> {
+            List<UniTask> tasks = new() {
                 MoveBG(leftBG, leftBGMax, closeDuration, closeEasing),
                 MoveBG(rightBG, rightBGMax, closeDuration, closeEasing)
             };
@@ -99,7 +99,7 @@ namespace BBQ.Cooking {
             DOTween.To(
                 () => BG.sizeDelta,
                 x => BG.sizeDelta = x,
-                new Vector2(toWidth, height),
+                new(toWidth, height),
                 duration).SetEase(ease);
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }

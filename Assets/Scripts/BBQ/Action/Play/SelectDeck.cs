@@ -10,10 +10,10 @@ namespace BBQ.Action.Play {
     public class SelectDeck : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
             if (env.isShopping) {
-                v.f1 = new List<DeckFood>(env.inventory.GetDeckFoods().Where(x => !x.isFrozen));
+                v.f1 = new(env.inventory.GetDeckFoods().Where(x => !x.isFrozen));
             }
             else {
-                v.f1 = new List<DeckFood>(env.deck.SelectAll());
+                v.f1 = new(env.deck.SelectAll());
             }
         }
     }

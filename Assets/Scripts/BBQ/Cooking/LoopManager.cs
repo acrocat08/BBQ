@@ -31,7 +31,7 @@ namespace BBQ.Cooking {
         
         private async void FixedUpdate() {
             if (_pauseMode) return;
-            List<DeckFood> loopedFoods = new List<DeckFood>();
+            List<DeckFood> loopedFoods = new();
             for (int i = 0; i < movements.Length; i++) {
                 movements[i].Move();
                 FoodObject looped = GetLoopedFood(i);

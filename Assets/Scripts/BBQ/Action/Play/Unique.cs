@@ -31,7 +31,7 @@ namespace BBQ.Action.Play {
                 foods = env.inventory.GetDeckFoods();
             }
             else {
-                foods = env.board.SelectAll();
+                foods = env.board.SelectAll(false);
             }
             v.x1 = foods.Contains(v.invoker) ? 1 : 0;
         }

@@ -22,7 +22,7 @@ namespace SoundMgr {
             if (I == null) I = this;
             else Destroy(gameObject);
             
-            _soundDict = new Dictionary<string, SoundData>();
+            _soundDict = new();
             foreach (var sound in sounds) {
                 _soundDict[sound.soundName] = sound;
             }

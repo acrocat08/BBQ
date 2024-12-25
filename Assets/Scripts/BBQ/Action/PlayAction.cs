@@ -11,7 +11,7 @@ namespace BBQ.Action {
         }
 
         public async UniTask Execute(ActionEnvironment env) {
-            ActionVariable v = new ActionVariable(null, null);
+            ActionVariable v = new(null, null);
             await Execute(env, v);
         }
 

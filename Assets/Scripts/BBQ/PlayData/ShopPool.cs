@@ -30,7 +30,7 @@ namespace BBQ.PlayData {
             string poolName = decoded[0];
             List<int> index = decoded[1].Split(",").Select(int.Parse).ToList();
             index.Sort();
-            return new ShopPool(index, poolName);
+            return new(index, poolName);
         }
     }
 }

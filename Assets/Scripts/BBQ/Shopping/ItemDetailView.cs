@@ -16,7 +16,8 @@ namespace BBQ.Shopping {
         public void DrawFoodInfo(Transform container, FoodData foodData, int lank) {
             Transform baseInfo = container.Find("BaseInfo");
             baseInfo.gameObject.SetActive(true);
-            baseInfo.Find("Food").GetComponent<Image>().sprite = foodData.foodImage;
+            bool isCosplay = PlayerConfig.CheckCosplay(foodData.foodName);
+            baseInfo.Find("Food").GetComponent<Image>().sprite = isCosplay ? foodData.cosplayImage : foodData.foodImage;
             baseInfo.Find("Food").GetComponent<Image>().material = materials[lank - 1];
             baseInfo.Find("Lank").GetComponent<Text>().text = foodData.tier > 0 ? "ティア" + foodData.tier + " 食材" : "トークン食材";
             baseInfo.Find("Line").GetComponent<Image>().color = param.tierColors[foodData.tier];

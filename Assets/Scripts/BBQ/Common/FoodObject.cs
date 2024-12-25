@@ -22,7 +22,7 @@ namespace BBQ.Common {
             view.Drop(this);
         }
 
-        public void Freeze() {
+        public virtual void Freeze() {
             deckFood.isFrozen = true;
             view.Freeze(this);
         }

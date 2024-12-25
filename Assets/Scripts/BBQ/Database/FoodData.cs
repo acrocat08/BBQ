@@ -49,6 +49,8 @@ namespace BBQ.Database {
         public string tag;
         public FoodAction action;
         [Multiline] public string hint;
+        public Sprite cosplayImage;
+        public string cosplayName;
 
         public override Sprite GetImage() {
             return foodImage;

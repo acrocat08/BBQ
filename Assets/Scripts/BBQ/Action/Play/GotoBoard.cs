@@ -27,7 +27,7 @@ namespace BBQ.Action.Play {
                 return;
             }
 
-            int num = Mathf.Min(deckFoods.Count, 15 - env.board.SelectAll().Count);
+            int num = Mathf.Min(deckFoods.Count, 15 - env.board.SelectAll(true).Count);
             
             if (deckFoods.Count == 0 || num == 0) {
                 return;

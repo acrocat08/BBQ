@@ -97,10 +97,10 @@ namespace BBQ.Shopping {
                 int angle = Random.Range(i * (360 / images.Count), i * (360 / images.Count) + (180 / images.Count));
                 Vector3 dir = Quaternion.Euler(0, 0, angle) * Vector3.up;
                 itemImage.DOLocalMove(levelUpImageLength * dir, levelUpShowUpDuration + levelUpShowDuration).SetEase(levelUpImageEasing);
-                itemImage.DORotate(new Vector3(0, 0, 360), levelUpShowUpDuration + levelUpShowDuration);
+                itemImage.DORotate(new(0, 0, 360), levelUpShowUpDuration + levelUpShowDuration);
             }
 
-            container.DOLocalRotate(new Vector3(0, 0, 90), levelUpShowUpDuration + levelUpShowDuration)
+            container.DOLocalRotate(new(0, 0, 90), levelUpShowUpDuration + levelUpShowDuration)
                 .SetEase(levelUpImageEasing);
 
             await UniTask.Delay(TimeSpan.FromSeconds(levelUpShowUpDuration + levelUpShowDuration));

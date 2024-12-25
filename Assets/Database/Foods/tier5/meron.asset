@@ -79,3 +79,5 @@ MonoBehaviour:
         n2: stack
       priority: 0
   hint: 
+  cosplayImage: {fileID: 21300000, guid: edb7526468c77c94ea964db993cf1f93, type: 3}
+  cosplayName: "\u30DE\u30B9\u30AF"

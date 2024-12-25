@@ -53,7 +53,7 @@ namespace BBQ.Shopping {
             target[0].deckFood.stack = target.Max(x => x.deckFood.stack);
             for (int i = 1; i < target.Count; i++) {
                 TriggerObserver.I.RemoveFood(target[i].deckFood);
-                DeckFood emptyFood = new DeckFood(null);
+                DeckFood emptyFood = new(null);
                 target[i].SetFood(emptyFood);
             }
             await target[0].LankUp();
@@ -61,9 +61,9 @@ namespace BBQ.Shopping {
 
             int discoverTier = Mathf.Min(5, shop.GetShopLevel() + 1);
             FoodData discovered = isTutorial ? tutorialFood : itemSet.GetRandomFood(discoverTier, discoverTier);
-            await shop.AddFoods(new List<FoodData> { discovered }, false);
-            await TriggerObserver.I.Invoke(ActionTrigger.LankUp, new List<DeckFood> { target[0].deckFood }, true);
-            await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new List<DeckFood> { target[0].deckFood }, false);
+            await shop.AddFoods(new() { discovered }, false);
+            await TriggerObserver.I.Invoke(ActionTrigger.LankUp, new() { target[0].deckFood }, true);
+            await TriggerObserver.I.Invoke(ActionTrigger.LankUpOthers, new() { target[0].deckFood }, false);
             InputGuard.UnLock();            
         }
 

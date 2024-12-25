@@ -807,6 +807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 2399311995200359949, guid: f9510c9e6406e3c4e8ce0b9fee5c738f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -885,6 +889,10 @@ PrefabInstance:
     - target: {fileID: 2155924903493260811, guid: ca90c59564f7d6242b169221d092fa7c, type: 3}
       propertyPath: m_Name
       value: SceneTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155924903493260811, guid: ca90c59564f7d6242b169221d092fa7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6757738346243637588, guid: ca90c59564f7d6242b169221d092fa7c, type: 3}
       propertyPath: m_Pivot.x

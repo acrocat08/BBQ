@@ -18,6 +18,7 @@ namespace BBQ.Cooking {
         [SerializeField] private ButtonEffect drawEffect;
 
         private bool _isRunning;
+        private int _count;
         
         public void Init(int reduce) {
             int handPenalty = param.helpHandPenalty - reduce;
@@ -38,6 +39,7 @@ namespace BBQ.Cooking {
             await assembly.Run(addHand, env, null, null);
             env.time.Resume();
             _isRunning = false;
+            _count++;
         }
         
         public async void OnDraw() {
@@ -49,8 +51,11 @@ namespace BBQ.Cooking {
             await assembly.Run(draw, env, null, null);
             env.time.Resume();
             _isRunning = false;
+            _count++;
         }
 
-
+        public int GetCount() {
+            return _count;
+        }
     }
 }

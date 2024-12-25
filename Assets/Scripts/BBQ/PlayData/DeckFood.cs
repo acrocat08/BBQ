@@ -36,7 +36,7 @@ namespace BBQ.PlayData {
         }
 
         public DeckFood Copy() {
-            DeckFood ret = new DeckFood(data) {
+            DeckFood ret = new(data) {
                 lank = lank,
                 Releasable = Releasable,
             };
@@ -44,7 +44,7 @@ namespace BBQ.PlayData {
         }
         
         public DeckFood CopyWithEffect() {
-            DeckFood ret = new DeckFood(data) {
+            DeckFood ret = new(data) {
                 lank = lank,
                 Releasable = Releasable,
                 effect = effect
@@ -53,7 +53,7 @@ namespace BBQ.PlayData {
         }
 
         public FoodObject Release() {
-            return Releasable.ReleaseFoods(new List<DeckFood> { this }).First();
+            return Releasable.ReleaseFoods(new() { this }).First();
         }
 
         public FoodObject GetObject() {

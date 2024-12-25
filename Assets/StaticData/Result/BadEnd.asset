@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ebaecbaa0384e438a245980b6b3234, type: 3}
   m_Name: BadEnd
   m_EditorClassIdentifier: 
-  bgImage: {fileID: 21300000, guid: 303df0e86cb574940ab580b696e6eb41, type: 3}
-  titleColor: {r: 0.4901961, g: 0.39607847, b: 0.25490198, a: 1}
+  bgImage: {fileID: -3013819603732943016, guid: 5ff05692f5a8b8d46b27105df11fa703, type: 3}
+  titleColor: {r: 0.46274513, g: 0.27058825, b: 0.13725491, a: 1}

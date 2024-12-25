@@ -63,7 +63,7 @@ namespace BBQ.Cooking {
             if (speedPerSecond > 0) pos -= offset;
             else pos += offset;
             pos = GetLoopedPos(pos);
-            return new Vector3(pos, 0, 0);
+            return new(pos, 0, 0);
         }
 
         public void SetSpeed(float speed) {

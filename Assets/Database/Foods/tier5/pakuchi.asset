@@ -23,9 +23,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
+    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+20\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
+    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+25\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
     - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+30\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
-    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+35\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
-    - "\u30A8\u30D5\u30A7\u30AF\u30C8\u7372\u5F97\u6642\uFF1A\n-\u3000\u30CF\u30F3\u30C9+2\n-\u3000\u30B3\u30A4\u30F3+40\n-\u3000\u7372\u5F97\u3057\u305F\u30A8\u30D5\u30A7\u30AF\u30C8\u3092\u9664\u5916\u3059\u308B"
     sequences:
     - trigger: 28
       condition: []
@@ -34,7 +34,7 @@ MonoBehaviour:
         n1: 2
         n2: 
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
-        n1: 30/35/40
+        n1: 20/25/30
         n2: 
       - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
         n1: 
@@ -44,3 +44,5 @@ MonoBehaviour:
         n2: none
       priority: 0
   hint: 
+  cosplayImage: {fileID: 21300000, guid: 61d18224faf1be44ab799231416b57f4, type: 3}
+  cosplayName: "\u6028\u5FF5"

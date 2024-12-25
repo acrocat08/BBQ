@@ -10,6 +10,7 @@ namespace BBQ.Action.Play {
     [CreateAssetMenu(menuName = "Action/ShopLevel")]
     public class ShopLevel : PlayAction {
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
+            if (!env.isShopping) return;
             v.x1 = env.shop.GetShopLevel();
         }
 

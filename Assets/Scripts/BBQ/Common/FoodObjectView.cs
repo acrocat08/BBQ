@@ -68,7 +68,7 @@ namespace BBQ.Common {
         public void Hit(FoodObject foodObject) {
             float rotateDelta = Random.Range(5f, 15f);
             if (Random.value >= 0.5f) rotateDelta *= -1;
-            foodObject.transform.Find("FoodImage").DOLocalRotate(new Vector3(0, 0, rotateDelta),
+            foodObject.transform.Find("FoodImage").DOLocalRotate(new(0, 0, rotateDelta),
                 0.2f).SetEase(Ease.OutExpo);
             for (int i = 0; i < 6; i++) {
                 ShotEffect effect = Instantiate(hitEffectPrefab, Vector3.zero, Quaternion.identity, foodObject.transform).GetComponent<ShotEffect>();
@@ -84,7 +84,7 @@ namespace BBQ.Common {
                 jumpLength, 1, fallDuration);
             foodObject.transform.DOLocalMoveX(foodObject.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), fallDuration)
                 .SetEase(Ease.Linear);
-            foodObject.transform.DOLocalRotate(new Vector3(0, 0, 180), fallDuration);
+            foodObject.transform.DOLocalRotate(new(0, 0, 180), fallDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(fallDuration));
             Destroy(foodObject.gameObject);
         }

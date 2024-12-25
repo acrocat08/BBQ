@@ -17,11 +17,11 @@ namespace BBQ.Action.Play {
                 env.copyArea.SetPosition(env.dump.GetObject(v.invoker));
             }
             else env.copyArea.SetPosition(v.invoker.GetObject());
-            List<DeckFood> copied = new List<DeckFood>();
+            List<DeckFood> copied = new();
             for (int i = 0; i < num; i++) {
                 copied.Add(env.copyArea.CopyFoods(deckFoods)[0]);
             }
-            v.f1 = new List<DeckFood>(copied);
+            v.f1 = new(copied);
         }
     }
 }
