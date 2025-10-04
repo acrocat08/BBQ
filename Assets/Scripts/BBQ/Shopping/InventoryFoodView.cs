@@ -66,6 +66,8 @@ namespace BBQ.Shopping {
             lankImage.color = deckFood.data != null ? lankColor[deckFood.lank - 1] : Color.clear;
             if(foodObject.transform.Find("Object").Find("FireEffect(Clone)")) 
                 Destroy(foodObject.transform.Find("Object").Find("FireEffect(Clone)").gameObject);
+            if(foodObject.transform.Find("FreezeEffect(Clone)")) 
+                Destroy(foodObject.transform.Find("FreezeEffect(Clone)").gameObject);
             if(foodObject.deckFood.data && foodObject.deckFood.data.useStack) foodObject.transform.Find("Object").Find("Stack").gameObject.SetActive(true);
             else foodObject.transform.Find("Object").Find("Stack").gameObject.SetActive(false);
             DrawEffect(foodObject);
@@ -102,6 +104,29 @@ namespace BBQ.Shopping {
             image.transform.localRotation = Quaternion.Euler(0, 0, 0);
             Draw(foodObject);
         }
+        
+        public async UniTask ForkDrop(FoodObject foodObject, FoodData prevData) {
+            float duration = fallDuration * 1.2f;
+            Vector2 prevPos = foodObject.transform.Find("Object").Find("Image").localPosition;
+            Transform image = foodObject.transform.Find("Object").Find("Image");
+            Image foodImage = image.GetComponent<Image>();
+            foodImage.enabled = true;
+            foodImage.sprite = PlayerConfig.CheckCosplay(prevData.foodName)
+                ? prevData.cosplayImage
+                : prevData.foodImage;
+            int dir = foodObject.transform.localPosition.x > 0 ? 1 : -1;
+            image.transform.DOLocalJump(image.transform.localPosition + fallLength * Vector3.down,
+                jumpLength, 1, duration);
+            image.transform.DOLocalMoveX(image.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), duration)
+                .SetEase(Ease.Linear);
+            image.transform.DOLocalRotate(new(0, 0, 180), duration);
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
+            image.transform.localPosition = prevPos;
+            image.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            Draw(foodObject);
+        }
+        
+        
         
         public override void Fire(FoodObject foodObject) {
             foodObject.transform.Find("Object").Find("Fired").gameObject.SetActive(true);

@@ -18,8 +18,9 @@ namespace BBQ.Common {
             view.Hit(this);
         }
 
-        public virtual void Drop() {
+        public virtual UniTask Drop() {
             view.Drop(this);
+            return default;
         }
 
         public virtual void Freeze() {

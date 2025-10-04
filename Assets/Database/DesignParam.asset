@@ -18,4 +18,4 @@ MonoBehaviour:
   initialMissionDifficulty: 0
   firstMissionPoint: 0
   secondMissionPoint: 0
-  isDebugMode: 0
+  isDebugMode: 1

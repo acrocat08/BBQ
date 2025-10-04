@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using BBQ.Common;
 using BBQ.Database;
 using BBQ.PlayData;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -34,8 +35,9 @@ namespace BBQ.Shopping {
             shopView.Fall(transform.Find("FoodImage").transform);
         }
 
-        public override void Drop() {
+        public override UniTask Drop() {
             shopView.Drop(this);
+            return default;
         }
 
         public FoodData GetFoodData() {

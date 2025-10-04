@@ -53,12 +53,22 @@ namespace BBQ.Shopping {
             inventory.SortItem();
         }
         
-        public override void Drop() {
-            deckFood.data = null;
-            deckFood.effect = null;
-            DeckFood emptyFood = new(null);
-            SetFood(emptyFood);
-            view.Drop(this);
+        public override async UniTask Drop() {
+            if (deckFood.isFired) {
+                deckFood.data = null;
+                deckFood.effect = null;
+                DeckFood emptyFood = new(null);
+                SetFood(emptyFood);
+                view.Drop(this);  
+            }
+            else {
+                FoodData prevData = deckFood.data;
+                deckFood.data = null;
+                deckFood.effect = null;
+                DeckFood emptyFood = new(null);
+                SetFood(emptyFood);
+                await ((InventoryFoodView)view).ForkDrop(this, prevData);
+            }
         }
 
     }
