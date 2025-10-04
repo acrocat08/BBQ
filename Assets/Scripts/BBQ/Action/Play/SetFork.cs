@@ -5,6 +5,7 @@ using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.Database;
 using BBQ.PlayData;
+using BBQ.Shopping;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -16,13 +17,18 @@ namespace BBQ.Action.Play {
         [SerializeField] private ItemSet itemSet;
         
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            env.inventory.SetFork();
+            //env.inventory.SetFork();
             
             string foodName = v.GetString(v.n1);
             DeckFood invoker = v.GetFoods(v.n2)[0];
             if (invoker.isFrozen) return;
             if (invoker.isFired) return;
             if (foodName == "") return;
+            
+            invoker.GetObject().Hit();
+            SoundMgr.SoundPlayer.I.Play("se_hit1");
+            SoundMgr.SoundPlayer.I.Play("se_hit2-2");
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             FoodData targetFood = itemSet.SearchFood(foodName);
             List<ActionSequence> seq = targetFood.action.sequences.Where(x => x.trigger == ActionTrigger.Hit).ToList();
             foreach (ActionSequence sequence in seq) {
@@ -31,9 +37,10 @@ namespace BBQ.Action.Play {
                     await assembly.Run(sequence.commands, env, invoker, new() { invoker });
                 }    
             }
-            
+            if (invoker.isFired) return;
             TriggerObserver.I.RemoveFood(invoker);
-            await invoker.GetObject().Drop();
+            SoundMgr.SoundPlayer.I.Play("se_drop");
+            await ((InventoryFood)invoker.GetObject()).ForkDrop();
         }    
             
     }

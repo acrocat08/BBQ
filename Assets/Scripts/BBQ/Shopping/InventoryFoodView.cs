@@ -19,7 +19,7 @@ namespace BBQ.Shopping {
         [SerializeField] private GameObject lankUpPrefab;
         [SerializeField] private List<Material> lankMaterial;
         [SerializeField] private SupportIconView iconView;
-
+        [SerializeField] private GameObject forkEffect;
         
         private static readonly int Seed = Shader.PropertyToID("_seed");
 
@@ -105,30 +105,42 @@ namespace BBQ.Shopping {
             Draw(foodObject);
         }
         
-        public async UniTask ForkDrop(FoodObject foodObject, FoodData prevData) {
+        public async UniTask ForkDrop(FoodObject foodObject, FoodData prevData, int lank) {
             float duration = fallDuration * 1.2f;
-            Vector2 prevPos = foodObject.transform.Find("Object").Find("Image").localPosition;
-            Transform image = foodObject.transform.Find("Object").Find("Image");
-            Image foodImage = image.GetComponent<Image>();
+            Transform fork = foodObject.transform.Find("Fork(Clone)");
+            Vector2 prevPos = fork.localPosition;
+            Image foodImage = foodObject.transform.Find("Fork(Clone)").Find("FoodImage").GetComponent<Image>();
             foodImage.enabled = true;
             foodImage.sprite = PlayerConfig.CheckCosplay(prevData.foodName)
                 ? prevData.cosplayImage
                 : prevData.foodImage;
+            SetMaterial(foodImage, lank);
             int dir = foodObject.transform.localPosition.x > 0 ? 1 : -1;
-            image.transform.DOLocalJump(image.transform.localPosition + fallLength * Vector3.down,
+            fork.transform.DOLocalJump(fork.transform.localPosition + fallLength * Vector3.down,
                 jumpLength, 1, duration);
-            image.transform.DOLocalMoveX(image.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), duration)
+            fork.transform.DOLocalMoveX(fork.transform.localPosition.x + fallXLength * dir * Random.Range(0.5f, 2f), duration)
                 .SetEase(Ease.Linear);
-            image.transform.DOLocalRotate(new(0, 0, 180), duration);
+            fork.transform.DOLocalRotate(new(0, 0, 180), duration);
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
-            image.transform.localPosition = prevPos;
-            image.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            Destroy(fork);
             Draw(foodObject);
         }
         
+        public override void Hit(FoodObject foodObject) {
+            Transform effect = Instantiate(forkEffect, foodObject.transform).transform;
+            effect.SetSiblingIndex(0);
+            effect.transform.localPosition = Vector3.zero;
+            effect.GetComponent<RectTransform>().sizeDelta = new(100, 100);
+            Transform fork = effect.Find("ForkImage");
+            Vector3 prev = fork.localPosition;
+            fork.localPosition += new Vector3(50, 50, 0);
+            fork.DOLocalMove(prev, 0.1f);
+        }
         
         
         public override void Fire(FoodObject foodObject) {
+            if(foodObject.transform.Find("Fork(Clone)")) 
+                Destroy(foodObject.transform.Find("Fork(Clone)").gameObject);
             foodObject.transform.Find("Object").Find("Fired").gameObject.SetActive(true);
             Image image = foodObject.transform.Find("Object").Find("Fired").Find("Image").GetComponent<Image>();
             image.sprite = PlayerConfig.CheckCosplay(foodObject.deckFood.data.foodName) ? foodObject.deckFood.data.cosplayImage :foodObject.deckFood.data.foodImage;

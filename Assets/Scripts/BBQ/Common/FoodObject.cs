@@ -14,7 +14,7 @@ namespace BBQ.Common {
             view.Draw(this);
         }
 
-        public void Hit() {
+        public virtual void Hit() {
             view.Hit(this);
         }
 

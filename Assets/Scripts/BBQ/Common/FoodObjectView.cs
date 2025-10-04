@@ -65,7 +65,7 @@ namespace BBQ.Common {
             }
         }
 
-        public void Hit(FoodObject foodObject) {
+        public virtual void Hit(FoodObject foodObject) {
             float rotateDelta = Random.Range(5f, 15f);
             if (Random.value >= 0.5f) rotateDelta *= -1;
             foodObject.transform.Find("FoodImage").DOLocalRotate(new(0, 0, rotateDelta),

@@ -38,3 +38,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 60403982f9c424eddbb8f692ffb70b91, type: 2}
   - {fileID: 2100000, guid: 95e5df6b2fb9b4a7b9e930ccc8dc6db0, type: 2}
   iconView: {fileID: 11400000, guid: 40d8777a1d950f242a01d0997ba0dca6, type: 2}
+  forkEffect: {fileID: 6227063452064988132, guid: c5959478831fa8940827c436696bf1ef, type: 3}
