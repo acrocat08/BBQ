@@ -17,7 +17,7 @@ namespace BBQ.Action.Play {
         [SerializeField] private ItemSet itemSet;
         
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            //env.inventory.SetFork();
+            env.inventory.SetFork();
             
             string foodName = v.GetString(v.n1);
             DeckFood invoker = v.GetFoods(v.n2)[0];

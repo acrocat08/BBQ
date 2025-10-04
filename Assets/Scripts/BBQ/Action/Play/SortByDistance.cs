@@ -13,6 +13,7 @@ namespace BBQ.Action.Play {
             FoodObject invoker = v.invoker.GetObject();
             if (invoker == null) return;
             v.f1 = deckFoods
+                .Where(x => x != v.invoker)
                 .Select(x => x.GetObject())
                 .OrderBy(x => (x.transform.position - invoker.transform.position).magnitude)
                 .Select(x => x.deckFood)

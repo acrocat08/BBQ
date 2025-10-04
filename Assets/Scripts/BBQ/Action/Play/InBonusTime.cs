@@ -10,7 +10,8 @@ namespace BBQ.Action.Play {
     public class InBonusTime : PlayAction {
 
         public override async UniTask Execute(ActionEnvironment env, ActionVariable v) {
-            v.x1 = env.time.IsBonusMode() ? 1 : 0;
+            if (env.isShopping) v.x1 = 0;
+            else v.x1 = env.time.IsBonusMode() ? 1 : 0;
         }
     }
 }
