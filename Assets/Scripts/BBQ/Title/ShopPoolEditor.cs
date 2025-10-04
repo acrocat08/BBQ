@@ -45,7 +45,7 @@ namespace BBQ.Title {
                 () => canvasGroup.alpha,
                 x => canvasGroup.alpha = x,
                 1f,
-                0.2f);
+                0f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             isMoving = false;
             saveButton.enabled = true;
@@ -58,7 +58,7 @@ namespace BBQ.Title {
                 () => canvasGroup.alpha,
                 x => canvasGroup.alpha = x,
                 0f,
-                0.2f);
+                0f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             transform.localScale = Vector3.zero;
             isMoving = false;
@@ -123,8 +123,9 @@ namespace BBQ.Title {
 
             _selected.foodsIndex.Sort();
             _selected.poolName = inputField.text;
-            
-            PlayerConfig.Create(_selected, poolIndex - 9, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+
+            PlayerConfig.Create(_selected, poolIndex - 9, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode(),
+                PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume());
             listWindow.CloseEditor();
             Close();
         }

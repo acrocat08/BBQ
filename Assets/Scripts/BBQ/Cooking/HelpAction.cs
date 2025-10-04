@@ -29,6 +29,15 @@ namespace BBQ.Cooking {
             handText.text = (handPenalty * -1).ToString();
             drawText.text = (drawPenalty * -1).ToString();
         }
+
+        void Update() {
+            if (Input.GetMouseButtonUp(1)) {
+                OnDraw();
+            }
+            if (Input.GetMouseButtonUp(2)) {
+                OnAddHand();
+            }
+        }
          
         public async void OnAddHand() {
             if (env.time.GetNowTime() == 0) return;

@@ -33,6 +33,7 @@ namespace BBQ.Cooking {
         private bool _nextGold;
         private bool _nextDouble;
         private TutorialCooking _tutorial;
+        private int _resetCount;
 
         public void Init(List<Lane> lanes, Dump dump, HandCount handCount, CookTime time, MissionSheet missionSheet, ActionEnvironment env, TutorialCooking tutorial) {
             _foods = new();
@@ -45,7 +46,7 @@ namespace BBQ.Cooking {
             _env = env;
             _nextGold = false;
             _tutorial = tutorial;
-
+            _resetCount = 0;
             StoreHand();
             Pause();
         }
@@ -74,8 +75,8 @@ namespace BBQ.Cooking {
             if (_nextGold) {
                 SoundPlayer.I.Play("se_goldenHand");                
             }
-            if (_nextDouble && _handCount.GetHandCount() >= 2) {
-                _handCount.Use(2);
+            if (_nextDouble) {
+                _handCount.Use(1);
                 SoundPlayer.I.Play("se_doubleHand");                
             }
             else {
@@ -193,10 +194,16 @@ namespace BBQ.Cooking {
         }
         
         public async UniTask ResetEgg() {
-            List<FoodObject> egg = _env.deck.ReleaseFoods(new() { new(param.resetFood) });
-            TriggerObserver.I.RegisterFood(egg[0].deckFood);
+            DeckFood egg = new(param.resetFood);
+            egg.stack = 6 + _resetCount * 2;
+            List<FoodObject> eggs = _env.deck.ReleaseFoods(new() { egg });
+            TriggerObserver.I.RegisterFood(eggs[0].deckFood);
             SoundPlayer.I.Play("se_resetEgg");
-            await AddFoodsRandomly(egg);
+            await AddFoodsRandomly(eggs);
+        }
+
+        public void CountReset() {
+            _resetCount++;
         }
     }
 }

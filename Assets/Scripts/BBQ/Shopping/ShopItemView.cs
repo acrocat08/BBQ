@@ -29,6 +29,8 @@ namespace BBQ.Shopping {
         [SerializeField] private Color discountColor;
         [SerializeField] protected GameObject freezeEffectPrefab;
         [SerializeField] protected Color freezeColor;
+        [SerializeField] private SupportIconView iconView;
+
         
         public void DrawFood(ShopFood shopFood) {
             FoodData data = shopFood.GetFoodData();
@@ -39,6 +41,11 @@ namespace BBQ.Shopping {
             shopFood.transform.Find("Name").GetComponent<Text>().text = data.foodName;
             shopFood.transform.Find("Line").GetComponent<Image>().color = param.tierColors[data.tier];
             shopFood.transform.Find("Shadow").GetComponent<Image>().color = param.tierColors[data.tier];
+            if(shopFood.deckFood.data.iconA != null && shopFood.deckFood.data.iconA.inShop)
+                iconView.Draw(shopFood.transform.Find("FoodImage").Find("SupportIcon"), shopFood.deckFood.data.iconA);
+            else if(shopFood.deckFood.data.iconB != null && shopFood.deckFood.data.iconB.inShop)
+                iconView.Draw(shopFood.transform.Find("FoodImage").Find("SupportIcon"), shopFood.deckFood.data.iconB);
+            else iconView.Hide(shopFood.transform.Find("FoodImage").Find("SupportIcon"));
         }
         
         public void DrawTool(ShopTool shopTool) {

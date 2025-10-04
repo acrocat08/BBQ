@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Shake
   m_EditorClassIdentifier: 
   requireClick: 0
-  speed: 3
-  length: 40
+  speed: 5
+  length: 20

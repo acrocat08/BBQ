@@ -18,6 +18,8 @@ namespace BBQ.Shopping {
         [SerializeField] private float lankUpDuration;
         [SerializeField] private GameObject lankUpPrefab;
         [SerializeField] private List<Material> lankMaterial;
+        [SerializeField] private SupportIconView iconView;
+
         
         private static readonly int Seed = Shader.PropertyToID("_seed");
 
@@ -68,6 +70,15 @@ namespace BBQ.Shopping {
             else foodObject.transform.Find("Object").Find("Stack").gameObject.SetActive(false);
             DrawEffect(foodObject);
             UpdateStack(foodObject);
+            
+            iconView.Hide(foodObject.transform.transform.Find("Object").Find("SupportIcon_A"));
+            iconView.Hide(foodObject.transform.transform.Find("Object").Find("SupportIcon_B"));
+            if (foodObject.deckFood.data) {
+                if(foodObject.deckFood.data.iconA != null && foodObject.deckFood.data.iconA.inInventory)
+                    iconView.Draw(foodObject.transform.transform.Find("Object").Find("SupportIcon_A"), foodObject.deckFood.data.iconA);
+                if(foodObject.deckFood.data.iconB != null && foodObject.deckFood.data.iconB.inInventory)
+                    iconView.Draw(foodObject.transform.transform.Find("Object").Find(foodObject.deckFood.data.iconA.inInventory ? "SupportIcon_B" : "SupportIcon_A"), foodObject.deckFood.data.iconB);
+            }
         }
         
         public override void UpdateStack(FoodObject foodObject) {

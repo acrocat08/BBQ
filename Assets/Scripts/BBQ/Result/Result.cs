@@ -50,7 +50,7 @@ namespace BBQ.Result {
             _score = CalcScore();
             int score = _score.GetSum();
             scoreDetail.text =
-                $"{_score.basePoint}\n{_score.difficulty}\n{_score.mission}\n{_score.life}\n{_score.great}\n{_score.help}\n{_score.shopping}";
+                $"{_score.difficulty}\n{_score.mission}\n{_score.life}\n{_score.great}\n{_score.help}\n{_score.shopping}";
             if (PlayerConfig.GetPoolIndex() <= 8) {
                 UnityroomApiClient.Instance.SendScore(1, score, ScoreboardWriteMode.HighScoreDesc);
             }
@@ -211,17 +211,18 @@ namespace BBQ.Result {
 
         private Score CalcScore() {
             Score score = PlayerStatus.GetScore();
-            score.basePoint = 50;
+            if (PlayerConfig.GetGameMode() == GameMode.easy) score.difficulty = 0;
             if (PlayerConfig.GetGameMode() == GameMode.normal) score.difficulty = 25;
             if (PlayerConfig.GetGameMode() == GameMode.hard) score.difficulty = 50;
-            score.mission = PlayerStatus.GetStar() * 5;
-            score.life = PlayerStatus.GetLife() * 10;
+            score.mission = Mathf.Min(50, PlayerStatus.GetStar() * 5);
+            score.life = Mathf.Min(50, PlayerStatus.GetLife() * 10);
             score.great = Mathf.Min(50, score.great);
-            score.help = -Mathf.Min(50, score.help / 3);
+            score.help = Mathf.Min(50, Mathf.Max(0, (PlayerStatus.GetStar() - 7) * 20 - score.help * 2));
             score.shopping = (PlayerStatus.GetShopLevel() - 1) * 5;
             List<DeckFood> deckFoods = PlayerStatus.GetDeckFoods()[PlayerStatus.GetDeckFoods().Count - 1];
             int count = deckFoods.Where(x => x.data).Select(x => x.data).Distinct().Count();
             score.shopping += Mathf.Min(30, count * 2);
+            score.shopping = Mathf.Min(score.shopping, 50);
             return score;
         }
 

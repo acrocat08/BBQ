@@ -12,24 +12,29 @@ namespace BBQ.PlayData {
         private int _poolIndex;
         private GameMode _mode;
         private HashSet<string> _cosplay;
+        private float _bgmVolume;
+        private float _seVolume;
 
         private static string[] defaultCodes = {
             "x65L+4BzqWTztj+bTFjiZ9tpXS8PVeNXY/y8SJ8TUpcSzoYplVmJmGZpGn5xk7jckdRkr6ZFVAi3ZYImZvZrThrSxJ3jCIi7sQQTYVysFY1Zv2sYKfv3A+tKXnxN/t8BlFvCYDkYygHRXVQ+FXEbn7IP6JI9GlYEkJGYJNkJj86dK0R/3ftU5HViy4AHnRyug1Lp7vFqythePfM7AGxRnZF4SqMX5J072xwSUd+Qz5M=",
-            "x65L+4BzqWTztj+bTFjiZwKeI2DbbEgCy1s3DfsInums5RViFrpYd3aJzPAYwu0sNv6uHXp2UzCFz/ilOLoZ0FjKEGHd2IGUDOLuVFlubQvHmfgpnPKvEZcEVqTeQjZ6M5scXOFiv9V5nlrQoiBMMYRal6BL8o4TRfre0irzUeVMgOTu8AIz5WEyQRQsOd2AEhH6rn/Qc5kPB0t3e5qnKPBsFudz2d5iKLqJkdHHGAdB7yLkUxIu851Sk62vk4Ca",
-            "yFeofF6tNnbRjfx71bTUmbvZ0k62nBfFsU1D1rClfZJtXCR1s8fWU5YhWfWQ47dBRd0Yhv7V3qs8iEy6JvK6AJUFPDW5kDfBBILamgGBp0rQBrlXC7xPm6uxE3rvpKMQLT5BkVu5VYqSqJIf6WUIErNAWp89JEfn8UWtTR1+Gd2voQLZfWx4Zgsl5I/lwxgjD7U561zneV+POvcu5TUW1it+MOD2WdQogv1WbM3MTgLNmm0lBMAKL/gp8zQBvKQn",
-            "x65L+4BzqWTztj+bTFjiZy3DIiRWoMvCTzmYi4NO9aibA0EiCVUpVh5UZkt2q1g8HJqLKHtwXsKY9fO/b63arn3GcGSW2kLTrhqjwWuB/nJSfAoMbod3XwDudZBF9IkrmnsfawV6XpDGWcyYfcDYgTR7cpJStij8N/HVzQM8BRqn4ve8E+X20GH5CM1NdUYH/0ENn0ElZ/Qoo6dbZSiL99oi0fSJ/x6oQpDFPSpG1M4+zvzVD/cFjKzd8/XWSE/s",
-            "m64rg8aXedWkMYn+6It5PwB6rkt3lrI4dVzljbv9pQEkG38cPl/P/4vd0u+P+fivUIuPKBrcGg0Yl/O1r7vy7/a0MrEeVbOQnVLOmDVpJw/LOyxelvpMiMOemALx3B2OVyyK1ZRFUsyP4dX8DG9eNp1JD/r268Jh1UOWVozuNn0vdTA+GzCtDYEX7dLEwfcaG3aGH9Py8mJ/uoqeLe+RL4g8Cw3fneqHyft1A5Nsii+QC6uh74oEmLdrPMbFriTV",
-            "wgbXktY5NKhhUXS5MujWVfBdCyulr533WNrMH+6ioUjDU1BVNmIRfyRHvUgaJ4+wi/TrDz8CcsYz84U93fib0lMPSdKImNxOt84ZTPOQ8NjuEwQvMyZ4MXp6gqLVCkqBq+hlqGIkPtV2VlwwhlAixVxKRCGeOHoNiUHO8VKdTjJrSW+vtJhjQCLh3JvbQMVAvoP7iZd6sudpvT2wjNvLw3nr5nyXFF8ujL1uNVh0XQsynLUuDxqesMmA4q/TYc05",
-            "AUQr8O0ut9WJiqGos5KATgKlw5XQF2L2Fli0+ZmcYScepPBFRgz/0DExaI4mYiqmFG5XSiDP0MS9ZxAGLim67x/ahUJynjlvCx8kidPGsEqw0Amb3gSwaktqf7oZpuwqy8OKCQ02h9qy8Wir1Ms+MDY0QpBHSb44L7GODiJYlool5UNgNFTRqwArQe5I4Xh1CZs2pTzsQto9JUfu04bgqRwvjAeMFWuqShfEZ2f39itgGbWVifcJN0P3ET3VfMUu",
-            "x65L+4BzqWTztj+bTFjiZwdUWflhvktG6CFcVRVd86eAHKI0gml3ukwrAeeXlZ/+WgBAbnO6CBLkq8IGfN8ELKuK+ktKhoij+OGxsl7P+AGEL7kv78LWRP7Z01F4bJ92j/Hn5twn1a0SpUym5UZvm0dmVPeRT3YQABQRBCYIhriSaYYMKk8658hpwPIV+l23YvCvfcbeyC30vpwnnP2YpGtpLcXRz6heo3PTsw3yUBqrboSpkitq3j0vnpN3wrmH"
+            "x65L+4BzqWTztj+bTFjiZwKeI2DbbEgCy1s3DfsInulZVqaB63RdFY8CKq4IO8RvNKL6ElJLJlwHviVy/LnqmkoGhz+8VhOobE0FRYbHQhyqrzYQIlvoyZvTTAXQ8n/Py8MtBwuRu2nKk0BkSFCvhNrZCsHr+2rcjwChrM3n2oSG+hL76i9l2hElInjCFJmxfTH7sSBciCaLoqJYawr78VKVlVbq7A7G9ATkG4uOsLHVte5zfLt5TCG1PupXtPa8",
+            "yFeofF6tNnbRjfx71bTUmbvZ0k62nBfFsU1D1rClfZJL+wPCyT2ETqYrzJS5oeM0Qn8W4zOPP5ktewPjxiGutnVtHGBNbGAuw3Mv7FhBo/Z9viPvxUgg8dyx7pJfIDBid/lgYZpogulk3ynnvnFgOAyLG0yROSx+gdhZD1xOe60dCF9CZAaO2plRiHNhpf13dOJwmcOJdZORnxx1KnOFVlXh0m+BJMJ+Jg67Kwm3fjscuDw+34E75ixQ2aJQVgKf",
+            "x65L+4BzqWTztj+bTFjiZy3DIiRWoMvCTzmYi4NO9agA/twIaTgOaQwFhZIeAlQSJTdSt91Xgs7VMgLrApiWd7UlOUTgx2V5PwZ1HUT7Cvn/wxMkHGvVn2mV6IfFc1An6O2qmReHPDA24xTnh/9fBzXptYfLH3VBFrJisi8pItvVgHDb8imGQzvsE1Wx1TztgyFGx6dnAyXOw+lSgSg/5oZ8rFnUC5h+We0X6nsru0duJfuCPZoJj/0EibU4Zq86",
+            "m64rg8aXedWkMYn+6It5PwB6rkt3lrI4dVzljbv9pQFYra3pTS1rNO2OGvRekm9/cuxgjbBs1uUUduNSX3Rf0+2HqBixIFpbDk1K8YmD2ygXWCWcZPv6/8Cf2szOQ21SAMOCtbAQALhzIsWQ5HofB4xN4Jk5r8ZiyVaVrb5bTccOEocL4cife6vK4QJepk2dW+S/XAM1gvHjeet11h69mpaH08voHcMFxQF9W2CUXTM+8Fb6zZNhiWpZHu6EFe+9",
+            "wgbXktY5NKhhUXS5MujWVfBdCyulr533WNrMH+6ioUjDU1BVNmIRfyRHvUgaJ4+w3GjzixIncD0ecCP3rhjzrc1J1sFtX0nptnF+G7R66LxDHg9zj0/0bDn3k2foqK+uhkRmQYZitBKt0tZnH+DhTcbAbkomhfHmfRwAQf4rPyzO1jLjxfe34VlprhEvCQb3iQofU8YbBXr0LoKDm/94L9w5+LVUZnDImUSpJbtbeiiDNohR8VhdgLf2MKBUsv6G",
+            "AUQr8O0ut9WJiqGos5KATgKlw5XQF2L2Fli0+ZmcYSeA5WTqctjluK/K9iENbSwvnqzZ8SmxZzcSbnF9If5nHeXUbLqEXyJpcCVB4qwvfD/sjmupljUla312PrcLFMpzF/JlwB+U+tEgRW3bir5Dmzu6TRcJEq/AFwSpN4JJa40VMigf+r59fC6QMfHLFunTgNJikx/xozV7NIoBiejg9O/GtqLWyQ6Y6qkW0LTCmJ6MH+Vfz3ndulInxbN8nqAm",
+            "x65L+4BzqWTztj+bTFjiZwdUWflhvktG6CFcVRVd86ctoBBWbhkjwhc43wTcEAbPiEOpn/cAl13EUsOHEY2Upl1WRcj8qBkCiBsJJA1jBWqFywQ2NW1uKJtT06I41wSIX8k+FmdjK3HrBLe4k7UgYWnmnVg88ADOuapawngUlsE6mQ5YBAho3wnexYAYbaRofX34HomF22H+qCBRfwsbEDCBvVJbji39JCwXBmFVAWxlAw/eCUORq47UgJBgJ44r"
         };
 
-        public static void Create(ShopPool shopPool, int poolIndex, int selectedIndex, GameMode mode, string cosplayName = "") {
+        public static void Create(ShopPool shopPool, int poolIndex, int selectedIndex, GameMode mode, float bgmVolume, float seVolume, string cosplayName = "") {
             PlayerPrefs.SetString("Pool_" + poolIndex, shopPool.Encode());
             PlayerPrefs.SetInt("selectedIndex", selectedIndex);
             PlayerPrefs.SetInt("mode", (int)mode);
             if (cosplayName != "") SetCosplayState(cosplayName);
             _saveData = LoadData();
+            PlayerPrefs.SetFloat("bgm", bgmVolume);
+            PlayerPrefs.SetFloat("se", seVolume);
+
         }
 
 
@@ -71,6 +76,16 @@ namespace BBQ.PlayData {
             return _saveData._mode;
         }
 
+        public static float GetBgmVolume() {
+            if (_saveData == null) _saveData = LoadData();
+            return _saveData._bgmVolume;
+        }
+        
+        public static float GetSeVolume() {
+            if (_saveData == null) _saveData = LoadData();
+            return _saveData._seVolume;
+        }
+
         private static PlayerConfig LoadData() {
             List<ShopPool> pools = new();
             for (int i = 0; i < 8; i++) {
@@ -90,6 +105,8 @@ namespace BBQ.PlayData {
             config._poolIndex = poolIndex;
             config._mode = mode;
             config._cosplay = new(PlayerPrefs.GetString("cosplay", "").Split(","));
+            config._bgmVolume = PlayerPrefs.GetFloat("bgm", 1);
+            config._seVolume = PlayerPrefs.GetFloat("se", 1);
             return config;
         }
     }

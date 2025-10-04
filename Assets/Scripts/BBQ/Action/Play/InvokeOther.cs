@@ -16,11 +16,12 @@ namespace BBQ.Action.Play {
             string foodName = v.GetString(v.n1);
             DeckFood invoker = v.GetFoods(v.n2)[0];
             if (invoker.isFrozen) return;
+            if (invoker.isFired) return;
             if (foodName == "") return;
             FoodData targetFood = itemSet.SearchFood(foodName);
             List<ActionSequence> seq = targetFood.action.sequences.Where(x => x.trigger == ActionTrigger.Hit).ToList();
             foreach (ActionSequence sequence in seq) {
-                ActionVariable result = await assembly.Run(sequence.condition, env, invoker, new() { invoker });
+                ActionVariable result = await assembly.Run(sequence.condition, env, invoker, v.target);
                 if (sequence.condition.Count == 0 || result.x1 > 0) {
                     await assembly.Run(sequence.commands, env, invoker, new() { invoker });
                 }    

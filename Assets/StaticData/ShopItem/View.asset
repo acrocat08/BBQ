@@ -27,3 +27,4 @@ MonoBehaviour:
   discountColor: {r: 0.07054697, g: 0.38911104, b: 0.7735849, a: 1}
   freezeEffectPrefab: {fileID: 6694111601236560830, guid: f828e92273d94f845bea349e642495b1, type: 3}
   freezeColor: {r: 0.16470589, g: 0.43137255, b: 1, a: 1}
+  iconView: {fileID: 11400000, guid: 40d8777a1d950f242a01d0997ba0dca6, type: 2}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090e941fe3d4bd54d91979b3b3465e3c, type: 3}
+  m_Name: GetEffect
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: -1854433834, guid: cc586cfd3049bf3468c4a8551c2108f4, type: 3}
+  backColor: {r: 0.6115916, g: 0.8784314, b: 0.18823525, a: 1}
+  inCooking: 1
+  inShop: 0
+  inInventory: 1

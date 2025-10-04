@@ -75,7 +75,8 @@ namespace BBQ.Title {
             var cts = new CancellationTokenSource();  
             CancellationToken token = cts.Token;  
             view.Smog(transform, smogContainer, token);
-            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode(),
+                PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume());
             _modeIndex = (int)PlayerConfig.GetGameMode();
 
             _nowLineup = PlayerConfig.GetPoolIndex();
@@ -113,7 +114,8 @@ namespace BBQ.Title {
         public async void GotoGame() {
             startButton.SetActive(false);
             Debug.Log(_nowLineup);
-            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, _nowLineup, (GameMode)_nowMode);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, _nowLineup, (GameMode)_nowMode,
+                PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume());
             SoundPlayer.I.Play("se_missionClear");
             await SoundPlayer.I.FadeOutSound("bgm_title");
             view.GotoNext();
@@ -176,7 +178,8 @@ namespace BBQ.Title {
 
         public void ChangeMode() {
             _modeIndex = (_modeIndex + 1) % modeList.Count;
-            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), (GameMode)_modeIndex);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), (GameMode)_modeIndex,
+                PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume());
         }
 
         void UpdateHighScore() {

@@ -18,8 +18,12 @@ namespace BBQ.Cooking {
         [SerializeField] private float lankUpStrength;
         [SerializeField] private float lankUpDuration;
         [SerializeField] private ItemSet itemSet;
+        [SerializeField] private float floatSpeed;
+        [SerializeField] private float floatLength;
+        [SerializeField] private SupportIconView iconView;
         
         private static readonly int Seed = Shader.PropertyToID("_seed");
+
 
         public override void Draw(FoodObject foodObject) {
             DeckFood deckFood = foodObject.deckFood;
@@ -37,6 +41,14 @@ namespace BBQ.Cooking {
             DrawEffect(foodObject);
             UpdateStack(foodObject);
             UpdateMemory(foodObject);
+            
+            
+            if(foodObject.deckFood.data.iconA != null && foodObject.deckFood.data.iconA.inCooking)
+                iconView.Draw(foodObject.transform.Find("SupportIcon_A"), foodObject.deckFood.data.iconA);
+            else iconView.Hide(foodObject.transform.Find("SupportIcon_A"));
+            if(foodObject.deckFood.data.iconB != null && foodObject.deckFood.data.iconB.inCooking)
+                iconView.Draw(foodObject.transform.Find("SupportIcon_B"), foodObject.deckFood.data.iconB);
+            else iconView.Hide(foodObject.transform.Find("SupportIcon_B"));
         }
 
         public override void UpdateMemory(FoodObject foodObject) {
@@ -59,12 +71,12 @@ namespace BBQ.Cooking {
         public override async UniTask LankUp(FoodObject foodObject) {
             Draw(foodObject);
             Transform foodImage = foodObject.transform.Find("FoodImage");
-            foodImage.SetParent(GameObject.Find("Canvas").transform, true);
+            //foodImage.SetParent(GameObject.Find("Canvas").transform, true);
             foodImage.localScale = Vector3.one * lankUpStrength;
             foodImage.DOScale(Vector3.one, lankUpDuration).SetEase(Ease.InBack);
             await UniTask.Delay(TimeSpan.FromSeconds(lankUpDuration));
             await UniTask.Yield();
-            foodImage.SetParent(foodObject.transform);
+            //foodImage.SetParent(foodObject.transform);
         }
     }
 }

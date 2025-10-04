@@ -81,6 +81,12 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: f3458a6ca14398e409e6acb070c0ecdd, type: 2}
         n1: f1
         n2: 
+      - action: {fileID: 11400000, guid: 55c6cb8be570dcf4a8e921a8807ee047, type: 2}
+        n1: f1
+        n2: 
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: stack
       - action: {fileID: 11400000, guid: a885a3631af85e4439734804ae38833a, type: 2}
         n1: s1
         n2: memory
@@ -98,3 +104,5 @@ MonoBehaviour:
   hint: 
   cosplayImage: {fileID: 21300000, guid: a6d1943ffd8536f48b607b16dc17a747, type: 3}
   cosplayName: "\u86CD\u5149\u30E9\u30F3\u30D7"
+  iconA: {fileID: 11400000, guid: 5a7639c847dc8054cbef4db95af643e9, type: 2}
+  iconB: {fileID: 0}

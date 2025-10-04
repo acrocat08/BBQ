@@ -13,7 +13,9 @@ namespace BBQ.Tutorial.Action {
         
         public override async UniTask Exec(Transform container, string text, string takoEmotion, float value, IReceiver receiver) {
             Message(container).gameObject.SetActive(false);
-            TakoContainer(container).DOLocalMove(toPos, hideDuration);
+            Tako(container).GetComponent<Image>().transform.localScale = new Vector3(-1, 1, 0);
+            TakoContainer(container).DOLocalJump(toPos, 50f, 3, hideDuration).SetEase(Ease.Linear);
+            Tako(container).GetComponent<Image>().transform.localScale = new Vector3(1, 1, 0);
             await UniTask.Delay(TimeSpan.FromSeconds(hideDuration));
         }
 

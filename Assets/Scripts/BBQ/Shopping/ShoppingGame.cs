@@ -102,8 +102,8 @@ namespace BBQ.Shopping {
             view.SetStatus(this, star);
             int nowIncome = Mathf.Max(0, GetDayIncome());
             int nowCarbon = (_day - 1) / 5 + 1;
-            initialAction[0].n1 = (nowIncome + (PlayerStatus.GetPigFlag() ? 30 : 0)).ToString();
-            initialAction[1].n1 = (nowCarbon + (PlayerStatus.GetPigFlag() ? 1 : 0)).ToString();
+            initialAction[0].n1 = (nowIncome + (PlayerStatus.GetPigFlag() ? 50 : 0)).ToString();
+            initialAction[1].n1 = nowCarbon.ToString();
         }
         private void SaveStatus() {
             List<DeckFood> deck = deckInventory.GetDeckFoods();

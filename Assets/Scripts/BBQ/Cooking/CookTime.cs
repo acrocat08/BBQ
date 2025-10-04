@@ -5,6 +5,7 @@ using BBQ.Action;
 using BBQ.Common;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
+using SoundMgr;
 using UnityEngine;
 
 namespace BBQ.Cooking {
@@ -13,7 +14,7 @@ namespace BBQ.Cooking {
         [SerializeField] private CookingGame game;
         [SerializeField] private Board board;
         [SerializeField] private bool doCountDown;
-        
+        [SerializeField] private Transform background;
         
         private float _nowTime;
         private int _bonusTime;
@@ -41,6 +42,7 @@ namespace BBQ.Cooking {
                     Pause();
                     await TriggerObserver.I.Invoke(ActionTrigger.BonusTime, new(), false);
                     Resume();
+                    if(_bonusTime > 0) view.GotoBonusTime(background);
                 }
                 if(doCountDown && _nowTime >= 0) view.UpdateText(this, _bonusMode);
             }

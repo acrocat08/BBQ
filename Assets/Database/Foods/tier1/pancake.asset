@@ -25,9 +25,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u8CFC\u5165\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30921\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B\n\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30922\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B"
-    - "\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30923\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B"
-    - "\u30D5\u30A1\u30A4\u30A2\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30924\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B"
+    - "\u8CFC\u5165\uFF1A\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u306A\u9285\u30E9\u30F3\u30AF\u306E\u300C\u30D0\u30BF\u30FC\u300D\u30921\u3064\u30AB\u30D0\u30F3\u306B\u751F\u6210\u3059\u308B\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+2"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+3"
     sequences:
     - trigger: 12
       condition: []
@@ -38,23 +38,19 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
         n1: 1
         n2: "\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8"
-      - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
         n1: f1
         n2: 
       priority: 0
-    - trigger: 6
+    - trigger: 0
       condition: []
       commands:
-      - action: {fileID: 11400000, guid: 1764cecd5c518da4f96dc8871995b24a, type: 2}
-        n1: "\u30D0\u30BF\u30FC"
-        n2: 2/3/4
-      - action: {fileID: 11400000, guid: dc7f9106063b8d044b1befdc5095f194, type: 2}
-        n1: 1
-        n2: "\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8"
-      - action: {fileID: 11400000, guid: fac0846dc827b774fb13efb5ed39b3a6, type: 2}
-        n1: f1
+      - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+        n1: 1/2/3
         n2: 
       priority: 0
   hint: 
   cosplayImage: {fileID: 21300000, guid: d1f298e12e9afcb4c91856ffa1f471e2, type: 3}
   cosplayName: "\u30B7\u30C6\u30A3"
+  iconA: {fileID: 11400000, guid: 5a7639c847dc8054cbef4db95af643e9, type: 2}
+  iconB: {fileID: 11400000, guid: a564e18a75d5a2940bdde94ddeafc540, type: 2}

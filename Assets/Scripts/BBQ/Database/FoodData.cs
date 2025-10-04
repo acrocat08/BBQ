@@ -51,6 +51,8 @@ namespace BBQ.Database {
         [Multiline] public string hint;
         public Sprite cosplayImage;
         public string cosplayName;
+        public SupportIcon iconA;
+        public SupportIcon iconB;
 
         public override Sprite GetImage() {
             return foodImage;

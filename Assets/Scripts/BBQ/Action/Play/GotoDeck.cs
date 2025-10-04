@@ -24,12 +24,12 @@ namespace BBQ.Action.Play {
                 foreach (DeckFood deckFood in newItems) {
                     env.inventory.AddFood(deckFood, false);
                 }
-                SoundMgr.SoundPlayer.I.Play("se_draw");
+                SoundMgr.SoundPlayer.I.Play("se_removeEffect");
                 await UniTask.Delay(TimeSpan.FromSeconds(duration));
                 return;
             }
             
-            SoundMgr.SoundPlayer.I.Play("se_draw");
+            SoundMgr.SoundPlayer.I.Play("se_removeEffect");
             await env.deck.AddFoods(deckFoods[0].Releasable.ReleaseFoods(deckFoods));
         }
     }

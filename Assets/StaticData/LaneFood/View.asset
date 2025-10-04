@@ -33,3 +33,6 @@ MonoBehaviour:
   lankUpStrength: 1.5
   lankUpDuration: 0.5
   itemSet: {fileID: 11400000, guid: da8267ea27b678246b12e64375e7694c, type: 2}
+  floatSpeed: 0
+  floatLength: 0
+  iconView: {fileID: 11400000, guid: 40d8777a1d950f242a01d0997ba0dca6, type: 2}

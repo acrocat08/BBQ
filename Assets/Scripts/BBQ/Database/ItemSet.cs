@@ -30,8 +30,10 @@ namespace BBQ.Database {
             return foods.Concat(supportFoods).FirstOrDefault(x => x.foodName == foodName);
         }
 
-        public ToolData GetRandomTool(int min, int max, ToolData prev = null) {
-            return tools.Where(x => x.tier >= min && x.tier <= max && x != prev)
+        public ToolData GetRandomTool(int min, int max, List<ToolData> passedTools = null, ToolData prev = null) {
+            return tools.Where(x => x.tier >= min && x.tier <= max)
+                .Where(x => passedTools == null || !passedTools.Contains(x))
+                .Where(x => prev == null || x != prev)
                 .Where(x => !DeckInventory.usedItems.Contains(x.toolTag))
                 .OrderBy(_ => Guid.NewGuid()).First();
         }

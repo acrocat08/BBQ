@@ -100,13 +100,15 @@ namespace BBQ.Shopping {
         }
 
         public void UpdateMission(ShoppingGame shoppingGame, List<MissionStatus> nowMission) {
-            Text missionText = shoppingGame.transform.Find("MainContainer").Find("Mission").Find("Text").GetComponent<Text>();
-            
+            Text missionText = shoppingGame.transform.Find("MainContainer").Find("Mission").Find("Num").GetComponent<Text>();
+            missionText.text = nowMission[0].goal.ToString();
+            /*
             foreach (MissionStatus status in nowMission) {
                 string baseDetail = status.mission.detail;
                 string[] split = baseDetail.Split("#");
                 missionText.text = "-　" + split[0] + status.goal + split[1] + "\n";
             }
+            */
         }
         
         private async UniTask MoveDayText(ShoppingGame shoppingGame, RectTransform dayText, float duration) {

@@ -49,7 +49,7 @@ namespace BBQ.Title {
                 () => canvasGroup.alpha,
                 x => canvasGroup.alpha = x,
                 1f,
-                0.2f);
+                0f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             isMoving = false;
             backButton.enabled = true;
@@ -63,7 +63,7 @@ namespace BBQ.Title {
                 () => canvasGroup.alpha,
                 x => canvasGroup.alpha = x,
                 0f,
-                0.2f);
+                0f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             transform.localScale = Vector3.zero;
             isMoving = false;
@@ -103,7 +103,8 @@ namespace BBQ.Title {
         }
 
         public void Select() {
-            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, _nowIndex, PlayerConfig.GetGameMode());
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, _nowIndex, PlayerConfig.GetGameMode(),
+                PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume());
             for (int i = 0; i < tabs.Count; i++) {
                 if (i == _nowIndex) tabs[i].color = selectColor[0];
                 else tabs[i].color = selectColor[1];
@@ -122,7 +123,8 @@ namespace BBQ.Title {
             string code = inputField.text;
             try {
                 ShopPool pool = ShopPool.Decode(code);
-                PlayerConfig.Create(pool, _nowIndex, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode());
+                PlayerConfig.Create(pool, _nowIndex, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode(),
+                    PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume());
                 Draw(_nowIndex);
             }
             catch {

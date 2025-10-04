@@ -5,7 +5,6 @@ using BBQ.Common;
 using BBQ.Cooking;
 using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 namespace BBQ.Action.Play {
@@ -51,7 +50,7 @@ namespace BBQ.Action.Play {
                 foodObject = env.dump.GetObject(deckFood);
             }
             else foodObject = deckFood.GetObject();
-            foodObject.Fire();
+            if(foodObject != null) foodObject.Fire();
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
     }

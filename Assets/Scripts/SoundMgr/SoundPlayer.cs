@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BBQ.PlayData;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -51,9 +52,11 @@ namespace SoundMgr {
                 }
             }
 
-            if (targetSource == null) return;
+            if (targetSource == null) {
+                targetSource = _audioSources.Where(x => !x.loop).OrderByDescending(x => x.time / x.clip.length).First();
+            };
             targetSource.clip = data.source;
-            targetSource.volume = data.volume;
+            targetSource.volume = data.volume * (data.isLoop ? PlayerConfig.GetBgmVolume() : PlayerConfig.GetSeVolume());
             targetSource.loop = data.isLoop;
             targetSource.Play();
         }
@@ -65,6 +68,15 @@ namespace SoundMgr {
             targetSource.DOFade(0f, fadeDuration);
             await UniTask.Delay(TimeSpan.FromSeconds(fadeDuration));
             targetSource.Stop();
+        }
+
+        public void AdjustVolume() {
+            float nowVolume = PlayerConfig.GetBgmVolume();
+            foreach (AudioSource audioSource in _audioSources) {
+                if (!audioSource.loop) continue;
+                float soundVolume = sounds.First(x => x.source == audioSource.clip).volume;
+                audioSource.volume = soundVolume * nowVolume;
+            }
         }
     }
     

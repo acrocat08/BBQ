@@ -1,4 +1,5 @@
 using DG.Tweening;
+using SoundMgr;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,11 @@ namespace BBQ.Cooking {
             timeImage.transform.localScale = Vector3.one * timeShakeStrength;
             timeImage.transform.DOScale(Vector3.one, timeShakeDuration).SetEase(Ease.OutElastic);
             UpdateText(time, bonusMode);
+        }
+
+        public void GotoBonusTime(Transform background) {
+            SoundPlayer.I.Play("se_bonusTime");    
+            background.GetComponent<Image>().DOFade(1f, 0.5f);
         }
     }
 }

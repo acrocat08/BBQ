@@ -24,6 +24,7 @@ namespace BBQ.Action.Play {
             tasks.Add(env.deck.AddFoods(dumpFoods));
             SoundMgr.SoundPlayer.I.Play("se_reset");
             await tasks;
+            env.board.CountReset();
 
             int num = Mathf.Min(drawNum, env.deck.SelectAll().Count);
             v.n1 = num.ToString();

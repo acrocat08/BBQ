@@ -1,6 +1,7 @@
+using UnityEngine;
+
 namespace BBQ.Common {
     public class Score {
-        public int basePoint;
         public int difficulty;
         public int mission;
         public int life;
@@ -10,7 +11,7 @@ namespace BBQ.Common {
 
 
         public int GetSum() {
-            return basePoint + difficulty + mission + life + great + help + shopping;
+            return Mathf.Min(300, difficulty + mission + life + great + help + shopping);
         }
     }
 }

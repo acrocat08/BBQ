@@ -30,8 +30,9 @@ namespace BBQ.Shopping {
         }
         
         public ToolData ChoiceTool(int level, Shop shop) {
-            ShopTool prevTool = shop.GetShopTool();
-            return itemSet.GetRandomTool(1, level, prevTool != null ? prevTool.data : null);
+            List<ToolData> passedTools = shop.GetPassedTools();
+            ToolData prevTool = shop.GetNowTool();
+            return itemSet.GetRandomTool(1, level, passedTools, prevTool);
         }
 
         [Serializable]

@@ -60,6 +60,7 @@ namespace BBQ.Tutorial {
             SoundPlayer.I.Play("bgm_tutorial");
             await player.Play(parts, tako, this);
             await transition.SceneEnd();
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             SceneManager.LoadScene("Scenes/TutorialShopping");
         }
 

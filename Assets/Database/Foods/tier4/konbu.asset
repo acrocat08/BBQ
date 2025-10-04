@@ -77,3 +77,5 @@ MonoBehaviour:
   hint: 
   cosplayImage: {fileID: 21300000, guid: a0bd08d3755cb91488402cc29939296a, type: 3}
   cosplayName: "\u546A\u6587\u306E\u66F8"
+  iconA: {fileID: 11400000, guid: 9e39c6568ac40b1498a315e256e4a378, type: 2}
+  iconB: {fileID: 11400000, guid: 0682407a8d60d6e4dbfa69c2fa829641, type: 2}

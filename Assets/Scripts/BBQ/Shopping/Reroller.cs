@@ -48,6 +48,7 @@ namespace BBQ.Shopping {
                 tool = tutorialTool;
             }
             else {
+                _shop.SetPassedTools();
                 foods = frozen.Concat(choice.ChoiceFoods(_shop.GetShopLevel())).Take(4).ToList();
                 tool = choice.ChoiceTool(_shop.GetShopLevel(), _shop);
             }

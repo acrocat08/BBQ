@@ -34,6 +34,7 @@ namespace BBQ.Shopping {
         [SerializeField] private ItemDetail detail;
 
         private TutorialShopping _tutorial;
+        private List<ToolData> _passedTools;
         
         public void Init(int level, int levelupDiscount, Coin coin, Carbon carbon, int rerollTicket, 
             TutorialShopping tutorial, List<FoodData> frozen) {
@@ -43,6 +44,7 @@ namespace BBQ.Shopping {
             _coin = coin;
             _carbon = carbon;
             _tutorial = tutorial;
+            _passedTools = new List<ToolData>();
             reroller.Init(this, _coin, rerollTicket, tutorial == null);
             reroller.Reroll(true, frozen);
             int cost = levelUpCosts[_level - 1];
@@ -94,8 +96,20 @@ namespace BBQ.Shopping {
         public List<ShopFood> GetShopFoods() {
             return _foods.Where(x => x != null).ToList();
         }
-        public ShopTool GetShopTool() {
-            return _tool;
+        public void SetPassedTools() {
+            if (_tool == null) return;
+            ToolData toolData = _tool.data;
+            if (toolData.tier == 0) return;
+            _passedTools.Add(toolData);
+            if (_passedTools.Count + DeckInventory.usedItems.Count >= 4 * _level) _passedTools = new List<ToolData>();
+        }
+
+        public List<ToolData> GetPassedTools() {
+            return _passedTools;
+        }
+
+        public ToolData GetNowTool() {
+            return _tool ? _tool.data : null;
         }
 
         public async UniTask AddFoods(List<FoodData> data, bool refresh) {
@@ -195,6 +209,7 @@ namespace BBQ.Shopping {
 
         public async void UseTool(ShopTool shopTool, List<DeckFood> target) {
             if (_carbon.GetCarbon() < shopTool.data.cost) return;
+            _passedTools = new List<ToolData>();
             InputGuard.Lock();
             _carbon.Use(shopTool.data.cost);
             DeleteTool();

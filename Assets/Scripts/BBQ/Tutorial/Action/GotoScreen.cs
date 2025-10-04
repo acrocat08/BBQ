@@ -16,7 +16,7 @@ namespace BBQ.Tutorial.Action {
             Message(container).gameObject.SetActive(false);
             Tako(container).GetComponent<Image>().sprite = takoImage;
             BG(container).GetComponent<Image>().enabled = true;
-            TakoContainer(container).DOLocalMove(toPos, duration);
+            TakoContainer(container).DOLocalJump(toPos, 50f, 3, duration).SetEase(Ease.Linear);
             await UniTask.Delay(TimeSpan.FromSeconds(duration));
         }
 

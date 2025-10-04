@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bb00eb21c1d409397f8f310d504771, type: 3}
   m_Name: kamaboko
   m_EditorClassIdentifier: 
-  subItem: []
+  subItem:
+  - {fileID: 11400000, guid: 87ad811ced7371a47891682834fd297f, type: 2}
   foodName: "\u304B\u307E\u307C\u3053"
   tier: 2
   cost: 20
@@ -23,9 +24,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u4ED6\u98DF\u6750\u306E\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u30C6\u30A3\u30A22\u4EE5\u4E0B\u306E\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D1\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u8FFD\u52A0\u3059\u308B\n(\u5358\u4E00\u767A\u52D5)\n"
-    - "\u4ED6\u98DF\u6750\u306E\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u30C6\u30A3\u30A23\u4EE5\u4E0B\u306E\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D1\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u8FFD\u52A0\u3059\u308B\n(\u5358\u4E00\u767A\u52D5)"
-    - "\u4ED6\u98DF\u6750\u306E\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u30C6\u30A3\u30A24\u4EE5\u4E0B\u306E\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D1\u3064\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u8FFD\u52A0\u3059\u308B\n(\u5358\u4E00\u767A\u52D5)"
+    - "\u4ED6\u98DF\u6750\u306E\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u300C\u91E3\u308A\u7AFF\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n(\u30E6\u30CB\u30FC\u30AF\u52B9\u679C)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D2\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u300C\u91E3\u308A\u7AFF\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n(\u30E6\u30CB\u30FC\u30AF\u52B9\u679C)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D3\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u4ED6\u98DF\u6750\u306E\u30E9\u30F3\u30AF\u30A2\u30C3\u30D7\uFF1A\n-\u3000\u300C\u91E3\u308A\u7AFF\u300D\u3092\u30B7\u30E7\u30C3\u30D7\u306B\u4E26\u3079\u308B\n(\u30E6\u30CB\u30FC\u30AF\u52B9\u679C)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u300C\u6D77\u9BAE\u7CFB\u98DF\u6750\u300D4\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
     sequences:
     - trigger: 17
       condition:
@@ -33,16 +34,31 @@ MonoBehaviour:
         n1: 
         n2: 
       commands:
-      - action: {fileID: 11400000, guid: 7885274b7ef9f8f49928833749d20484, type: 2}
-        n1: "\u6D77\u9BAE\u7CFB"
+      - action: {fileID: 11400000, guid: 1f7cfea1db0a4384da2ed763d57499c4, type: 2}
+        n1: "\u91E3\u308A\u7AFF"
         n2: 
-      - action: {fileID: 11400000, guid: a8b4e552292f12a468a7971fed0955a2, type: 2}
-        n1: 1
+      priority: 0
+    - trigger: 0
+      condition:
+      - action: {fileID: 11400000, guid: fd0b09465f183e24db9835795e71b2d2, type: 2}
+        n1: 2/3/4
+        n2: 
+      commands:
+      - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
+        n1: 
+        n2: 
+      - action: {fileID: 11400000, guid: fb0e2081ef415b746b3b8debb99abc11, type: 2}
+        n1: f1
+        n2: "\u6D77\u9BAE\u7CFB"
+      - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
+        n1: f1
         n2: 2/3/4
-      - action: {fileID: 11400000, guid: 6d6f0ed127e2535429898017d510d05b, type: 2}
-        n1: s1
+      - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
+        n1: f1
         n2: 
       priority: 0
   hint: "\u3053\u308C\u3092\u8CB7\u3063\u3066\u304A\u304F\u3060\u3051\u3067\u3001\u4E0D\u601D\u8B70\u3068\u6D77\u9BAE\u7CFB\u306E\u98DF\u6750\u304C\u96C6\u307E\u3063\u3066\u3044\u304F\u3093\u3060\u3002\u6D77\u9BAE\u7CFB\u306E\u98DF\u6750\u3068\u3068\u3082\u306B\u751F\u304D\u308B\u3068\u6C7A\u3081\u305F\u306A\u30891\u3064\u306F\u8CB7\u3063\u3066\u304A\u304D\u305F\u3044\u3001\u305D\u3093\u306A\u98DF\u6750\u3060\u3088\u3002"
   cosplayImage: {fileID: 21300000, guid: 5c4bef62950da4446b56451cea6206fd, type: 3}
   cosplayName: "\u30C9\u30FC\u30E0\u30CF\u30A6\u30B9"
+  iconA: {fileID: 11400000, guid: 5a7639c847dc8054cbef4db95af643e9, type: 2}
+  iconB: {fileID: 11400000, guid: 3e4e85bfca8573b4e97fb8a4059de59a, type: 2}

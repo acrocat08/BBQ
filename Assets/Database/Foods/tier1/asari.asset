@@ -23,11 +23,11 @@ MonoBehaviour:
   tag: "\u6D77\u9BAE\u7CFB"
   action:
     summaries:
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u300C\u30A2\u30B5\u30EA\u300D\u4EE5\u5916\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u30921\u3064\u30AB\u30D0\u30F3\u306B\u623B\u3057\u3001\u30B9\u30BF\u30C3\u30AF+1\n(\u6700\u59273)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+10\n-\u3000\u30C9\u30ED\u30FC+(\u30B9\u30BF\u30C3\u30AF\u6570)\n<<
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u300C\u30A2\u30B5\u30EA\u300D\u4EE5\u5916\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u30921\u3064\u30AB\u30D0\u30F3\u306B\u623B\u3057\u3001\u30B9\u30BF\u30C3\u30AF+1\n(\u6700\u59272)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C2\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+25\u3001\u30C9\u30ED\u30FC+2\n<<
       \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u300C\u30A2\u30B5\u30EA\u300D\u4EE5\u5916\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u30921\u3064\u30AB\u30D0\u30F3\u306B\u623B\u3057\u3001\u30B9\u30BF\u30C3\u30AF+1\n(\u6700\u59273)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n-\u3000\u30C9\u30ED\u30FC+(\u30B9\u30BF\u30C3\u30AF\u6570)\n<<
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u300C\u30A2\u30B5\u30EA\u300D\u4EE5\u5916\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u30921\u3064\u30AB\u30D0\u30F3\u306B\u623B\u3057\u3001\u30B9\u30BF\u30C3\u30AF+1\n(\u6700\u59272)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C2\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+35\u3001\u30C9\u30ED\u30FC+2\n<<
       \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
-    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u300C\u30A2\u30B5\u30EA\u300D\u4EE5\u5916\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u30921\u3064\u30AB\u30D0\u30F3\u306B\u623B\u3057\u3001\u30B9\u30BF\u30C3\u30AF+1\n(\u6700\u59273)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20\n-\u3000\u30C9\u30ED\u30FC+(\u30B9\u30BF\u30C3\u30AF\u6570)\n<<
+    - "\u30C9\u30ED\u30FC\uFF1A\n-\u3000\u300C\u30A2\u30B5\u30EA\u300D\u4EE5\u5916\u306E\u30E9\u30F3\u30C0\u30E0\u306A\u98DF\u6750\u30921\u3064\u30AB\u30D0\u30F3\u306B\u623B\u3057\u3001\u30B9\u30BF\u30C3\u30AF+1\n(\u6700\u59272)\n\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B9\u30BF\u30C3\u30AF\u6570\u304C2\u306E\u5834\u5408\u3001\u30B3\u30A4\u30F3+45\u3001\u30C9\u30ED\u30FC+2\n<<
       \u6D77\u9BAE\u7CFB\u98DF\u6750 >>"
     sequences:
     - trigger: 8
@@ -60,7 +60,7 @@ MonoBehaviour:
         n1: x1
         n2: x2
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
-        n1: 2
+        n1: 1
         n2: stack
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: x1
@@ -101,13 +101,16 @@ MonoBehaviour:
         n2: x1
       priority: 0
     - trigger: 0
-      condition: []
+      condition:
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: stack
+        n2: 2
       commands:
       - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
-        n1: 10/15/20
+        n1: 25/35/45
         n2: 
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
-        n1: stack
+        n1: 2
         n2: 
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: 0
@@ -119,3 +122,5 @@ MonoBehaviour:
   hint: 
   cosplayImage: {fileID: 21300000, guid: 48af1aff40e4ea84283747e7b6d6de86, type: 3}
   cosplayName: "\u30B5\u30A4\u30EA\u30A6\u30E0"
+  iconA: {fileID: 11400000, guid: 5a7639c847dc8054cbef4db95af643e9, type: 2}
+  iconB: {fileID: 11400000, guid: 9e39c6568ac40b1498a315e256e4a378, type: 2}

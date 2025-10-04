@@ -20,6 +20,6 @@ MonoBehaviour:
   waitDuration: 2
   floatSpeed: 2
   floatLength: 100
-  balloonImage: {fileID: 5288121457458880474, guid: 5965333129eb27c48bd0f0c940d77435, type: 3}
+  balloonImage: {fileID: 21300000, guid: 5d285659c99804040a900ed60dd88c9f, type: 3}
   balloonPosition: {x: 0, y: 200, z: 0}
   fukidashiPosition: {x: -600, y: 450, z: 0}

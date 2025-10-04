@@ -10,9 +10,13 @@ using UnityEngine;
 
 namespace BBQ.Cooking {
     public class LaneFood : FoodObject {
+
         
         public override async UniTask LankUp() {
             await view.LankUp(this);
+        }
+
+        public void Float() {
         }
         
     }

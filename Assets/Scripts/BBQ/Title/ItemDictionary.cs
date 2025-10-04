@@ -46,7 +46,7 @@ namespace BBQ.Title {
                 () => canvasGroup.alpha,
                 x => canvasGroup.alpha = x,
                 1f,
-                0.2f);
+                0f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             isMoving = false;
             backButton.enabled = true;
@@ -59,7 +59,7 @@ namespace BBQ.Title {
                 () => canvasGroup.alpha,
                 x => canvasGroup.alpha = x,
                 0f,
-                0.2f);
+                0f);
             await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
             transform.localScale = Vector3.zero;
             isMoving = false;
@@ -138,7 +138,8 @@ namespace BBQ.Title {
         }
 
         public void SetCosplayState() {
-            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode(), _nowFood.foodName);
+            PlayerConfig.Create(PlayerConfig.GetShopPool(9), 0, PlayerConfig.GetPoolIndex(), PlayerConfig.GetGameMode(),
+                PlayerConfig.GetBgmVolume(), PlayerConfig.GetSeVolume(), _nowFood.foodName);
             ShowDetail(_nowFood);
             SetCosplayName(_nowFood);
         }

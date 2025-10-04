@@ -651,6 +651,418 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93d5bd938c0cf04c930635346f72e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1307849375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1307849377}
+  - component: {fileID: 1307849376}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1307849376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307849375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cc04e3c18a70447bb3bfa44abe542f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  env: {fileID: 888007270}
+  board: {fileID: 294057202}
+  lanes:
+  - {fileID: 96110379}
+  - {fileID: 2090925920}
+  - {fileID: 667268907}
+  loopManager: {fileID: 294057201}
+  cookTime: {fileID: 471945920}
+  handCount: {fileID: 522653968}
+  missionSheet: {fileID: 248663948}
+  coin: {fileID: 21751425}
+  carbon: {fileID: 794693098}
+  deck: {fileID: 264778010}
+  dump: {fileID: 1198209006}
+  copyArea: {fileID: 1594150140}
+  help: {fileID: 888007266}
+  testMission: []
+  assembly: {fileID: 11400000, guid: b39dc3de578dcb9428acd0f72223e751, type: 2}
+  player: {fileID: 11400000, guid: 8eb428605fa877b4dad4fa983f9d2db6, type: 2}
+  parts:
+  - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
+    message: "\t"
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u304A\u306F\u3088\u3046\u3002\u6628\u65E5\u306F\u3088\u304F\u7720\u308C\u305F\u304B\u3044\uFF1F\n"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3055\u3063\u305D\u304F\u3060\u3051\u3069\u3001\u4E32\u306E\u523A\u3057\u65B9\u306B\u3064\u3044\u3066\u6559\u3048\u3066\u3044\u304F\u306D\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: normal
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u307E\u305A\u753B\u9762\u306E\u4E0B\u306B\u3042\u308B\u306E\u304C\u3001\u4ECA\u64CD\u4F5C\u3057\u3066\u3044\u308B\u4E32\u3002\u30DE\u30A6\u30B9\u3067\u52D5\u304B\u3059\u3053\u3068\u304C\u3067\u304D\u308B\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u5DE6\u4E0B\u306B\u306F\u98DF\u3079\u7269\u3092\u8A70\u3081\u305F\u30AB\u30D0\u30F3\u304C\u3042\u308B\u3002\u3053\u3053\u304B\u3089\u3044\u308D\u3093\u306A\u98DF\u3079\u7269\u304C\u98DB\u3073\u51FA\u3057\u3066\u304F\u308B\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u98DB\u3073\u51FA\u3057\u305F\u98DF\u3079\u7269\u306F\u305A\u3063\u3068\u6A2A\u306B\u79FB\u52D5\u3057\u3066\u3044\u308B\u304B\u3089\u3001\u3044\u3044\u4F4D\u7F6E\u306B\u4E32\u3092\u52D5\u304B\u3057\u3066\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F\u30AF\u30EA\u30C3\u30AF\uFF01\u3053\u308C\u3067\u4E32\u523A\u3057\u5B8C\u4E86\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u306D\uFF1F\u7C21\u5358\u3067\u3057\u3087\u3002\u8A66\u3057\u306B\u3061\u3087\u3063\u3068\u3084\u3063\u3066\u307F\u3066\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 7fa01ca78600f4b44af7d57003865ca9, type: 2}
+    message: hitPractice
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 92e2bf7e75c795e4390465c18f8525e8, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
+    message: 
+    emotion: 
+    value: 3
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3046\u30FC\u3093\u3001\u60DC\u3057\u3044\u3002\u72D9\u3044\u3092\u3088\u304F\u5B9A\u3081\u3066\u523A\u3057\u3066\u307F\u3088\u3046\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
+    message: 
+    emotion: 
+    value: 6
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30CA\u30A4\u30B9\uFF01\u305D\u3093\u306A\u611F\u3058\u3002\u305D\u3046\u3084\u3063\u3066\u4E32\u3092\u4F5C\u3063\u3066\u3044\u304F\u3093\u3060\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3053\u306E\u5CF6\u306B\u306F\u3044\u308D\u3093\u306A\u7A2E\u985E\u306E\u98DF\u3079\u7269\u304C\u3042\u308B\u3088\u3002\u4ECA\u56DE\u306F3\u7A2E\u985E\u7528\u610F\u3057\u3066\u3044\u308B\u304B\u3089\u9806\u756A\u306B\u7D39\u4ECB\u3057\u3066\u3044\u304F\u306D\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u307E\u305A\u306F\u300C\u3068\u3046\u3082\u308D\u3053\u3057\u300D\u3002\u3053\u306E\u98DF\u3079\u7269\u3092\u523A\u3059\u3068...\u30B3\u30A4\u30F3\u3092\u3082\u3089\u3048\u308B\u3093\u3060\uFF01\n"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30B3\u30A4\u30F3\u306E\u4F7F\u3044\u9053\u306F\u591C\u6642\u9593\u306B\u306A\u3063\u305F\u3089\u6559\u3048\u308B\u304B\u3089\u3001\u4ECA\u306F\u30B3\u30A4\u30F3\u304C\u3042\u308B\u3068\u3046\u308C\u3057\u3044\u3068\u3044\u3046\u4E8B\u3060\u3051\u982D\u306B\u5165\u308C\u3066\u304A\u3044\u3066\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u7DF4\u7FD2\u3068\u3057\u30663\u500B\u306E\u3068\u3046\u3082\u308D\u3053\u3057\u3092\u4E26\u3079\u308B\u304B\u3089\u30013\u500B\u3059\u3079\u3066\u3092\u523A\u3057\u3066\u307F\u3066\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 7fa01ca78600f4b44af7d57003865ca9, type: 2}
+    message: cornPractice
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 92e2bf7e75c795e4390465c18f8525e8, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
+    message: 
+    emotion: 
+    value: 3
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3042\u3089\u3089...\u3061\u3087\u3063\u3068\u96E3\u3057\u304B\u3063\u305F\u304B\u306A\u3002\u843D\u3061\u7740\u3044\u3066\u3001\u4E00\u500B\u305A\u3064\u523A\u3057\u3066\u3044\u3053\u3046\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
+    message: 
+    emotion: 
+    value: 6
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30B0\u30C3\u30C9\uFF013\u500B\u523A\u3057\u305F\u304B\u3089\u5408\u8A08\u306730\u30B3\u30A4\u30F3\u3082\u3089\u3048\u305F\u3088\uFF01\u304A\u91D1\u6301\u3061\u3060\u306D\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3055\u3066\u3001\u6B21\u306E\u98DF\u3079\u7269\u3092\u7D39\u4ECB\u3059\u308B\u524D\u306B\u3001\u300C\u30CF\u30F3\u30C9\u300D\u306B\u3064\u3044\u3066\u8AAC\u660E\u3059\u308B\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u753B\u9762\u5DE6\u306E\u65B9\u306B\u4E32\u30A2\u30A4\u30B3\u30F3\u304C\u3042\u308B\u306E\u304C\u898B\u3048\u308B\u304B\u306A\uFF1F\u305D\u306E\u6A2A\u306B\u6570\u5B57\u304C\u8868\u793A\u3055\u308C\u3066\u308B\u3088\u306D\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3053\u306E\u6570\u306F\u73FE\u5728\u6B8B\u3063\u3066\u3044\u308B\u4E32\u306E\u672C\u6570\u3092\u8868\u3057\u3066\u3044\u308B\u3093\u3060\u3002\u3053\u3053\u3067\u306F\u305D\u306E\u672C\u6570\u3092\u300C\u30CF\u30F3\u30C9\u300D\u3068\u547C\u3076\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30CF\u30F3\u30C9\u304C0\u306B\u306A\u308B\u3068\u3001\u624B\u6301\u3061\u306E\u4E32\u304C\u7121\u304F\u306A\u3063\u3066\u3057\u307E\u3046\u3088\u3002\u3082\u3061\u308D\u3093\u4E32\u304C\u7121\u3044\u3068\u98DF\u3079\u7269\u3092\u523A\u3059\u3053\u3068\u306A\u3093\u304B\u3067\u304D\u306A\u3044\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305D\u3093\u306A\u3068\u304D\u306B\u306F\u300C\u30D9\u30FC\u30B3\u30F3\u300D\uFF01\u3053\u306E\u98DF\u3079\u7269\u3092\u523A\u3059\u3068\u300C\u30CF\u30F3\u30C9\u300D\u3001\u3059\u306A\u308F\u3061\u4E32\u306E\u6570\u3092\u5897\u3084\u3059\u3053\u3068\u304C\u3067\u304D\u308B\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305F\u3060\u3057\u30C7\u30E1\u30EA\u30C3\u30C8\u3082\u3042\u3063\u3066\u3001\u300C\u30D9\u30FC\u30B3\u30F3\u300D\u3092\u523A\u3059\u3068\u4ED6\u306E\u98DF\u3079\u7269\u304C\u843D\u3063\u3053\u3061\u3061\u3083\u3046\u306E\u3067\u3001\u305D\u3053\u3060\u3051\u6C17\u3092\u4ED8\u3051\u308B\u3088\u3046\u306B\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305D\u308C\u3058\u3083\u3042\u3001\u307E\u305F\u307E\u305F\u7DF4\u7FD2\u3068\u3057\u3066\u30013\u672C\u306E\u4E32\u3092\u4F5C\u3063\u3066\u307F\u3088\u3046\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 7fa01ca78600f4b44af7d57003865ca9, type: 2}
+    message: bekonPractice
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 92e2bf7e75c795e4390465c18f8525e8, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
+    message: 
+    emotion: normal
+    value: 3
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u6B8B\u5FF5...\u3002\u30D9\u30FC\u30B3\u30F3\u3092\u523A\u3059\u30BF\u30A4\u30DF\u30F3\u30B0\u306B\u6C17\u3092\u4ED8\u3051\u3066\u306D\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
+    message: 
+    emotion: 
+    value: 6
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30B0\u30EC\u30FC\u30C8\uFF01\u30BB\u30F3\u30B9\u3042\u308B\u306D\u3002\u30CF\u30F3\u30C9\u304C\u7121\u304F\u306A\u308A\u305D\u3046\u306A\u6642\u306F\u3001\u300C\u30D9\u30FC\u30B3\u30F3\u300D\u3092\u523A\u3059\uFF01\u3053\u308C\u3092\u982D\u306B\u5165\u308C\u3066\u304A\u3053\u3046\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u6700\u5F8C\u306B\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3092\u7D39\u4ECB\u3059\u308B\u3088\u3002\u3053\u306E\u98DF\u3079\u7269\u306F\u3061\u3087\u3063\u3068\u304F\u305B\u3082\u306E\u3067\u3001\u300C\u30AD\u30E3\u30D9\u30C4\u300D1\u500B\u3060\u3051\u3092\u523A\u3055\u306A\u3044\u3068\u52B9\u679C\u3092\u767A\u63EE\u3057\u306A\u3044\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u306E\u52B9\u679C\u306F\u5B9F\u969B\u306B\u523A\u3057\u3066\u78BA\u8A8D\u3057\u3066\u307F\u3088\u3046\u304B\u3002\u300C\u30AD\u30E3\u30D9\u30C4\u300D1\u500B\u3060\u3051\u3092\u523A\u3059\u3093\u3060\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 7fa01ca78600f4b44af7d57003865ca9, type: 2}
+    message: cabbagePractice
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 92e2bf7e75c795e4390465c18f8525e8, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
+    message: 
+    emotion: 
+    value: 3
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3046\u30FC\u3093\u6B8B\u5FF5\u3002\u4ED6\u306E\u98DF\u3079\u7269\u3068\u540C\u6642\u306B\u523A\u3055\u306A\u3044\u3088\u3046\u306B\u6C17\u3092\u4ED8\u3051\u3066\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
+    message: 
+    emotion: 
+    value: 6
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30EF\u30F3\u30C0\u30D5\u30EB\uFF01\u898B\u3066\u306E\u901A\u308A\u3001\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3092\u523A\u3059\u3068\u3053\u3093\u306A\u98A8\u306B\u30AB\u30D0\u30F3\u304B\u3089\u4ED6\u306E\u98DF\u3079\u7269\u3092\u51FA\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u753B\u9762\u4E0A\u306E\u98DF\u3079\u7269\u304C\u5C11\u306A\u304F\u306A\u3063\u305F\u3089\u3053\u306E\u98DF\u3079\u7269\u3092\u523A\u3059\u3068\u3044\u3044\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u2026\u3061\u306A\u307F\u306B\u3055\u3063\u304D\u30AD\u30E3\u30D9\u30C4\u3092\u523A\u3057\u305F\u5F8C\u3001\u7DD1\u3063\u307D\u3044\u5375\u304C\u51FA\u3066\u304D\u305F\u306E\u306B\u6C17\u304C\u4ED8\u3044\u305F\u304B\u306A\uFF1F"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3053\u308C\u306F\u300C\u30EA\u30BB\u30C3\u30C8\u5375\u300D\u3068\u3044\u3063\u3066\u3001\u30AB\u30D0\u30F3\u306E\u4E2D\u306E\u98DF\u6750\u304C\u7A7A\u306B\u306A\u3063\u305F\u3089\u51FA\u3066\u304F\u308B\u7279\u6B8A\u306A\u98DF\u3079\u7269\u306A\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3053\u306E\u5375\u3092\u523A\u3059\u3068\u3001\u3044\u307E\u307E\u3067\u523A\u3057\u3066\u304D\u305F\u98DF\u3079\u7269\u5168\u3066\u304C\u30AB\u30D0\u30F3\u306B\u623B\u3063\u3066\u304D\u3066\u3001\u307E\u305F\u523A\u305B\u308B\u3088\u3046\u306B\u306A\u308B\u3088\uFF01\u3044\u308F\u3086\u308B\u518D\u5229\u7528\u3063\u3066\u3084\u3064\u3060\u306D\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3053\u308C\u30673\u7A2E\u985E\u306E\u98DF\u3079\u7269\u3092\u7D39\u4ECB\u3057\u305F\u304B\u3089\u3001\u6700\u5F8C\u306B\u3044\u307E\u307E\u3067\u306E\u304A\u3055\u3089\u3044\u3082\u517C\u306D\u3066\u6700\u7D42\u8AB2\u984C\u3092\u51FA\u3057\u3066\u307F\u308B\u3088\uFF01"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "-\u30004\u672C\u306E\u4E32\u3092\u523A\u3059\n-\u300010\u30B3\u30A4\u30F3\u4EE5\u4E0A\u7A3C\u3050\n\u3053\u306E2\u3064\u3092\u540C\u6642\u306B\u9054\u6210\u3057\u3066\u307F\u3088\u3046\u3002\n\u30AD\u30DF\u306A\u3089\u3067\u304D\u308B\uFF01"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 7fa01ca78600f4b44af7d57003865ca9, type: 2}
+    message: finalPractice
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 92e2bf7e75c795e4390465c18f8525e8, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 430216a1feaa05e4ba2bec0cab62e98f, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  - action: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
+    message: 
+    emotion: 
+    value: 4
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u6B8B\u5FF5...\u3002\n\u305D\u308C\u305E\u308C\u306E\u98DF\u6750\u306E\u7279\u6027\u3092\u601D\u3044\u51FA\u3057\u306A\u304C\u3089\u3084\u3063\u3066\u307F\u3088\u3046\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "-\u30004\u672C\u306E\u4E32\u3092\u523A\u3059\n-\u300010\u30B3\u30A4\u30F3\u4EE5\u4E0A\u7A3C\u3050\n\u3053\u306E2\u3064\u3092\u540C\u6642\u306B\u9054\u6210\u3057\u3066\u307F\u3088\u3046\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
+    message: 
+    emotion: 
+    value: 7
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u30D1\u30FC\u30D5\u30A7\u30AF\u30C8\uFF01\u4E32\u523A\u3057\u306E\u57FA\u672C\u306F\u3082\u3046\u3059\u3063\u304B\u308A\u30DE\u30B9\u30BF\u30FC\u3057\u305F\u306D\u3002"
+    emotion: laugh
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3053\u306E\u4ED6\u306B\u3082\u3044\u308D\u3093\u306A\u52B9\u679C\u3092\u6301\u3064\u98DF\u3079\u7269\u304C\u3042\u308B\u304B\u3089\u3001\u3044\u308D\u3044\u308D\u4F7F\u3063\u3066\u307F\u308B\u3068\u3044\u3044\u3088\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3042\u3063\u305D\u3046\u305D\u3046\u3001\u6700\u5F8C\u306B\u4E00\u3064\u5927\u4E8B\u306A\u3053\u3068\u3092\u8A00\u3044\u5FD8\u308C\u3066\u305F\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u4E32\u523A\u3057\u306E\u9014\u4E2D\u3001\u753B\u9762\u4E0A\u306E\u98DF\u6750\u304C\u7121\u304F\u306A\u3063\u305F\u308A\u3001\u624B\u6301\u3061\u306E\u4E32\u304C\u7121\u304F\u306A\u3063\u3066\u3057\u307E\u3046\u5834\u9762\u3063\u3066\u3042\u308B\u3068\u601D\u3046\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305D\u3093\u306A\u30D4\u30F3\u30C1\u306E\u6642\u306F\u3001\u30DC\u30AF\u306E\u53F3\u96A3\u306B\u3042\u308B\u304A\u52A9\u3051\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u3044\u3044\u3088\u3002\u3053\u308C\u3089\u306E\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u30CF\u30F3\u30C9\u3084\u98DF\u6750\u3092\u5897\u3084\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u305F\u3060\u3001\u305D\u306E\u5206\u5236\u9650\u6642\u9593\u304C\u6E1B\u3063\u3061\u3083\u3046\u304B\u3089\u3001\u62BC\u3057\u904E\u304E\u306B\u306F\u6CE8\u610F\u3057\u3066\u306D\u3002"
+    emotion: sad
+    value: 0
+  - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
+    message: 
+    emotion: 
+    value: 1
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u4EE5\u4E0A\u3067\u671D\u306E\u4E32\u523A\u3057\u30BF\u30A4\u30E0\u306E\u8AAC\u660E\u306F\u7D42\u308F\u308A\u3060\u3088\u3002\u6B21\u306B\u591C\u306E\u304A\u8CB7\u3044\u7269\u30BF\u30A4\u30E0\u306B\u3064\u3044\u3066\u8AAC\u660E\u3057\u3066\u3044\u304F\u306D\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u3058\u3083\u3042\u3001\u591C\u306B\u306A\u3063\u305F\u3089\u307E\u305F\u4F1A\u304A\u3046\u3002"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
+    message: 
+    emotion: 
+    value: 0
+  tako: {fileID: 35712480}
+  decks:
+  - {fileID: 11400000, guid: d66648a111f2a5b4fb54b36626ffcadf, type: 2}
+  - {fileID: 11400000, guid: 3267b8d7a0ae1ce40bd01145c772339d, type: 2}
+  - {fileID: 11400000, guid: 9045b150f5536a64bb6cda79ab2f91a9, type: 2}
+  - {fileID: 11400000, guid: 1b57c7c77ce840c4aa682080749fedbb, type: 2}
+  - {fileID: 11400000, guid: 2f286ebbc188e5542a222e311eda9385, type: 2}
+  hands: 0100000003000000010000000100000002000000
+  draws: 0100000003000000070000000200000002000000
+  deckKeys:
+  - hitPractice
+  - cornPractice
+  - bekonPractice
+  - cabbagePractice
+  - finalPractice
+  startCommands:
+  - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
+    n1: 
+    n2: 
+  transition: {fileID: 1391789335}
+--- !u!4 &1307849377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307849375}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 840.821, y: 1021.624, z: 12.566117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1391789334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -924,6 +1336,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 19024697547888315, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 121100768574265149, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 474237546195692552, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1008,6 +1428,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -7.664
       objectReference: {fileID: 0}
+    - target: {fileID: 981586926045866361, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1963975067540716167, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1067,6 +1491,34 @@ PrefabInstance:
     - target: {fileID: 6857229245211488202, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_Text
       value: "\u221E"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997297286627940404, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220308492937989330, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709174392648970956, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709174392648970956, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709174392648970956, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_Color.g
+      value: 0.098039225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709174392648970956, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_Color.r
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709174392648970956, guid: b7711964e78a807459797d9d3dd31600, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8789094855087803190, guid: b7711964e78a807459797d9d3dd31600, type: 3}
       propertyPath: m_Name
@@ -1131,11 +1583,11 @@ MonoBehaviour:
     emotion: 
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u304A\u306F\u3088\u3046\u3002\n\u6628\u65E5\u306F\u3088\u304F\u7720\u308C\u305F\u304B\u3044\uFF1F\n"
+    message: "\u304A\u306F\u3088\u3046\u3002\u6628\u65E5\u306F\u3088\u304F\u7720\u308C\u305F\u304B\u3044\uFF1F\n"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3055\u3063\u305D\u304F\u4E32\u306E\u523A\u3057\u65B9\u306B\u3064\u3044\u3066\u6559\u3048\u3066\u3044\u304F\u306D\u3002"
+    message: "\u3055\u3063\u305D\u304F\u3060\u3051\u3069\u3001\u4E32\u306E\u523A\u3057\u65B9\u306B\u3064\u3044\u3066\u6559\u3048\u3066\u3044\u304F\u306D\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -1143,19 +1595,19 @@ MonoBehaviour:
     emotion: normal
     value: 1
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u307E\u305A\u753B\u9762\u306E\u4E0B\u306B\u3042\u308B\u306E\u304C\u3001\n\u4ECA\u64CD\u4F5C\u3057\u3066\u3044\u308B\u4E32\u3002\u30DE\u30A6\u30B9\u3067\u52D5\u304B\u3059\u3053\u3068\u304C\u3067\u304D\u308B\u3088\u3002"
+    message: "\u307E\u305A\u753B\u9762\u306E\u4E0B\u306B\u3042\u308B\u306E\u304C\u3001\u4ECA\u64CD\u4F5C\u3057\u3066\u3044\u308B\u4E32\u3002\u30DE\u30A6\u30B9\u3067\u52D5\u304B\u3059\u3053\u3068\u304C\u3067\u304D\u308B\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u5DE6\u4E0B\u306B\u3042\u308B\u306E\u306F\u98DF\u3079\u7269\u3092\u8A70\u3081\u305F\u30AB\u30D0\u30F3\u3002\u3053\u3053\u304B\u3089\u3044\u308D\u3093\u306A\u98DF\u3079\u7269\u304C\u98DB\u3073\u51FA\u3057\u3066\u304F\u308B\u3093\u3060\u3002"
+    message: "\u5DE6\u4E0B\u306B\u306F\u98DF\u3079\u7269\u3092\u8A70\u3081\u305F\u30AB\u30D0\u30F3\u304C\u3042\u308B\u3002\u3053\u3053\u304B\u3089\u3044\u308D\u3093\u306A\u98DF\u3079\u7269\u304C\u98DB\u3073\u51FA\u3057\u3066\u304F\u308B\u3093\u3060\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u98DB\u3073\u51FA\u3057\u305F\u98DF\u3079\u7269\u306F\u305A\u3063\u3068\u6A2A\u306B\u79FB\u52D5\u3057\u3066\u3044\u308B\u304B\u3089\u3001\u305D\u306E\u4F4D\u7F6E\u306B\u4E32\u3092\u52D5\u304B\u3057\u3066\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F\u30AF\u30EA\u30C3\u30AF\uFF01\n\u3053\u308C\u3067\u4E32\u523A\u3057\u5B8C\u4E86\u3002"
+    message: "\u98DB\u3073\u51FA\u3057\u305F\u98DF\u3079\u7269\u306F\u305A\u3063\u3068\u6A2A\u306B\u79FB\u52D5\u3057\u3066\u3044\u308B\u304B\u3089\u3001\u3044\u3044\u4F4D\u7F6E\u306B\u4E32\u3092\u52D5\u304B\u3057\u3066\u30BF\u30A4\u30DF\u30F3\u30B0\u3088\u304F\u30AF\u30EA\u30C3\u30AF\uFF01\u3053\u308C\u3067\u4E32\u523A\u3057\u5B8C\u4E86\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u306D\uFF1F\u7C21\u5358\u3067\u3057\u3087\u3002\n\u8A66\u3057\u306B\u3061\u3087\u3063\u3068\u3084\u3063\u3066\u307F\u3066\u3002"
+    message: "\u306D\uFF1F\u7C21\u5358\u3067\u3057\u3087\u3002\u8A66\u3057\u306B\u3061\u3087\u3063\u3068\u3084\u3063\u3066\u307F\u3066\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
@@ -1179,7 +1631,7 @@ MonoBehaviour:
     emotion: 
     value: 3
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3046\u30FC\u3093\u3001\u60DC\u3057\u3044\u3002\n\u72D9\u3044\u3092\u3088\u304F\u5B9A\u3081\u3066\u523A\u3057\u3066\u307F\u3088\u3046\u3002"
+    message: "\u3046\u30FC\u3093\u3001\u60DC\u3057\u3044\u3002\u72D9\u3044\u3092\u3088\u304F\u5B9A\u3081\u3066\u523A\u3057\u3066\u307F\u3088\u3046\u3002"
     emotion: sad
     value: 0
   - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
@@ -1187,11 +1639,11 @@ MonoBehaviour:
     emotion: 
     value: 6
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30CA\u30A4\u30B9\uFF01\u305D\u3093\u306A\u611F\u3058\u3002\n\u3053\u3046\u3084\u3063\u3066\u4E32\u3092\u4F5C\u3063\u3066\u3044\u304F\u3093\u3060\u3002"
+    message: "\u30CA\u30A4\u30B9\uFF01\u305D\u3093\u306A\u611F\u3058\u3002\u305D\u3046\u3084\u3063\u3066\u4E32\u3092\u4F5C\u3063\u3066\u3044\u304F\u3093\u3060\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3055\u3063\u304D\u306E\u98DF\u3079\u7269\u4EE5\u5916\u306B\u3082\u3044\u308D\u3093\u306A\u7A2E\u985E\u306E\u98DF\u3079\u7269\u304C\u3042\u308B\u3088\u3002\n\u4ECA\u56DE\u306F3\u7A2E\u985E\u7528\u610F\u3057\u3066\u3044\u308B\u304B\u3089\u9806\u756A\u306B\u7D39\u4ECB\u3057\u3066\u3044\u304F\u306D\u3002"
+    message: "\u3053\u306E\u5CF6\u306B\u306F\u3044\u308D\u3093\u306A\u7A2E\u985E\u306E\u98DF\u3079\u7269\u304C\u3042\u308B\u3088\u3002\u4ECA\u56DE\u306F3\u7A2E\u985E\u7528\u610F\u3057\u3066\u3044\u308B\u304B\u3089\u9806\u756A\u306B\u7D39\u4ECB\u3057\u3066\u3044\u304F\u306D\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -1199,11 +1651,11 @@ MonoBehaviour:
     emotion: 
     value: 1
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u307E\u305A\u306F\u300C\u3068\u3046\u3082\u308D\u3053\u3057\u300D\u3002\n\u3053\u306E\u98DF\u3079\u7269\u3092\u523A\u3059\u3068...\u30B3\u30A4\u30F3\u3092\u3082\u3089\u3048\u308B\u3093\u3060\uFF01\n"
+    message: "\u307E\u305A\u306F\u300C\u3068\u3046\u3082\u308D\u3053\u3057\u300D\u3002\u3053\u306E\u98DF\u3079\u7269\u3092\u523A\u3059\u3068...\u30B3\u30A4\u30F3\u3092\u3082\u3089\u3048\u308B\u3093\u3060\uFF01\n"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30B3\u30A4\u30F3\u306E\u4F7F\u3044\u9053\u306F\u591C\u306B\u306A\u3063\u305F\u3089\u6559\u3048\u308B\u304B\u3089\u3001\u4ECA\u306F\u30B3\u30A4\u30F3\u304C\u3042\u308B\u3068\u3046\u308C\u3057\u3044\u3068\u3044\u3046\u4E8B\u3060\u3051\u982D\u306B\u5165\u308C\u3066\u304A\u3044\u3066\u3002"
+    message: "\u30B3\u30A4\u30F3\u306E\u4F7F\u3044\u9053\u306F\u591C\u6642\u9593\u306B\u306A\u3063\u305F\u3089\u6559\u3048\u308B\u304B\u3089\u3001\u4ECA\u306F\u30B3\u30A4\u30F3\u304C\u3042\u308B\u3068\u3046\u308C\u3057\u3044\u3068\u3044\u3046\u4E8B\u3060\u3051\u982D\u306B\u5165\u308C\u3066\u304A\u3044\u3066\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -1231,7 +1683,7 @@ MonoBehaviour:
     emotion: 
     value: 3
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3042\u3089\u3089...\u3061\u3087\u3063\u3068\u96E3\u3057\u304B\u3063\u305F\u304B\u306A\u3002\n\u843D\u3061\u7740\u3044\u3066\u3001\u4E00\u500B\u305A\u3064\u523A\u3057\u3066\u3044\u3053\u3046\u3002"
+    message: "\u3042\u3089\u3089...\u3061\u3087\u3063\u3068\u96E3\u3057\u304B\u3063\u305F\u304B\u306A\u3002\u843D\u3061\u7740\u3044\u3066\u3001\u4E00\u500B\u305A\u3064\u523A\u3057\u3066\u3044\u3053\u3046\u3002"
     emotion: sad
     value: 0
   - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
@@ -1239,7 +1691,7 @@ MonoBehaviour:
     emotion: 
     value: 6
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30B0\u30C3\u30C9\uFF013\u500B\u523A\u3057\u305F\u304B\u308930\u30B3\u30A4\u30F3\u3082\u3089\u3048\u305F\u3088\uFF01\n\u30EA\u30C3\u30C1\u3060\u306D\u3002"
+    message: "\u30B0\u30C3\u30C9\uFF013\u500B\u523A\u3057\u305F\u304B\u3089\u5408\u8A08\u306730\u30B3\u30A4\u30F3\u3082\u3089\u3048\u305F\u3088\uFF01\u304A\u91D1\u6301\u3061\u3060\u306D\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -1247,19 +1699,19 @@ MonoBehaviour:
     emotion: 
     value: 1
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3055\u3066\u3001\u6B21\u306E\u98DF\u3079\u7269\u3092\u7D39\u4ECB\u3059\u308B\u524D\u306B\u3001\n\u300C\u30CF\u30F3\u30C9\u300D\u306B\u3064\u3044\u3066\u8AAC\u660E\u3059\u308B\u3088\u3002"
+    message: "\u3055\u3066\u3001\u6B21\u306E\u98DF\u3079\u7269\u3092\u7D39\u4ECB\u3059\u308B\u524D\u306B\u3001\u300C\u30CF\u30F3\u30C9\u300D\u306B\u3064\u3044\u3066\u8AAC\u660E\u3059\u308B\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u753B\u9762\u5DE6\u306E\u65B9\u306B\u4E32\u30A2\u30A4\u30B3\u30F3\u304C\u3042\u308B\u306E\u304C\u898B\u3048\u308B\u304B\u306A\uFF1F\n\u305D\u306E\u6A2A\u306B\u6570\u5B57\u304C\u8868\u793A\u3055\u308C\u3066\u308B\u3088\u306D\u3002"
+    message: "\u753B\u9762\u5DE6\u306E\u65B9\u306B\u4E32\u30A2\u30A4\u30B3\u30F3\u304C\u3042\u308B\u306E\u304C\u898B\u3048\u308B\u304B\u306A\uFF1F\u305D\u306E\u6A2A\u306B\u6570\u5B57\u304C\u8868\u793A\u3055\u308C\u3066\u308B\u3088\u306D\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3053\u306E\u6570\u306F\u73FE\u5728\u6B8B\u3063\u3066\u3044\u308B\u4E32\u306E\u672C\u6570\n\uFF08\uFF1D\u30CF\u30F3\u30C9\uFF09\u3092\u8868\u3057\u3066\u3044\u308B\u3093\u3060\u3002"
+    message: "\u3053\u306E\u6570\u306F\u73FE\u5728\u6B8B\u3063\u3066\u3044\u308B\u4E32\u306E\u672C\u6570\u3092\u8868\u3057\u3066\u3044\u308B\u3093\u3060\u3002\u3053\u3053\u3067\u306F\u305D\u306E\u672C\u6570\u3092\u300C\u30CF\u30F3\u30C9\u300D\u3068\u547C\u3076\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3053\u306E\u6570\u304C0\u306B\u306A\u308B\u3068\u3001\u624B\u6301\u3061\u306E\u4E32\u304C\u7121\u304F\u306A\u3063\u3066\u3057\u307E\u3046\u3088\u3002\u3082\u3061\u308D\u3093\u4E32\u304C\u306A\u3044\u3068\u98DF\u3079\u7269\u3092\u523A\u3059\u3053\u3068\u306A\u3093\u304B\u3067\u304D\u306A\u3044\u3002"
+    message: "\u30CF\u30F3\u30C9\u304C0\u306B\u306A\u308B\u3068\u3001\u624B\u6301\u3061\u306E\u4E32\u304C\u7121\u304F\u306A\u3063\u3066\u3057\u307E\u3046\u3088\u3002\u3082\u3061\u308D\u3093\u4E32\u304C\u7121\u3044\u3068\u98DF\u3079\u7269\u3092\u523A\u3059\u3053\u3068\u306A\u3093\u304B\u3067\u304D\u306A\u3044\u3002"
     emotion: sad
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -1267,7 +1719,7 @@ MonoBehaviour:
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u305F\u3060\u30C7\u30E1\u30EA\u30C3\u30C8\u3082\u3042\u3063\u3066\u3001\u300C\u30D9\u30FC\u30B3\u30F3\u300D\u3092\u523A\u3059\u3068\u4ED6\u306E\u98DF\u3079\u7269\u304C\u843D\u3063\u3053\u3061\u3061\u3083\u3046\u306E\u3067\u3001\u305D\u3053\u3060\u3051\u6C17\u3092\u4ED8\u3051\u308B\u3088\u3046\u306B\u3002"
+    message: "\u305F\u3060\u3057\u30C7\u30E1\u30EA\u30C3\u30C8\u3082\u3042\u3063\u3066\u3001\u300C\u30D9\u30FC\u30B3\u30F3\u300D\u3092\u523A\u3059\u3068\u4ED6\u306E\u98DF\u3079\u7269\u304C\u843D\u3063\u3053\u3061\u3061\u3083\u3046\u306E\u3067\u3001\u305D\u3053\u3060\u3051\u6C17\u3092\u4ED8\u3051\u308B\u3088\u3046\u306B\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -1303,15 +1755,15 @@ MonoBehaviour:
     emotion: 
     value: 6
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30B0\u30EC\u30FC\u30C8\uFF01\u30BB\u30F3\u30B9\u3042\u308B\u306D\u3002\n\u30CF\u30F3\u30C9\u304C\u7121\u304F\u306A\u308A\u305D\u3046\u306A\u6642\u306F\u3001\u300C\u30D9\u30FC\u30B3\u30F3\u300D\u3092\u523A\u3059\uFF01\u3053\u308C\u3092\u982D\u306B\u5165\u308C\u3066\u304A\u3053\u3046\u3002"
+    message: "\u30B0\u30EC\u30FC\u30C8\uFF01\u30BB\u30F3\u30B9\u3042\u308B\u306D\u3002\u30CF\u30F3\u30C9\u304C\u7121\u304F\u306A\u308A\u305D\u3046\u306A\u6642\u306F\u3001\u300C\u30D9\u30FC\u30B3\u30F3\u300D\u3092\u523A\u3059\uFF01\u3053\u308C\u3092\u982D\u306B\u5165\u308C\u3066\u304A\u3053\u3046\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u6700\u5F8C\u306B\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3092\u7D39\u4ECB\u3059\u308B\u3088\u3002\n\u3053\u306E\u98DF\u3079\u7269\u306F\u3061\u3087\u3063\u3068\u304F\u305B\u3082\u306E\u3067\u3001\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3060\u3051\u3092\u523A\u3055\u306A\u3044\u3068\u52B9\u679C\u3092\u767A\u63EE\u3057\u306A\u3044\u3093\u3060\u3002"
+    message: "\u6700\u5F8C\u306B\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3092\u7D39\u4ECB\u3059\u308B\u3088\u3002\u3053\u306E\u98DF\u3079\u7269\u306F\u3061\u3087\u3063\u3068\u304F\u305B\u3082\u306E\u3067\u3001\u300C\u30AD\u30E3\u30D9\u30C4\u300D1\u500B\u3060\u3051\u3092\u523A\u3055\u306A\u3044\u3068\u52B9\u679C\u3092\u767A\u63EE\u3057\u306A\u3044\u3093\u3060\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u306E\u52B9\u679C\u306F\u5B9F\u969B\u306B\u523A\u3057\u3066\u78BA\u8A8D\u3057\u3066\u307F\u3088\u3046\u304B\u3002\n\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3060\u3051\u3092\u523A\u3059\u3093\u3060\u3088\u3002"
+    message: "\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u306E\u52B9\u679C\u306F\u5B9F\u969B\u306B\u523A\u3057\u3066\u78BA\u8A8D\u3057\u3066\u307F\u3088\u3046\u304B\u3002\u300C\u30AD\u30E3\u30D9\u30C4\u300D1\u500B\u3060\u3051\u3092\u523A\u3059\u3093\u3060\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: 19615d1bf6fe9164b97ca689523cc612, type: 2}
@@ -1335,7 +1787,7 @@ MonoBehaviour:
     emotion: 
     value: 3
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3046\u30FC\u3093\u6B8B\u5FF5\u3002\n\u4ED6\u306E\u98DF\u3079\u7269\u3068\u540C\u6642\u306B\u523A\u3055\u306A\u3044\u3088\u3046\u306B\u6C17\u3092\u4ED8\u3051\u3066\u3002"
+    message: "\u3046\u30FC\u3093\u6B8B\u5FF5\u3002\u4ED6\u306E\u98DF\u3079\u7269\u3068\u540C\u6642\u306B\u523A\u3055\u306A\u3044\u3088\u3046\u306B\u6C17\u3092\u4ED8\u3051\u3066\u3002"
     emotion: sad
     value: 0
   - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
@@ -1343,7 +1795,7 @@ MonoBehaviour:
     emotion: 
     value: 6
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30B8\u30FC\u30CB\u30A2\u30B9\uFF01\u898B\u3066\u306E\u901A\u308A\u3001\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3092\u523A\u3059\u3068\u3053\u3093\u306A\u98A8\u306B\u30AB\u30D0\u30F3\u304B\u3089\u4ED6\u306E\u98DF\u3079\u7269\u3092\u51FA\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
+    message: "\u30EF\u30F3\u30C0\u30D5\u30EB\uFF01\u898B\u3066\u306E\u901A\u308A\u3001\u300C\u30AD\u30E3\u30D9\u30C4\u300D\u3092\u523A\u3059\u3068\u3053\u3093\u306A\u98A8\u306B\u30AB\u30D0\u30F3\u304B\u3089\u4ED6\u306E\u98DF\u3079\u7269\u3092\u51FA\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -1363,7 +1815,7 @@ MonoBehaviour:
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3053\u306E\u5375\u3092\u523A\u3059\u3068\u3001\u3044\u307E\u307E\u3067\u523A\u3057\u3066\u304D\u305F\u98DF\u3079\u7269\u5168\u3066\u304C\u30AB\u30D0\u30F3\u306B\u623B\u3063\u3066\u304D\u3066\u3001\u307E\u305F\u523A\u305B\u308B\u3088\u3046\u306B\u306A\u308B\u3088\uFF01\u3044\u308F\u3086\u308B\u30EA\u30B5\u30A4\u30AF\u30EB\u3063\u3066\u3084\u3064\u3060\u306D\u3002"
+    message: "\u3053\u306E\u5375\u3092\u523A\u3059\u3068\u3001\u3044\u307E\u307E\u3067\u523A\u3057\u3066\u304D\u305F\u98DF\u3079\u7269\u5168\u3066\u304C\u30AB\u30D0\u30F3\u306B\u623B\u3063\u3066\u304D\u3066\u3001\u307E\u305F\u523A\u305B\u308B\u3088\u3046\u306B\u306A\u308B\u3088\uFF01\u3044\u308F\u3086\u308B\u518D\u5229\u7528\u3063\u3066\u3084\u3064\u3060\u306D\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -1397,21 +1849,25 @@ MonoBehaviour:
   - action: {fileID: 11400000, guid: 07407becffb456743b5b8507033e560b, type: 2}
     message: 
     emotion: 
-    value: 3
+    value: 4
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
     message: "\u6B8B\u5FF5...\u3002\n\u305D\u308C\u305E\u308C\u306E\u98DF\u6750\u306E\u7279\u6027\u3092\u601D\u3044\u51FA\u3057\u306A\u304C\u3089\u3084\u3063\u3066\u307F\u3088\u3046\u3002"
     emotion: sad
     value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "-\u30004\u672C\u306E\u4E32\u3092\u523A\u3059\n-\u300010\u30B3\u30A4\u30F3\u4EE5\u4E0A\u7A3C\u3050\n\u3053\u306E2\u3064\u3092\u540C\u6642\u306B\u9054\u6210\u3057\u3066\u307F\u3088\u3046\u3002"
+    emotion: normal
+    value: 0
   - action: {fileID: 11400000, guid: 49a3f2cf854ed70409e9704945413154, type: 2}
     message: 
     emotion: 
-    value: 6
+    value: 7
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u30D1\u30FC\u30D5\u30A7\u30AF\u30C8\uFF01\u4E32\u523A\u3057\u306B\u95A2\u3057\u3066\u306F\u3082\u3046\u3059\u3063\u304B\u308A\u4E00\u4EBA\u524D\u3060\u306D\u3002"
+    message: "\u30D1\u30FC\u30D5\u30A7\u30AF\u30C8\uFF01\u4E32\u523A\u3057\u306E\u57FA\u672C\u306F\u3082\u3046\u3059\u3063\u304B\u308A\u30DE\u30B9\u30BF\u30FC\u3057\u305F\u306D\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u4ED6\u306B\u3082\u3044\u308D\u3093\u306A\u52B9\u679C\u3092\u6301\u3064\u98DF\u3079\u7269\u304C\u3042\u308B\u304B\u3089\u3001\u3044\u308D\u3044\u308D\u4F7F\u3063\u3066\u307F\u308B\u3068\u3055\u3089\u306B\u8155\u524D\u304C\u4E0A\u304C\u308B\u304B\u3082\u306D\u3002"
+    message: "\u3053\u306E\u4ED6\u306B\u3082\u3044\u308D\u3093\u306A\u52B9\u679C\u3092\u6301\u3064\u98DF\u3079\u7269\u304C\u3042\u308B\u304B\u3089\u3001\u3044\u308D\u3044\u308D\u4F7F\u3063\u3066\u307F\u308B\u3068\u3044\u3044\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -1427,7 +1883,7 @@ MonoBehaviour:
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u305D\u3093\u306A\u6642\u306F\u3001\u30DC\u30AF\u306E\u53F3\u96A3\u306B\u3042\u308B\u304A\u52A9\u3051\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u3044\u3044\u3088\u3002\n\u3053\u308C\u3089\u306E\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u30CF\u30F3\u30C9\u3084\u98DF\u6750\u3092\u5897\u3084\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
+    message: "\u305D\u3093\u306A\u30D4\u30F3\u30C1\u306E\u6642\u306F\u3001\u30DC\u30AF\u306E\u53F3\u96A3\u306B\u3042\u308B\u304A\u52A9\u3051\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u3044\u3044\u3088\u3002\u3053\u308C\u3089\u306E\u30DC\u30BF\u30F3\u3092\u62BC\u3059\u3068\u30CF\u30F3\u30C9\u3084\u98DF\u6750\u3092\u5897\u3084\u3057\u3066\u304F\u308C\u308B\u3093\u3060\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -1478,3 +1934,4 @@ SceneRoots:
   - {fileID: 8964483546210060248}
   - {fileID: 1625642079}
   - {fileID: 2266332314014330739}
+  - {fileID: 1307849377}

@@ -19,7 +19,8 @@ namespace BBQ.Action.Play {
             string effectName = v.GetString(v.n2);
             FoodEffect effect = null;
             if (!effectName.Contains("none")) effect = itemSet.effects.First(x => x.effectName == effectName);
-            List<DeckFood> target = deckFoods.Where(x => x.effect != effect).ToList();
+            //List<DeckFood> target = deckFoods.Where(x => x.effect != effect).ToList();
+            List<DeckFood> target = deckFoods;
 
             if (target.Count == 0) {
                 //await UniTask.Delay(TimeSpan.FromSeconds(duration));

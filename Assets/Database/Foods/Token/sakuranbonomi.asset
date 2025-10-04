@@ -23,20 +23,22 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<
-      \u5408\u6210\u4E0D\u53EF >>"
-    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<
-      \u5408\u6210\u4E0D\u53EF >>"
-    - "\u30DE\u30EB\u30C1\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<
-      \u5408\u6210\u4E0D\u53EF >>"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<  \u5408\u6210\u4E0D\u53EF
+      >>"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<  \u5408\u6210\u4E0D\u53EF
+      >>"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30C9\u30ED\u30FC+1\n<<  \u5408\u6210\u4E0D\u53EF
+      >>"
     sequences:
     - trigger: 0
-      condition:
-      - action: {fileID: 11400000, guid: 62de85ba41df23147b01662fff092427, type: 2}
-        n1: 
-        n2: 
+      condition: []
       commands:
       - action: {fileID: 11400000, guid: c3e2830bb765b754582992f1c64fe8d8, type: 2}
         n1: 1
         n2: 
       priority: 0
+  hint: 
+  cosplayImage: {fileID: 0}
+  cosplayName: 
+  iconA: {fileID: 11400000, guid: 5a7639c847dc8054cbef4db95af643e9, type: 2}
+  iconB: {fileID: 0}

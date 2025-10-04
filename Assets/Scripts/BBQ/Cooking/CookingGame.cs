@@ -80,8 +80,10 @@ namespace BBQ.Cooking {
 
             bool isClear = missionSheet.CheckMissionCleared();
             var kushi = missionSheet.GetKushi();
-            _score.great += missionSheet.GetGreat();
-            _score.help += help.GetCount();
+            if (isClear) {
+                _score.great += missionSheet.GetGreat();
+                if(_star >= 7) _score.help += help.GetCount();    
+            }
             _isFailed = !isClear;
             int gainStar = isClear ? 1 : 0;
             //int lostLife = isClear ? 0 : ((_day - 1) / 5) + 1;
@@ -107,11 +109,13 @@ namespace BBQ.Cooking {
         async void GotoNextScene() {
             if (_gameStatus == 1) {
                 await SoundPlayer.I.FadeOutSound("bgm_cooking2");
+                await UniTask.Delay(TimeSpan.FromSeconds(1));
                 SceneManager.LoadScene("Scenes/Ending");
             }
             else if (_gameStatus == 2) {
                 if(_star >= 7) await SoundPlayer.I.FadeOutSound("bgm_cooking2");
                 else await SoundPlayer.I.FadeOutSound("bgm_cooking");
+                await UniTask.Delay(TimeSpan.FromSeconds(1));
                 SceneManager.LoadScene("Scenes/Result");
             }
             else {

@@ -25,9 +25,9 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u307E\u305F\u306F\u300C\u30AA\u30A4\u30EA\u30FC\u300D\u3092\u6301\u3064\u98DF\u67502\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u307E\u305F\u306F\u300C\u30AA\u30A4\u30EA\u30FC\u300D\u3092\u6301\u3064\u98DF\u67502\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
-    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+25\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u307E\u305F\u306F\u300C\u30AA\u30A4\u30EA\u30FC\u300D\u3092\u6301\u3064\u98DF\u67502\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+15\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u307E\u305F\u306F\u300C\u30AA\u30A4\u30EA\u30FC\u300D\u3092\u6301\u3064\u98DF\u67503\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+20\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u307E\u305F\u306F\u300C\u30AA\u30A4\u30EA\u30FC\u300D\u3092\u6301\u3064\u98DF\u67503\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
+    - "\u30D2\u30C3\u30C8\uFF1A\n-\u3000\u30B3\u30A4\u30F3+25\n-\u3000\u300C\u30A4\u30F3\u30B9\u30BF\u30F3\u30C8\u300D\u307E\u305F\u306F\u300C\u30AA\u30A4\u30EA\u30FC\u300D\u3092\u6301\u3064\u98DF\u67503\u3064\u3092\u30C9\u30ED\u30FC\u3059\u308B"
     sequences:
     - trigger: 0
       condition: []
@@ -39,7 +39,7 @@ MonoBehaviour:
     - trigger: 0
       condition:
       - action: {fileID: 11400000, guid: fd0b09465f183e24db9835795e71b2d2, type: 2}
-        n1: 2
+        n1: 3
         n2: 
       commands:
       - action: {fileID: 11400000, guid: 27fef60cd5fd0cd419d37eba3f139bd2, type: 2}
@@ -62,7 +62,7 @@ MonoBehaviour:
         n2: f3
       - action: {fileID: 11400000, guid: 38b691b7bf9e82347845135654a22d1c, type: 2}
         n1: f1
-        n2: 2
+        n2: 3
       - action: {fileID: 11400000, guid: e67842ab894c32d4fb4c3fc390639f33, type: 2}
         n1: f1
         n2: 
@@ -70,3 +70,5 @@ MonoBehaviour:
   hint: 
   cosplayImage: {fileID: 21300000, guid: 4328ae3a81d6c854088a0a17a650f337, type: 3}
   cosplayName: "\u904B\u52D5\u4F1A"
+  iconA: {fileID: 11400000, guid: 5a7639c847dc8054cbef4db95af643e9, type: 2}
+  iconB: {fileID: 0}

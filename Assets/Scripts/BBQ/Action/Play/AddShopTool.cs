@@ -17,6 +17,7 @@ namespace BBQ.Action.Play {
             if (!env.isShopping) return;
             ToolData tool = itemSet.SearchTool(v.GetString(v.n1));
             SoundPlayer.I.Play("se_addShopFood");
+            env.shop.SetPassedTools();
             await env.shop.AddTool(tool);
         }
     }

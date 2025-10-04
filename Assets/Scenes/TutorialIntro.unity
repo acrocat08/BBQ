@@ -261,11 +261,15 @@ MonoBehaviour:
     emotion: 
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3042\u308C...\u3042\u305D\u3053\u306B\u3044\u308B\u306E\u306F\u4EBA\u9593...\uFF1F"
+    message: "\u9060\u304F\u304B\u3089\u4F55\u304B\u304C\u8FD1\u3065\u3044\u3066\u3044\u308B\u305E...\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u304A\u30FC\u3044\u3001\u805E\u3053\u3048\u308B\uFF1F\n\u30AD\u30DF\u3001\u3053\u3093\u306A\u3068\u3053\u308D\u3067\u306A\u306B\u3057\u3066\u3044\u308B\u306E\uFF1F\n"
+    message: "\u307E\u3055\u304B...\u3042\u308C\u306F\u4EBA\u9593\uFF1F"
+    emotion: normal
+    value: 0
+  - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
+    message: "\u304A\u30FC\u3044\u3001\u805E\u3053\u3048\u308B\uFF1F\u30AD\u30DF\u3001\u3053\u3093\u306A\u3068\u3053\u308D\u3067\u306A\u306B\u3057\u3066\u3044\u308B\u306E\uFF1F\n"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: f67b7eac482485f4f8f806e2c65a3455, type: 2}
@@ -273,15 +277,15 @@ MonoBehaviour:
     emotion: 
     value: 2.5
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "...\u306A\u306B\u306A\u306B\uFF1F\u65C5\u884C\u4E2D\u306B\u6F02\u6D41\u3057\u3066\u3001\u3053\u3053\u307E\u3067\u6D41\u3055\u308C\u3066\u6765\u305F\uFF1F\n\u305D\u308C\u306F\u707D\u96E3\u3060\u306D\u3048\u3002"
+    message: "...\u306A\u306B\u306A\u306B\uFF1F\u65C5\u884C\u4E2D\u306B\u6F02\u6D41\u3057\u3066\u3001\u3053\u3053\u307E\u3067\u6CF3\u3044\u3067\u6765\u305F\uFF1F\u305D\u308C\u306F\u307E\u305F\u707D\u96E3\u3060\u306D\u3048\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u592A\u5E73\u6D0B\u306E\u3069\u771F\u3093\u4E2D\u306B\u3042\u308B\u3053\u306E\u5CF6\u307E\u3067\u3001\u3088\u304F\u6CF3\u3044\u3067\u6765\u308C\u305F\u306D\u3002\n\u4EBA\u9593\u3058\u3083\u7D76\u5BFE\u6765\u308C\u306A\u3044\u3068\u601D\u3063\u305F\u3088\u3002"
+    message: "\u592A\u5E73\u6D0B\u306E\u3069\u771F\u3093\u4E2D\u306B\u3042\u308B\u3053\u306E\u7121\u4EBA\u5CF6\u307E\u3067\u3001\u3088\u304F\u6CF3\u3044\u3067\u6765\u308C\u305F\u306D\u3002\u4E26\u307F\u306E\u4EBA\u9593\u3058\u3083\u7D76\u5BFE\u6765\u308C\u306A\u3044\u3088\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u2026\u3048\uFF1F\u304A\u524D\u306F\u4F55\u8005\u304B\u3063\u3066\uFF1F"
+    message: "\u2026\u3048\uFF1F\u3068\u3053\u308D\u3067\u304A\u524D\u306F\u4F55\u8005\u304B\u3063\u3066\uFF1F"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: 07456d49b7ab7d94a92990b430ff3688, type: 2}
@@ -289,15 +293,15 @@ MonoBehaviour:
     emotion: 
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u898B\u3066\u306E\u901A\u308A\u3001\u30DC\u30AF\u306F\u30BF\u30B3\u3060\u3088\u3002\n\u3053\u306E\u5CF6\u306B\u4F55\u767E\u5E74\u3082\u4F4F\u307F\u3064\u3044\u3066\u3044\u308B\u3093\u3060\u3002"
+    message: "\u898B\u3066\u306E\u901A\u308A\u3001\u30DC\u30AF\u306F\u30BF\u30B3\u3060\u3088\u3002\u3053\u306E\u5CF6\u306B\u4F55\u767E\u5E74\u3082\u4F4F\u307F\u3064\u3044\u3066\u3044\u308B\u3093\u3060\u3002"
     emotion: normal
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u9577\u3044\u3053\u3068\u3044\u308B\u3082\u3093\u3060\u304B\u3089\u3001\u3053\u306E\u5CF6\u306E\u3053\u3068\u306F\u4F55\u3067\u3082\u77E5\u3063\u3066\u308B\u3088\u3002\n\u3059\u3054\u3044\u3067\u3057\u3087\u3002"
+    message: "\u9577\u3044\u3053\u3068\u751F\u304D\u3066\u308B\u3082\u3093\u3060\u304B\u3089\u3001\u4EBA\u9593\u306E\u8A00\u8449\u3060\u3063\u3066\u558B\u308C\u308B\u3093\u3060\u3002\u3059\u3054\u3044\u3067\u3057\u3087\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
-    message: "\u3053\u306E\u5CF6\u306E\u98DF\u3079\u7269\u3082\u98DF\u3079\u304D\u308C\u306A\u3044\u307B\u3069\u306E\u6570\u3092\u96C6\u3081\u3066\u4FDD\u7BA1\u3057\u3066\u308B\u3093\u3060\u3002"
+    message: "\u3053\u306E\u5CF6\u306E\u3053\u3068\u3082\u4F55\u3067\u3082\u77E5\u3063\u3066\u3066\u3001\u3044\u308D\u3093\u306A\u98DF\u3079\u7269\u3092\u3044\u3063\u3071\u3044\u96C6\u3081\u3066\u4FDD\u7BA1\u3057\u3066\u308B\u3093\u3060\u3002"
     emotion: laugh
     value: 0
   - action: {fileID: 11400000, guid: ba5edf4f32536d64aad0f3a775dfa9f7, type: 2}
@@ -490,6 +494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tako
       objectReference: {fileID: 0}
+    - target: {fileID: 2941186389818396146, guid: 8396bec6dfd333e4a8f6400108a55f5a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03001bc53f32e774aa9b3626b225eb37, type: 3}
     - target: {fileID: 2941186389818396146, guid: 8396bec6dfd333e4a8f6400108a55f5a, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -1154,6 +1162,10 @@ PrefabInstance:
     - target: {fileID: 4543336549500602575, guid: b97376e6b67cc0f4bb7a1a168b1ff4b7, type: 3}
       propertyPath: m_Name
       value: Blind
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971481028541978318, guid: b97376e6b67cc0f4bb7a1a168b1ff4b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

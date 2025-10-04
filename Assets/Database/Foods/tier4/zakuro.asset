@@ -23,19 +23,31 @@ MonoBehaviour:
   tag: 
   action:
     summaries:
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30BF\u30A4\u30E0+1\n-\u300010\u56DE\u30EB\u30FC\u30D7\u3057\u305F\u5834\u5408\u306F\u8FFD\u52A0\u3067\u30BF\u30A4\u30E0+10\u3001\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30BF\u30A4\u30E0+1\n-\u300010\u56DE\u30EB\u30FC\u30D7\u3057\u305F\u5834\u5408\u306F\u8FFD\u52A0\u3067\u30BF\u30A4\u30E0+15\u3001\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
-    - "\u30EB\u30FC\u30D7\uFF1A\n-\u3000\u30BF\u30A4\u30E0+1\n-\u300010\u56DE\u30EB\u30FC\u30D7\u3057\u305F\u5834\u5408\u306F\u8FFD\u52A0\u3067\u30BF\u30A4\u30E0+20\u3001\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u30EB\u30FC\u30D7 (5\u56DE\u76EE)\uFF1A\n-\u3000\u30BF\u30A4\u30E0+10\n-\u3000\u30B3\u30A4\u30F3+80\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u30EB\u30FC\u30D7 (5\u56DE\u76EE)\uFF1A\n-\u3000\u30BF\u30A4\u30E0+15\n-\u3000\u30B3\u30A4\u30F3+80\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
+    - "\u30EB\u30FC\u30D7 (5\u56DE\u76EE)\uFF1A\n-\u3000\u30BF\u30A4\u30E0+20\n-\u3000\u30B3\u30A4\u30F3+80\n-\u3000\u3053\u306E\u98DF\u6750\u3092\u30D5\u30A1\u30A4\u30A2\u3059\u308B"
     sequences:
     - trigger: 2
       condition:
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
-        n1: 9
+        n1: 4
         n2: stack
-      commands:
-      - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
-        n1: 1
+      - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: 75d86b628cfb112488f5e5d4c02a95b6, type: 2}
+        n1: 
         n2: 
+      - action: {fileID: 11400000, guid: a2990d37de22f8748b4bc563f80c7c4a, type: 2}
+        n1: x1
+        n2: 
+      - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
+        n1: x1
+        n2: x2
+      - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
+        n1: x1
+        n2: 2
+      commands:
       - action: {fileID: 11400000, guid: 43c1c569101df2340b6ac98dfa54f25c, type: 2}
         n1: stack
         n2: 1
@@ -47,7 +59,7 @@ MonoBehaviour:
       condition:
       - action: {fileID: 11400000, guid: ae6ccec7924f56e42b0c0410817dfcb3, type: 2}
         n1: stack
-        n2: 10
+        n2: 5
       - action: {fileID: 11400000, guid: dd535c8441e4f274e9d0e1a9df2054b0, type: 2}
         n1: x1
         n2: x2
@@ -67,6 +79,9 @@ MonoBehaviour:
       - action: {fileID: 11400000, guid: b3a90965f0a189f40952762fdf6e9364, type: 2}
         n1: 10/15/20
         n2: 
+      - action: {fileID: 11400000, guid: 1b0e2790c2482e04b8e337664092a5ad, type: 2}
+        n1: 80
+        n2: 
       - action: {fileID: 11400000, guid: 0bea4c5d1cbb8ea41bf0e4186f34ea97, type: 2}
         n1: 
         n2: 
@@ -77,3 +92,5 @@ MonoBehaviour:
   hint: 
   cosplayImage: {fileID: 21300000, guid: 3482b082fb56dc44580c75805c46e94f, type: 3}
   cosplayName: "\u30D0\u30AF\u30C0\u30F3"
+  iconA: {fileID: 11400000, guid: 8330f1fa25e4b394e8d00ab99d2c5ef4, type: 2}
+  iconB: {fileID: 0}

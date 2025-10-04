@@ -37,6 +37,7 @@ namespace BBQ.Tutorial {
             await player.Play(parts, tako, null);
             await SoundPlayer.I.FadeOutSound("se_island");
             await transition.SceneEnd();
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));            
             SceneManager.LoadScene("Scenes/TutorialCooking");
         }
         

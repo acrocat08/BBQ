@@ -20,8 +20,8 @@ MonoBehaviour:
   - sad
   - balloon
   emotionImages:
-  - {fileID: 21300000, guid: d8c7cc7fc2c3397468bcf18b878ff603, type: 3}
-  - {fileID: 21300000, guid: 8e893f5243643f94eb2002e40429086a, type: 3}
-  - {fileID: 21300000, guid: 92a8d3b093f2c5e4db5f03891b8e0dd7, type: 3}
-  - {fileID: 5288121457458880474, guid: 5965333129eb27c48bd0f0c940d77435, type: 3}
+  - {fileID: 21300000, guid: 03001bc53f32e774aa9b3626b225eb37, type: 3}
+  - {fileID: 21300000, guid: 619c8476f1fa03445b984e371ce5a921, type: 3}
+  - {fileID: 21300000, guid: 43f95e202b8a7a249b5bc388fa2a4dee, type: 3}
+  - {fileID: 21300000, guid: 5d285659c99804040a900ed60dd88c9f, type: 3}
   delay: 0.5
